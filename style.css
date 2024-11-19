@@ -1,0 +1,84 @@
+/*Configuração padrão do CSS*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+/*Cores utilizadas no site*/
+:root {
+    --Gold: #FFD700;
+    --MediumVioletRed: #C71585;
+    --OrangeRed: #FF4500;
+    --DarkOrange: #FF8C00;
+    --Sea-Blue: #2E8B57;
+    --Lime: #00FF00;
+    --DarkCyan: #008B8B;
+    --Cyan: #00FFFF;
+    --Indigo: #4B0082;
+    --Snow: #FFFAFA;
+    --Khaki: #F0E68C;
+    --Light-Salmon: #FFA07A;
+    --PapayaWhip:   #FFEFD5;
+    --Crimson:  #DC143C;
+}
+
+/*Cabeçalho do site*/
+header {
+    display: flex;
+    background-color: var(--Indigo);
+}
+
+
+/*Logotipo do site*/
+.logo {
+    height: 120px;
+    width: 150px;
+}
+
+
+
+/*Div que engloba os dois botões de autenticação*/
+.menu-buttons {
+    float: right;
+}
+
+
+/*Botões individuais*/
+.button {
+    background-color: var(--Gold);
+    border-radius: 15px;
+    color: var(--Indigo);
+    margin-left: 10px;
+
+}
+
+/*Rodapé do site*/
+.roda-pe-geral {
+    background-color: var(--Indigo);
+}
+
+.link:hover {
+    background-color: var(--Lime);
+    transition: transform 0.3s ease;
+}
+
+/*TESTE*/
+
+button {
+    display: block;
+    margin: auto;
+    width: 10rem;
+    height: 2rem;
+  }
+  
+  :modal {
+    background-color: beige;
+    border: 2px solid burlywood;
+    border-radius: 5px;
+  }
+  
+  .paragrafo{
+    color: var(--Crimson);
+
+  }
+  
