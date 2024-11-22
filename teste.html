@@ -18,38 +18,32 @@
         <link rel="shortcut icon" href="images/35594.svg" type="image/svg">
         <link rel="stylesheet" href="style.css">
 <body>
-    
+  <main>
 
-<header>
-    <nav class="menu">
-        <img class="logo" src="logowalk.jpeg" alt="logo">
+    <div class="popup" id="popup">
+        <div class="overlay"></div>
+        <div class="popup-content">
+            <h2>Isto é Incrivel</h2>
+            <p>agra estamos avançado...</p>
 
-        <div class="menu-buttons">
-
-            <button class="button" type="button">Login</button>
-            <button class="button" type="button">Registar</button>
-
+            <div class="controls">
+                <button class="close-btn">close</button>
+                <button class="submit-btn">submit</button>
+            </div>
         </div>
-
-
-
-        <p class="paragrafo">Would you like to see a new random number?</p>
-    <button id="showNumber" >Show me</button>
+    </div>
     
-    <dialog id="favDialog">
-      <form method="dialog">
-        <p>Lucky number is: <strong id="number"></strong></p>
-        <button>Close dialog</button>
-      </form>
-    </dialog>
+    <div  class="center">
 
-<footer class="roda-pe-geral">
+        <button id="open-popup" type="button">Login</button>
+        <button id="open-popup" type="button">Registrar</button>
 
+    </div>
     
-        
-</footer>
+</main>
 
-<script src="js/script.js" defer></script>
+<script src="javascript.js"></script>
+
 
 </body>
 </html>

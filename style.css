@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Wackoz';
+  src: url();
+}
+
 /*Configuração padrão do CSS*/
 * {
     box-sizing: border-box;
@@ -20,35 +25,65 @@
     --Light-Salmon: #FFA07A;
     --PapayaWhip:   #FFEFD5;
     --Crimson:  #DC143C;
+    --Danilo: #111111;
+    --Madeirada: #a52a2a;
 }
 
 /*Cabeçalho do site*/
 header {
     display: flex;
-    background-color: var(--Indigo);
 }
 
+/* espaçamento entre texto*/
+.espaco {
+margin: 50px;
+}
+
+nav h1 {
+margin-left: 32%;
+padding-top: 50px;
+}
 
 /*Logotipo do site*/
 .logo {
     height: 120px;
     width: 150px;
+    margin: 5px;
 }
 
+.first{
+  display: flex;
+}
 
+main {
+    background-color: var(--Snow);
+   display: flex;
+
+}
+.menu {
+    width: 100%;
+    background-color: var(--Indigo);
+    display: flex;
+    position: relative;
+}
 
 /*Div que engloba os dois botões de autenticação*/
 .menu-buttons {
+    display: flex;
     float: right;
+margin-left: 460px;
 }
 
 
 /*Botões individuais*/
-.button {
+.butao {
     background-color: var(--Gold);
     border-radius: 15px;
     color: var(--Indigo);
-    margin-left: 10px;
+    height: 36px;
+    width: 200px;
+    margin-left: 50px;
+   margin-top: 45px;
 
 }
 
@@ -63,22 +98,57 @@ header {
 }
 
 /*TESTE*/
+.center {
+  position: absolute;
+  margin-right: auto;
+  margin-left: auto;
+  transform: translate(120px, 50%);
+}
 
-button {
-    display: block;
-    margin: auto;
-    width: 10rem;
-    height: 2rem;
-  }
   
-  :modal {
-    background-color: beige;
-    border: 2px solid burlywood;
-    border-radius: 5px;
+
+  .coment-box img {
+    height: 30px;
   }
-  
-  .paragrafo{
-    color: var(--Crimson);
+  /* parte*/
+  .apresentacao {
+    width: 80%;
+    text-align: center;
+    border: var(--DarkOrange) solid 2px;
+    margin: 5px;
+    background-color: var(--Khaki);
+  }
+
+  .service {
+    display: flex;
 
   }
-  
+
+  .check-box{
+    font-size: 25px;
+    margin: 30px;
+  }
+
+  .service img {
+    height: 30px;
+  }
+
+  .coments{
+    width: 20%;
+    text-align: center;
+    margin: 5px;
+    border: var(--DarkOrange) solid 2px;
+    background-color: var(--Khaki);
+  }
+
+  .coment-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin: 0px 5px 30px 5px;
+    border: var(--DarkOrange) solid;
+    
+    border-radius: 15px;
+    padding: 5px;
+  }
