@@ -1,43 +1,26 @@
-function createPopup(id) {
-    const popupNode = document.querySelector(id);
-    const overlay = document.querySelector(".overlay");
-    const closeBtn = popupNode.querySelector(".close-btn")
 
-    function openPopup() {
-    popupNode.classList.add("active");
-}
-
-    function closePopup() {
-        popupNode.classList.remove("active");
-    }
-
-    overlay.addEventListener("click", closePopup);
-    closeBtn.addEventListener("click", closePopup);
-    return openPopup;
-}
 
 /*Modal para os botões login e registrar*/
+document.querySelector("#show-login").addEventListener("click", function(){
+    document.querySelector(".popup").classList.add("active");
+});
 
-const popup = createPopup("#popup");
-document.querySelector("#open-popup").addEventListener("click", popup);
 
-function createPopup(id) {
-    const popupNode = document.querySelector(id);
-    const overlay = document.querySelector(".overlay");
-    const closeBtn = popupNode.querySelector(".close-btn")
+var count = 1;
 
-    function openPopup() {
-    popupNode.classList.add("active");
+document.getElementById("radio1").checked = true;
+
+setInterval( function(){
+nextImage();
+
+}, 3000)
+
+function nextImage(){
+count++
+if(count>4){
+    count=1;
 }
 
-    function closePopup() {
-        popupNode.classList.remove("active");
-    }
+document.getElementById("radio"+count).checked = true;
 
-    overlay.addEventListener("click", closePopup);
-    closeBtn.addEventListener("click", closePopup);
-    return openPopup;
 }
-
-const popup = createPopup("#popup");
-document.querySelector("#open-popup").addEventListener("click", popup);
