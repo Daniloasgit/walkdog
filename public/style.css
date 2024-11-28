@@ -1,0 +1,494 @@
+@font-face {
+  font-family: "WACKOZ";
+  src: local(WACKOZ), url(WACKOZ.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal; 
+}
+
+
+/*Configuração padrão do CSS*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/*Cores utilizadas no site*/
+:root {
+    --Gold: #FFD700;
+    --Preto-Um-Pouco-Claro: #222020;
+    --MediumVioletRed: #C71585;
+    --OrangeRed: #FF4500;
+    --DarkOrange: #FF8C00;
+    --Sea-Blue: #2E8B57;
+    --Lime: #00FF00;
+    --DarkCyan: #008B8B;
+    --Cyan: #00FFFF;
+    --Indigo: #4B0082;
+    --Snow: #FFFAFA;
+    --Khaki: #F0E68C;
+    --Light-Salmon: #FFA07A;
+    --PapayaWhip:   #FFEFD5;
+    --Crimson:  #DC143C;
+    --Danilo: #111111;
+    --Madeirada: #a52a2a;
+    --DodgerBlue: #1E90FF;
+    --LightGray: #D3D3D3;
+    --DarkGray: #A9A9A9;
+}
+
+
+
+/* espaçamento entre texto*/
+.espaco {
+margin: 50px;
+}
+
+
+/* cabeçalho do header */
+
+/* logo do site */
+.logo {
+  height: 120px;
+  width: 150px;
+  margin: 5px;
+
+}
+
+
+/*Cabeçalho do site*/
+
+
+/* topo do site */
+header {
+  display: flex;
+  background-image: url(/imagens/paw4.jpeg);
+  background-size: 100% 200%;
+  background-repeat: no-repeat;
+height: 300px;
+}
+
+
+
+/* menu de navegação do site */
+.menu {
+  width: 100%;
+  display: flex;
+
+}
+
+.menu img{
+  border: 5px solid var(--Danilo);
+  border-radius: 60px;
+}
+
+nav h1 {
+  margin-left: 32%;
+  margin-top: 50px;
+  }
+  
+
+.marca-nome {
+  color: var(--MediumVioletRed);
+  font-family: WACKOZ;
+  font-size: 50px;
+  white-space: nowrap;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  margin-top: auto;
+  margin-bottom: auto;
+  text-shadow: var(--Danilo) 8px 8px 3px;
+  position: relative;
+  top: 10px;
+}
+
+
+
+.first{
+  display: flex;
+}
+
+main {
+    background-color: var(--Snow);
+    display: flex;
+
+}
+
+/*Barra que separa o header do main*/
+.hr {
+  margin: 5px;
+  border: 2px solid var(--Danilo);
+}
+
+
+
+/*Começo do pop-up*/
+
+
+.popup-login {
+  font-family: "Raleway", sans-serif; /* Define a fonte usada dentro deste elemento */
+  background-color: var(--DarkCyan); /* Define a cor de fundo como uma variável CSS (--DarkCyan) */
+  height: 100vh; /* A altura do fundo é 100% da altura da janela (viewport) */
+}
+
+.center {
+  position: absolute; /* Posicionamento absoluto dentro do elemento pai */
+  top: 8%; /* Coloca o elemento 8% abaixo do topo da tela */
+  left: 90%; /* Coloca o elemento 90% a partir da esquerda da tela */
+  transform: translate(-50%, -50%); /* Move o elemento para o centro (ajusta a posição) */
+}
+
+.center button {
+  padding: 10px 20px; /* Define o preenchimento interno do botão */
+  font-size: 15px; /* Tamanho da fonte no botão */
+  font-weight: 600; /* Peso da fonte */
+  color: var(--DarkOrange); /* Cor do texto como uma variável CSS */
+  background-color: var(--Gold); /* Cor de fundo do botão como uma variável CSS */
+  border: none; /* Remove a borda padrão do botão */
+  outline: none; /* Remove o contorno ao focar no botão */
+  cursor: pointer; /* O cursor muda para um ponteiro ao passar por cima do botão */
+  border-radius: 5px; /* Bordas arredondadas do botão */
+}
+
+.popup {
+ display: none;
+  position: absolute; /* Posicionamento absoluto */
+   top: 50%; /*centraliza o popup na vertical */
+  left: 50%; /* Centraliza o popup horizontalmente */
+  transform: translate(-50%, -50%) scale(1.25); /* Centraliza o popup e aplica uma escala */
+  width: 300px; /* Largura fixa do popup */
+  padding: 20px 30px; /* Preenchimento interno do popup */
+  background-color: var(--PapayaWhip); /* Cor de fundo do popup */
+  box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.15); /* Sombra ao redor do popup */
+  border-radius: 10px; /* Bordas arredondadas */
+  transition: top 0ms ease-in-out 200ms, opacity 200ms ease-in-out 0ms, transform 20ms ease-in-out 0ms; /* Define a animação */
+}
+
+.popup.active {
+  top: 50%; /* O popup é movido para o meio da tela */
+  opacity: 1; /* Torna o popup visível */
+  transform: translate(-50%, -50%) scale(1); /* Centraliza e remove a escala */
+  transition: top 0ms ease-in-out 0ms, opacity 200ms ease-in-out 0ms, transform 20ms ease-in-out 0ms; /* Ajusta as transições */
+}
+
+.popup .close-btn {
+  position: absolute; /* Posiciona o botão de fechar no topo à direita do popup */
+  top: 10px;
+  right: 10px;
+  width: 15px;
+  height: 15px;
+  background-color: var(--Crimson); /* Cor de fundo do botão de fechar */
+  color: white; /* Cor do texto dentro do botão */
+  text-align: center; /* Alinha o texto no centro */
+  line-height: 15px; /* Alinha verticalmente o texto */
+  border-radius: 15px; /* Tornando o botão circular */
+  cursor: pointer; /* Define o cursor como ponteiro */
+}
+
+.popup .form h2 {
+  text-align: center; /* Centraliza o título */
+  color: var(--Sea-Blue); /* Cor do texto */
+  margin: 10px 0px 20px; /* Margens ao redor do título */
+  font-size: 25px; /* Tamanho da fonte */
+}
+
+.popup .form .form-element {
+  margin: 15px 0; /* Define margens entre os elementos do formulário */
+}
+
+.popup .form .form-element label {
+  font-size: 14px; /* Tamanho da fonte */
+  color: var(--DarkCyan); /* Cor do texto */
+}
+.popup .form .form-element input[type="text"],
+ .popup .form .form-element input[type="password"] {
+  margin-top: 5px; /* Margem acima dos campos de input */
+  display: block; /* Exibe os inputs como blocos */
+  width: 100%; /* Largura dos inputs é 100% */
+  padding: 10px; /* Preenchimento interno */
+  outline: none; /* Remove o contorno ao focar */
+  border: 1px solid var(--Lime); /* Borda verde-limão */
+  border-radius: 5px; /* Bordas arredondadas */
+}
+
+.popup .form .form-element input[type="checkbox"] {
+  margin-right: 5px; /* Espaço à direita do checkbox */
+}
+
+.popup .form .form-element button {
+  width: 100%; /* Largura do botão é 100% */
+  height: 40px; /* Altura do botão */
+  border: none; /* Remove borda do botão */
+  outline: none; /* Remove o contorno do botão */
+  font-size: 15px; /* Tamanho da fonte */
+  background-color: var(--Cyan); /* Cor de fundo do botão */
+  color: var(--Madeirada); /* Cor do texto */
+  border-radius: 10px; /* Bordas arredondadas */
+  cursor: pointer; /* Define o cursor como ponteiro */
+}
+
+.popup .form .form-element a {
+  display: block; /* Exibe o link como bloco */
+  text-align: right; /* Alinha o texto à direita */
+  font-size: 15px; /* Tamanho da fonte */
+  color: var(--DodgerBlue); /* Cor azul para o texto */
+  text-decoration: none; /* Remove o sublinhado do link */
+  font-weight: 600; /* Peso da fonte */
+}
+
+/*Modal do botão registro*/
+.center {
+  position: absolute; /* Posicionamento absoluto dentro do elemento pai */
+  top: 8%; /* Coloca o elemento 8% abaixo do topo da tela */
+  left: 90%; /* Coloca o elemento 90% a partir da esquerda da tela */
+  transform: translate(-50%, -50%); /* Move o elemento para o centro (ajusta a posição) */
+}
+
+
+/* Fim do pop-up */
+
+
+/*Rodapé do site*/
+.roda-pe-geral {
+  background-color: var(--Light-Salmon); /* Define a cor de fundo como Light-Salmon (variável CSS) */
+  background-repeat: no-repeat; /* Impede que a imagem de fundo se repita */
+  background-size: 100% 500px; /* Define que a imagem de fundo deve cobrir toda a largura do elemento (100%) e ter altura de 500px */
+}
+
+.roda-pe {
+  display: flex; /* Define o layout como flexbox */
+  justify-content: space-between; /* Distribui os itens ao longo do eixo horizontal, com o maior espaçamento possível entre eles */
+  padding-bottom: 50px; /* Aplica um padding de 50px na parte inferior */
+}
+
+.cartao {
+  justify-content: center; /* Alinha os itens no centro ao longo do eixo horizontal */
+  display: flex; /* Define o layout como flexbox */
+  gap: 25px; /* Aplica um espaçamento de 25px entre os itens */
+}
+
+.telefone {
+  display: flex; /* Define o layout como flexbox */
+  flex-direction: column; /* Organiza os itens em uma coluna */
+  margin: auto 0; /* Aplica margens automáticas à esquerda e direita, e nenhuma margem superior ou inferior */
+}
+
+.telefone img {
+  height: 35px; /* Define a altura das imagens como 35px */
+}
+
+.link:hover {
+  background-color: var(--Lime); /* Altera a cor de fundo para Lime (variável CSS) quando o mouse passar sobre o link */
+  transition: transform 0.3s ease; /* Aplica uma transição suave para qualquer transformação (como escalonamento) ao longo de 0.3 segundos */
+}
+
+/*Div para organizar as redes sociais*/
+.midias-sociais {
+  display: flex; /* Define o layout como flexbox */
+}
+
+
+/*Div para espaçar os SVGs*/
+.imagens-midia {
+  display: flex; /* Define o layout como flexbox */
+  justify-content: space-between; /* Distribui os itens ao longo do eixo horizontal com o maior espaçamento possível entre eles */
+  padding-top: 20px; /* Aplica um padding de 20px no topo */
+}
+
+  /* parte*/
+  .apresentacao {
+    width: 70%; /* Define a largura como 70% do contêiner pai */
+    text-align: center; /* Alinha o texto ao centro */
+    border: var(--LightGray) solid 2px; /* Define uma borda de 2px com a cor LightGray (variável CSS) */
+    border-radius: 10px; /* Arredonda os cantos da borda em 10px */
+    box-shadow: black 3px 2px 8px; /* Aplica uma sombra preta com 3px de deslocamento horizontal, 2px de vertical e 8px de difusão */
+    margin: 5px; /* Aplica uma margem de 5px ao redor do elemento */
+    background-color: var(--DarkGray); /* Define a cor de fundo como DarkGray (variável CSS) */
+    background-repeat: no-repeat; /* Impede que a imagem de fundo se repita */
+    background-size: 100% 550px; /* Faz a imagem de fundo cobrir 100% da largura e ter 550px de altura */
+    color: white; /* Define a cor do texto como branca */
+    text-shadow: 3px 2px 2px var(--Danilo); /* Aplica uma sombra no texto com 3px de deslocamento horizontal, 2px de vertical e cor Danilo (variável CSS) */
+  }
+
+  h3 {
+    padding: 15px; /* Aplica um padding de 15px ao redor do elemento */
+    font-size: 30px; /* Define o tamanho da fonte como 30px */
+  }
+
+  .first-slide img {
+    width: 80px; /* Define a largura da imagem como 80px */
+  }
+
+  .service {
+    display: flex; /* Define o layout como flexbox */
+  }
+
+  .check-box {
+    font-size: 25px; /* Define o tamanho da fonte como 25px */
+    margin: 30px; /* Aplica uma margem de 30px ao redor do elemento */
+  }
+
+  .service img {
+    height: 30px; /* Define a altura das imagens como 30px */
+  }
+
+  .coments {
+    width: 30%; /* Define a largura como 30% do contêiner pai */
+    text-align: center; /* Alinha o texto ao centro */
+    margin: 5px; /* Aplica uma margem de 5px ao redor do elemento */
+    border: var(--Danilo) solid 4px; /* Define uma borda de 4px com a cor Danilo (variável CSS) */
+    border-radius: 10px; /* Arredonda os cantos da borda em 10px */
+    background-size: cover; /* Faz a imagem de fundo cobrir todo o espaço disponível */
+    overflow: hidden; /* Impede que conteúdo excedente seja visível */
+  }
+
+  .coment-box {
+    display: flex; /* Define o layout como flexbox */
+    align-items: center; /* Alinha os itens ao centro no eixo vertical */
+    justify-content: center; /* Alinha os itens ao centro no eixo horizontal */
+    font-size: 22px; /* Define o tamanho da fonte como 22px */
+    margin: 0px 5px 30px 5px; /* Aplica margens de 0px à esquerda, 5px à direita, 30px na parte inferior e 5px na parte superior */
+    border: var(--Danilo) solid; /* Define uma borda sólida com a cor Danilo (variável CSS) */
+    border-radius: 15px; /* Arredonda os cantos da borda em 15px */
+    padding: 5px; /* Aplica um padding de 5px ao redor do conteúdo */
+  }
+
+  .coment-box img {
+    height: 30px; /* Define a altura das imagens como 30px */
+  }
+
+/*Div para acoplar a mensagem de marca catalogada*/
+.marca-registrada {
+  display: flex; /* Define o layout como flexbox, permitindo um layout flexível */
+  justify-content: center; /* Alinha os itens filhos ao centro ao longo do eixo horizontal */
+  padding-bottom: 20px; /* Aplica um padding de 20px na parte inferior do contêiner */
+}
+
+/*Aumentar a fonte do texto*/
+.marca-registrada h4 {
+  font-size: 20px; /* Define o tamanho da fonte do texto h4 para 20px */
+}
+
+
+
+
+
+  /* ////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+
+.slider {
+  margin: 0 auto; /* Centraliza o slider horizontalmente dentro do seu contêiner pai */
+  width: 800px; /* Define a largura do slider como 800px */
+  height: 400px; /* Define a altura do slider como 400px */
+  overflow: hidden; /* Esconde qualquer conteúdo que ultrapasse os limites do slider */
+}
+    
+.slides {
+  width: 400%; /* Define a largura das slides como 400% da largura do contêiner, permitindo 4 slides visíveis */
+  height: 400px; /* Define a altura dos slides como 400px */
+  display: flex; /* Utiliza o layout flexbox para exibir os slides em linha */
+}
+    
+.slides img {
+  width: 100%; /* Define a largura das imagens como 100% da largura do slide, garantindo que se ajustem ao tamanho do contêiner */
+  height: 400px; /* Define a altura das imagens como 400px */
+  border: black solid; /* Aplica uma borda preta sólida ao redor de cada imagem */
+  margin-left: 85px; /* Aplica uma margem à esquerda de 85px em cada imagem */
+  border-radius: 15px; /* Arredonda os cantos da borda das imagens em 15px */
+}
+    
+.slides input {
+  display: none; /* Esconde os inputs (radio buttons) utilizados para a navegação manual */
+}
+    
+.slide {
+  width: 25%; /* Define a largura de cada slide como 25% do contêiner (4 slides no total) */
+  position: relative; /* Permite posicionamento relativo dos elementos dentro do slide */
+  transition: 2s; /* Aplica uma transição suave de 2 segundos para mudanças de posição */
+}
+    
+.slide img {
+  width: 550px; /* Define a largura das imagens dentro de cada slide como 550px */
+}
+    
+.manual-navigation {
+  position: absolute; /* Posiciona a navegação manual de forma absoluta dentro do contêiner */
+  display: flex; /* Utiliza o layout flexbox para os botões */
+  justify-content: center; /* Centraliza os botões ao longo do eixo horizontal */
+}
+
+/* Estilos para cada botão de navegação manual */
+.manual-btn {
+  border: 2px solid var(--gold); /* Aplica uma borda de 2px com a cor dourada (variável CSS) */
+  border-radius: 10px; /* Arredonda os cantos do botão em 10px */
+  cursor: pointer; /* Exibe o cursor como um ponteiro, indicando que o botão é clicável */
+  transition: 1s; /* Aplica uma transição suave de 1 segundo para efeitos de hover */
+}
+
+/* Estilos para os botões de navegação manual, exceto o último */
+.manual-btn:not(:last-child) {
+  margin-right: 40px; /* Aplica uma margem à direita de 40px aos botões, exceto o último */
+}
+
+/* Estilos para os botões de navegação manual quando o mouse passa sobre eles */
+.manual-btn:hover {
+  background-color: aquamarine; /* Altera o fundo dos botões para a cor aquamarine quando o mouse passa sobre eles */
+}
+
+/* Estilos para os controles de navegação manual usando os inputs de tipo radio */
+#radio1:checked ~ .first {
+  margin-left: 0; /* Quando o primeiro radio button está selecionado, os slides não têm deslocamento */
+}
+
+#radio2:checked ~ .first {
+  margin-left: -25%; /* Quando o segundo radio button está selecionado, os slides deslocam 25% para a esquerda */
+}
+
+#radio3:checked ~ .first {
+  margin-left: -50%; /* Quando o terceiro radio button está selecionado, os slides deslocam 50% para a esquerda */
+}
+
+#radio4:checked ~ .first {
+  margin-left: -75%; /* Quando o quarto radio button está selecionado, os slides deslocam 75% para a esquerda */
+}
+
+/* Estilos para os botões de navegação automática */
+.navigation-auto div {
+  border: 2px solid black; /* Aplica uma borda de 2px preta aos botões de navegação automática */
+  padding: 5px; /* Aplica um padding de 5px aos botões */
+  border-radius: 10px; /* Arredonda os cantos dos botões em 10px */
+  cursor: pointer; /* Exibe o cursor como um ponteiro, indicando que o botão é clicável */
+  transform: 1s; /* Aplica uma transição suave de 1 segundo para as transformações */
+}
+
+/* Estilos para o contêiner de navegação automática */
+.navigation-auto {
+  position: absolute; /* Posiciona a navegação automática de forma absoluta dentro do contêiner */
+  width: 750px; /* Define a largura da navegação automática como 750px */
+  margin-top: 360px; /* Aplica uma margem superior de 360px, posicionando a navegação próxima à parte inferior */
+  display: flex; /* Utiliza o layout flexbox para os botões de navegação automática */
+  justify-content: center; /* Centraliza os botões de navegação automática ao longo do eixo horizontal */
+}
+
+/* Estilos para os botões de navegação automática, exceto o último */
+.navigation-auto div:not(:last-child) {
+  margin-right: 40px; /* Aplica uma margem à direita de 40px aos botões, exceto o último */
+}
+
+/* Estilos para os botões de navegação automática quando um radio button é selecionado */
+#radio1:checked ~ .navigation-auto .auto-btn1 {
+  background-color: white; /* Altera o fundo do botão de navegação automática 1 para branco quando o radio1 está selecionado */
+}
+
+#radio2:checked ~ .navigation-auto .auto-btn2 {
+  background-color: white; /* Altera o fundo do botão de navegação automática 2 para branco quando o radio2 está selecionado */
+}
+
+#radio3:checked ~ .navigation-auto .auto-btn3 {
+  background-color: white; /* Altera o fundo do botão de navegação automática 3 para branco quando o radio3 está selecionado */
+}
+
+#radio4:checked ~ .navigation-auto .auto-btn4 {
+  background-color: white; /* Altera o fundo do botão de navegação automática 4 para branco quando o radio4 está selecionado */
+}
