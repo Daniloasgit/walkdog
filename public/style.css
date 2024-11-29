@@ -492,3 +492,43 @@ main {
 #radio4:checked ~ .navigation-auto .auto-btn4 {
   background-color: white; /* Altera o fundo do botão de navegação automática 4 para branco quando o radio4 está selecionado */
 }
+
+.txt-area-walker {
+  display: flex;
+  justify-content: center;
+}
+
+.container-walker1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+
+.container-walker2 {
+  display: grid;
+  grid-template-columns: 2fr;
+}
+
+.caixa-walker {
+  border: 5px solid var(--Danilo);
+}
+
+/*Estilizando a parte do contato.*/
+.corpo-dados {
+  background-color: var(--DarkGray);
+  font-size: 20px;
+}
+
+/*titulo do contato*/
+.title-contato {
+text-align: center;
+
+}
+
+.contato-geral {
+  display: grid;
+  
+  
+
+
+}
