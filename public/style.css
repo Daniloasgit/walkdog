@@ -48,81 +48,121 @@ margin: 50px;
 /* cabeçalho do header */
 
 /* logo do site */
-.logo {
-  height: 120px;
-  width: 150px;
-  margin: 5px;
-
+  .logo {
+    height: 250px;
+    width: 250px;
 }
-
-
-/*Cabeçalho do site*/
-
-
-/* topo do site */
-header {
-  display: flex;
-  background-image: url(/imagens/paw4.jpeg);
-  background-size: 100% 200%;
-  background-repeat: no-repeat;
-height: 300px;
-}
-
-
-
-/* menu de navegação do site */
-.menu {
-  width: 100%;
-  display: flex;
-
-}
-
-.menu img{
-  border: 5px solid var(--Danilo);
-  border-radius: 60px;
-}
-
-nav h1 {
-  margin-left: 32%;
-  margin-top: 50px;
-  }
   
+  
+/*Cabeçalho do site*/
+header {
+    height: 250px;
+    display: flex;
+    justify-content: space-between;
+    background-color: darkgray;
+}
+.menu {
+    display: flex;
+    align-items: center;
+}
+.menu-btn {
+    display: flex;
+}
+.btn-menu {
+    display: flex;
+    align-items: center;
+  
+}
+#btn-login {
+    color: var(--Snow);
+    background-color: var(--Danilo);
+    border-radius: 5px;
+    margin-right: 10px;
+    padding: 5px;
 
-.marca-nome {
-  color: var(--MediumVioletRed);
-  font-family: WACKOZ;
-  font-size: 50px;
-  white-space: nowrap;
+}
+  /* menu de navegação do site */
+.corpo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url(/imagens/fundowalkanddog.png);
+    border-top: 5px solid var(--Danilo);
+    border-bottom: 5px solid var(--Danilo);
+}
+.apresentacao {
+  width: auto; /* Define a largura como 70% do contêiner pai */
+  text-align: center; /* Alinha o texto ao centro */
+  border: var(--LightGray) solid 2px; /* Define uma borda de 2px com a cor LightGray (variável CSS) */
+  border-radius: 10px; /* Arredonda os cantos da borda em 10px */
+  box-shadow: black 3px 2px 8px; /* Aplica uma sombra preta com 3px de deslocamento horizontal, 2px de vertical e 8px de difusão */
+  margin: 5px; /* Aplica uma margem de 5px ao redor do elemento */
+  background-color: var(--DarkGray); /* Define a cor de fundo como DarkGray (variável CSS) */
+  background-repeat: no-repeat; /* Impede que a imagem de fundo se repita */
+  background-size: 100% 500px; /* Faz a imagem de fundo cobrir 100% da largura e ter 550px de altura */
+  color: var(--Danilo); /* Define a cor do texto como branca */
+}
+h2 {
+  padding: 15px; /* Aplica um padding de 15px ao redor do elemento */
+  font-size: 40px; /* Define o tamanho da fonte como 30px */
+}
+.service {
+  display: flex; /* Define o layout como flexbox */
+}
+.service-txt {
+  font-size: 30px;
+  font-weight: bold; /* Torna a fonte em negrito */
+}
+
+.corpo-comentarios{
   display: flex;
   justify-content: center;
-  border-radius: 10px;
-  margin-top: auto;
-  margin-bottom: auto;
-  text-shadow: var(--Danilo) 8px 8px 3px;
-  position: relative;
-  top: 10px;
 }
 
+.check-box {
+  margin: 30px; /* Aplica uma margem de 30px ao redor do elemento */
+}
 
+.service img {
+  height: 30px; /* Define a altura das imagens como 30px */
+}
 
-.first{
+#comentarios {
+  margin-bottom: 20px;
+}
+
+textarea {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #000000;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #000000;
+}
+
+#lista-comentarios ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#lista-comentarios li {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+.corpo-comentario{
   display: flex;
 }
-
-main {
-    background-color: var(--Snow);
-    display: flex;
-
-}
-
-/*Barra que separa o header do main*/
-.hr {
-  margin: 5px;
-  border: 2px solid var(--Danilo);
-}
-
-
-
 /*Começo do pop-up*/
 
 
@@ -251,7 +291,7 @@ main {
 
 /*Rodapé do site*/
 .roda-pe-geral {
-  background-color: var(--Light-Salmon); /* Define a cor de fundo como Light-Salmon (variável CSS) */
+  background-color: var(--DarkGray); /* Define a cor de fundo como Light-Salmon (variável CSS) */
   background-repeat: no-repeat; /* Impede que a imagem de fundo se repita */
   background-size: 100% 500px; /* Define que a imagem de fundo deve cobrir toda a largura do elemento (100%) e ter altura de 500px */
 }
@@ -297,19 +337,6 @@ main {
 }
 
   /* parte*/
-  .apresentacao {
-    width: 70%; /* Define a largura como 70% do contêiner pai */
-    text-align: center; /* Alinha o texto ao centro */
-    border: var(--LightGray) solid 2px; /* Define uma borda de 2px com a cor LightGray (variável CSS) */
-    border-radius: 10px; /* Arredonda os cantos da borda em 10px */
-    box-shadow: black 3px 2px 8px; /* Aplica uma sombra preta com 3px de deslocamento horizontal, 2px de vertical e 8px de difusão */
-    margin: 5px; /* Aplica uma margem de 5px ao redor do elemento */
-    background-color: var(--DarkGray); /* Define a cor de fundo como DarkGray (variável CSS) */
-    background-repeat: no-repeat; /* Impede que a imagem de fundo se repita */
-    background-size: 100% 550px; /* Faz a imagem de fundo cobrir 100% da largura e ter 550px de altura */
-    color: white; /* Define a cor do texto como branca */
-    text-shadow: 3px 2px 2px var(--Danilo); /* Aplica uma sombra no texto com 3px de deslocamento horizontal, 2px de vertical e cor Danilo (variável CSS) */
-  }
 
   h3 {
     padding: 15px; /* Aplica um padding de 15px ao redor do elemento */
@@ -385,37 +412,39 @@ main {
 }
     
 .slides {
-  width: 400%; /* Define a largura das slides como 400% da largura do contêiner, permitindo 4 slides visíveis */
-  height: 400px; /* Define a altura dos slides como 400px */
+  width: 500%; /* Define a largura das slides como 400% da largura do contêiner, permitindo 4 slides visíveis */
+  height: 600px; /* Define a altura dos slides como 400px */
   display: flex; /* Utiliza o layout flexbox para exibir os slides em linha */
-}
-    
-.slides img {
-  width: 100%; /* Define a largura das imagens como 100% da largura do slide, garantindo que se ajustem ao tamanho do contêiner */
-  height: 400px; /* Define a altura das imagens como 400px */
-  border: black solid; /* Aplica uma borda preta sólida ao redor de cada imagem */
-  margin-left: 85px; /* Aplica uma margem à esquerda de 85px em cada imagem */
-  border-radius: 15px; /* Arredonda os cantos da borda das imagens em 15px */
 }
     
 .slides input {
   display: none; /* Esconde os inputs (radio buttons) utilizados para a navegação manual */
 }
-    
+
 .slide {
-  width: 25%; /* Define a largura de cada slide como 25% do contêiner (4 slides no total) */
+  width: 25%; /* Define a largura de cada slide como 25% do contêiner (5 slides no total) */
   position: relative; /* Permite posicionamento relativo dos elementos dentro do slide */
-  transition: 2s; /* Aplica uma transição suave de 2 segundos para mudanças de posição */
+  transition: 1s; /* Aplica uma transição suave de 2 segundos para mudanças de posição */
 }
-    
+
 .slide img {
-  width: 550px; /* Define a largura das imagens dentro de cada slide como 550px */
+  /*
+  width: 100%; /* Define a largura das imagens como 100% da largura do slide, garantindo que se ajustem ao tamanho do contêiner 
+  height: 400px; /* Define a altura das imagens como 400px 
+  border: black solid; /* Aplica uma borda preta sólida ao redor de cada imagem 
+  margin-left: 85px; /* Aplica uma margem à esquerda de 85px em cada imagem 
+  border-radius: 15px; /* Arredonda os cantos da borda das imagens em 15px 
+  */
+  width: 800px;
+  height: 400px;
 }
     
 .manual-navigation {
   position: absolute; /* Posiciona a navegação manual de forma absoluta dentro do contêiner */
   display: flex; /* Utiliza o layout flexbox para os botões */
   justify-content: center; /* Centraliza os botões ao longo do eixo horizontal */
+  width: 800px;
+  margin-top: 220px;
 }
 
 /* Estilos para cada botão de navegação manual */
@@ -424,6 +453,7 @@ main {
   border-radius: 10px; /* Arredonda os cantos do botão em 10px */
   cursor: pointer; /* Exibe o cursor como um ponteiro, indicando que o botão é clicável */
   transition: 1s; /* Aplica uma transição suave de 1 segundo para efeitos de hover */
+  padding: 5px;
 }
 
 /* Estilos para os botões de navegação manual, exceto o último */
@@ -433,7 +463,7 @@ main {
 
 /* Estilos para os botões de navegação manual quando o mouse passa sobre eles */
 .manual-btn:hover {
-  background-color: aquamarine; /* Altera o fundo dos botões para a cor aquamarine quando o mouse passa sobre eles */
+  background-color: var(--Crimson); /* Altera o fundo dos botões para a cor aquamarine quando o mouse passa sobre eles */
 }
 
 /* Estilos para os controles de navegação manual usando os inputs de tipo radio */
@@ -441,7 +471,7 @@ main {
   margin-left: 0; /* Quando o primeiro radio button está selecionado, os slides não têm deslocamento */
 }
 
-#radio2:checked ~ .first {
+#radio2:checked ~ .first  {
   margin-left: -25%; /* Quando o segundo radio button está selecionado, os slides deslocam 25% para a esquerda */
 }
 
@@ -451,6 +481,10 @@ main {
 
 #radio4:checked ~ .first {
   margin-left: -75%; /* Quando o quarto radio button está selecionado, os slides deslocam 75% para a esquerda */
+}
+
+#radio5:checked ~ .first{
+  margin-left: -100%; /* Quando o quarto radio button está selecionado, os slides deslocam 75% para a esquerda */
 }
 
 /* Estilos para os botões de navegação automática */
@@ -465,15 +499,15 @@ main {
 /* Estilos para o contêiner de navegação automática */
 .navigation-auto {
   position: absolute; /* Posiciona a navegação automática de forma absoluta dentro do contêiner */
-  width: 750px; /* Define a largura da navegação automática como 750px */
-  margin-top: 360px; /* Aplica uma margem superior de 360px, posicionando a navegação próxima à parte inferior */
+  width: 900px; /* Define a largura da navegação automática como 750px */
+  margin-top: 380px; /* Aplica uma margem superior de 360px, posicionando a navegação próxima à parte inferior */
   display: flex; /* Utiliza o layout flexbox para os botões de navegação automática */
   justify-content: center; /* Centraliza os botões de navegação automática ao longo do eixo horizontal */
 }
 
 /* Estilos para os botões de navegação automática, exceto o último */
 .navigation-auto div:not(:last-child) {
-  margin-right: 40px; /* Aplica uma margem à direita de 40px aos botões, exceto o último */
+  margin-right: 50px; /* Aplica uma margem à direita de 40px aos botões, exceto o último */
 }
 
 /* Estilos para os botões de navegação automática quando um radio button é selecionado */
@@ -493,6 +527,9 @@ main {
   background-color: white; /* Altera o fundo do botão de navegação automática 4 para branco quando o radio4 está selecionado */
 }
 
+#radio5:checked ~ .navigation-auto .auto-btn5 {
+  background-color: white; /* Altera o fundo do botão de navegação automática 4 para branco quando o radio4 está selecionado */
+}
 .txt-area-walker {
   display: flex;
   justify-content: center;
@@ -509,8 +546,104 @@ main {
   grid-template-columns: 2fr;
 }
 
-.caixa-walker {
+.caixa-walker1 {
+  display: inline-flex;
   border: 5px solid var(--Danilo);
+  padding-bottom: 500px;
+  position: relative;
+  line-height: 500px;
+  cursor: pointer;
+  gap: 30px;
+}
+
+.caixa-imagem1 {
+  display: inline-flex;
+  background-image: url(/imagens/historicopasseio.jpg);
+  position: absolute;
+  background-size: cover;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-position: center;
+}
+
+.caixa-walker1 h2 {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 80px;
+  color: var(--DarkGray);
+  text-shadow: var(--Danilo) 50px 50px 50px;
+}
+
+.caixa-walker2 {
+  display: inline-flex;
+  border: 5px solid var(--Danilo);
+  padding-bottom: 500px;
+  position: relative;
+  line-height: 500px;
+  cursor: pointer;
+}
+
+.caixa-imagem2 {
+  display: inline-flex;
+  background-image: url(/imagens/grafico\ de\ ganhos.png);
+  position: absolute;
+  background-size: cover;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-position: center;
+}
+
+.caixa-walker2 h2 {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 80px;
+  color: var(--DarkGray);
+  text-shadow: var(--Danilo) 50px 50px 50px;
+}
+
+.caixa-walker3 {
+  display: inline-flex;
+  border: 5px solid var(--Danilo);
+  padding-bottom: 500px;
+  position: relative;
+  line-height: 500px;
+  cursor: pointer;
+}
+
+.caixa-imagem3 {
+  display: inline-flex;
+  background-image: url(/imagens/configurações\ e\ preferências.png);
+  position: absolute;
+  background-size: cover;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-position: center;
+}
+
+.caixa-walker3 h2 {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 80px;
+  color: var(--DarkGray);
+  text-shadow: var(--Danilo) 50px 50px 50px;
+}
+
+.child {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  gap: 30px;
 }
 
 /*Estilizando a parte do contato.*/
@@ -526,8 +659,6 @@ text-align: center;
 }
 
 .contato-geral {
-  display: grid;
-  
   
 
 
