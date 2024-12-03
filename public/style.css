@@ -404,132 +404,114 @@ button:hover {
   /* ////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 
 
-.slider {
-  margin: 0 auto; /* Centraliza o slider horizontalmente dentro do seu contêiner pai */
-  width: 800px; /* Define a largura do slider como 800px */
-  height: 400px; /* Define a altura do slider como 400px */
-  overflow: hidden; /* Esconde qualquer conteúdo que ultrapasse os limites do slider */
-}
-    
-.slides {
-  width: 500%; /* Define a largura das slides como 400% da largura do contêiner, permitindo 4 slides visíveis */
-  height: 600px; /* Define a altura dos slides como 400px */
-  display: flex; /* Utiliza o layout flexbox para exibir os slides em linha */
-}
-    
-.slides input {
-  display: none; /* Esconde os inputs (radio buttons) utilizados para a navegação manual */
-}
+/*ESPAÇO RESERVADO PARA INDEX1*/
 
-.slide {
-  width: 25%; /* Define a largura de cada slide como 25% do contêiner (5 slides no total) */
-  position: relative; /* Permite posicionamento relativo dos elementos dentro do slide */
-  transition: 1s; /* Aplica uma transição suave de 2 segundos para mudanças de posição */
-}
-
-.slide img {
-  /*
-  width: 100%; /* Define a largura das imagens como 100% da largura do slide, garantindo que se ajustem ao tamanho do contêiner 
-  height: 400px; /* Define a altura das imagens como 400px 
-  border: black solid; /* Aplica uma borda preta sólida ao redor de cada imagem 
-  margin-left: 85px; /* Aplica uma margem à esquerda de 85px em cada imagem 
-  border-radius: 15px; /* Arredonda os cantos da borda das imagens em 15px 
-  */
-  width: 800px;
+.slider{ /*DIV GERAL DAS IMAGENS DA TRANSIÇÃO*/
+  margin: 0 auto;
+  width: 1700px;
+  height: 700px;
+  overflow: hidden;
+  border: outset 8px var(--gold);
+  border-radius: 20px;
+  }
+  
+  .slides{ /*ABRANGE OS BUTTONS, IMAGENS E INPUTS*/
+  width: 400%;
   height: 400px;
-}
-    
-.manual-navigation {
-  position: absolute; /* Posiciona a navegação manual de forma absoluta dentro do contêiner */
-  display: flex; /* Utiliza o layout flexbox para os botões */
-  justify-content: center; /* Centraliza os botões ao longo do eixo horizontal */
-  width: 800px;
-  margin-top: 220px;
-}
-
-/* Estilos para cada botão de navegação manual */
-.manual-btn {
-  border: 2px solid var(--gold); /* Aplica uma borda de 2px com a cor dourada (variável CSS) */
-  border-radius: 10px; /* Arredonda os cantos do botão em 10px */
-  cursor: pointer; /* Exibe o cursor como um ponteiro, indicando que o botão é clicável */
-  transition: 1s; /* Aplica uma transição suave de 1 segundo para efeitos de hover */
+  display: flex;
+  }
+  
+  .slides input{ /*BOLINHAS*/
+  display: none;
+  }
+  
+  .slide{/*CADA IMAGEM*/
+  width: 25%;
+  position: relative;
+  transition: 2s;
+  }
+  
+  .slide img{ /*IMAGEM DO SLIDE*/
+  width: 1700px;
+  height: 700px;
+  }
+  
+  .manual-navigation{
+  position: absolute;
+  width: 1700px;
+  margin-top: 230px;
+  display: flex;
+  justify-content: center;
+  }
+  
+  .manual-btn{
+  border: 2px solid var(--gold);
   padding: 5px;
-}
-
-/* Estilos para os botões de navegação manual, exceto o último */
-.manual-btn:not(:last-child) {
-  margin-right: 40px; /* Aplica uma margem à direita de 40px aos botões, exceto o último */
-}
-
-/* Estilos para os botões de navegação manual quando o mouse passa sobre eles */
-.manual-btn:hover {
-  background-color: var(--Crimson); /* Altera o fundo dos botões para a cor aquamarine quando o mouse passa sobre eles */
-}
-
-/* Estilos para os controles de navegação manual usando os inputs de tipo radio */
-#radio1:checked ~ .first {
-  margin-left: 0; /* Quando o primeiro radio button está selecionado, os slides não têm deslocamento */
-}
-
-#radio2:checked ~ .first  {
-  margin-left: -25%; /* Quando o segundo radio button está selecionado, os slides deslocam 25% para a esquerda */
-}
-
-#radio3:checked ~ .first {
-  margin-left: -50%; /* Quando o terceiro radio button está selecionado, os slides deslocam 50% para a esquerda */
-}
-
-#radio4:checked ~ .first {
-  margin-left: -75%; /* Quando o quarto radio button está selecionado, os slides deslocam 75% para a esquerda */
-}
-
-#radio5:checked ~ .first{
-  margin-left: -100%; /* Quando o quarto radio button está selecionado, os slides deslocam 75% para a esquerda */
-}
-
-/* Estilos para os botões de navegação automática */
-.navigation-auto div {
-  border: 2px solid black; /* Aplica uma borda de 2px preta aos botões de navegação automática */
-  padding: 5px; /* Aplica um padding de 5px aos botões */
-  border-radius: 10px; /* Arredonda os cantos dos botões em 10px */
-  cursor: pointer; /* Exibe o cursor como um ponteiro, indicando que o botão é clicável */
-  transform: 1s; /* Aplica uma transição suave de 1 segundo para as transformações */
-}
-
-/* Estilos para o contêiner de navegação automática */
-.navigation-auto {
-  position: absolute; /* Posiciona a navegação automática de forma absoluta dentro do contêiner */
-  width: 900px; /* Define a largura da navegação automática como 750px */
-  margin-top: 380px; /* Aplica uma margem superior de 360px, posicionando a navegação próxima à parte inferior */
-  display: flex; /* Utiliza o layout flexbox para os botões de navegação automática */
-  justify-content: center; /* Centraliza os botões de navegação automática ao longo do eixo horizontal */
-}
-
-/* Estilos para os botões de navegação automática, exceto o último */
-.navigation-auto div:not(:last-child) {
-  margin-right: 50px; /* Aplica uma margem à direita de 40px aos botões, exceto o último */
-}
-
-/* Estilos para os botões de navegação automática quando um radio button é selecionado */
-#radio1:checked ~ .navigation-auto .auto-btn1 {
-  background-color: white; /* Altera o fundo do botão de navegação automática 1 para branco quando o radio1 está selecionado */
-}
-
-#radio2:checked ~ .navigation-auto .auto-btn2 {
-  background-color: white; /* Altera o fundo do botão de navegação automática 2 para branco quando o radio2 está selecionado */
-}
-
-#radio3:checked ~ .navigation-auto .auto-btn3 {
-  background-color: white; /* Altera o fundo do botão de navegação automática 3 para branco quando o radio3 está selecionado */
-}
-
-#radio4:checked ~ .navigation-auto .auto-btn4 {
-  background-color: white; /* Altera o fundo do botão de navegação automática 4 para branco quando o radio4 está selecionado */
-}
-
-#radio5:checked ~ .navigation-auto .auto-btn5 {
-  background-color: white; /* Altera o fundo do botão de navegação automática 4 para branco quando o radio4 está selecionado */
-}
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 1s;
+  }
+  
+  .manual-btn:not(:last-child){
+  margin-right: 40px;
+  }
+  
+  .manual-btn:hover{
+  background-color: var(--crimson);
+  }
+  
+  #radio1:checked ~ .first{ /*pai*/
+  margin-left: 0;
+  }
+  
+  #radio2:checked ~ .first{ /*filho*/
+      margin-left: -25%;
+  }
+  
+  #radio3:checked ~ .first{ /*filho2*/
+      margin-left: -50%;
+  }
+  
+  #radio4:checked ~ .first{ /*filho3*/
+      margin-left: -75%;
+  }
+  
+  .navigation-auto div{
+  border: 2px solid var(--black);
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transform: 1s;
+  }
+  
+  .navigation-auto{
+  position: absolute;
+  width: 1700px;
+  margin-top: 630px;
+  display: flex;
+  justify-content: center;
+  }
+  
+  .navigation-auto div:not(:last-child){
+  margin-right: 40px;
+  }
+  
+  #radio1:checked ~ .navigation-auto .auto-btn1{
+  background-color: var(--white);
+  }
+  
+  #radio2:checked ~ .navigation-auto .auto-btn2{
+  background-color: var(--white);
+  }
+  
+  #radio3:checked ~ .navigation-auto .auto-btn3{
+   background-color: var(--white);
+  }
+  
+  #radio4:checked ~ .navigation-auto .auto-btn4{
+  background-color: var(--white);
+  }
+  
 .txt-area-walker {
   display: flex;
   justify-content: center;

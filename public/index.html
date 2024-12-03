@@ -14,12 +14,11 @@
         <!--Titulo do Site-->
         <title>Walk & Dog</title>
         <!--Links-->
-        <link rel="shortcut icon" href="icons8-dogs-lineal-color-32.png" type="image/png">
+        <link rel="shortcut icon" href="/imagens/walkedog6.png" type="image/png">
      <link rel="stylesheet" href="/public/style.css">
         
 <body>
-    
-
+<!--Inicio Cabecalho-->
 <header>
     <nav class="menu">
         <a href="/public/index.html"><img class="logo" src="/imagens/walkedog6.png" alt="logo"></a>
@@ -62,82 +61,80 @@
         <a href="contato.html">test3</a>-->
     </nav>
 </header>
-
+<!--Inicio corpo do site-->
 <main class="corpo">
     <div class="corpo-first">
         <div class="apresentacao">
             <h2>Bem-vindo ao Walk & Dog! Passeios seguros e divertidos para seu pet, com profissionais qualificados. Agende pelo site e cuide do bem-estar do seu cão!</h2>
             <h2>Nós da Walk & Dog, buscamos dar ao seu cão um passeio relaxante,e também ensiná-lo a ter um bom comportamento, além de ensinar alguns truques.</h2>
         </div>
-        <div class="slider">
+       <!--ESPAÇO DAS IMAGENS DE TRANSIÇÃO-->
+       <div class="slider">
+        <div class="slides">
+                <!--radio button-->
+            <input type="radio" name="radio-btn" id="radio1">
+            <input type="radio" name="radio-btn" id="radio2">
+            <input type="radio" name="radio-btn" id="radio3">
+            <input type="radio" name="radio-btn" id="radio4">
+                <!-- fim radio button-->
 
-            <div class="slides">
-                <!--radio buttons-->
-                <input type="radio" name="radio-btn" id="radio1">
-                <input type="radio" name="radio-btn" id="radio2">
-                <input type="radio" name="radio-btn" id="radio3">
-                <input type="radio" name="radio-btn" id="radio4">
-                <input type="radio" name="radio-btn" id="radio5">
-                <!-- end radio buttons-->
-                
-                <!-- slide images-->
-                <div class="slide first">
-                    <img src="/imagens/Divulgação1.png" alt="imagem 1">
-                </div>
-
-                <div class="slide">
-                    <img src="/imagens/Divulgação2.png" alt="imagem 2">
-                </div>
-
-                <div class="slide">
-                    <img src="/imagens/Divulgação3.png" alt="imagem 3">
-                </div>
-                
-                <div class="slide">
-                    <img src="/imagens/Divulgação4.png" alt="imagem 4">
-                </div>
-                
-                <div class="slide">
-                    <img src="/imagens/Divulgação5.png" alt="imagem 5">
-                </div>
-                <!-- end slide images-->
-                
-                <!-- navigation auto-->
-                <div class="navigation-auto">
-                    <div class="auto-btn1"></div>
-                    <div class="auto-btn2"></div>
-                    <div class="auto-btn3"></div>
-                    <div class="auto-btn4"></div>
-                    <div class="auto-btn5"></div>
-                </div>
+                <!--slide images-->
+            <div class="slide first">
+            <img src="/imagens/Divulgação1.png" alt="imagem 1">
             </div>
+
+            <div class="slide">    
+            <img src="/imagens/Divulgação4.png"    alt="imagem 4">
             
-            <!-- manual navigation-->
+            </div>
+
+            <div class="slide"> 
+            <img src="/imagens/Divulgação3.png"    alt="imagem 3">
+            </div>
+
+            <div class="slide">
+            <img src="/imagens/Divulgação2.png"     alt="imagem 2">
+            </div>
+                <!--fim slide images-->
+
+                <!--navigation auto-->
+                <div class="navigation-auto">
+
+                    <div class="auto-btn1"> </div>
+                    <div class="auto-btn2"> </div>
+                    <div class="auto-btn3"> </div>
+                    <div class="auto-btn4"> </div>
+                    <div class="auto-btn5"> </div>
+                </div>
+
+        </div>
+            <!--manual navigation-->
             <div class="manual-navigation">
                 <label for="radio1" class="manual-btn"></label>
                 <label for="radio2" class="manual-btn"></label>
                 <label for="radio3" class="manual-btn"></label>
                 <label for="radio4" class="manual-btn"></label>
-                <label for="radio5" class="manual-btn"></label>
+
             </div>
-        </div>
-        
+
+</div>
+
+</div> 
         <!--Area de comentarios-->
         <div class="corpo-comentario">
             <div id="comentarios">
               <h3>Deixe um comentário</h3>
-              <input type="text" id="nome" placeholder="Nome" />
-              <input type="text" id="usuario" placeholder="Usuário" />
+              <input type="text" id="nome" readonly />
+              <input type="text" id="usuario" readonly />
               <input type="text" id="localizacao" placeholder="Localização" />
               <textarea id="comentario" rows="4" cols="50" placeholder="Digite seu comentário aqui..."></textarea>
               <button onclick="enviarComentario()">Enviar</button>
             </div>
-          
             <div id="lista-comentarios">
               <h3>Comentários</h3>
               <ul id="comentarios-lista"></ul>
             </div>
-          </div>
+        </div>
 </main>
 <!--Inicio do rodape-->
 <footer class="roda-pe-geral">
@@ -145,8 +142,8 @@
         <h3>
             CONTATOS:
             <ul class="telefone">
-                <li> <img src="/imagens/phone-svgrepo-com.svg" alt="pataimg"> 4002-8922</li>
-                <li> <img src="/imagens/whatsapp-svgrepo-com.svg" alt="pataimg"> (86)6969-2424</li>
+                <li><img src="/imagens/phone-svgrepo-com.svg" alt="pataimg"> 4002-8922</li>
+                <li><img src="/imagens/whatsapp-svgrepo-com.svg" alt="pataimg"> (86)6969-2424</li>
             </ul>
         </h3>
         <div class="espaco">
@@ -167,7 +164,7 @@
                     <img src="/imagens/bluecheck.svg" alt="check"><p class="service-txt"> Atendemos todas as raças de cães e de todos os portes físicos </p>
                 </div>
             </div>
-            </div>
+        </div>
         <h3>
             FORMAS DE PAGAMENTO
             <div class="cartao">
@@ -180,13 +177,11 @@
             </p>
         </h3>
         <h3>
-            <div class="midias-sociais"></div>
+            <div class="midias-sociais">
                 REDES SOCIAIS 
                 <div class="imagens-midia">
                     <img src="/imagens/instagram-logo-svgrepo-com-preto.svg" style="height: 40px; width: 40px;" alt="">
-
                     <img src="/imagens/facebook-svgrepo-com-preto.svg" style="width: 45px; height: 45px;" alt="">
-
                     <img src="/imagens/youtube-168-svgrepo-com-preto.svg" style="height: 45px; width: 45px;" alt="">
                 </div>
             </div>
@@ -196,9 +191,8 @@
         <h4>© 2024 WALK & DOG - Todos os direitos reservados.</h4>
     </div>
 </footer>
-
+<!--links do javascript-->
 <script src="/public/javascript.js"> </script>
-
 <script src="/public/loginregister.js"></script>
 
 </body>

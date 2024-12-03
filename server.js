@@ -18,7 +18,8 @@ app.use(bodyParser.json());
 
 const transactionsRoutes = require('./rotas/transactions');
 
-app.use('/api/transactions', transactionsRoutes);
+app.use('/api/clientes', transactionsRoutes);
+
 
 app.get('/', (req, res) => { 
     res.send('Servidor está rodando'); // Define uma rota inicial para testar o servidor 
@@ -29,9 +30,9 @@ db.connect((err) => {
     console.log('Conectado ao banco de dados MySQL');
 });
 
-const PORT = 5000;
-app.listen(PORT, () => {
-    console.log(`Servidor rodando na porta ${PORT}`);
+const porte = process.env.PORT || 3000; // Define a porta a partir da variável de ambiente ou usa a porta 3000 como padrão
+app.listen(porte, () => {
+  console.log(`Servidor rodando na porta ${porte}`); // Loga uma mensagem informando que o servidor está rodando
 });
 
 // FIM DA CONEXÃO COM O SERVIDOR
