@@ -15,11 +15,14 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
+const clientesRoutes = require('./rotas/clientes');
+app.use('/api/clientes', clientesRoutes);
 
-const transactionsRoutes = require('./rotas/transactions');
+const petsRoutes = require('./rotas/pets');
+app.use('/api/pets', petsRoutes);
 
-app.use('/api/clientes', transactionsRoutes);
-
+const dogwalkerRoutes = require('./rotas/dogwalker');
+app.use('/api/dogwalker', dogwalkerRoutes);
 
 app.get('/', (req, res) => { 
     res.send('Servidor está rodando'); // Define uma rota inicial para testar o servidor 

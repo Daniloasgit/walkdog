@@ -2,7 +2,7 @@ const db = require('../config/db'); // Importa a conexão com o banco de dados
 
 const express = require('express');
 const router = express.Router();
-const transactionsController = require('../controles/transactionsController');
+const transactionsController = require('./clientesController');
 
 // Função para obter todas as transações 
 const getALLClientes = (req, res) => { 

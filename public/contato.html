@@ -14,118 +14,88 @@
         <!--Titulo do Site-->
         <title>Walk & Dog</title>
         <!--Links-->
-        <link rel="shortcut icon" href="icons8-dogs-lineal-color-32.png" type="image/png">
-     <link rel="stylesheet" href="/public/style.css">
-        
+        <link rel="shortcut icon" href="/imagens/walkedog6.png" type="image/png">
+     <link rel="stylesheet" href="/public/style.css">    
 <body>
-    
-
 <header>
     <nav class="menu">
-        <a href="/public/index.html"><img class="logo" src="/imagens/walkedog6.png" alt="logo"></a>
-
-        
-        <h1 class="marca-nome">WALK & DOG</h1>
-        
+        <a href="/public/index.html"><img class="logo" src="/imagens/walkedog6.png" alt="logo"></a> 
         <!-- Modal para o botão de registro -->
         <div class="center">
-        
-            <button id="login-button" class="botao-login">LOGIN</button>
+            <button id="login-button" class="botao-login">LOGIN</button>                
+                <div id="area" class="popup-login">
+                    <div class="popup">
+                        <div id="close-btn" class="close-btn">&times;</div>
+                        <div class="form">
+                            <h2>Log in</h2>
+                            <div class="form-element">
+                                <label for="email">E-mail</label>
+                                <input type="text" id="email" placeholder="Digite o E-Mail">                   
+                                <div class="form-element">
+                                    <label for="password">Password</label>
+                                    <input type="password" id="password" placeholder="Digite a senha">
+                                </div>
+                                <div class="form-element">
+                                    <input type="checkbox" id="remenber-me">
+                                    <label for="remember-me">Remember me</label>
+                                </div>
+                                <div class="form-element">
+                                    <button>Sign in</button>
+                                </div>
+                                <div class="form-element">
+                                <a href="#">Forgot password?</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
         </div>
-        
-        <div id="area" class="popup-login">
-            <div class="popup">
-                <div id="close-btn" class="close-btn">&times;</div>
-                <div class="form">
-                    <h2>Log in</h2>
-                <div class="form-element">
-                <label for="email">E-mail</label>
-                <input type="text" id="email" placeholder="Digite o E-Mail">
-                
-
-                <div class="form-element">
-                <label for="password">Password</label>
-                <input type="password" id="password" placeholder="Digite a senha">
-                </div>
-
-                <div class="form-element">
-                    <input type="checkbox" id="remenber-me">
-                <label for="remember-me">Remember me</label>
-                </div>
-
-                <div class="form-element">
-                    <button>Sign in</button>
-                </div>
-
-                <div class="form-element">
-                    <a href="#">Forgot password?</a>
-                </div>
-            
-            </div>
-            </div>
-            </div>
-        </div>  
-        
-        <a href="registerdogwalker.html">test2</a>
-        <a href="teste.html">test</a>
-        
-    </nav>
-    
+        <!--<a href="registerdogwalker.html">test2</a>
+        <a href="teste.html">test</a>-->        
+    </nav>    
 </header>
-
 <hr class="hr">
-
 <main>
-
         <div class="">
-
             <form class="contato-geral" action="sucesso.html" method="post">
             <fieldset class="corpo-dados">
                 <h1 class="title-contato">Contato</h1>
                 <div>
-                <label for="nome">Nome</label>
-                <input type="text" id="nome" name="nome" required> *
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" name="nome" required> *
                 </div>
                 <div>
-                Sexo
-                <input type="radio" name="sexo" id="masculino" value="m" checked>
-                <label for="masculino">Masculino</label>
-                <input type="radio" name="sexo" id="feminino" value="f">
-                <label for="feminino">Feminino</label>
+                    Sexo
+                    <input type="radio" name="sexo" id="masculino" value="m" checked>
+                    <label for="masculino">Masculino</label>
+                    <input type="radio" name="sexo" id="feminino" value="f">
+                    <label for="feminino">Feminino</label>
                 </div>
                 <div>
-                <label for="duvidas">Dúvidas</label>
-                <select name="duvidas" id="duvidas">
-                    <option value="" selected="">Digite o que deseja..</option>
-                    <option value="ADS">Adquirir Nosso Sistema De Passeios Para Cães.</option>
-                    <option value="LC">Tenho Interesse Em Criar Um Sistema Para O Meu Negócio.</option>
-                </select>
+                    <label for="duvidas">Dúvidas</label>
+                    <select name="duvidas" id="duvidas">
+                        <option value="" selected="">Digite o que deseja..</option>
+                        <option value="ADS">Adquirir Nosso Sistema De Passeios Para Cães.</option>
+                        <option value="LC">Tenho Interesse Em Criar Um Sistema Para O Meu Negócio.</option>
+                    </select>
                 </div>
                 <div>
-                <label for="email">Email</label>
-                <input type="text" id="email" name="email">
+                    <label for="email">Email</label>
+                    <input type="text" id="email" name="email">
                 </div>
                 <div>
-                <label for="titulo">Título</label>
-                <input type="text" id="titulo" name="titulo">
+                    <label for="titulo">Título</label>
+                    <input type="text" id="titulo" name="titulo">
                 </div>
                 <div>
-                <label for="mensagem">Mensagem</label>
-                <textarea id="mensagem" name="mensagem"></textarea>
+                    <label for="mensagem">Mensagem</label>
+                    <textarea id="mensagem" name="mensagem"></textarea>
                 </div>
             </fieldset>
-
             <input type="submit" value="Enviar">
             </form>
         </div>    
 </main>
-
-
-
-
-
-
-
 <footer class="roda-pe-geral">
     <div class="roda-pe">
         <h3>
