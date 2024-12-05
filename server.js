@@ -24,6 +24,11 @@ app.use('/api/pets', petsRoutes);
 const dogwalkerRoutes = require('./rotas/dogwalker');
 app.use('/api/dogwalker', dogwalkerRoutes);
 
+
+//Rotas para serviços
+//const servicoRoutes = require('./rotas/servicos');
+//app.use('/api/servicos', servicoRoutes);
+
 app.get('/', (req, res) => { 
     res.send('Servidor está rodando'); // Define uma rota inicial para testar o servidor 
     });

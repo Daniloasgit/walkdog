@@ -1,9 +1,6 @@
-@font-face {
-  font-family: "WACKOZ";
-  src: local(WACKOZ), url(WACKOZ.ttf) format('truetype');
-  font-weight: normal;
-  font-style: normal; 
-}
+
+@import url('https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&display=swap');
+/* Atma */
 
 
 /*Configuração padrão do CSS*/
@@ -37,26 +34,18 @@
     --DarkGray: #A9A9A9;
 }
 
-
-
-/* espaçamento entre texto*/
-.espaco {
-margin: 50px;
-}
-
-
 /* cabeçalho do header */
 
 /* logo do site */
   .logo {
-    height: 250px;
-    width: 250px;
+    height: 100px;
+    width: 100px;
 }
   
   
 /*Cabeçalho do site*/
 header {
-    height: 250px;
+    height: 150px;
     display: flex;
     justify-content: space-between;
     background-color: darkgray;
@@ -79,6 +68,7 @@ header {
     border-radius: 5px;
     margin-right: 10px;
     padding: 5px;
+    font-family: Atma;
 
 }
   /* menu de navegação do site */
@@ -104,29 +94,35 @@ header {
   background-size: 100% 500px; /* Faz a imagem de fundo cobrir 100% da largura e ter 550px de altura */
   color: var(--Danilo); /* Define a cor do texto como branca */
 }
+.img-tabela {
+  width: 1000px;
+}
+#btn-servico {
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-family: Atma;
+}
 h2 {
   padding: 15px; /* Aplica um padding de 15px ao redor do elemento */
   font-size: 40px; /* Define o tamanho da fonte como 30px */
-}
-.service {
-  display: flex; /* Define o layout como flexbox */
-}
-.service-txt {
-  font-size: 30px;
-  font-weight: bold; /* Torna a fonte em negrito */
+  font-family: Atma;
 }
 
 .corpo-comentarios{
   display: flex;
   justify-content: center;
+  font-family: 'Atma', sans-serif;
 }
 
-.check-box {
-  margin: 30px; /* Aplica uma margem de 30px ao redor do elemento */
+#comentarios h3,
+#lista-comentarios h3 {
+    font-family: 'Atma', sans-serif;
 }
 
-.service img {
-  height: 30px; /* Define a altura das imagens como 30px */
+#comentarios input,
+#comentarios textarea,
+#comentarios button {
+    font-family: 'Atma', sans-serif;
 }
 
 #comentarios {
@@ -293,13 +289,10 @@ button:hover {
 .roda-pe-geral {
   background-color: var(--DarkGray); /* Define a cor de fundo como Light-Salmon (variável CSS) */
   background-repeat: no-repeat; /* Impede que a imagem de fundo se repita */
-  background-size: 100% 500px; /* Define que a imagem de fundo deve cobrir toda a largura do elemento (100%) e ter altura de 500px */
-}
+  background-size: 100% 400px; /* Define que a imagem de fundo deve cobrir toda a largura do elemento (100%) e ter altura de 500px */
+  background-image: url(/imagens/patadiagonal.png);
+  font-family: Atma;
 
-.roda-pe {
-  display: flex; /* Define o layout como flexbox */
-  justify-content: space-between; /* Distribui os itens ao longo do eixo horizontal, com o maior espaçamento possível entre eles */
-  padding-bottom: 50px; /* Aplica um padding de 50px na parte inferior */
 }
 
 .cartao {
@@ -323,17 +316,32 @@ button:hover {
   transition: transform 0.3s ease; /* Aplica uma transição suave para qualquer transformação (como escalonamento) ao longo de 0.3 segundos */
 }
 
-/*Div para organizar as redes sociais*/
-.midias-sociais {
-  display: flex; /* Define o layout como flexbox */
+/*Div para espaçar os SVGs*/
+.img-midia {
+  display: flex;
+  flex-direction: column;
 }
 
+.img-midia-icon {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
 
-/*Div para espaçar os SVGs*/
-.imagens-midia {
-  display: flex; /* Define o layout como flexbox */
-  justify-content: space-between; /* Distribui os itens ao longo do eixo horizontal com o maior espaçamento possível entre eles */
-  padding-top: 20px; /* Aplica um padding de 20px no topo */
+.img-midia img {
+  width: 40px;
+  
+}
+
+.titulos-midias {
+  display: flex;
+  
+}
+
+.title-midia{
+  text-align: center;
+  font-size: 20px;
+  padding: 10px;
 }
 
   /* parte*/
@@ -652,3 +660,196 @@ text-align: center;
 
 
 }
+
+
+
+
+/* area para estilização do popup de registro e login */
+
+.login-area {
+  display: none;
+  position: fixed;
+  z-index:1 ;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+
+}
+
+.form-login a{
+margin-left: 60px;
+}
+
+.loglab{
+  margin-left: 70px;
+}
+
+.modal-content-login {
+  background-color: white;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid black;
+  width: 16%;
+  border-radius: 15px;
+  box-shadow: 2px 3px 5px;
+}
+
+
+
+.close-btn-log {
+color: black;
+  float: right;
+  font-size: 35px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.login{
+margin-left: 22%;
+
+}
+
+  
+      .login-button {
+  color: white;
+  background-color: black;
+  padding: 5px 30px 5px 30px ;
+border-radius: 10px;
+height: 30px;
+}
+
+.enter-login-button {
+color: white;
+background-color: black;
+margin-left:auto;
+padding: 5px 30px 5px 30px ;
+border-radius: 10px;
+height: 30px;
+margin-left: 28%;
+margin-top: 20px;
+}
+
+.enter-login-button:hover{
+background-color: dimgray;
+color: white;
+}
+
+.area {
+  display: none;
+  position: fixed;
+  z-index:1 ;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+  background-color: rgb(0,0,0);
+}
+
+      .bots {
+          margin-left: 1200px;
+          margin-bottom: 50px;
+          padding: 0px 30px;
+          display: flex;
+      }
+      
+      .modal-content {
+          background-color: white;
+          margin: 5% auto;
+          padding: 20px;
+          border: 1px solid black;
+          width: 20%;
+          border-radius: 15px;
+          box-shadow: 2px 3px 5px;
+      }
+
+      .registrar{
+          margin-left: 18%;
+      }
+      
+      .register-area{
+          display: none;
+          position: fixed;
+          z-index: 1; 
+          left: 0;
+          top: 0;
+          width: 100%; 
+          height: 100%;
+       outline: none;
+          background-color: rgba(0,0,0,0.4);
+      
+      }
+
+      .regislab {
+          margin-left: 110px;
+      }
+      .close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+
+.close-btn {
+color: black;
+  float: right;
+  font-size: 35px;
+  font-weight: bold;
+  cursor: pointer;
+}
+      .close-btn-regis {
+        color: black;
+          float: right;
+          font-size: 35px;
+          font-weight: bold;
+          cursor: pointer;
+      }
+     
+           input {
+          display: block;
+          width: 50%;
+          outline: none;
+          margin-left: auto;
+          margin-right: auto;
+          height: 30px;
+          border-radius: 15px;
+              margin-top: 3px;
+           }
+           
+           button{
+            cursor: pointer;
+            margin-top: 50px;
+           }
+              .register-button {
+          color: white;
+          background-color: black;
+          padding: 5px 20px 5px 20px ;
+          margin-left: 15px;
+           border-radius: 10px;
+           height: 30px;
+      }
+      
+      .register-button:hover{
+        background-color: dimgray;
+        color: white;
+      }
+      
+      .enter-button {
+        color: white;
+          background-color: black;
+          padding: 5px 20px 5px 20px ;
+      border-radius: 10px;
+      height: 30px;
+      margin-left: 35%;
+          margin-top: 20px;
+      }
+      
+      .enter-button:hover{
+        background-color: dimgray;
+        color: white;
+      }

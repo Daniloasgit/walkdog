@@ -11,7 +11,7 @@
         <meta name="author" content="Dan Ilo Allan"> 
         <meta name="author" content="Gabriel Rocha Silva Machado">
         <!--Titulo site-->
-        <title>LUCAS REI DELES</title>
+        <title>Buscar por DogWalkers</title>
         <!--Links-->
         <link rel="shortcut icon" href="/imagens/walkedog6.png" type="image/png">
         <link rel="stylesheet" href="/public/style.css">
@@ -22,40 +22,82 @@
         <nav class="menu">
             <a href="/public/index.html"><img class="logo" src="/imagens/walkedog6.png" alt="logo"></a>
         </nav>
-        <nav class="menu-btn">
-            <div class="btn-menu">
-                <button id="btn-login">LOGIN</button>
-            </div>
-            <div class="btn-menu">
-                <button id="btn-login">REGISTRAR</button>
-            </div>
-            <div id="area" class="popup-login">
-                <div class="popup">
-                    <div id="close-btn" class="close-btn">&times;</div>
-                        <div class="form">
-                            <h2>Log in</h2>
-                        <div class="form-element">
-                            <label for="email">E-mail</label>
-                            <input type="text" id="email" placeholder="Digite o E-Mail">
-                        <div class="form-element">
-                            <label for="password">Password</label>
-                            <input type="password" id="password" placeholder="Digite a senha">
+        <div class="bots">
+
+            <button id="login-button" class="login-button">LOGIN</button>
+
+            <button id="button" class="register-button">REGISTRAR</button>
+        </div>
+             <div id="area" class="register-area">
+                  
+                            
+                  
+                        <div class="modal-content"> 
+                          <div id="close-btn" class="close-btn-regis">&times;</div>
+                            <h2 class="registrar">Registrar</h2>
+                          
+                            <hr>
+                            <form class="form-login">
+                                <label class="regislab" for="name">Nome</label>
+                                <input class="nome" type="text" name="nome">
+                                <br>
+                                <label class="regislab" for="user">Usuario</label>
+                                <input type="text" name="usuario">
+                                <br>
+                                <label class="regislab" for="email">Email</label>
+                                <input type="email">
+                                <br>
+                                <label class="regislab" for="password">Senha</label>
+                                <input class="sen" type="password" name="senha">
+                                <br>
+                                <label class="regislab" for="CPF">CPF</label>
+                                <input type="number">
+                                <br>
+                                <label class="regislab" for="endereco">Endereço</label>
+                                <input type="text">
+                                <br>
+                                <label class="regislab" for="telefone">Telefone</label>
+                                <input type="tel">
+                                <br>
+                                <div class="regisbuton"></div>
+                                <button class="enter-button">ENTRAR</button>
+                            </div>
+                                
+                            </form>
+                    
                         </div>
-                        <div class="form-element">
-                            <input type="checkbox" id="remenber-me">
-                            <label for="remember-me">Remember me</label>
-                        </div>
-                        <div class="form-element">
-                            <button>Sign in</button>
-                        </div>
-                        <div class="form-element">
-                            <a href="#">Forgot password?</a>
-                        </div>
-                        </div>
-                    </div>
+                
                 </div>
-            </div> 
-        </nav>
+        
+
+                <div id="login-area" class="login-area">
+                     
+                               
+                     
+                           <div class="modal-content-login"> 
+                             <div id="close-btn" class="close-btn-log">&times;</div>
+                               <h2 class="login">LOGIN</h2>
+                             
+                               <hr>
+                               <form class="form-login">
+                                <br>
+                                   <label class="loglab" for="user">Nome ou Usuario</label>
+                                   <input class="usu" type="text" name="usuario">
+                                   <br>
+                                   <label class="loglab" for="password">Senha</label>
+                                   <input class="sen" type="password" name="senha">
+                                   <br>
+                                   <div class="regisbuton"></div>
+                                   <a href="#">Esqueci Minha Senha</a>
+
+                                   <button class="enter-login-button">ENTRAR</button>
+                               </div>
+                                   
+                               </form>
+                       
+                           </div>
+                   
+                   </div>
     </header>
     <!--Inicio corpo do site-->
     <main>
