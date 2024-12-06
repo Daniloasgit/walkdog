@@ -25,9 +25,20 @@ const dogwalkerRoutes = require('./rotas/dogwalker');
 app.use('/api/dogwalker', dogwalkerRoutes);
 
 
-//Rotas para serviços
-//const servicoRoutes = require('./rotas/servicos');
-//app.use('/api/servicos', servicoRoutes);
+// Rotas para serviços
+
+app.get('/deletar-registros', async (req, res) => {
+  try {
+    await deletarRegistros();
+    res.send('Função de deletar registros executada com sucesso!');
+  } catch (err) {
+    res.status(500).send('Erro ao executar a função de deletar registros');
+  }
+});
+
+const servicesRoutes = require('./rotas/servico');
+app.use('/api/service', servicesRoutes);
+
 
 app.get('/', (req, res) => { 
     res.send('Servidor está rodando'); // Define uma rota inicial para testar o servidor 

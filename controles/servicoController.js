@@ -17,12 +17,12 @@ const getAllServices = (req, res) => {
 };
 
 const addService = (req, res) => {
-    const{id, dogwalker_id, cliente_id, animal_id, preco_servico, entrega, devolucao} = req.body;
+    const{idRegistro, dogwalker_id, cliente_id, animal_id, preco_servico, entrega, devolucao} = req.body;
 
     //Verificar duplicidade
     db.query(
-        'SELECT * FROM servico WHERE id=? AND dogwalker_id=? AND cliente_id=? AND animal_id=? AND preco_servico=? AND entrega=? AND devolucao=?',
-        [id, dogwalker_id, cliente_id, animal_id, preco_servico, entrega, devolucao],
+        'SELECT * FROM servico WHERE idRegistro=? AND dogwalker_id=? AND cliente_id=? AND animal_id=? AND preco_servico=? AND entrega=? AND devolucao=?',
+        [idRegistro, dogwalker_id, cliente_id, animal_id, preco_servico, entrega, devolucao],
         (err, results) => {
             if(err) {
                 console.error('Erro ao verificar serviço', err);
@@ -34,8 +34,8 @@ const addService = (req, res) => {
                 return;
             }
 
-    db.query('INSERT INTO servico(id, dogwalker_id, cliente_id, animal_id, preco_servico, entrega, devolucao) VALUES(?, ?, ?, ?, ?, ?, ?)',
-        [id, dogwalker_id, cliente_id, animal_id, preco_servico, entrega, devolucao],
+    db.query('INSERT INTO servico(idRegistro, dogwalker_id, cliente_id, animal_id, preco_servico, entrega, devolucao) VALUES(?, ?, ?, ?, ?, ?, ?)',
+        [idRegistro, dogwalker_id, cliente_id, animal_id, preco_servico, entrega, devolucao],
         (err, results) => {
             if(err) {
                 console.error('Erro ao adicionar serviço:', err);
@@ -49,30 +49,31 @@ const addService = (req, res) => {
     );
 }
 
-// //Função para deletar o serviço após 1 ano de conclusão
-// function deleteServiceByData() {
-//     db.query('DELETE FROM servico WHERE devolucao < DATE_SUB(NOW(), INTERVAL 6 MONTH)');
 
-// //Executar a consulta
-// db.execute(query, (err, results) => {
-//     if(err) {
-//         console.error('Erro ao apagar dados:', err);
-//     } else {
-//         console.log(`${results.affectedRows} registros apagados.`);
-//     }
-// });
-// }
+const cron = require ('node-cron');
 
-// //Execução da função
-// deleteServiceByData();
+// Função para deletar registros
+async function deletarRegistros() {
+    const dataLimite = new Date();
+    dataLimite.setMinutes(dataLimite.getMinutes() - 5);
+  
+    const query = 'DELETE FROM servico WHERE devolucao < ?';
+    db.execute(query, [dataLimite], (err, results) => {
+      if (err) {
+        console.error('Erro ao excluir registros:', err);
+        return;
+      }
+      console.log('Registros excluídos com sucesso!');
+    });
+  }
 
-    
-// const cron = require ('node-cron');
-// const db = require('../config/db'); // Importa a conexão com o banco de dados
+  cron.schedule('*/5 * * * *', async () => {
+    await deletarRegistros();
+  });
 
-
-
+  
 module.exports = {
     getAllServices,
-    addService
+    addService,
+    deletarRegistros
 };

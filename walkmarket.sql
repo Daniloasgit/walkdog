@@ -70,7 +70,7 @@ insert into animal (raca) values
  ;
 
 CREATE TABLE servico (
-  id INT AUTO_INCREMENT PRIMARY KEY,
+  idRegistro INT AUTO_INCREMENT PRIMARY KEY,
   dog_img VARCHAR(255),
   dogwalker_id INT,
   cliente_id INT,
@@ -85,4 +85,12 @@ CREATE TABLE servico (
 );
 
 
+insert into servico (dogwalker_id,cliente_id,animal_id,preco_servico,entrega,devolucao) values
+('1','5','2','78.11','2024-02-12 10:00:00','2024-02-12 11:00:00'),
+('2','4','4','55.43','2024-02-13 14:30:00','2024-02-13 15:30:00'),
+('3','3','1','18.55','2024-02-14 08:45:00','2024-02-14 09:45:00'),
+('4','2','3','93.77','2024-02-15 12:15:00','2024-02-15 13:15:00'),
+('5','1','5','36.87','2024-02-16 16:00:00','2024-02-16 17:00:00');
 
+insert into servico (dogwalker_id,cliente_id,animal_id,preco_servico,entrega,devolucao) values
+('1','5','2','78.11','2024-12-06 08:26:00','2024-12-06 08:27:00');

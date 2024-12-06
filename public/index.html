@@ -20,88 +20,74 @@
 <body>
 <!--Inicio Cabecalho-->
 <header>
-    <nav class="menu">
-        <a href="/public/index.html"><img class="logo" src="/imagens/walkedog-logo1.png" alt="logo"></a>
-    </nav>
-    <div class="bots">
-
-        <button id="login-button" class="login-button">LOGIN</button>
-
-        <button id="button" class="register-button">REGISTRAR</button>
-    </div>
-         <div id="area" class="register-area">
-              
-                        
-              
-                    <div class="modal-content"> 
-                      <div id="close-btn" class="close-btn-regis">&times;</div>
-                        <h2 class="registrar">Registrar</h2>
-                      
-                        <hr>
-                        <form class="form-login">
-                            <label class="regislab" for="name">Nome</label>
-                            <input class="nome" type="text" name="nome">
-                            <br>
-                            <label class="regislab" for="user">Usuario</label>
-                            <input type="text" name="usuario">
-                            <br>
-                            <label class="regislab" for="email">Email</label>
-                            <input type="email">
-                            <br>
-                            <label class="regislab" for="password">Senha</label>
-                            <input class="sen" type="password" name="senha">
-                            <br>
-                            <label class="regislab" for="CPF">CPF</label>
-                            <input type="number">
-                            <br>
-                            <label class="regislab" for="endereco">Endereço</label>
-                            <input type="text">
-                            <br>
-                            <label class="regislab" for="telefone">Telefone</label>
-                            <input type="tel">
-                            <br>
-                            <div class="regisbuton"></div>
-                            <button class="enter-button">ENTRAR</button>
-                        </div>
-                            
-                        </form>
-                
-                    </div>
-            
-            </div>
+    <nav class="menu"><a href="/public/index.html"><img class="logo" src="/imagens/walkedog-logo1.png" alt="logo"></a></nav>
+    <nav class="menu"><img class="logo-2" src="/imagens/walkedog-logo2.png" alt="logo"></nav>
+<div class="bots">
+    <nav>
+    <button id="menu-button" class="menu-button">Olá! Faça seu login <br> ou cadastre-se</button>
     
+    <!-- Menu suspenso que aparece no hover -->
+    <div class="dropdown" id="dropdown">
+        <button id="login-button" class="login-button">Login</button>
+        <button id="register-button" class="register-button">Registrar</button>
+    </div>
+</div>
 
-            <div id="login-area" class="login-area">
-                 
-                           
-                 
-                       <div class="modal-content-login"> 
-                         <div id="close-btn" class="close-btn-log">&times;</div>
-                           <h2 class="login">LOGIN</h2>
-                         
-                           <hr>
-                           <form class="form-login">
-                            <br>
-                               <label class="loglab" for="user">Nome ou Usuario</label>
-                               <input class="usu" type="text" name="usuario">
-                               <br>
-                               <label class="loglab" for="password">Senha</label>
-                               <input class="sen" type="password" name="senha">
-                               <br>
-                               <div class="regisbuton"></div>
-                               <a href="#">Esqueci Minha Senha</a>
-
-                               <button class="enter-login-button">ENTRAR</button>
-                           </div>
-                               
-                           </form>
-                   
-                       </div>
-               
-               </div>
-        <!--<a href="registerdogwalker.html">test2</a>
-        <a href="teste.html">test</a>
-        <a href="contato.html">test3</a>-->
+<!-- Modal de Login -->
+<div class="modal" id="login-area">
+    <div class="modal-content">
+        <div id="close-btn-login" class="close-btn">&times;</div>
+        <h2>Login</h2>
+        <hr>
+            <form class="form-login">
+            <br>
+            <label class="loglab" for="user">Nome ou Usuario</label>
+            <input class="usu" type="text" name="usuario">
+            <br>
+            <label class="loglab" for="password">Senha</label>
+            <input class="sen" type="password" name="senha">
+            <br>
+            <div class="regisbuton"></div>
+            <a href="#">Esqueci Minha Senha</a>
+            <button class="enter-login-button">ENTRAR</button>
+            </form>
+    </div>
+</div>
+<div class="modal" id="register-area">
+    <div class="modal-content">
+        <div id="close-btn-register" class="close-btn">&times;</div>
+        <h2>Registrar</h2>
+        <!-- Formulário de registro aqui -->
+        <hr>
+        <form class="form-login">
+            <label class="regislab" for="name">Nome</label>
+            <input class="nome" type="text" name="nome">
+            <br>
+            <label class="regislab" for="user">Usuario</label>
+            <input type="text" name="usuario">
+            <br>
+            <label class="regislab" for="email">Email</label>
+            <input type="email">
+            <br>
+            <label class="regislab" for="password">Senha</label>
+            <input class="sen" type="password" name="senha">
+            <br>
+            <label class="regislab" for="CPF">CPF</label>
+            <input type="number">
+            <br>
+            <label class="regislab" for="endereco">Endereço</label>
+            <input type="text">
+            <br>
+            <label class="regislab" for="telefone">Telefone</label>
+            <input type="tel">
+            <br>
+            <div class="regisbuton"></div>
+            <button class="enter-button">ENTRAR</button>
+        </div>
+            
+        </form>
+    </div>
+</div>                             
     </nav>
 </header>
 <!--Inicio corpo do site-->
@@ -239,18 +225,29 @@
 
                 <span class="title-midia">REDES SOCIAIS
                     <div class="img-midia-icon">
-                    <img src="/imagens/icons8-whatsapp.svg">
-                    <img src="/imagens/icons8-instagram.svg">
+                    <a class="whats" href="https://www.whatsapp.com/?lang=pt_BR"><img src="/imagens/svg-whats.svg"></a>
+                    <a class="insta" href="https://www.instagram.com/"><img src="/imagens/svg-insta.svg"></a>
+                    <a class="insta" href="https://www.instagram.com/"><img src="/imagens/svg-youtube.svg"></a>
                     </div>  
                 </span>
                   
-                <span class="title-midia">Links Utéis
-                <div class="img-midia">
-                    <a href="#">ÍNICIO</a>
-                    <a href="#">SOBRE NÓS</a>
-                    <a href="#">CONTATO</a>
+                <span class="title-midia">Formas De Pagamentos
+                <div class="img-midia-1">
+                    <img class="imagem-midia" src="/imagens/visa-svg.svg" alt="visa">
+                    <img class="imagem-midia" src="/imagens/pix-svg.svg" alt="pix">
+                    <img class="imagem-midia" src="/imagens/mastercard-svg.svg" alt="mastercard">
                 </div>
                 </span>
+
+                <span class="title-midia">Links Utéis
+                    <div class="img-midia">
+                        
+                        <a class="texto" href="#">INÍCIO</a>
+                        <a class="texto" href="#">SOBRE NÓS</a>
+                        <a class="texto" href="contato.html">CONTATO</a>
+                        
+                    </div>
+                    </span>
         </div>
     
     <hr>
@@ -258,10 +255,12 @@
     <div class="marca-registrada">
         <h4>© 2024 WALK & DOG - Todos os direitos reservados.</h4>
     </div>
+    
 </footer>
+
 <!--links do javascript-->
 <script src="/public/slide.js"> </script>
-<script src="/public/loginregister.js"></script>
+<script src="/public/javascript.js"></script>
 
 </body>
 </html>
