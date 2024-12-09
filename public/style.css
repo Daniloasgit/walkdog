@@ -1,6 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&display=swap');
 /* Atma */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 
 /*Configuração padrão do CSS*/
@@ -555,10 +556,6 @@ hr {
   text-shadow: 10px 0px 13px var(--Danilo);
 }
 
-
-
-
-
   /* ////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 
 
@@ -566,7 +563,7 @@ hr {
 
 .slider{ /*DIV GERAL DAS IMAGENS DA TRANSIÇÃO*/
   margin: 0 auto;
-  width: 1700px;
+  width: 700px;
   height: 700px;
   overflow: hidden;
   border: outset 8px var(--gold);
@@ -828,17 +825,6 @@ margin-left: 60px;
   margin-left: 70px;
 }
 
-.modal-content-login {
-  background-color: white;
-  margin: 5% auto;
-  padding: 20px;
-  border: 1px solid black;
-  width: 16%;
-  border-radius: 15px;
-  box-shadow: 2px 3px 5px;
-}
-
-
 
 .close-btn-log {
 color: black;
@@ -993,3 +979,69 @@ color: black;
         background-color: dimgray;
         color: white;
       }
+
+      header {
+        background-color: #24252a;
+        box-shadow: 0px 3px 10px #464646;
+    }
+    
+    .nav-bar {
+        display: flex;
+        justify-content: space-between;
+        padding: 1.5rem 6rem;
+    }
+    
+    .logo {
+        display: flex;
+        align-items: center;
+    }
+    
+    .logo h1 {
+        color: #fff;
+    }
+    
+    .nav-list {
+        display: flex;
+        align-items: center;
+    }
+    
+    .nav-list ul {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+    }
+    
+    .nav-item {
+        margin: 0 15px;
+    }
+    
+    .nav-link {
+        text-decoration: none;
+        font-size: 1.15rem;
+        color: #fff;
+        font-weight: 400;
+    }
+    
+    .login-button button {
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        background-color: #0187a7;
+    }
+    
+    .login-button button a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: 500;
+        font-size: 1.1rem;
+    }
+    
+    .mobile-menu-icon {
+        display: none;
+    }
+    
+    .mobile-menu {
+        display: none;
+    }
+    
+    

@@ -11,7 +11,9 @@ email varchar(255),
 senha varchar(255),
 cpf char (11),
 telefone char(11),
-endereco varchar(255))
+endereco varchar(255),
+reset_password_token varchar(255),
+reset_password_expires datetime)
 ;
 
   /* CRIAR UMA TABELA PARA SERVIÇOS E USAR FOREINGKEY ENTRE AS 3 TABELAS
@@ -30,7 +32,9 @@ email varchar(255),
 senha varchar(255),
 cpf char (11),
 telefone char(11),
-atuacao varchar(255));
+atuacao varchar(255),
+reset_password_token varchar(255),
+reset_password_expires datetime);
  
 insert into dogwalker(nome,usuario,email,senha,cpf,telefone,atuacao) values
 ('Eva Gina','Juliana','ana.costa.estudante@email.com','senha123',12345678901,11223344556,'PIAUI'),

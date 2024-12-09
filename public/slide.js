@@ -23,7 +23,7 @@ if(count>5){
  
 var count = 1;
 
-document.getElementById("radio0").checked = true;
+document.getElementById("radio1").checked = true;
 
 setInterval( function(){
 nextImage();
