@@ -25,6 +25,9 @@ const dogwalkerRoutes = require('./rotas/dogwalker');
 app.use('/api/dogwalker', dogwalkerRoutes);
 
 
+const authRoutes = require('./rotas/auth');
+app.use('/api/auth', authRoutes);
+
 // Rotas para serviços
 
 app.get('/deletar-registros', async (req, res) => {
@@ -55,3 +58,5 @@ app.listen(porte, () => {
 });
 
 // FIM DA CONEXÃO COM O SERVIDOR
+
+

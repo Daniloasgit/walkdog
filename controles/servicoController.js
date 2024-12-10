@@ -55,7 +55,7 @@ const cron = require ('node-cron');
 // Função para deletar registros
 async function deletarRegistros() {
     const dataLimite = new Date();
-    dataLimite.setMinutes(dataLimite.getMinutes() - 5);
+    dataLimite.setMinutes(dataLimite.getMinutes() - 5000);
   
     const query = 'DELETE FROM servico WHERE devolucao < ?';
     db.execute(query, [dataLimite], (err, results) => {
@@ -67,7 +67,7 @@ async function deletarRegistros() {
     });
   }
 
-  cron.schedule('*/5 * * * *', async () => {
+  cron.schedule('*/500 * * * *', async () => {
     await deletarRegistros();
   });
 

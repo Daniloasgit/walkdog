@@ -67,6 +67,7 @@
   z-index: 10;
   opacity: 0; /* Inicialmente invisível */
   transition: opacity 0.3s linear, visibility 0.30s linear;
+  width: 130px;
 }
 
 /* Estilo dos botões dentro do menu suspenso */
@@ -96,7 +97,36 @@
 }
 
 /* Estilo das modais */
-.modal {
+.modal-login {
+  display: none; /* Inicialmente escondido */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4); /* Fundo transparente */
+}
+.modal-walker {
+  display: none; /* Inicialmente escondido */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4); /* Fundo transparente */
+}
+
+.modal-cliente {
   display: none; /* Inicialmente escondido */
   position: fixed;
   z-index: 1;
@@ -109,9 +139,30 @@
 }
 
 /* Conteúdo das modais */
-.modal-content {
+.modal-content-login {
   background-color: white;
-  margin: 20% auto;
+  margin: 18% auto;
+  width: 16%;
+  padding: 30px;
+  width: 300px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  border: 1px solid black;
+  border-radius: 15px;
+
+}
+.modal-content-cliente {
+  background-color: white;
+  margin: 5% auto;
+  padding: 30px;
+  width: 300px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content-walker {
+  background-color: white;
+  margin: 5% auto;
   padding: 30px;
   width: 300px;
   border-radius: 15px;
@@ -139,11 +190,14 @@
   cursor: pointer;
 }
 
-.login-button:hover, .register-button:hover {
-  background-color: dimgray;
+
+.logout-button {
+  background-color: var(--Danilo);
+  color: white;
+  border-radius: 10px;
+margin-left: 350px;
+
 }
-
-
   
   
 /*Cabeçalho do site*/
@@ -246,10 +300,11 @@ button {
   color: white;
   border: none;
   cursor: pointer;
+  
 }
 
 button:hover {
-  background-color: #000000;
+  background-color: #24252a;
 }
 
 #lista-comentarios ul {

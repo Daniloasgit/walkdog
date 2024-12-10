@@ -22,74 +22,99 @@
 <header>
     <nav class="menu"><a href="/public/index.html"><img class="logo" src="/imagens/walkedog-logo1.png" alt="logo"></a></nav>
     <nav class="menu"><img class="logo-2" src="/imagens/walkedog-logo2.png" alt="logo"></nav>
-<div class="bots">
-    <nav>
-    <button id="menu-button" class="menu-button">Olá! Faça seu login <br> ou cadastre-se</button>
-    
-    <!-- Menu suspenso que aparece no hover -->
-    <div class="dropdown" id="dropdown">
-        <button id="login-button" class="login-button">Login</button>
-        <button id="register-button" class="register-button">Registrar</button>
+    <div class="bots">
+        <nav>
+        <button id="menu-button" class="menu-button">Olá! Faça seu login <br> ou cadastre-se</button>
+        
+        <!-- Menu suspenso que aparece no hover -->
+        <div class="dropdown" id="dropdown">
+            <button id="login-button" class="login-button">Login</button>
+            <button id="register-cliente" class="register-cliente">Registrar Cliente</button>
+            <button id="register-dogwalker" class="register-dogwalker">Registrar DogWalker</button>
+        </div>
     </div>
-</div>
-
-<!-- Modal de Login -->
-<div class="modal" id="login-area">
-    <div class="modal-content">
-        <div id="close-btn-login" class="close-btn">&times;</div>
-        <h2>Login</h2>
-        <hr>
-            <form class="form-login">
+    
+    <!-- Modal de Login -->
+    <div class="modal-login" id="login-modal">
+        <div class="modal-content-login">
+          <div id="close-btn-login" class="close-btn">&times;</div>
+          <h2>Login</h2>
+          <hr>
+          <form class="form-login">
             <br>
-            <label class="loglab" for="user">Nome ou Usuario</label>
+            <label class="loglab" for="user">Nome ou Usuário</label>
             <input class="usu" type="text" name="usuario">
             <br>
             <label class="loglab" for="password">Senha</label>
             <input class="sen" type="password" name="senha">
             <br>
             <div class="regisbuton"></div>
-            <a href="#">Esqueci Minha Senha</a>
+            <a href="#" id="esqueci-senha">Esqueci Minha Senha</a>
             <button class="enter-login-button">ENTRAR</button>
-            </form>
-    </div>
-</div>
-<div class="modal" id="register-area">
-    <div class="modal-content">
-        <div id="close-btn-register" class="close-btn">&times;</div>
-        <h2>Registrar</h2>
-        <!-- Formulário de registro aqui -->
-        <hr>
-        <form class="form-login">
-            <label class="regislab" for="name">Nome</label>
-            <input class="nome" type="text" name="nome">
-            <br>
-            <label class="regislab" for="user">Usuario</label>
-            <input type="text" name="usuario">
-            <br>
-            <label class="regislab" for="email">Email</label>
-            <input type="email">
-            <br>
-            <label class="regislab" for="password">Senha</label>
-            <input class="sen" type="password" name="senha">
-            <br>
-            <label class="regislab" for="CPF">CPF</label>
-            <input type="number">
-            <br>
-            <label class="regislab" for="endereco">Endereço</label>
-            <input type="text">
-            <br>
-            <label class="regislab" for="telefone">Telefone</label>
-            <input type="tel">
-            <br>
-            <div class="regisbuton"></div>
-            <button class="enter-button">ENTRAR</button>
+          </form>
         </div>
-            
-        </form>
-    </div>
-</div>                             
-    </nav>
-
+      </div>
+    <!-- Fim modal login -->
+    
+    
+    
+    <div class="modal-cliente" id="register-area-cliente">
+        <div class="modal-content-cliente">
+            <div id="close-btn-register" class="close-btn">&times;</div>
+            <h2>Registrar</h2>
+            <!-- Formulário de registro aqui -->
+            <hr>
+            <form class="form-cliente" id="form-cliente" method="post" action="">
+                <label class="regislab" for="name">Nome</label>
+                <input class="nome" type="text" id="nome" required>
+                <br>
+                <label class="regislab" for="user">Usuario</label>
+                <input type="text" id="usuario" required>
+                <br>
+                <label class="regislab" for="email">Email</label>
+                <input type="email" id="email" required>
+                <br>
+                <label class="regislab" for="password">Senha</label>
+                <input class="sen" type="password" id="senha" required>
+                <br>
+                <div class="regisbuton"></div>
+                <button class="enter-button">ENTRAR</button>
+            </div>
+                
+            </form>
+        </div>
+    <!-- Fim modal cliente -->
+    
+    <!-- Modal DogWalker -->
+        <div class="modal-walker" id="walker-modal">
+            <div class="modal-content-walker">
+              <div id="close-btn-walker" class="close-btn">&times;</div>
+              <h2>Registrar como walker</h2>
+              <hr>
+              <form class="form-registro-walker">
+                <label class="regislab" for="nome-walker">Nome</label>
+                <input class="nome-walker" type="text" name="nome-walker">
+                <br>
+                <label class="regislab" for="CPF">CPF</label>
+                <input type="number" name="CPF">
+                <br>
+                <label class="regislab" for="email-walker">Email</label>
+                <input type="email" name="email-walker">
+                <br>
+                <label class="regislab" for="senha-walker">Senha</label>
+                <input class="sen" type="password" name="senha-walker">
+                <br>
+                <label class="regislab" for="telefone-walker">Telefone</label>
+                <input type="tel" name="telefone-walker">
+                <br>
+                <div class="regisbuton"></div>
+                <button class="enter-button">REGISTRAR</button>
+              </form>
+            </div>
+          </div>
+    <!-- Fim DogWalker modal -->
+    </div>                             
+        </nav>
 
 </header>
 <!--Inicio corpo do site-->
@@ -266,7 +291,6 @@
 
 <!--links do javascript-->
 <script src="/public/slide.js"> </script>
-<script src="/public/javascript.js"></script>
-
+<script src="/public/loginregister.js"></script>
 </body>
 </html>

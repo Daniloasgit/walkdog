@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken'); // Importa a função 'sendEmail' do servi�
 
 //Função para registrar um novo usuário
 const registerUser = async (req, res) => {
-    const { id, img, nome, usuario, email, senha, cpf, telefone, endereco } = req.body; //Desestrutura os dados do corpo da requisição
+    const { nome, usuario, email, senha } = req.body; //Desestrutura os dados do corpo da requisição
 
 //Verificar se o usuário já existe no banco de dados
 try {
@@ -19,8 +19,8 @@ try {
 
     //Inserir o novo usuário no banco de dados
     await db.promise().query(
-        'INSERT INTO clientes(id, img, nome, usuario, email, senha, cpf, telefone, endereco) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)',
-        [id, img, nome, usuario, email, hashedPassword, cpf, telefone, endereco]
+        'INSERT INTO clientes(nome, usuario, email, senha) VALUES(?, ?, ?, ?)',
+        [nome, usuario, email, hashedPassword]
     );
 
     res.status(201).send('Usuário registrado com sucesso');
