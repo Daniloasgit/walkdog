@@ -34,6 +34,7 @@
     --DodgerBlue: #1E90FF;
     --LightGray: #D3D3D3;
     --DarkGray: #A9A9A9;
+    --Grey:       #808080;
 }
 
 /* cabeçalho do header */
@@ -206,7 +207,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: darkgray;
+    background-color: #a9a9a9;
     padding: 0 30px;
 }
 .menu {
@@ -319,131 +320,6 @@ button:hover {
 .corpo-comentario{
   display: flex;
 }
-/*Começo do pop-up*/
-
-
-.popup-login {
-  font-family: "Raleway", sans-serif; /* Define a fonte usada dentro deste elemento */
-  background-color: var(--DarkCyan); /* Define a cor de fundo como uma variável CSS (--DarkCyan) */
-  height: 100vh; /* A altura do fundo é 100% da altura da janela (viewport) */
-}
-
-.center {
-  position: absolute; /* Posicionamento absoluto dentro do elemento pai */
-  top: 8%; /* Coloca o elemento 8% abaixo do topo da tela */
-  left: 90%; /* Coloca o elemento 90% a partir da esquerda da tela */
-  transform: translate(-50%, -50%); /* Move o elemento para o centro (ajusta a posição) */
-}
-
-.center button {
-  padding: 10px 20px; /* Define o preenchimento interno do botão */
-  font-size: 15px; /* Tamanho da fonte no botão */
-  font-weight: 600; /* Peso da fonte */
-  color: var(--DarkOrange); /* Cor do texto como uma variável CSS */
-  background-color: var(--Gold); /* Cor de fundo do botão como uma variável CSS */
-  border: none; /* Remove a borda padrão do botão */
-  outline: none; /* Remove o contorno ao focar no botão */
-  cursor: pointer; /* O cursor muda para um ponteiro ao passar por cima do botão */
-  border-radius: 5px; /* Bordas arredondadas do botão */
-}
-
-.popup {
- display: none;
-  position: absolute; /* Posicionamento absoluto */
-   top: 50%; /*centraliza o popup na vertical */
-  left: 50%; /* Centraliza o popup horizontalmente */
-  transform: translate(-50%, -50%) scale(1.25); /* Centraliza o popup e aplica uma escala */
-  width: 300px; /* Largura fixa do popup */
-  padding: 20px 30px; /* Preenchimento interno do popup */
-  background-color: var(--PapayaWhip); /* Cor de fundo do popup */
-  box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.15); /* Sombra ao redor do popup */
-  border-radius: 10px; /* Bordas arredondadas */
-  transition: top 0ms ease-in-out 200ms, opacity 200ms ease-in-out 0ms, transform 20ms ease-in-out 0ms; /* Define a animação */
-}
-
-.popup.active {
-  top: 50%; /* O popup é movido para o meio da tela */
-  opacity: 1; /* Torna o popup visível */
-  transform: translate(-50%, -50%) scale(1); /* Centraliza e remove a escala */
-  transition: top 0ms ease-in-out 0ms, opacity 200ms ease-in-out 0ms, transform 20ms ease-in-out 0ms; /* Ajusta as transições */
-}
-
-.popup .close-btn {
-  position: absolute; /* Posiciona o botão de fechar no topo à direita do popup */
-  top: 10px;
-  right: 10px;
-  width: 15px;
-  height: 15px;
-  background-color: var(--Crimson); /* Cor de fundo do botão de fechar */
-  color: white; /* Cor do texto dentro do botão */
-  text-align: center; /* Alinha o texto no centro */
-  line-height: 15px; /* Alinha verticalmente o texto */
-  border-radius: 15px; /* Tornando o botão circular */
-  cursor: pointer; /* Define o cursor como ponteiro */
-}
-
-.popup .form h2 {
-  text-align: center; /* Centraliza o título */
-  color: var(--Sea-Blue); /* Cor do texto */
-  margin: 10px 0px 20px; /* Margens ao redor do título */
-  font-size: 25px; /* Tamanho da fonte */
-}
-
-.popup .form .form-element {
-  margin: 15px 0; /* Define margens entre os elementos do formulário */
-}
-
-.popup .form .form-element label {
-  font-size: 14px; /* Tamanho da fonte */
-  color: var(--DarkCyan); /* Cor do texto */
-}
-.popup .form .form-element input[type="text"],
- .popup .form .form-element input[type="password"] {
-  margin-top: 5px; /* Margem acima dos campos de input */
-  display: block; /* Exibe os inputs como blocos */
-  width: 100%; /* Largura dos inputs é 100% */
-  padding: 10px; /* Preenchimento interno */
-  outline: none; /* Remove o contorno ao focar */
-  border: 1px solid var(--Lime); /* Borda verde-limão */
-  border-radius: 5px; /* Bordas arredondadas */
-}
-
-.popup .form .form-element input[type="checkbox"] {
-  margin-right: 5px; /* Espaço à direita do checkbox */
-}
-
-.popup .form .form-element button {
-  width: 100%; /* Largura do botão é 100% */
-  height: 40px; /* Altura do botão */
-  border: none; /* Remove borda do botão */
-  outline: none; /* Remove o contorno do botão */
-  font-size: 15px; /* Tamanho da fonte */
-  background-color: var(--Cyan); /* Cor de fundo do botão */
-  color: var(--Madeirada); /* Cor do texto */
-  border-radius: 10px; /* Bordas arredondadas */
-  cursor: pointer; /* Define o cursor como ponteiro */
-}
-
-.popup .form .form-element a {
-  display: block; /* Exibe o link como bloco */
-  text-align: right; /* Alinha o texto à direita */
-  font-size: 15px; /* Tamanho da fonte */
-  color: var(--DodgerBlue); /* Cor azul para o texto */
-  text-decoration: none; /* Remove o sublinhado do link */
-  font-weight: 600; /* Peso da fonte */
-}
-
-/*Modal do botão registro*/
-.center {
-  position: absolute; /* Posicionamento absoluto dentro do elemento pai */
-  top: 8%; /* Coloca o elemento 8% abaixo do topo da tela */
-  left: 90%; /* Coloca o elemento 90% a partir da esquerda da tela */
-  transform: translate(-50%, -50%); /* Move o elemento para o centro (ajusta a posição) */
-}
-
-
-/* Fim do pop-up */
-
 
 /*Rodapé do site*/
 .roda-pe-geral {
@@ -536,7 +412,6 @@ button:hover {
     border-radius: 15px;
   }
 }
-
 
 hr {
   margin-left: auto;
@@ -1086,7 +961,7 @@ color: black;
     
     .login-button button a {
         text-decoration: none;
-        color: #fff;
+        color: var(--Danilo);
         font-weight: 500;
         font-size: 1.1rem;
     }
@@ -1099,4 +974,72 @@ color: black;
         display: none;
     }
     
-    
+    /* Barra de menu lateral */
+
+    .fundo-menu {
+      height: 900vh;
+    }
+
+    nav.menu-lateral {
+      width: 80px;
+      height: 100%;
+      background-color: var(--Grey);
+      padding: 40px 0 40px 1%;
+      box-shadow: 3px 0 0 var(--Danilo);
+      position: fixed;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      transition: .2s;
+    }
+
+    nav.menu-lateral:hover {
+      width: 300px;
+    }
+
+    .btn-expandir {
+      width: 100%;
+      padding-left: 10px;
+    }
+
+    .btn-expandir > i {
+      color: var(--Danilo);
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    ul {
+      height: 100%;
+      list-style-type: none;
+    }
+
+    ul li.item-menu:hover {
+      background-color: var(--LightGray);
+    }
+
+    ul li.item-menu {
+      transition: .2s;
+    }
+
+    ul li.ativo {
+      background-color: var(--Gold);
+    }
+
+    ul li.item-menu a{
+      color: var(--Danilo);
+      text-decoration: none;
+      font-size: 20px;
+      padding: 20px 4%;
+      display: flex;
+      margin-bottom: 20px;
+      line-height: 40px ;
+    }
+
+    ul li.item-menu a .txt-link {
+      margin-left: 40px;
+    }
+
+    ul li.item-menu a .icon > i {
+      font-size: 30px;
+      margin-left: 10px;
+    }

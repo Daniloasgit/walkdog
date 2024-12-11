@@ -1,0 +1,41 @@
+
+async function deletarRegistros() {
+    const dataLimite = new Date();
+    dataLimite.setMinutes(dataLimite.getMinutes() - 5);
+  
+    const query = 'DELETE FROM servico WHERE devolucao < ?';
+    db.execute(query, [dataLimite], (err, results) => {
+      if (err) {
+        console.error('Erro ao excluir registros:', err);
+        return;
+      }
+      console.log('Registros excluídos com sucesso!');
+    });
+  }
+
+  cron.schedule('*/5 * * * *', async () => {
+    await deletarRegistros();
+  });
+
+
+
+
+
+  danilo 
+  
+  let nomecliente = document.getElementById('nomecliente');
+  console.log(nomecliente);
+
+let nomeuser = document.getElementById('usuariocliente');
+  console.log(nomeuser);
+  
+  let emailuser = document.getElementById('emailcliente');
+  console.log(emailuser);
+
+  let senhauser = document.getElementById('senhacliente');
+  console.log(senhauser);
+
+  function readForm (){
+    var clientename = document.getElementById('nomecliente').value;
+    console.log(clientename);
+  }
