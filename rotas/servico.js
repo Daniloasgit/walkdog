@@ -7,6 +7,6 @@ router.get('/', service.getAllServices); // Obtém todos os serviços
 
 router.post('/', service.addService); // Adiciona um novo serviço
 
-router.delete('/', service. deletarRegistros); // deleta um serviço ja existente
+router.delete('/', service.deletarRegistros); // deleta um serviço ja existente
 
 module.exports = router;

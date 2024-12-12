@@ -16,10 +16,14 @@
         <!--Links-->
         <link rel="shortcut icon" href="/imagens/walkedog6.png" type="image/png">
         <link rel="stylesheet" href="/public/style.css">
-        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    </head>  
 <body>
 <!--Inicio Cabecalho-->
 <header>
+    <div class="btn-expandir">
+        <i class="bi bi-list" id="btn-exp"></i>
+    </div>
     <nav class="menu"><a href="/public/index.html"><img class="logo" src="/imagens/walkedog-logo1.png" alt="logo"></a></nav>
     <nav class="menu"><img class="logo-2" src="/imagens/walkedog-logo2.png" alt="logo"></nav>
     <div class="bots">
@@ -40,14 +44,11 @@
           <div id="close-btn-login" class="close-btn">&times;</div>
           <h2>Login</h2>
           <hr>
-          <form class="form-login">
-            <br>
+          <form class="form-login"><br>
             <label class="loglab" for="user">Nome ou Usuário</label>
-            <input class="usu" type="text" name="usuario">
-            <br>
+            <input class="usu" type="text" name="usuario"><br>
             <label class="loglab" for="password">Senha</label>
-            <input class="sen" type="password" name="senha">
-            <br>
+            <input class="sen" type="password" name="senha"><br>
             <div class="regisbuton"></div>
             <a href="#" id="esqueci-senha">Esqueci Minha Senha</a>
             <button class="enter-login-button">ENTRAR</button>
@@ -66,23 +67,16 @@
             <hr>
             <form class="form-cliente" id="form-cliente" method="post" action="">
                 <label class="regislab" for="name">Nome</label>
-                <input class="nome" type="text" id="nome" required>
-                <br>
+                <input class="nome" type="text" id="nome" required><br>
                 <label class="regislab" for="user">Usuario</label>
-                <input type="text" id="usuario" required>
-                <br>
+                <input type="text" id="usuario" required><br>
                 <label class="regislab" for="email">Email</label>
-                <input type="email" id="email" required>
-                <br>
+                <input type="email" id="email" required><br>
                 <label class="regislab" for="password">Senha</label>
-                <input class="sen" type="password" id="senha" required>
-                <br>
+                <input class="sen" type="password" id="senha" required><br>
                 <div class="regisbuton"></div>
                 <button class="enter-button">ENTRAR</button>
-            </div>
-               <li>
-                <a href="teste2.html">menu-lateral</a>
-               </li> 
+            </div> 
             </form>
         </div>
     <!-- Fim modal cliente -->
@@ -95,164 +89,84 @@
               <hr>
               <form class="form-registro-walker">
                 <label class="regislab" for="nome-walker">Nome</label>
-                <input class="nome-walker" type="text" name="nome-walker">
-                <br>
+                <input class="nome-walker" type="text" name="nome-walker"><br>
                 <label class="regislab" for="CPF">CPF</label>
-                <input type="number" name="CPF">
-                <br>
+                <input type="number" name="CPF"><br>
                 <label class="regislab" for="email-walker">Email</label>
-                <input type="email" name="email-walker">
-                <br>
+                <input type="email" name="email-walker"><br>
                 <label class="regislab" for="senha-walker">Senha</label>
-                <input class="sen" type="password" name="senha-walker">
-                <br>
+                <input class="sen" type="password" name="senha-walker"><br>
                 <label class="regislab" for="telefone-walker">Telefone</label>
-                <input type="tel" name="telefone-walker">
-                <br>
+                <input type="tel" name="telefone-walker"><br>
                 <div class="regisbuton"></div>
                 <button class="enter-button">REGISTRAR</button>
               </form>
             </div>
           </div>
     <!-- Fim DogWalker modal -->
-    </div>                             
-        </nav>
-
-</header>
-<!--Inicio corpo do site-->
-<!--
-<main class="corpo">
-    <div class="corpo-first">
-        <div class="apresentacao">
-            <div class="slider">
-                <div class="slides">
-                        radio button
-                    <input type="radio1" name="radio-btn" id="radio0">
-                    <input type="radio1" name="radio-btn" id="radio2">
-                    <input type="radio1" name="radio-btn" id="radio3">
-                    <input type="radio1" name="radio-btn" id="radio4">
-                        fim radio button
-
-                        slide images
-                    <div class="slide first">
-                    <img src="/imagens/Banner de boas vindas 1.png"    alt="imagem 1">
-                    </div>
-
-                    <div class="slide">    
-                    <img src="/imagens/Banner de boas vindas 2.png"    alt="imagem 2">
-                    
-                    </div>
-
-                    <div class="slide"> 
-                    <img src="/imagens/Banner de boas vindas 3.png"    alt="imagem 3">
-                    </div>
-
-                    <div class="slide">
-                    <img src="/imagens/Banner de boas vindas 4.png"   alt="imagem 4">
-                    </div>
-
-                    fim slide images-->
-                        <!--fim slide images-->
-
-                        <!--navigation auto
-                        <div class="navigation-auto">
-
-                            <div class="auto-btn1"> </div>
-                            <div class="auto-btn2"> </div>
-                            <div class="auto-btn3"> </div>
-                            <div class="auto-btn4"> </div>
-                        </div>
-
-                    </div>
-                    manual navigation
-                    <div class="manual-navigation">
-                        <label for="radio1" class="manual-btn"></label>
-                        <label for="radio2" class="manual-btn"></label>
-                        <label for="radio3" class="manual-btn"></label>
-                        <label for="radio4" class="manual-btn"></label>
-                </div>
-
-            </div>
-            <button href="serviço.html" id="btn-servico">VEJA NOSSOS DOG WALKERS</button>
-        </div>
-
-
-                    ESPAÇO DAS IMAGENS DE TRANSIÇÃO
-                    <div class="slider">
-                        <div class="slides">
-                                radio button
-                            <input type="radio" name="radio-btn" id="radio1">
-                            <input type="radio" name="radio-btn" id="radio2">
-                            <input type="radio" name="radio-btn" id="radio3">
-                            <input type="radio" name="radio-btn" id="radio4">
-                            <input type="radio" name="radio-btn" id="radio5">
-                                 fim radio button
-
-                                slide images
-                            <div class="slide first">
-                            <img src="/imagens/Divulgação1.png"    alt="imagem 1">
-                            </div>
-
-                            <div class="slide">    
-                            <img src="/imagens/Divulgação2.png"    alt="imagem 2">
-                            
-                            </div>
-
-                            <div class="slide"> 
-                            <img src="/imagens/Divulgação3.png"    alt="imagem 3">
-                            </div>
-
-                            <div class="slide">
-                            <img src="/imagens/Divulgação4.png"   alt="imagem 4">
-                            </div>
-
-                            <div class="slide">
-                            <img src="/imagens/Divulgação5.png"   alt="imagem 5">
-                            </div>
-                            
-                                fim slide images-->
-
-                                <!--navigation auto-
-                                <div class="navigation-auto">
-
-                                    <div class="auto-btn1"> </div>
-                                    <div class="auto-btn2"> </div>
-                                    <div class="auto-btn3"> </div>
-                                    <div class="auto-btn4"> </div>
-                                    <div class="auto-btn5"> </div>
-                                </div>
-
-                            </div>
-                            manual navigation--
-                            <div class="manual-navigation">
-                                <label for="radio1" class="manual-btn"></label>
-                                <label for="radio2" class="manual-btn"></label>
-                                <label for="radio3" class="manual-btn"></label>
-                                <label for="radio4" class="manual-btn"></label>
-                                <label for="radio5" class="manual-btn"></label>
-                        </div>
-
-                    </div>
-                    
-                    
-        Area de comentarios
-        <div class="corpo-comentario">
-            <div id="comentarios">
-            <h3>Deixe um comentário</h3>
-            <input type="text" id="nome" readonly />
-            <input type="text" id="usuario" readonly />
-            <input type="text" id="localizacao" placeholder="Localização" />
-            <textarea id="comentario" rows="4" cols="50" placeholder="Digite seu comentário aqui..."></textarea>
-            <button onclick="enviarComentario()">Enviar</button>
-            </div>
-            <div id="lista-comentarios">
-            <h3>Comentários</h3>
-            <ul id="comentarios-lista"></ul>
-            </div>
-        </div>   
-        -->         
     </div>   
+    
+    <!-- fim da navegação -->
+
+</nav>
+
+        <!-- fim do cabeçalho -->
+        <div class="fundo-menu">
+    
+            <nav class="menu-lateral">
+        
+                
+        
+                <ul>
+                    <li class="item-menu ativo">
+                        <a href="index.html">
+                            <span class="icon"><i class="bi bi-house"></i></span>
+                            <span class="txt-link">Home</span>
+                        </a> 
+                    </li>
+        
+                    <li class="item-menu">
+                        <a href="#">
+                            <span class="icon"><i class="bi bi-info-circle"></i></span>
+                            <span class="txt-link">Sobre</span>
+                        </a> 
+                    </li>
+        
+                    <li class="item-menu">
+                        <a href="#">
+                            <span class="icon"><i class="bi bi-card-image"></i></span>
+                            <span class="txt-link">Galeria</span>
+                        </a> 
+                    </li>
+                    <li class="item-menu">
+                        <a href="#">
+                            <span class="icon"><i class="bi bi-gear"></i></span>
+                            <span class="txt-link">Configurações</span>
+                        </a> 
+                    </li>
+        
+                    <li class="item-menu">
+                        <a href="#">
+                            <span class="icon"><i class="bi bi-calendar4"></i></span>
+                            <span class="txt-link">Agenda</span>
+                        </a> 
+                    </li>
+                </ul>
+            </nav>
+        </div>
+</header>
+
+<!--Inicio corpo do site-->
+<main>
+    
+    
 </main>
+
+<section>
+    <IMG src="/imagens/Divulgação1.png">
+        <IMG src="/imagens/Divulgação1.png">
+            <IMG src="/imagens/Divulgação1.png">
+</section>
 <!--Inicio do rodape-->
 <footer class="roda-pe-geral">
 
@@ -295,6 +209,7 @@
 
 <!--links do javascript-->
 <script src="/public/slide.js"> </script>
-<script src="/public/loginregister.js"></script>
+<script src="/public/modais.js"></script>
+<script src="/public/menulat.js"></script>
 </body>
 </html>

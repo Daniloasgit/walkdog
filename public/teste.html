@@ -228,41 +228,65 @@ height: 30px;
 <!-- <script src="/modalinterno.js"></script> -->
 
 
-<form action="" method="post" id="myform">
-
-  <div>
-    <label for="cpf">
-      Nome: <br>
-      <input type="number"  name="cpf" id="cpf" required>
-    </label>
-  </div>
-  <div>
-    <label for="User">
-      Usuário: <br>
-      <input type="text" name="usuario" id="user" required>
-    </label>
-  </div>
-  <div>
-    <label for="mail">
-      E-mail: <br>
-      <input type="email" name="mail" id="mymail" required> 
-    </label>
-  </div>
-    <div>
-      <label for="password">
-        Senha: <br>
-        <input type="password" name="senha" id="password" required>
-      </label>
-    </div>
-    <div>
-      <button type="submit" id="submitbtn">Registrar</button>
-    </div>
+<div> 
+  <h2>Registrar</h2>
+  <form id="registrationForm"> 
+      <div>
+          <div><label>Nome:</label></div>
+          <div><input type="text" id="name" placeholder="Digite seu nome"></div>
+          
+          <div><label>usuario:</label></div>
+          <div><input type="text" id="user" placeholder="Digite seu nome de usuario"></div>
+          
+          <div><label>Email:</label></div>
+          <div><input type="email" id="email" placeholder="email@email.com.br"></div>
+          
+          <div><label>Senha:</label></div>
+          <div><input type="password" id="password" placeholder="Digite sua senha"></div>
+      </div>
+      
+      <div>
+          <button class="btn" type="submit">Registrar</button>
+      </div>
   
-</form>
+      <div>
+          <a href="index.html"><button class="btn" type="button">Voltar</button></a>
+      </div>
+  </form>
+</div>
 
-<script href="/public/teste.js">
+<script src="/public/registerlogin.js"></script>
+<!--Faz o link com o arquivo 'api.js', onde a função de registro (register) está implementada.-->
+<script>
+  // Adiciona um listener para o formulário de registro que intercepta o envio do formulário.
+  document.querySelector('#registrationForm').addEventListener('submit', async (event) => {
+      event.preventDefault(); // Impede o comportamento padrão de envio do formulário para o servidor.
 
+      // Obtém os valores inseridos pelo usuário nos campos do formulário.
+      const name = document.getElementById('name').value;  // Nome do usuário
+      const user = document.getElementById('user').value;          // Nome de usuário escolhido pelo usuário
+      const email = document.getElementById('email').value;        // E-mail do usuário
+      const password = document.getElementById('password').value;  // Senha escolhida pelo usuário
+           
 
+      // Chama a função 'register' (definida no 'api.js') e aguarda o resultado do registro.
+      const result = await register(name,user, email, password);
+
+      // Verifica se o resultado do registro foi bem-sucedido.
+      if (result.success) {
+          // Exibe uma mensagem de sucesso e instrui o usuário a fazer login.
+          alert('Registro bem-sucedido! Faça login para continuar.');
+
+          // Reseta o formulário de registro, limpando todos os campos.
+          document.getElementById('registrationForm').reset();
+
+          // Redireciona o usuário para a página de login após o registro bem-sucedido.
+          window.location.href = 'public/registerdogwalker.html';
+      } else {
+          // Exibe uma mensagem de erro se o registro falhar.
+          alert('Registro falhou! Tente novamente.');
+      }
+  });
 
 </script>
 

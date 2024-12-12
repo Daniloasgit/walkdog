@@ -11,6 +11,11 @@ const path = require('path'); // Para lidar com caminhos de arquivos estáticos
 const db = require('./config/db'); // Importa a conexão com o banco de dados 
 const cors = require('cors');
 
+//Importar as rotas de clientes e autenticação
+const clientesRouter = require('./rotas/clientes');
+
+
+
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
@@ -24,9 +29,9 @@ app.use('/api/pets', petsRoutes);
 const dogwalkerRoutes = require('./rotas/dogwalker');
 app.use('/api/dogwalker', dogwalkerRoutes);
 
+const authClientes = require('./rotas/auth');
 
-const authRoutes = require('./rotas/auth');
-app.use('/api/auth', authRoutes);
+app.use('/api/auth', authClientes);
 
 // Rotas para serviços
 

@@ -38,7 +38,10 @@
 }
 
 /* cabeçalho do header */
-
+header {
+ position: fixed;
+ width: 100%;
+}
 /* logo do site */
   .logo {
     height: 100px;
@@ -977,23 +980,31 @@ color: black;
     /* Barra de menu lateral */
 
     .fundo-menu {
-      height: 900vh;
+      height: 100vh;
+      
     }
 
     nav.menu-lateral {
+      
       width: 80px;
       height: 100%;
-      background-color: var(--Grey);
+      background-color: var(--Gold);
       padding: 40px 0 40px 1%;
       box-shadow: 3px 0 0 var(--Danilo);
       position: fixed;
-      top: 0;
+      top: 150px;
       left: 0;
+      
       overflow: hidden;
-      transition: .2s;
+      transition: .6s;
     }
 
-    nav.menu-lateral:hover {
+    main {
+      position: absolute;
+    
+    }
+
+    nav.menu-lateral.expandir {
       width: 300px;
     }
 
@@ -1022,7 +1033,7 @@ color: black;
     }
 
     ul li.ativo {
-      background-color: var(--Gold);
+      background-color: var(--MediumVioletRed);
     }
 
     ul li.item-menu a{
@@ -1036,6 +1047,12 @@ color: black;
     }
 
     ul li.item-menu a .txt-link {
+      margin-left: 40px;
+      transition: .5s;
+      opacity: 1;
+    }
+
+    nav.menu-lateral.expandir .txt-link {
       margin-left: 40px;
     }
 
