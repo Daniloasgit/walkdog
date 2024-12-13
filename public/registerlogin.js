@@ -3,20 +3,20 @@ const API_URL = 'http://localhost:3000/api';
 
 // Função assíncrona para fazer login do usuário.
 
-// Recebe o 'email' e 'password' como parâmetros.
-async function login(usuario,email, password) {
+// Recebe o 'email' e 'senha' como parâmetros.
+async function login(usuario,email, senha) {
     try {
         // Exibe no console os dados de login que serão enviados ao servidor.
-        console.log('Enviando dados para login:', {usuario, email, password });
+        console.log('Enviando dados para login:', {usuario, email, senha });
         
         // Envia uma requisição POST à API na rota '/auth/login'.
-        // A requisição inclui um cabeçalho para indicar que o conteúdo é JSON e envia o 'email' e 'password' no corpo da requisição.
+        // A requisição inclui um cabeçalho para indicar que o conteúdo é JSON e envia o 'email' e 'senha' no corpo da requisição.
         const response = await fetch(`${API_URL}/auth/login`, {
             method: 'POST', // Define o método HTTP como POST.
             headers: {
                 'Content-Type': 'application/json' // Informa que o corpo da requisição está no formato JSON.
             },
-            body: JSON.stringify({ usuario,email, password }) // Converte os dados de login para o formato JSON e envia no corpo da requisição.
+            body: JSON.stringify({ usuario,email, senha }) // Converte os dados de login para o formato JSON e envia no corpo da requisição.
         });
 
         // Aguarda e converte a resposta do servidor para JSON.
@@ -38,10 +38,10 @@ async function login(usuario,email, password) {
 
 
 // Função para registrar um novo usuário
-async function register(name,usuario, email, password) {
+async function register(id, nome, usuario, email, senha, telefone, atuacao) {
     try {
         // Exibe no console os dados que estão sendo enviados ao servidor para registro.
-        console.log('Enviando dados para registro:', { name,usuario, email, password});
+        console.log('Enviando dados para registro:', { nome,usuario, email, senha});
 
         // Envia uma requisição POST para a API no endpoint '/auth/register' com os dados do novo usuário.
         const response = await fetch(`${API_URL}/rotas/clientes`, {
@@ -49,7 +49,7 @@ async function register(name,usuario, email, password) {
             headers: {
                 'Content-Type': 'application/json' // Define o cabeçalho, informando que o corpo da requisição será em formato JSON.
             },
-            body: JSON.stringify({ name, usuario, email, password}) // Converte os dados do registro em uma string JSON e os envia no corpo da requisição.
+            body: JSON.stringify({ nome, usuario, email, senha}) // Converte os dados do registro em uma string JSON e os envia no corpo da requisição.
         });
 
         // Verifica se o código de resposta HTTP está fora da faixa de 200-299 (indicando uma falha na requisição).
@@ -77,14 +77,14 @@ async function register(name,usuario, email, password) {
 //------------------------------------ Operações CRUD ---------------------------------------
 
 
-// Função para obter (Read - Ler) todas as transações
+// Função para obter (Read - Ler) todos os clientes
 
 
-async function getTransactions() {
+async function getALLClientes() {
 
-    //Enviar uma requisição GET para a rota 'transactions' da API para obter todas as transações
+    //Enviar uma requisição GET para a rota 'clientes' da API para obter todos os clientes
 
-    const response = await fetch(`${API_URL}/transactions`,{
+    const response = await fetch(`${API_URL}/clientes`,{
 
         method: 'GET', // Define o método HTTP como GET, que solicita dados do servidor sem enviar informações no corpo.
 
@@ -102,12 +102,12 @@ async function getTransactions() {
 }
 
 
-//Função para Adicionar (CREATE - CRIAR) uma nova transação
+//Função para registrar um novo cliente
 
-async function addTransaction(transaction) {
+async function addClientes(clientes) {
     try {
-        //Envia uma requisição POST para a rota '/transactions' da API, com o objetivo de criar uma nova transação.
-        const response =await fetch(`${API_URL}/transactions`, {
+        //Envia uma requisição POST para a rota '/clientes' da API, com o objetivo de registrar um novo cliente.
+        const response =await fetch(`${API_URL}/clientes`, {
             method: 'POST', // Define o método HTTP como POST, usado para enviar dados ao servidor.
             headers:{
                 // Define o tipo de conteúdo da requisição como JSON.
@@ -116,15 +116,15 @@ async function addTransaction(transaction) {
                 'Authorization': `Bearer ${localStorage.getItem('token')}` 
             },
             //Transforma o objeto transction em uma strig JSON e envia no corpo da requisição.
-            body: JSON.stringify(transaction) 
+            body: JSON.stringify(clientes) 
         });
 
         // Retornar um objeto indicando sucesso se a resposta for ok ( status 200-299), ou falha se nao for ok.
         return response.ok ? {success: true} : {success: false};
     } catch (error) {
         //Captura e exibe um erro caso ocorra uma falha durante a requisição.
-        console.error('Erro ao adicionar transação:', error);
+        console.error('Erro ao adicionar cliente:', error);
         //Retornar um objeto indicando falha no caso de erro.
         return{success: false};
     }
-}
+};

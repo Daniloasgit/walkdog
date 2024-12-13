@@ -4,7 +4,7 @@ const express = require('express');
 const router = express.Router();
 const petsController = require('../controles/petsController');
 
-// Função para obter todas as transações 
+// Função para obter todos os pets
 const getALLPets = (req, res) => { 
     db.query('SELECT * FROM animal', (err, results) => { 
     if (err) { 

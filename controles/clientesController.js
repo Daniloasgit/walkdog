@@ -2,9 +2,9 @@ const db = require('../config/db'); // Importa a conexão com o banco de dados
 
 const express = require('express');
 const router = express.Router();
-const transactionsController = require('./clientesController');
+const clientesController = require('../controles/clientesController');
 
-// Função para obter todas as transações 
+// Função para obter todos os clientes 
 const getALLClientes = (req, res) => { 
     db.query('SELECT * FROM clientes', (err, results) => { 
     if (err) { 
@@ -17,12 +17,12 @@ const getALLClientes = (req, res) => {
     }; 
 
 const addClientes = (req, res) => {
-    const{nome,email,senha,cpf,telefone,endereco} = req.body;
+    const{ id, nome, usuario, email, senha, telefone, atuacao } = req.body;
 
  // Verifica se o animal já está cadastrado =? AND
  db.query(
-    'SELECT * FROM clientes WHERE nome=? AND email=? AND senha=? AND cpf=? AND telefone=? AND endereco=?',
-    [nome,email,senha,cpf,telefone,endereco],
+    'SELECT * FROM clientes WHERE id=? AND nome=? AND usuario=? AND email=? AND senha=? AND telefone=? AND atuacao=?',
+    [id, nome, usuario, email, senha, telefone, atuacao],
     (err, result) => {
         if (err) {
             console.error('ERRO AO VERIFICAR Cliente', err);
@@ -34,8 +34,8 @@ const addClientes = (req, res) => {
             return;
         }
 
-    db.query ('INSERT INTO clientes (nome, email, senha, cpf, telefone, endereco) VALUES(?, ?, ?, ?, ?, ?)',
-    [nome,email,senha,cpf,telefone,endereco],
+    db.query ('INSERT INTO clientes (id, nome, usuario, email, senha, telefone, atuacao) VALUES(?, ?, ?, ?, ?, ?, ?)',
+    [id, nome, usuario, email, senha, telefone, atuacao],
     (err,results) => {
         if (err) {
             console.error('Erro ao adicionar Cliente:',err);

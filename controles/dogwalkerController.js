@@ -4,7 +4,7 @@ const express = require('express');
 const router = express.Router();
 const walksControllers = require('../controles/dogwalkerController');
 
-// Função para obter todas as transações 
+// Função para obter todos os DogWalkers
 const getALLWalks = (req, res) => { 
     db.query('SELECT * FROM dogwalker', (err, results) => { 
     if (err) { 
@@ -17,12 +17,12 @@ const getALLWalks = (req, res) => {
     }; 
 
 const addWalks = (req, res) => {
-    const{nome,usuario,email,senha,cpf,telefone} = req.body;
+    const{id, nome, usuario, email, senha, telefone, atuacao} = req.body;
 
  // Verifica se o animal já está cadastrado =? AND
  db.query(
-    'SELECT * FROM dogwalker WHERE nome=?  AND usuario=? AND email=? AND senha=? AND cpf=? AND telefone=?',
-    [nome,usuario,email,senha,cpf,telefone],
+    'SELECT * FROM dogwalker WHERE id=? AND nome=?  AND usuario=? AND email=? AND senha=? AND telefone=? AND atuacao=?',
+    [id, nome, usuario, email, senha, telefone, atuacao],
     (err, result) => {
         if (err) {
             console.error('ERRO AO VERIFICAR DogWalker', err);
@@ -34,8 +34,8 @@ const addWalks = (req, res) => {
             return;
         }
 
-    db.query ('INSERT INTO dogwalker (nome, usuario, email, senha, cpf, telefone) VALUES(?, ?, ?, ?, ?)',
-    [nome,usuario,email,senha,cpf,telefone],
+    db.query ('INSERT INTO dogwalker (id, nome, usuario, email, senha, telefone, atuacao) VALUES(?, ?, ?, ?, ?, ?, ?)',
+    [id, nome, usuario, email, senha, telefone, atuacao],
     (err,results) => {
         if (err) {
             console.error('Erro ao adicionar DogWalker:',err);

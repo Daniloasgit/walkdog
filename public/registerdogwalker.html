@@ -15,312 +15,120 @@
         <title>Walk & Dog</title>
         <!--Links-->
         <link rel="shortcut icon" href="/imagens/walkedog6.png" type="image/png">
-     <link rel="stylesheet" href="/public/style.css">
-        
+        <link rel="stylesheet" href="/public/style.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    </head>  
 <body>
-    
-
+<!--Inicio Cabecalho-->
 <header>
-    <nav class="menu">
-        <a href="/public/index.html"><img class="logo" src="/imagens/walkedog6.png" alt="logo"></a>
+    <div class="btn-expandir">
+        <i class="bi bi-list" id="btn-exp"></i>
+    </div>
+    <nav class="menu"><a href="/public/index.html"><img class="logo" src="/imagens/walkedog-logo1.png" alt="logo"></a></nav>
+    <nav class="menu"><img class="logo-2" src="/imagens/walkedog-logo2.png" alt="logo"></nav>
+   
+    <div>
+        <button class="btn-logout" id="btn-logout">LogOut</button></div>
 
-        
-        
-        <!-- Modal para o botão de registro -->
-        <style>
-           
-              </style>
-            </head>
-            <body>
-                <div class="bots">
+    <!-- fim da navegação -->
+</nav>
 
-                   <button id="logout-button" class="logout-button">LOGOUT</button>
-              
-                          
-                        
-    </nav>
+        <!-- fim do cabeçalho -->
+        <div class="fundo-menu">
     
+            <nav class="menu-lateral">
+        
+                
+        
+                <ul>
+                    <li class="item-menu ativo">
+                        <a href="index.html">
+                            <span class="icon"><i class="bi bi-house"></i></span>
+                            <span class="txt-link">Home</span>
+                        </a> 
+                    </li>
+        
+                    <li class="item-menu">
+                        <a href="#">
+                            <span class="icon"><i class="bi bi-info-circle"></i></span>
+                            <span class="txt-link">Sobre</span>
+                        </a> 
+                    </li>
+        
+                    <li class="item-menu">
+                        <a href="#">
+                            <span class="icon"><i class="bi bi-card-image"></i></span>
+                            <span class="txt-link">Galeria</span>
+                        </a> 
+                    </li>
+                    <li class="item-menu">
+                        <a href="#">
+                            <span class="icon"><i class="bi bi-gear"></i></span>
+                            <span class="txt-link">Configurações</span>
+                        </a> 
+                    </li>
+        
+                    <li class="item-menu">
+                        <a href="#">
+                            <span class="icon"><i class="bi bi-calendar4"></i></span>
+                            <span class="txt-link">Agenda</span>
+                        </a> 
+                    </li>
+                </ul>
+            </nav>
+        </div>
 </header>
 
-
-<hr class="hr">
+<!--Inicio corpo do site-->
 <main>
-    <div class="txt-area-walker">
-        <h1>MINHA ÁREA </h1>
-    </div>
     
-    <div class="container-walker1">
-        <div class="caixa-walker1">
-            <div class="caixa-imagem1">
-                <div class="child">
-                    <h2>Meu histórico</h2>
-                </div>
-            </div>
-        </div>
-
-        <div class="caixa-walker2">
-            <div class="caixa-imagem2">
-                <div class="child">
-                    <h2>Meus ganhos</h2>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container-walker2">
-        <div class="caixa-walker3">
-            <div class="caixa-imagem3">
-                <div class="child">
-                <h2>Configurações e Preferências</h2>
-                </div>
-            </div>
-        </div>
-    </div>
+    
     
 </main>
 
-
-
-
-
-
-
-<hr class="hr">
+<!--Inicio do rodape-->
 <footer class="roda-pe-geral">
-    <div class="roda-pe">
-        <h3>
-            CONTATOS:
-            <ul class="telefone">
-                <li> <img src="/imagens/phone-svgrepo-com.svg" alt="pataimg"> 4002-8922</li>
-                <li> <img src="/imagens/whatsapp-svgrepo-com.svg" alt="pataimg"> (86)6969-2424</li>
-            </ul>
-        </h3>
-        <h3>
-            FORMAS DE PAGAMENTO
-            <div class="cartao">
-                <img src="/imagens/visa-svg.svg"> 
-                <img src="/imagens/mastercard-svg.svg"> 
-                <img src="/imagens/pix-svg.svg"> 
-            </div>
-            <p>
-                PARCELAMOS EM ATÉ 24X
-            </p>
-        </h3>
-        <h3>
-            <div class="midias-sociais"></div>
-                REDES SOCIAIS 
-                <div class="imagens-midia">
-                    <img src="/imagens/instagram-logo-svgrepo-com-preto.svg" style="height: 40px; width: 40px;" alt="">
 
-                    <img src="/imagens/facebook-svgrepo-com-preto.svg" style="width: 45px; height: 45px;" alt="">
+        <div class="titulos-midias">
 
-                    <img src="/imagens/youtube-168-svgrepo-com-preto.svg" style="height: 45px; width: 45px;" alt="">
+                <span class="title-midia">REDES SOCIAIS
+                    <div class="img-midia-icon">
+                    <a class="whats" href="https://www.whatsapp.com/?lang=pt_BR"><img src="/imagens/svg-whats.svg"></a>
+                    <a class="insta" href="https://www.instagram.com/"><img src="/imagens/svg-insta.svg"></a>
+                    <a class="insta" href="https://www.instagram.com/"><img src="/imagens/svg-youtube.svg"></a>
+                    </div>  
+                </span>
+                  
+                <span class="title-midia">Formas De Pagamentos
+                <div class="img-midia-1">
+                    <img class="imagem-midia" src="/imagens/visa-svg.svg" alt="visa">
+                    <img class="imagem-midia" src="/imagens/pix-svg.svg" alt="pix">
+                    <img class="imagem-midia" src="/imagens/mastercard-svg.svg" alt="mastercard">
                 </div>
-            </div>
-        </h3>
-    </div>
+                </span>
+
+                <span class="title-midia">Links Utéis
+                    <div class="img-midia">
+                        
+                        <a class="texto" href="#">INÍCIO</a>
+                        <a class="texto" href="#">SOBRE NÓS</a>
+                        <a class="texto" href="contato.html">CONTATO</a>
+                        
+                    </div>
+                    </span>
+        </div>
+    
+    <hr>
+
     <div class="marca-registrada">
         <h4>© 2024 WALK & DOG - Todos os direitos reservados.</h4>
     </div>
+    
 </footer>
 
-<script src="/public/loginregister.js"> </script>
-
-<style>
-   .login-area {
-  display: none;
-  position: fixed;
-  z-index:1 ;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.4);
-
-}
-
-.form-login a{
-margin-left: 60px;
-}
-
-.loglab{
-  margin-left: 70px;
-}
-
-.modal-content-login {
-  background-color: white;
-  margin: 5% auto;
-  padding: 20px;
-  border: 1px solid black;
-  width: 16%;
-  border-radius: 15px;
-  box-shadow: 2px 3px 5px;
-}
-
-
-
-.close-btn-log {
-color: black;
-  float: right;
-  font-size: 35px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.login{
-margin-left: 22%;
-
-}
-
-  
-      .login-button {
-  color: white;
-  background-color: black;
-  padding: 5px 30px 5px 30px ;
-border-radius: 10px;
-height: 30px;
-}
-
-.enter-login-button {
-color: white;
-background-color: black;
-margin-left:auto;
-padding: 5px 30px 5px 30px ;
-border-radius: 10px;
-height: 30px;
-margin-left: 28%;
-margin-top: 20px;
-}
-
-.enter-login-button:hover{
-background-color: dimgray;
-color: white;
-}
-
-.area {
-  display: none;
-  position: fixed;
-  z-index:1 ;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.4);
-  background-color: rgb(0,0,0);
-}
-
-      .bots {
-          margin-left: 1200px;
-          margin-bottom: 50px;
-          padding: 0px 30px;
-          display: flex;
-      }
-      
-      .modal-content {
-          background-color: white;
-          margin: 5% auto;
-          padding: 20px;
-          border: 1px solid black;
-          width: 20%;
-          border-radius: 15px;
-          box-shadow: 2px 3px 5px;
-      }
-
-      .registrar{
-          margin-left: 18%;
-      }
-      
-      .register-area{
-          display: none;
-          position: fixed;
-          z-index: 1; 
-          left: 0;
-          top: 0;
-          width: 100%; 
-          height: 100%;
-       outline: none;
-          background-color: rgba(0,0,0,0.4);
-      
-      }
-
-      .regislab {
-          margin-left: 110px;
-      }
-      .close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-
-.close-btn {
-color: black;
-  float: right;
-  font-size: 35px;
-  font-weight: bold;
-  cursor: pointer;
-}
-      .close-btn-regis {
-        color: black;
-          float: right;
-          font-size: 35px;
-          font-weight: bold;
-          cursor: pointer;
-      }
-     
-           input {
-          display: block;
-          width: 50%;
-          outline: none;
-          margin-left: auto;
-          margin-right: auto;
-          height: 30px;
-          border-radius: 15px;
-              margin-top: 3px;
-           }
-           
-           button{
-            cursor: pointer;
-            margin-top: 50px;
-           }
-              .register-button {
-          color: white;
-          background-color: black;
-          padding: 5px 20px 5px 20px ;
-          margin-left: 15px;
-           border-radius: 10px;
-           height: 30px;
-      }
-      
-      .register-button:hover{
-        background-color: dimgray;
-        color: white;
-      }
-      
-      .enter-button {
-        color: white;
-          background-color: black;
-          padding: 5px 20px 5px 20px ;
-      border-radius: 10px;
-      height: 30px;
-      margin-left: 35%;
-          margin-top: 20px;
-      }
-      
-      .enter-button:hover{
-        background-color: dimgray;
-        color: white;
-      }
-
-      main {
-      display: grid;
-  }
-
-    
-      </style>
-
+<!--links do javascript-->
+<script src="/public/slide.js"> </script>
+<script src="/public/modais.js"></script>
+<script src="/public/menulat.js"></script>
 </body>
 </html>

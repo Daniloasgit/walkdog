@@ -985,16 +985,15 @@ color: black;
     }
 
     nav.menu-lateral {
-      
       width: 80px;
       height: 100%;
-      background-color: var(--Gold);
+      background-color: transparent;
       padding: 40px 0 40px 1%;
-      box-shadow: 3px 0 0 var(--Danilo);
-      position: fixed;
+      box-shadow: 1px 0 0 var(--Danilo);
+      position: absolute;
+      top: 150px;
       top: 150px;
       left: 0;
-      
       overflow: hidden;
       transition: .6s;
     }
