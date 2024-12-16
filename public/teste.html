@@ -16,7 +16,183 @@
         <!--Links-->
         <link rel="shortcut icon" href="icons8-dogs-lineal-color-32.png" type="image/png">
      <link rel="stylesheet" href="/public/style.css">
-        
+        <!-- <style>
+       .login-area {
+  display: none;
+  position: fixed;
+  z-index:1 ;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+
+}
+
+.form-login a{
+margin-left: 60px;
+}
+
+.loglab{
+  margin-left: 70px;
+}
+
+
+.close-btn-log {
+color: black;
+  float: right;
+  font-size: 35px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.login{
+margin-left: 22%;
+
+}
+
+  
+      .login-button {
+  color: white;
+  background-color: black;
+  padding: 5px 30px 5px 30px ;
+border-radius: 10px;
+height: 30px;
+}
+
+.enter-login-button {
+color: white;
+background-color: black;
+margin-left:auto;
+padding: 5px 30px 5px 30px ;
+border-radius: 10px;
+height: 30px;
+margin-left: 28%;
+margin-top: 20px;
+}
+
+.enter-login-button:hover{
+background-color: dimgray;
+color: white;
+}
+
+.area {
+  display: none;
+  position: fixed;
+  z-index:1 ;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+  background-color: rgb(0,0,0);
+}
+
+      .bots {
+          margin-bottom: 50px;
+          display: flex;
+          font-family: 'Atma';
+      }
+      
+      .modal-content {
+          background-color: white;
+          margin: 5% auto;
+          padding: 20px;
+          border: 1px solid black;
+          width: 20%;
+          border-radius: 15px;
+          box-shadow: 2px 3px 5px;
+      }
+
+      .registrar{
+          margin-left: 18%;
+      }
+      
+      .register-area{
+          display: none;
+          position: fixed;
+          z-index: 1; 
+          left: 0;
+          top: 0;
+          width: 100%; 
+          height: 100%;
+       outline: none;
+          background-color: rgba(0,0,0,0.4);
+      
+      }
+
+      .regislab {
+          margin-left: 110px;
+      }
+      .close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+
+.close-btn {
+color: black;
+  float: right;
+  font-size: 35px;
+  font-weight: bold;
+  cursor: pointer;
+}
+      .close-btn-regis {
+        color: black;
+          float: right;
+          font-size: 35px;
+          font-weight: bold;
+          cursor: pointer;
+      }
+     
+           input {
+          display: block;
+          width: 50%;
+          outline: none;
+          margin-left: auto;
+          margin-right: auto;
+          height: 30px;
+          border-radius: 15px;
+              margin-top: 3px;
+           }
+           
+           button{
+            cursor: pointer;
+            margin-top: 50px;
+           }
+              .register-button {
+          color: white;
+          background-color: black;
+          padding: 5px 20px 5px 20px ;
+          margin-left: 15px;
+           border-radius: 10px;
+           height: 30px;
+      }
+      
+      .register-button:hover{
+        background-color: dimgray;
+        color: white;
+      }
+      
+      .enter-button {
+        color: white;
+          background-color: black;
+          padding: 5px 20px 5px 20px ;
+      border-radius: 10px;
+      height: 30px;
+      margin-left: 35%;
+          margin-top: 20px;
+      }
+      
+      .enter-button:hover{
+        background-color: dimgray;
+        color: white;
+      }
+        </style> -->
 <body>
 
 </head>
@@ -47,7 +223,295 @@
 </table>
 
 </main>
+<!-- <style>
+  /* Mostrar o menu suspenso quando o botão é hoverizado */
+.bots:hover .dropdown {
+  display: block;
+  opacity: 1; /* Tornar visível ao passar o mouse */
+}
+.bots .dropdown {
+  opacity: 0;
+  transition-delay: 0.30s; /* Atraso de 0.5s para desaparecer */
+}
 
+/* Estilo das modais */
+.modal-login {
+  display: none; /* Inicialmente escondido */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4); /* Fundo transparente */
+}
+.modal-walker {
+  display: none; /* Inicialmente escondido */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4); /* Fundo transparente */
+}
+
+.modal-cliente {
+  display: none; /* Inicialmente escondido */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4); /* Fundo transparente */
+}
+
+/* Conteúdo das modais */
+.modal-content-login {
+  background-color: white;
+  margin: 18% auto;
+  width: 16%;
+  padding: 30px;
+  width: 300px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  border: 1px solid black;
+  border-radius: 15px;
+
+}
+.modal-content-cliente {
+  background-color: white;
+  margin: 5% auto;
+  padding: 30px;
+  width: 300px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content-walker {
+  background-color: white;
+  margin: 5% auto;
+  padding: 30px;
+  width: 300px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Botão de fechar da modal */
+.close-btn {
+  color: black;
+  font-size: 35px;
+  font-weight: bold;
+  cursor: pointer;
+  float: right;
+}
+
+/* Estilo para os botões de Login e Registrar */
+.login-button, .register-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+
+.logout-button {
+  background-color: var(--preto);
+  color: white;
+  border-radius: 10px;
+margin-left: 350px;
+ <!-- <style>
+       .login-area {
+  display: none;
+  position: fixed;
+  z-index:1 ;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+
+}
+
+.form-login a{
+margin-left: 60px;
+}
+
+.loglab{
+  margin-left: 70px;
+}
+
+
+.close-btn-log {
+color: black;
+  float: right;
+  font-size: 35px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.login{
+margin-left: 22%;
+
+}
+
+  
+      .login-button {
+  color: white;
+  background-color: black;
+  padding: 5px 30px 5px 30px ;
+border-radius: 10px;
+height: 30px;
+}
+
+.enter-login-button {
+color: white;
+background-color: black;
+margin-left:auto;
+padding: 5px 30px 5px 30px ;
+border-radius: 10px;
+height: 30px;
+margin-left: 28%;
+margin-top: 20px;
+}
+
+.enter-login-button:hover{
+background-color: dimgray;
+color: white;
+}
+
+.area {
+  display: none;
+  position: fixed;
+  z-index:1 ;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+  background-color: rgb(0,0,0);
+}
+
+      .bots {
+          margin-bottom: 50px;
+          display: flex;
+          font-family: 'Atma';
+      }
+      
+      .modal-content {
+          background-color: white;
+          margin: 5% auto;
+          padding: 20px;
+          border: 1px solid black;
+          width: 20%;
+          border-radius: 15px;
+          box-shadow: 2px 3px 5px;
+      }
+
+      .registrar{
+          margin-left: 18%;
+      }
+      
+      .register-area{
+          display: none;
+          position: fixed;
+          z-index: 1; 
+          left: 0;
+          top: 0;
+          width: 100%; 
+          height: 100%;
+       outline: none;
+          background-color: rgba(0,0,0,0.4);
+      
+      }
+
+      .regislab {
+          margin-left: 110px;
+      }
+      .close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+
+.close-btn {
+color: black;
+  float: right;
+  font-size: 35px;
+  font-weight: bold;
+  cursor: pointer;
+}
+      .close-btn-regis {
+        color: black;
+          float: right;
+          font-size: 35px;
+          font-weight: bold;
+          cursor: pointer;
+      }
+     
+           input {
+          display: block;
+          width: 50%;
+          outline: none;
+          margin-left: auto;
+          margin-right: auto;
+          height: 30px;
+          border-radius: 15px;
+              margin-top: 3px;
+           }
+           
+           button{
+            cursor: pointer;
+            margin-top: 50px;
+           }
+              .register-button {
+          color: white;
+          background-color: black;
+          padding: 5px 20px 5px 20px ;
+          margin-left: 15px;
+           border-radius: 10px;
+           height: 30px;
+      }
+      
+      .register-button:hover{
+        background-color: dimgray;
+        color: white;
+      }
+      
+      .enter-button {
+        color: white;
+          background-color: black;
+          padding: 5px 20px 5px 20px ;
+      border-radius: 10px;
+      height: 30px;
+      margin-left: 35%;
+          margin-top: 20px;
+      }
+      
+      .enter-button:hover{
+        background-color: dimgray;
+        color: white;
+      }
+} -->
+</style>
 <script src="teste.js"></script>
 </body>
 </html>

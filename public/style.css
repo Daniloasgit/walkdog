@@ -1,93 +1,116 @@
-
+/* Importação da fonte "Atma" do Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&display=swap');
-/* Atma */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-
-/*Configuração padrão do CSS*/
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Atma';
-}
-
-/*Cores utilizadas no site*/
-:root {
-    --Gold: #FFD700;
-    --Preto-Um-Pouco-Claro: #222020;
-    --MediumVioletRed: #C71585;
-    --OrangeRed: #FF4500;
-    --DarkOrange: #FF8C00;
-    --Sea-Blue: #2E8B57;
-    --Lime: #00FF00;
-    --DarkCyan: #008B8B;
-    --Cyan: #00FFFF;
-    --Indigo: #4B0082;
-    --Snow: #FFFAFA;
-    --Khaki: #F0E68C;
-    --Light-Salmon: #FFA07A;
-    --PapayaWhip:   #FFEFD5;
-    --Crimson:  #DC143C;
-    --Danilo: #111111;
-    --Madeirada: #a52a2a;
-    --DodgerBlue: #1E90FF;
-    --LightGray: #D3D3D3;
-    --DarkGray: #A9A9A9;
-    --Grey:       #808080;
-}
-
-/* cabeçalho do header */
+  
+  /*Configuração padrão do CSS*/
+  * {
+      box-sizing: border-box; /* Define o box-sinzing como border-box para todos os elementos */
+      margin: 0;/* Remove margens padrões*/
+      padding: 0;/* Revome preenchimento padrão*/
+      font-family: Atma;/* Define a fonte do site como "Atma" */
+  }
+  
+  /*Cores utilizadas no site*/
+  :root {
+      --Preto: #000000;
+      --Branco: #ffffff;
+      --Cinza-Claro: #D3D3D3;
+      --Cinza-Medio: #A9A9A9;
+      --Cinza-Escuro: #696969;
+      --Verde-Menta: #98fb98;
+      --Verde-Lima: #32cd32;
+      --Verde-Escuro: #228b22;
+  }
+  
+/* Estilo do cabeçalho */
 header {
- position: fixed;
- width: 100%;
+  display: flex; /* Layout flexbox para alinhas os itens horizontalmente */
+  align-items: center; 
+  justify-content: space-between;
+  padding: 10px 20px; /*Espaçamento interno do cabeçalho*/
+  background: linear-gradient(to right, var(--Verde-Menta), var(--Verde-Lima), var(--Verde-Escuro)); /* Gradiente de cores de fundo do cabeçalho*/
+  position: fixed; /* Cabeçalho fixo no topo do página*/
+  width: 100%; /* Largura total da página*/
+  z-index: 10; /* Prioridade na pilha de elementos */
 }
-/* logo do site */
-  .logo {
-    height: 100px;
-    width: 100px;
+
+/* Estilização dos botões de navegação */
+.bots nav {
+  display: inline-block; /* Alinha os itens em linha */
+}
+
+/* Estilização das logos */
+.logo {
+  height: 100px; /* Altura da logo */
+  width: 100px; /* Largura da logo */
 }
 .logo-2 {
-  width: 400px;
-} 
+  width: 400px; /* Largura específica para uma logo alternativa */
+}
+
+/* Estilização do menu de navegação */
+.menu {
+  display: flex; /* Define o layout como flexbox */
+  align-items: center; /* Alinha itens verticalmente ao centro */
+}
+
+/* Animação para deslocamento do conteúdo principal */
+.main-content {
+  transition: margin-left 0.3s ease; /* Animação suave para deslocamento */
+  margin-left: 0; /* Posição inicial */
+}
+.main-content.shifted {
+  margin-left: 200px; /* Desloca o conteúdo para a direita (tamanho do menu lateral) */
+}
+
 /* Estilo do botão principal "Acessar" */
+.bots nav {
+  display: inline-block; /* Define deslocamento quando o menu lateral estiver aberto */
+}
+
+/* Estilo para botão principal de "Acessar" */
 .menu-button {
-  color: white;
-  background-color: black;
-  padding: 10px 20px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-family: 'Atma';
+  background-color: var(--Preto); /* Cor de fundo preta */
+  color: var(--Branco); /* Texto branco */
+  border: none; /* Sem borda */
+  padding: 10px; /* Espaçamento interno */
+  cursor: pointer; /* Altera o cursor para mãozinha */
+  font-size: 14px; /* Tamanho do texto */
+  border-radius: 10px; /* Borda arredondada */
 }
 
 /* Menu suspenso (dropdown) que aparece no hover */
 .dropdown {
   display: none; /* Inicialmente escondido */
-  position: absolute;
-  background-color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-  padding: 10px;
-  z-index: 10;
+  position: absolute; /* Posição relativa ao botão */
+  background-color: var(--Branco); /* Fundo branco */
+  box-shadow: 0 4px 8px var(--Preto, 0.2); /* Sombra para destacar */
+  border-radius: 10px; /* Bordas arredondadas */
+  padding: 10px; /* Espaçamento interno */
+  z-index: 10; /* Prioridade na pilha */
   opacity: 0; /* Inicialmente invisível */
-  transition: opacity 0.3s linear, visibility 0.30s linear;
-  width: 130px;
+  transition: opacity 0.3s linear, visibility 0.30s linear; /* Suaviza visibilidade */
+}
+
+/* Torna o dropdown visível ao passar o mouse no botão */
+.menu-button:hover + .dropdown {
+  display: block;
 }
 
 /* Estilo dos botões dentro do menu suspenso */
 .dropdown button {
-  width: 100%;
-  padding: 10px;
-  margin: 5px 0;
-  background-color: black;
-  color: white;
-  border-radius: 10px;
-  cursor: pointer;
+  width: 100%; /* Largura total do botão */
+  padding: 10px; /* Espaçamento interno */
+  margin: 5px 0; /* Margem entre os botões */
+  background-color: var(--Preto); /* Fundo preto */
+  color: var(--Branco); /* Texto branco */
+  border-radius: 10px; /* Bordas arredondadas */
+  cursor: pointer; /* Transforma o curso em desing de maõzinha*/
 }
 
 /* Efeito de hover nos botões do menu */
 .dropdown button:hover {
-  background-color: dimgray;
+  background-color: var(--Cinza-Escuro); /* Fundo cinza escuro */
 }
 
 /* Mostrar o menu suspenso quando o botão é hoverizado */
@@ -95,967 +118,360 @@ header {
   display: block;
   opacity: 1; /* Tornar visível ao passar o mouse */
 }
+/* Transição para sumir o menu com atraso */
 .bots .dropdown {
-  opacity: 0;
+  opacity: 0; /* Invisível */
   transition-delay: 0.30s; /* Atraso de 0.5s para desaparecer */
 }
 
 /* Estilo das modais */
-.modal-login {
-  display: none; /* Inicialmente escondido */
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4); /* Fundo transparente */
-}
-.modal-walker {
-  display: none; /* Inicialmente escondido */
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4); /* Fundo transparente */
-}
-
-.modal-cliente {
-  display: none; /* Inicialmente escondido */
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4); /* Fundo transparente */
+.modal {
+  display: none; /* Inicialmente a modal é escondida da visualização */
+  position: fixed; /* A modal é posicionada fixamente na tela, ou seja, não se moverá ao rolar a página */
+  z-index: 1; /* Define a sobrecarga da modal em relação a outros elementos (1 é um valor baixo, permitindo sobrepor outros conteúdos) */
+  left: 0; /* Posiciona a modal no lado esquerdo da tela */
+  top: 0; /* Posiciona a modal no topo da tela */
+  width: 100%; /* A modal ocupa toda a largura da tela */
+  height: 100%; /* A modal ocupa toda a altura da tela */
+  overflow: auto; /* Permite rolar o conteúdo da modal, caso o conteúdo seja maior que a tela */
+  background-color: var(--Preto, 0.4); /* Define o fundo da modal com cor preta e opacidade de 40% */
 }
 
 /* Conteúdo das modais */
-.modal-content-login {
-  background-color: white;
-  margin: 18% auto;
-  width: 16%;
-  padding: 30px;
-  width: 300px;
-  border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  border: 1px solid black;
-  border-radius: 15px;
-
-}
-.modal-content-cliente {
-  background-color: white;
-  margin: 5% auto;
-  padding: 30px;
-  width: 300px;
-  border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.modal-content-walker {
-  background-color: white;
-  margin: 5% auto;
-  padding: 30px;
-  width: 300px;
-  border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+.modal-content {
+  background-color: var(--Branco); /* Define o fundo do conteúdo da modal como branco */
+  margin: 20% auto; /* Centraliza a modal na tela com margem de 20% na parte superior e automaticamente nas laterais */
+  padding: 30px; /* Adiciona 30px de preenchimento interno ao conteúdo da modal */
+  width: 300px; /* Define uma largura fixa de 300px para o conteúdo da modal */
+  border-radius: 15px; /* Arredonda os cantos do conteúdo da modal com raio de 15px */
+  box-shadow: 0 4px 8px var(--Preto, 0.3); /* Adiciona uma sombra suave ao redor do conteúdo da modal */
 }
 
 /* Botão de fechar da modal */
 .close-btn {
-  color: black;
-  font-size: 35px;
-  font-weight: bold;
-  cursor: pointer;
-  float: right;
+  color: var(--Preto); /* Define a cor do texto do botão de fechar como preto */
+  font-size: 35px; /* Define o tamanho da fonte como 35px para o ícone de fechar */
+  font-weight: bold; /* Torna a fonte em negrito */
+  cursor: pointer; /* Modifica o cursor para uma mãozinha ao passar por cima do botão */
+  float: right; /* Posiciona o botão de fechar à direita dentro da modal */
 }
 
 /* Estilo para os botões de Login e Registrar */
 .login-button, .register-button {
-  display: block;
+  display: block; /* Os botões são exibidos como blocos, ocupando toda a largura disponível */
+  width: 100%; /* Os botões ocupam toda a largura do container */
+  padding: 10px; /* Adiciona 10px de preenchimento interno aos botões */
+  margin-top: 10px; /* Adiciona 10px de margem superior aos botões */
+  background-color: var(--Preto); /* Define o fundo dos botões como preto */
+  color: var(--Branco); /* Define a cor do texto dos botões como branco */
+  border-radius: 10px; /* Arredonda os cantos dos botões com raio de 10px */
+  cursor: pointer; /* Modifica o cursor para uma mãozinha ao passar por cima do botão */
+}
+
+.login-button:hover, .register-button:hover {
+  background-color: var(--Cinza-Escuro);  /* Altera a cor de fundo para um tom de cinza escuro quando o usuário passa o mouse por cima */
+}
+
+/* Estilização de menus laterais (side-menu) */
+.side-menu {
+  position: fixed; /* Fixa na lateral */
+  top: 149px; /* Distância do topo */
+  left: -200px; /* Oculto inicialmente */
+  width: 200px; /* Largura fixa */
+  height: 100%; /* Altura total */
+  background-color: var(--Preto); /* Fundo preto */
+  padding: 20px; /* Espaçamento interno */
+  box-shadow: 2px 0 5px var(--Preto, 0.1); /* Sombra */
+  transition: left 0.3s ease; /* Animação ao abrir/fechar */;
+}
+.side-menu.open {
+  left: 0; /* Mostra o menu quando aberto */
+}
+.side-menu ul {
+  list-style-type: none; /* Remove bullets da lista */
+  padding: 0; /* Remove espaçamento */
+}
+.side-menu ul li {
+  margin: 15px 0; /* Espaçamento entre os itens */
+}
+.side-menu ul li a {
+  text-decoration: none; /* Remove sublinhado */
+  color: var(--Branco); /* Texto branco */
+  font-size: 16px; /* Tamanho do texto */
+}
+.side-menu ul li a:hover {
+  color: var(--Verde-Menta); /* Altera cor ao hover */
+}
+
+/* Botão para abrir/fechar o menu lateral */
+.open-side-menu, .close-side-menu {
+  background-color: var(--Preto); /* Fundo preto */
+  color: var(--Branco); /* Texto branco */
+  border: none; /* Sem borda */
+  padding: 10px; /* Espaçamento interno */
+  font-size: 18px; /* Tamanho do texto */
+  cursor: pointer; /* Cursor mãozinha */
+  border-radius: 10px; /* Bordas arredondadas */
+}
+.close-side-menu { /* Estilo do botão para fechar o menu lateral */
+  background: none; /* Nenhum fundo aplicado ao botão */
+  border: none; /* Sem borda no botão */
+  font-size: 24px; /* Define o tamanho da fonte como 24px */
+  color: var(--Branco); /* Define a cor do texto como branco */
+  cursor: pointer; /* Define o cursor como "pointer" ao passar o mouse */
+  display: block; /* Define o botão como um bloco */
+  margin-bottom: 20px; /* Define uma margem inferior de 20px */
+}
+
+/* Estilo geral para o carrossel de imagens */
+.carousel {
+  position: relative; /* Posiciona o carrossel em relação ao seu container */
+  width: 1500px; /* Define a largura do carrossel */
+  overflow: hidden; /* Esconde elementos que ultrapassam os limites do carrossel */
+  border: var(--Preto) solid 5px; /* Define uma borda preta de 5px */
+  border-radius: 10px; /* Define bordas arredondadas com 10px */
+  margin: 5px; /* Define uma margem de 5px */
+  box-shadow: var(--Preto) 3px 2px 8px; /* Adiciona uma sombra à borda do carrossel */
+  z-index: 0; /* Define a camada do carrossel */
+  margin-top: 155px; /* Define uma margem superior de 155px */
+}
+/* Estilo da trilha do carrossel (o container das imagens) */
+.carousel-track {
+  display: flex; /* Organiza os itens em uma linha */
+  transition: transform 0.5s ease-in-out; /* Animação suave ao transformar o elemento */
+}
+/* Estilo dos slides individuais do carrossel */
+.carousel-slide {
+  width: 1500px; /* Define a largura de cada slide */
+  min-width: 1500px; /* Define a largura mínima do slide */
+  flex-shrink: 0; /* Impede que o slide seja redimensionado */
+}
+/* Imagens dentro de cada slide do carrossel */
+.carousel-slide img {
+  width: 100%; /* Faz com que a imagem ocupe 100% da largura do slide */
+  display: block; /* Define a exibição da imagem como bloco */
+}
+/* Botões para navegação no carrossel */
+.carousel-buttons {
+  position: absolute; /* Posiciona os botões de forma absoluta */
+  top: 50%; /* Centraliza os botões verticalmente */
+  width: 100%; /* Define que ocupam 100% da largura do carrossel */
+  display: flex; /* Organiza os botões como flexbox */
+  justify-content: space-between; /* Espaçamento igual entre os botões */
+  transform: translateY(-50%); /* Ajusta a posição vertical para o centro */
+}
+.carousel-button {
+  background-color: var(--Preto, 0.5); /* Define um fundo preto translúcido */
+  border: none; /* Remove as bordas do botão */
+  color: var(--Branco); /* Define a cor do texto como branco */
+  padding: 20px; /* Define o preenchimento interno do botão */
+  font-size: 24px; /* Define o tamanho da fonte dos botões */
+  cursor: pointer; /* Altera o cursor para "pointer" */
+  border-radius: 10px; /* Bordas arredondadas */
+}
+.carousel-button:hover {
+  background-color: var(--Preto, 0.7); /* Escurece o fundo do botão */
+}
+
+.dogwalker-button {
+  background-color: var(--Preto); /* Fundo preto */
+  color: var(--Branco); /* Texto branco */
+  border: none; /* Sem borda */
+  padding: 30px; /* Espaçamento interno grande */
+  cursor: pointer; /* Define o cursor como "pointer" */
+  font-size: 25px; /* Tamanho maior do texto */
+  border-radius: 10px; /* Bordas arredondadas */
+  margin-bottom: 5px; /* Margem inferior para espaçamento */
+}
+.dogwalker-button:hover {
+  color: var(--Verde-Lima);  /* Texto muda para verde lima */
+  background: var(--Preto); /* Fundo permanece preto */
+}
+
+/* menu de navegação do site */
+.corpo { /* Configuração geral do menu de navegação do site */
+    width: 100%; /* Define um layout flexível */
+    display: flex; /* Centraliza os itens horizontalmente */
+    justify-content: center;  /* Centraliza os itens verticalmente */
+    align-items: center; /* Organiza os elementos em uma coluna */
+    flex-direction: column; /* Define uma imagem de fundo */
+    background-image: url(/imagens/fundowalkanddog.png);  /* Adiciona uma borda superior preta */
+    border-top: 5px solid var(--Preto); /* Adiciona uma borda superior preta */
+    border-bottom: 5px solid var(--Preto); /* Adiciona uma borda inferior preta */
+}
+
+.container-pai {
+  z-index: 0; /* Define a camada do carrossel */
+  margin-top: 80px; /* Define uma margem superior de 155px */
+  margin-bottom: 150px;
+  display: flex;
+  justify-content: space-around;
   width: 100%;
-  padding: 10px;
-  margin-top: 10px;
-  background-color: black;
-  color: white;
-  border-radius: 10px;
-  cursor: pointer;
+  gap: 70px;
 }
 
-
-.logout-button {
-  background-color: var(--Danilo);
-  color: white;
-  border-radius: 10px;
-margin-left: 350px;
-
-}
-  
-  
-/*Cabeçalho do site*/
-header {
-    height: 150px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #a9a9a9;
-    padding: 0 30px;
-}
-.menu {
-    display: flex;
-    align-items: center;
-}
-.menu-btn {
-    display: flex;
-}
-.btn-menu {
-    display: flex;
-    align-items: center;
-  
-}
-#btn-login {
-    color: var(--Snow);
-    background-color: var(--Danilo);
-    border-radius: 5px;
-    margin-right: 10px;
-    padding: 5px;
-    font-family: Atma;
-
-}
-  /* menu de navegação do site */
-.corpo {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-image: url(/imagens/fundowalkanddog.png);
-    border-top: 5px solid var(--Danilo);
-    border-bottom: 5px solid var(--Danilo);
-}
-.apresentacao {
-  width: auto; /* Define a largura como 70% do contêiner pai */
-  text-align: center; /* Alinha o texto ao centro */
-  border: var(--LightGray) solid 2px; /* Define uma borda de 2px com a cor LightGray (variável CSS) */
-  border-radius: 10px; /* Arredonda os cantos da borda em 10px */
-  box-shadow: black 3px 2px 8px; /* Aplica uma sombra preta com 3px de deslocamento horizontal, 2px de vertical e 8px de difusão */
-  margin: 5px; /* Aplica uma margem de 5px ao redor do elemento */
-  background-color: var(--DarkGray); /* Define a cor de fundo como DarkGray (variável CSS) */
-  background-repeat: no-repeat; /* Impede que a imagem de fundo se repita */
-  background-size: 100% 500px; /* Faz a imagem de fundo cobrir 100% da largura e ter 550px de altura */
-  color: var(--Danilo); /* Define a cor do texto como branca */
-}
-.img-tabela {
-  width: 1000px;
-}
-#btn-servico {
-  border-radius: 5px;
-  margin-bottom: 10px;
-  font-family: Atma;
-}
-h2 {
-  padding: 15px; /* Aplica um padding de 15px ao redor do elemento */
-  font-size: 40px; /* Define o tamanho da fonte como 30px */
-  font-family: Atma;
+.container1 {
+  width: 100%;
+  height: 700px;
+  border: 5px solid var(--Verde-Lima);
+  background-color: var(--Cinza-Escuro);
+  display: flex;
+  background-position: center;
+  justify-content: center;
+  background-image: url(/imagens/historicopasseio.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-left: 40px;
 }
 
-.corpo-comentarios{
+.container2 {
+  width: 100%;
+  height: 700px;
+  border: 5px solid var(--Verde-Lima);
+  background-color: var(--Cinza-Escuro);
   display: flex;
   justify-content: center;
-  font-family: 'Atma', sans-serif;
+  background-image: url(/imagens/grafico\ de\ ganhos.png);
+  background-position: center;
+  margin-right: 40px;
 }
 
-#comentarios h3,
-#lista-comentarios h3 {
-    font-family: 'Atma', sans-serif;
+.titulo-dogwalker {
+  z-index: 0;
+  margin-top: 200px;
 }
 
-#comentarios input,
-#comentarios textarea,
-#comentarios button {
-    font-family: 'Atma', sans-serif;
+.quadro-h1 {
+  background-color: gray;
+  margin-top: ;
 }
 
-#comentarios {
-  margin-bottom: 20px;
-}
-
-textarea {
-  width: 100%;
-  margin-bottom: 10px;
-  padding: 10px;
-}
-
-button {
-  padding: 10px 20px;
-  background-color: #000000;
-  color: white;
-  border: none;
-  cursor: pointer;
-  
-}
-
-button:hover {
-  background-color: #24252a;
-}
-
-#lista-comentarios ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-#lista-comentarios li {
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
-}
-.corpo-comentario{
-  display: flex;
-}
-
-/*Rodapé do site*/
+/* Rodapé geral do site */
 .roda-pe-geral {
-  background-color: var(--DarkGray); /* Define a cor de fundo como Light-Salmon (variável CSS) */
-  background-repeat: no-repeat; /* Impede que a imagem de fundo se repita */
-  background-size: 100% 400px; /* Define que a imagem de fundo deve cobrir toda a largura do elemento (100%) e ter altura de 500px */
-  background-image: url(/imagens/patadiagonal.png);
-  font-family: Atma;
-  
+  background: linear-gradient(to right, var(--Verde-Menta), var(--Verde-Lima), var(--Verde-Escuro)); /* Fundo em degradê com três tons de verde */
+  background-repeat: no-repeat; /* Impede que o fundo se repita */
+  background-size: 100% 400px; /* Faz o fundo cobrir 100% da largura e define altura de 400px */
+  font-family: Atma; /* Define a fonte "Atma" */
+  background-image: url(/imagens/fundowalkanddogfooter.png); /* Adiciona uma imagem de fundo específica */
 }
 
+
+/* Div com estilo de cartão no rodapé */
 .cartao {
-  justify-content: center; /* Alinha os itens no centro ao longo do eixo horizontal */
-  display: flex; /* Define o layout como flexbox */
-  gap: 25px; /* Aplica um espaçamento de 25px entre os itens */
+  justify-content: center; /* Centraliza os itens horizontalmente */
+  display: flex; /* Define um layout flexível */
+  gap: 25px; /* Adiciona espaçamento de 25px entre os itens */
 }
 
+/* Estilo da seção de telefone no rodapé */
 .telefone {
-  display: flex; /* Define o layout como flexbox */
+  display: flex; /* Define um layout flexível */
   flex-direction: column; /* Organiza os itens em uma coluna */
-  margin: auto 0; /* Aplica margens automáticas à esquerda e direita, e nenhuma margem superior ou inferior */
+  margin: auto 0; /* Centraliza os itens horizontalmente */
 }
 
+/* Estilo das imagens de telefone no rodapé */
 .telefone img {
   height: 35px; /* Define a altura das imagens como 35px */
 }
 
+/* Efeito hover nos links */
 .link:hover {
-  background-color: var(--Lime
-  ); /* Altera a cor de fundo para Lime (variável CSS) quando o mouse passar sobre o link */
-  transition: transform 0.3s ease; /* Aplica uma transição suave para qualquer transformação (como escalonamento) ao longo de 0.3 segundos */
+  background-color: var(--Verde-Lima); /* Altera o fundo para verde-lima ao passar o mouse */
+  transition: transform 0.3s ease; /* Adiciona uma transição suave de 0.3s */
 }
 
-/*Div para espaçar os SVGs*/
+/* Div para centralizar ícones de redes sociais */
 .img-midia {
-  display: flex;
-  flex-direction: column;
+  display: flex; /* Define layout flexível */
+  flex-direction: column; /* Organiza os itens em uma coluna */
 }
 
+/* Imagem principal das mídias sociais */
 .imagem-midia {
-  width: 80px;
+  width: 80px; /* Define a largura da imagem */
 }
 
+/* Div que organiza os ícones das mídias sociais */
 .img-midia-icon {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  align-items: center;
+  display: flex; /* Define layout flexível */
+  gap: 20px; /* Adiciona um espaçamento entre os ícones */
+  justify-content: center; /* Centraliza os ícones horizontalmente */
+  align-items: center; /* Centraliza os ícones verticalmente */
 }
 
+/* Estilo das imagens dos ícones de redes sociais */
 .img-midia-icon img {
-  width: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 5px;
+  width: 60px; /* Define a largura das imagens */
+  display: flex; /* Define layout flexível */
+  justify-content: center; /* Centraliza os ícones horizontalmente */
+  align-items: center; /* Centraliza os ícones verticalmente */
+  padding: 5px; /* Adiciona um preenchimento interno */
 }
 
+/* Efeito hover no ícone do WhatsApp */
 .whats:hover {
-  background-color: var(--LightGray);
-  border-radius: 25px;
+  background-color: var(--Verde-Escuro); /* Altera o fundo para verde escuro */
+  border-radius: 25px; /* Adiciona bordas arredondadas */
 }
 
+/* Efeito hover no ícone do Instagram */
 .insta:hover {
-  background-color: var(--LightGray);
-  border-radius: 25px;
+  background-color: var(--Verde-Escuro); /* Altera o fundo para verde escuro */
+  border-radius: 25px; /* Adiciona bordas arredondadas */
 }
+
+/* Organização dos títulos de mídias sociais */
 .titulos-midias {
-  display: flex;
-  justify-content: space-between;
+  display: flex; /* Define layout flexível */
+  justify-content: space-between; /* Espaçamento uniforme entre os títulos */
 }
 
-.title-midia{
-  text-align: center;
-  font-size: 25px;
-  padding: 10px;
+/* Estilo do título de cada mídia social */
+.title-midia {
+  text-align: center; /* Centraliza o texto horizontalmente */
+  font-size: 25px; /* Define o tamanho da fonte */
+  padding: 10px; /* Adiciona preenchimento interno */
 }
 
+/* Estilo para textos gerais */
 .texto {
-  color: var(--Danilo);
-  padding: 5px;
+  color: var(--Preto); /* Define a cor do texto como preto */
+  padding: 5px; /* Adiciona um preenchimento interno */
 }
 
+/* Efeito hover para textos (quando suportado) */
 @media (hover: hover) {
-  /* when hover is supported */
+  /* Aplica quando o dispositivo suporta hover */
   .texto:hover {
-    color: var(--Sea-Blue);
-    background: var(--Preto-Um-Pouco-Claro);
-    transition: all 0.5s ease-out;
-    border-radius: 15px;
+    color: var(--Verde-Lima); /* Altera a cor do texto para verde-lima */
+    background: var(--Preto); /* Altera o fundo para preto */
+    transition: all 0.5s ease-out; /* Aplica uma transição suave */
+    border-radius: 15px; /* Adiciona bordas arredondadas */
   }
 }
 
+/* Estilo de linhas horizontais (hr) */
 hr {
-  margin-left: auto;
-  margin-right: auto;
-  width: 90%;
-  box-shadow: 1px 3px 4px 0px;
+  margin-left: auto; /* Alinha a linha à esquerda */
+  margin-right: auto; /* Alinha a linha à direita */
+  width: 90%; /* Define a largura como 90% do container */
+  box-shadow: 1px 3px 4px 0px; /* Adiciona uma sombra para a linha */
 }
-  /* parte*/
 
-  h3 {
-    padding: 15px; /* Aplica um padding de 15px ao redor do elemento */
-    font-size: 30px; /* Define o tamanho da fonte como 30px */
-  }
-
-  .first-slide img {
-    width: 80px; /* Define a largura da imagem como 80px */
-  }
-
-  .service {
-    display: flex; /* Define o layout como flexbox */
-  }
-
-  .check-box {
-    font-size: 25px; /* Define o tamanho da fonte como 25px */
-    margin: 30px; /* Aplica uma margem de 30px ao redor do elemento */
-  }
-
-  .service img {
-    height: 30px; /* Define a altura das imagens como 30px */
-  }
-
-  .coments {
-    width: 30%; /* Define a largura como 30% do contêiner pai */
-    text-align: center; /* Alinha o texto ao centro */
-    margin: 5px; /* Aplica uma margem de 5px ao redor do elemento */
-    border: var(--Danilo) solid 4px; /* Define uma borda de 4px com a cor Danilo (variável CSS) */
-    border-radius: 10px; /* Arredonda os cantos da borda em 10px */
-    background-size: cover; /* Faz a imagem de fundo cobrir todo o espaço disponível */
-    overflow: hidden; /* Impede que conteúdo excedente seja visível */
-  }
-
-  .coment-box {
-    display: flex; /* Define o layout como flexbox */
-    align-items: center; /* Alinha os itens ao centro no eixo vertical */
-    justify-content: center; /* Alinha os itens ao centro no eixo horizontal */
-    font-size: 22px; /* Define o tamanho da fonte como 22px */
-    margin: 0px 5px 30px 5px; /* Aplica margens de 0px à esquerda, 5px à direita, 30px na parte inferior e 5px na parte superior */
-    border: var(--Danilo) solid; /* Define uma borda sólida com a cor Danilo (variável CSS) */
-    border-radius: 15px; /* Arredonda os cantos da borda em 15px */
-    padding: 5px; /* Aplica um padding de 5px ao redor do conteúdo */
-  }
-
-  .coment-box img {
-    height: 30px; /* Define a altura das imagens como 30px */
-  }
-
-/*Div para acoplar a mensagem de marca catalogada*/
+/* Div para a mensagem de marca registrada */
 .marca-registrada {
-  display: flex; /* Define o layout como flexbox, permitindo um layout flexível */
-  justify-content: center; /* Alinha os itens filhos ao centro ao longo do eixo horizontal */
+  display: flex; /* Define layout flexível */
+  justify-content: center; /* Centraliza os itens horizontalmente */
 }
 
-/*Aumentar a fonte do texto*/
+/* Estilo do texto de marca registrada */
 .marca-registrada h4 {
-  font-size: 15px; /* Define o tamanho da fonte do texto h4 para 20px */
-  box-shadow: 4px 2px 4px 4px rgba(2, 4, 2, 0.7);
-  margin: 20px auto;
-  color: #800000;
-  /* background-color: var(--Danilo); */
-  padding: 5px;
-  border-radius: 15px;
-  text-shadow: 10px 0px 13px var(--Danilo);
+  font-size: 15px; /* Define o tamanho da fonte como 15px */
+  box-shadow: 4px 2px 4px 4px var(--Preto, 0.7); /* Adiciona uma sombra ao texto */
+  margin: 20px auto; /* Adiciona uma margem de 20px automática */
+  color: var(--Branco); /* Define a cor do texto como branco */
+  padding: 5px; /* Adiciona preenchimento interno */
+  border-radius: 15px; /* Bordas arredondadas */
+  text-shadow: 10px 0px 13px var(--Preto); /* Adiciona sombra ao texto */
 }
-
-  /* ////////////////////////////////////////////////////////////////////////////////////////////////////////// */
-
-
-/*ESPAÇO RESERVADO PARA INDEX1*/
-
-.slider{ /*DIV GERAL DAS IMAGENS DA TRANSIÇÃO*/
-  margin: 0 auto;
-  width: 700px;
-  height: 700px;
-  overflow: hidden;
-  border: outset 8px var(--gold);
-  border-radius: 20px;
-  }
-  
-  .slides{ /*ABRANGE OS BUTTONS, IMAGENS E INPUTS*/
-  width: 400%;
-  height: 400px;
-  display: flex;
-  }
-  
-  .slides input{ /*BOLINHAS*/
-  display: none;
-  }
-  
-  .slide{/*CADA IMAGEM*/
-  width: 25%;
-  position: relative;
-  transition: 1s;
-  }
-  
-  .slide img{ /*IMAGEM DO SLIDE*/
-  width: 1700px;
-  height: 700px;
-  }
-  
-  .manual-navigation{
-  position: absolute;
-  width: 1700px;
-  margin-top: 280px;
-  display: flex;
-  justify-content: center;
-  }
-  
-  .manual-btn{
-  border: 2px solid var(--DarkOrange);
-  padding: 5px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 3s;
-  }
-  
-  .manual-btn:not(:last-child){
-  margin-right: 40px;
-  }
-  
-  .manual-btn:hover{
-  background-color: var(--DarkCyan);
-  }
-  
-  #radio1:checked ~ .first{ /*pai*/
-  margin-left: 0;
-  }
-  
-  #radio2:checked ~ .first{ /*filho*/
-      margin-left: -25%;
-  }
-  
-  #radio3:checked ~ .first{ /*filho2*/
-      margin-left: -50%;
-  }
-  
-  #radio4:checked ~ .first{ /*filho3*/
-      margin-left: -75%;
-  }
-  
-  #radio5:checked ~ .first{ /*filho3*/
-    margin-left: -100%;
-}
-  .navigation-auto div{
-  border: 2px solid var(--black);
-  padding: 5px;
-  border-radius: 10px;
-  cursor: pointer;
-  transform: 1s;
-  }
-  
-  .navigation-auto{
-  position: absolute;
-  width: 1700px;
-  margin-top: 630px;
-  display: flex;
-  justify-content: center;
-  }
-  
-  .navigation-auto div:not(:last-child){
-  margin-right: 40px;
-  }
-  
-  #radio1:checked ~ .navigation-auto .auto-btn1{
-  background-color: var(--white);
-  }
-  
-  #radio2:checked ~ .navigation-auto .auto-btn2{
-  background-color: var(--white);
-  }
-  
-  #radio3:checked ~ .navigation-auto .auto-btn3{
-   background-color: var(--white);
-  }
-  
-  #radio4:checked ~ .navigation-auto .auto-btn4{
-  background-color: var(--white);
-  }
-  
-  #radio5:checked ~ .navigation-auto .auto-btn5{
-    background-color: var(--white);
-  }
-
-.txt-area-walker {
-  display: flex;
-  justify-content: center;
-}
-
-.container-walker1 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
-
-.container-walker2 {
-  display: grid;
-  grid-template-columns: 2fr;
-}
-
-.caixa-walker1 {
-  display: inline-flex;
-  border: 5px solid var(--Danilo);
-  padding-bottom: 500px;
-  position: relative;
-  line-height: 500px;
-  cursor: pointer;
-  gap: 30px;
-}
-
-.caixa-imagem1 {
-  display: inline-flex;
-  background-image: url(/imagens/historicopasseio.jpg);
-  position: absolute;
-  background-size: cover;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-position: center;
-}
-
-.caixa-walker1 h2 {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  margin: 0;
-  padding: 0;
-  font-size: 80px;
-  color: var(--DarkGray);
-  text-shadow: var(--Danilo) 50px 50px 50px;
-}
-
-.caixa-walker2 {
-  display: inline-flex;
-  border: 5px solid var(--Danilo);
-  padding-bottom: 500px;
-  position: relative;
-  line-height: 500px;
-  cursor: pointer;
-}
-
-.caixa-imagem2 {
-  display: inline-flex;
-  background-image: url(/imagens/grafico\ de\ ganhos.png);
-  position: absolute;
-  background-size: cover;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-position: center;
-}
-
-.caixa-walker2 h2 {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  margin: 0;
-  padding: 0;
-  font-size: 80px;
-  color: var(--DarkGray);
-  text-shadow: var(--Danilo) 50px 50px 50px;
-}
-
-.caixa-walker3 {
-  display: inline-flex;
-  border: 5px solid var(--Danilo);
-  padding-bottom: 500px;
-  position: relative;
-  line-height: 500px;
-  cursor: pointer;
-}
-
-.caixa-imagem3 {
-  display: inline-flex;
-  background-image: url(/imagens/configurações\ e\ preferências.png);
-  position: absolute;
-  background-size: cover;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-position: center;
-}
-
-.caixa-walker3 h2 {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  margin: 0;
-  padding: 0;
-  font-size: 80px;
-  color: var(--DarkGray);
-  text-shadow: var(--Danilo) 50px 50px 50px;
-}
-
-.child {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  gap: 30px;
-}
-
-/*Estilizando a parte do contato.*/
-.corpo-dados {
-  background-color: var(--DarkGray);
-  font-size: 20px;
-}
-
-/*titulo do contato*/
-.title-contato {
-text-align: center;
-
-}
-
-/* area para estilização do popup de registro e login */
-
-.login-area {
-  display: none;
-  position: fixed;
-  z-index:1 ;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.4);
-
-}
-
-.form-login a{
-margin-left: 60px;
-}
-
-.loglab{
-  margin-left: 70px;
-}
-
-
-.close-btn-log {
-color: black;
-  float: right;
-  font-size: 35px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.login{
-margin-left: 22%;
-
-}
-
-  
-      .login-button {
-  color: white;
-  background-color: black;
-  padding: 5px 30px 5px 30px ;
-border-radius: 10px;
-height: 30px;
-}
-
-.enter-login-button {
-color: white;
-background-color: black;
-margin-left:auto;
-padding: 5px 30px 5px 30px ;
-border-radius: 10px;
-height: 30px;
-margin-left: 28%;
-margin-top: 20px;
-}
-
-.enter-login-button:hover{
-background-color: dimgray;
-color: white;
-}
-
-.area {
-  display: none;
-  position: fixed;
-  z-index:1 ;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.4);
-  background-color: rgb(0,0,0);
-}
-
-      .bots {
-          margin-bottom: 50px;
-          display: flex;
-          font-family: 'Atma';
-      }
-      
-      .modal-content {
-          background-color: white;
-          margin: 5% auto;
-          padding: 20px;
-          border: 1px solid black;
-          width: 20%;
-          border-radius: 15px;
-          box-shadow: 2px 3px 5px;
-      }
-
-      .registrar{
-          margin-left: 18%;
-      }
-      
-      .register-area{
-          display: none;
-          position: fixed;
-          z-index: 1; 
-          left: 0;
-          top: 0;
-          width: 100%; 
-          height: 100%;
-       outline: none;
-          background-color: rgba(0,0,0,0.4);
-      
-      }
-
-      .regislab {
-          margin-left: 110px;
-      }
-      .close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-
-.close-btn {
-color: black;
-  float: right;
-  font-size: 35px;
-  font-weight: bold;
-  cursor: pointer;
-}
-      .close-btn-regis {
-        color: black;
-          float: right;
-          font-size: 35px;
-          font-weight: bold;
-          cursor: pointer;
-      }
-     
-           input {
-          display: block;
-          width: 50%;
-          outline: none;
-          margin-left: auto;
-          margin-right: auto;
-          height: 30px;
-          border-radius: 15px;
-              margin-top: 3px;
-           }
-           
-           button{
-            cursor: pointer;
-            margin-top: 50px;
-           }
-              .register-button {
-          color: white;
-          background-color: black;
-          padding: 5px 20px 5px 20px ;
-          margin-left: 15px;
-           border-radius: 10px;
-           height: 30px;
-      }
-      
-      .register-button:hover{
-        background-color: dimgray;
-        color: white;
-      }
-      
-      .enter-button {
-        color: white;
-          background-color: black;
-          padding: 5px 20px 5px 20px ;
-      border-radius: 10px;
-      height: 30px;
-      margin-left: 35%;
-          margin-top: 20px;
-      }
-      
-      .enter-button:hover{
-        background-color: dimgray;
-        color: white;
-      }
-
-      header {
-        background-color: #24252a;
-        box-shadow: 0px 3px 10px #464646;
-    }
-    
-    .nav-bar {
-        display: flex;
-        justify-content: space-between;
-        padding: 1.5rem 6rem;
-    }
-    
-    .logo {
-        display: flex;
-        align-items: center;
-    }
-    
-    .logo h1 {
-        color: #fff;
-    }
-    
-    .nav-list {
-        display: flex;
-        align-items: center;
-    }
-    
-    .nav-list ul {
-        display: flex;
-        justify-content: center;
-        list-style: none;
-    }
-    
-    .nav-item {
-        margin: 0 15px;
-    }
-    
-    .nav-link {
-        text-decoration: none;
-        font-size: 1.15rem;
-        color: #fff;
-        font-weight: 400;
-    }
-    
-    .login-button button {
-        border: none;
-        padding: 10px 15px;
-        border-radius: 5px;
-        background-color: #0187a7;
-    }
-    
-    .login-button button a {
-        text-decoration: none;
-        color: var(--Danilo);
-        font-weight: 500;
-        font-size: 1.1rem;
-    }
-    
-    .mobile-menu-icon {
-        display: none;
-    }
-    
-    .mobile-menu {
-        display: none;
-    }
-    
-    /* Barra de menu lateral */
-
-    .fundo-menu {
-      height: 100vh;
-      
-    }
-
-    nav.menu-lateral {
-      width: 80px;
-      height: 100%;
-      background-color: transparent;
-      padding: 40px 0 40px 1%;
-      box-shadow: 1px 0 0 var(--Danilo);
-      position: absolute;
-      top: 150px;
-      top: 150px;
-      left: 0;
-      overflow: hidden;
-      transition: .6s;
-    }
-
-    main {
-      position: absolute;
-    
-    }
-
-    nav.menu-lateral.expandir {
-      width: 300px;
-    }
-
-    .btn-expandir {
-      width: 100%;
-      padding-left: 10px;
-    }
-
-    .btn-expandir > i {
-      color: var(--Danilo);
-      font-size: 24px;
-      cursor: pointer;
-    }
-
-    ul {
-      height: 100%;
-      list-style-type: none;
-    }
-
-    ul li.item-menu:hover {
-      background-color: var(--LightGray);
-    }
-
-    ul li.item-menu {
-      transition: .2s;
-    }
-
-    ul li.ativo {
-      background-color: var(--MediumVioletRed);
-    }
-
-    ul li.item-menu a{
-      color: var(--Danilo);
-      text-decoration: none;
-      font-size: 20px;
-      padding: 20px 4%;
-      display: flex;
-      margin-bottom: 20px;
-      line-height: 40px ;
-    }
-
-    ul li.item-menu a .txt-link {
-      margin-left: 40px;
-      transition: .5s;
-      opacity: 1;
-    }
-
-    nav.menu-lateral.expandir .txt-link {
-      margin-left: 40px;
-    }
-
-    ul li.item-menu a .icon > i {
-      font-size: 30px;
-      margin-left: 10px;
-    }

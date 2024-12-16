@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+    <head>
+        <!--Dados para Navegador-->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0">
+        <meta name="description" content="Programadores Front-End & Back-End, Senai.">
+        <meta name="keywords" content="HTML, CSS, JavaScript, Senai">
+        <meta name="author" content="William Araujo"> 
+        <meta name="author" content="Danilo Alan"> 
+        <meta name="author" content="Gabriel Rocha Silva Machado">
+        <!--Titulo do Site-->
+        <title>Walk & Dog</title>
+        <!--Links-->
+        <link rel="shortcut icon" href="/imagens/walkedog6.png" type="image/png">
+        <link rel="stylesheet" href="/public/style.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    </head>  
+<body>
+<!--Inicio Cabecalho-->
+<header>
+    <div class="btn-expandir">
+        <i class="bi bi-list" id="btn-exp"></i>
+    </div>
+    <nav class="menu"><a href="/public/index.html"><img class="logo" src="/imagens/walkedog-logo1.png" alt="logo"></a></nav>
+    <nav class="menu"><img class="logo-2" src="/imagens/walkedog-logo2.png" alt="logo"></nav>
+    <div class="bots">
+        <nav>
+        <button id="menu-button" class="menu-button">Olá! Faça seu login <br> ou cadastre-se</button>
+        
+        <!-- Menu suspenso que aparece no hover -->
+        <div class="dropdown" id="dropdown">
+            <button id="login-button" class="login-button">Login</button>
+            <button id="register-cliente" class="register-cliente">Registrar Cliente</button>
+            <button id="register-dogwalker" class="register-dogwalker">Registrar DogWalker</button>
+        </div>
+    </div>
+    
+    <!-- Modal de Login -->
+    <div class="modal-login" id="login-modal">
+        <div class="modal-content-login">
+          <div id="close-btn-login" class="close-btn">&times;</div>
+          <h2>Login</h2>
+          <hr>
+          <form class="form-login"><br>
+            <label class="loglab" for="user">Nome ou Usuário</label>
+            <input class="usu" type="text" name="usuario"><br>
+            <label class="loglab" for="password">Senha</label>
+            <input class="sen" type="password" name="senha"><br>
+            <div class="regisbuton"></div>
+            <a href="#" id="esqueci-senha">Esqueci Minha Senha</a>
+            <button class="enter-login-button">ENTRAR</button>
+          </form>
+        </div>
+      </div>
+    <!-- Fim modal login -->
+    
+    
+    
+    <div class="modal-cliente" id="register-area-cliente">
+        <div class="modal-content-cliente">
+            <div id="close-btn-register" class="close-btn">&times;</div>
+            <h2>Registrar</h2>
+
+            <!-- Modal cliente -->
+            <hr>
+            <form class="form-cliente" id="form-cliente" method="post" action="">
+                <label class="regislab" for="name">Nome</label>
+                <input class="nome" type="text" id="nome" required><br>
+                <label class="regislab" for="user">Usuario</label>
+                <input type="text" id="usuario" required><br>
+                <label class="regislab" for="email">Email</label>
+                <input type="email" id="email" required><br>
+                <label class="regislab" for="password">Senha</label>
+                <input class="sen" type="password" id="senha" required><br>
+                <div class="regisbuton"></div>
+                <button class="enter-button">ENTRAR</button>
+            </div> 
+            </form>
+        </div>
+    <!-- Fim modal cliente -->
+    
+    <!-- Modal DogWalker -->
+        <div class="modal-walker" id="walker-modal">
+            <div class="modal-content-walker">
+              <div id="close-btn-walker" class="close-btn">&times;</div>
+              <h2>Registrar como walker</h2>
+              <hr>
+              <form class="form-registro-walker">
+                <label class="regislab" for="nome-walker">Nome</label>
+                <input class="nome-walker" type="text" name="nome-walker"><br>
+                <label class="regislab" for="CPF">CPF</label>
+                <input type="number" name="CPF"><br>
+                <label class="regislab" for="email-walker">Email</label>
+                <input type="email" name="email-walker"><br>
+                <label class="regislab" for="senha-walker">Senha</label>
+                <input class="sen" type="password" name="senha-walker"><br>
+                <label class="regislab" for="telefone-walker">Telefone</label>
+                <input type="tel" name="telefone-walker"><br>
+                <div class="regisbuton"></div>
+                <button class="enter-button">REGISTRAR</button>
+              </form>
+            </div>
+          </div>
+    <!-- Fim DogWalker modal -->
+    </div>   
+    
+    <!-- fim da navegação -->
+
+</nav>
+
+        <!-- fim do cabeçalho -->
+        <div class="fundo-menu">
+    
+            <nav class="menu-lateral">
+        
+                
+        
+                <ul>
+                    <li class="item-menu ativo">
+                        <a href="index.html">
+                            <span class="icon"><i class="bi bi-house"></i></span>
+                            <span class="txt-link">Home</span>
+                        </a> 
+                    </li>
+        
+                    <li class="item-menu">
+                        <a href="#">
+                            <span class="icon"><i class="bi bi-info-circle"></i></span>
+                            <span class="txt-link">Sobre</span>
+                        </a> 
+                    </li>
+        
+                    <li class="item-menu">
+                        <a href="#">
+                            <span class="icon"><i class="bi bi-card-image"></i></span>
+                            <span class="txt-link">Galeria</span>
+                        </a> 
+                    </li>
+                    <li class="item-menu">
+                        <a href="#">
+                            <span class="icon"><i class="bi bi-gear"></i></span>
+                            <span class="txt-link">Configurações</span>
+                        </a> 
+                    </li>
+        
+                    <li class="item-menu">
+                        <a href="#">
+                            <span class="icon"><i class="bi bi-calendar4"></i></span>
+                            <span class="txt-link">Agenda</span>
+                        </a> 
+                    </li>
+                </ul>
+            </nav>
+        </div>
+</header>
+
+<!--Inicio corpo do site-->
+<main>
+    <div>
+        <div class=""></div>
+        <div></div>
+    </div>
+    
+</main>
+
+<section>
+    <IMG src="/imagens/Divulgação1.png">
+        <IMG src="/imagens/Divulgação1.png">
+            <IMG src="/imagens/Divulgação1.png">
+</section>
+<!--Inicio do rodape-->
+<footer class="roda-pe-geral">
+
+        <div class="titulos-midias">
+
+                <span class="title-midia">REDES SOCIAIS
+                    <div class="img-midia-icon">
+                    <a class="whats" href="https://www.whatsapp.com/?lang=pt_BR"><img src="/imagens/svg-whats.svg"></a>
+                    <a class="insta" href="https://www.instagram.com/"><img src="/imagens/svg-insta.svg"></a>
+                    <a class="insta" href="https://www.youtube.com/"><img src="/imagens/svg-youtube.svg"></a>
+                    </div>  
+                </span>
+                  
+                <span class="title-midia">Formas De Pagamentos
+                <div class="img-midia-1">
+                    <img class="imagem-midia" src="/imagens/visa-svg.svg" alt="visa">
+                    <img class="imagem-midia" src="/imagens/pix-svg.svg" alt="pix">
+                    <img class="imagem-midia" src="/imagens/mastercard-svg.svg" alt="mastercard">
+                </div>
+                </span>
+
+                <span class="title-midia">Links Utéis
+                    <div class="img-midia">
+                        
+                        <a class="texto" href="#">INÍCIO</a>
+                        <a class="texto" href="#">SOBRE NÓS</a>
+                        <a class="texto" href="contato.html">CONTATO</a>
+                        
+                    </div>
+                    </span>
+        </div>
+    
+    <hr>
+
+    <div class="marca-registrada">
+        <h4>© 2024 WALK & DOG - Todos os direitos reservados.</h4>
+    </div>
+    
+</footer>
+
+<!--links do javascript-->
+<script src="/public/slide.js"> </script>
+<script src="/public/modais.js"></script>
+<script src="/public/menulat.js"></script>
+</body>
+</html>
