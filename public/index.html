@@ -6,12 +6,14 @@
             <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0">
             <meta name="description" content="Programadores Front-End & Back-End, Senai.">
             <meta name="keywords" content="HTML, CSS, JavaScript, Senai">
-            <meta name="author" content="William Araujo"> 
             <meta name="author" content="Danilo Alan"> 
             <meta name="author" content="Gabriel Rocha Silva Machado">
+            <meta name="author" content="Lucas Farrapo"> 
+            <meta name="author" content="William Araujo"> 
             <title>Walk & Dog</title>
             <link rel="shortcut icon" href="imagens/walkedog.svg" type="svg">
             <link rel="stylesheet" href="/public/style.css">
+            
 </head>
 <body>
     <header>
@@ -20,12 +22,12 @@
             <aside class="side-menu" id="side-menu">
                 <button id="close-side-menu" class="close-side-menu">&times;</button>
                 <ul>
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="#">Sobre</a></li>
-                    <li><a href="#">Galeria</a></li>
-                    <li><a href="#">Contato</a></li>
-                    <li><a href="#">Configurações</a></li>
-                    <li><a href="#">Agenda</a></li>
+                    <li class="item-menu"><a href="index.html">Início</a></li>
+                    <li class="item-menu"><a href="#">Sobre</a></li>
+                    <li class="item-menu"><a href="#">Galeria</a></li>
+                    <li class="item-menu"><a href="#">Contato</a></li>
+                    <li class="item-menu"><a href="#">Configurações</a></li>
+                    <li class="item-menu"><a href="#">Agenda</a></li>
                 </ul>
             </aside>
         </nav>
@@ -39,59 +41,66 @@
                     <button id="menu-button" class="menu-button">Olá! Faça seu login <br> ou cadastre-se</button>
                     <div class="dropdown" id="dropdown">
                         <button id="login-button" class="login-button">Login</button>
-                        <button id="register-button" class="register-button">Registrar Cliente</button>
-                        <button id="register-button" class="register-button">Registrar Dogwalker</button>
+                        <button id="cliente-button" class="cliente-button">Registrar Cliente</button>
+                        <button id="walker-button" class="walker-button">Registrar Dogwalker</button>
                     </div>
                 </nav>
             </div>
-            <div class="modal" id="login-area">
-                <div class="modal-content">
+            <div class="modal-login" id="login-area">
+                <div class="modal-content-login">
                     <div id="close-btn-login" class="close-btn">&times;</div>
-                    <h2>Login</h2>
-                    <hr>
-                    <form class="form-login...">
+                    <h2 class="Login"> Login </h2>
+                    <form class="form-login">
                         <br>
                         <label class="loglab" for="user">Nome ou Usuario</label>
                         <input class="usu" type="text" name="usuario">
                         <br>
                         <label class="loglab" for="password">Senha</label>
-                        <input class="sen" type="password" name="senha">
-                        <br>
+                        <input class="sen" type="password" name="senha"><br>
                         <div class="regisbuton"></div>
                         <a href="#">Esqueci Minha Senha</a>
-                        <button class="enter-login-button">ENTRAR</button>
+                        <button class="ent-login-but">ENTRAR</button>
                     </form>
                 </div>
             </div>
-            <div class="modal" id="register-area">
-                <div class="modal-content">
+            <div class="modal-cliente" id="cliente-area">
+                <div class="modal-content-cliente">
                     <div id="close-btn-register" class="close-btn">&times;</div>
-                    <h2>Registrar</h2>
-                    <hr>
-                    <form class="form-login">
+                    <h2 class="Regis">Registrar</h2>
+                    <form class="form-regis">
                         <label class="regislab" for="name">Nome</label>
-                        <input class="nome" type="text" name="nome">
-                        <br>
+                        <input class="nome" type="text" name="nome"><br>
                         <label class="regislab" for="user">Usuario</label>
-                        <input type="text" name="usuario">
-                        <br>
+                        <input type="text" name="usuario"><br>
                         <label class="regislab" for="email">Email</label>
-                        <input type="email">
-                        <br>
+                        <input type="email"><br>
                         <label class="regislab" for="password">Senha</label>
-                        <input class="sen" type="password" name="senha">
-                        <br>
-                        <label class="regislab" for="CPF">CPF</label>
-                        <input type="number">
-                        <br>
-                        <label class="regislab" for="endereco">Endereço</label>
-                        <input type="text">
-                        <br>
-                        <label class="regislab" for="telefone">Telefone</label>
-                        <input type="tel">
-                        <br>
+                        <input class="sen" type="password" name="senha"><br>
                         <div class="regisbuton"></div>
-                        <button class="enter-button">ENTRAR</button>
+                        <button class="ent-but-res">ENTRAR</button>
+                    </form>
+                </div>
+            </div>    
+            
+            <div class="modal-walker" id="walker-area">
+                <div class="modal-content-walker">
+                    <div id="close-btn-walker" class="close-btn">&times;</div>
+                    <h2 class="Regis">Registrar</h2>
+                    <form class="form-walk">
+                        <label class="regislab" for="name">Nome</label>
+                        <input class="nome" type="text" name="nome"><br>
+                        <label class="regislab" for="user">Usuario</label>
+                        <input type="text" name="user"><br>
+                        <label class="regislab" for="email">Email</label>
+                        <input type="email"><br>
+                        <label class="regislab" for="password">Senha</label>
+                        <input class="sen" type="password" name="password"><br>
+                        <label class="regislab" for="cpf">CPF</label>
+                        <input type="number" name= "cpf"> <br>
+                        <label class="regislab" for="telefone">Telefone</label>
+                        <input type="tel" name="phone">  <br>
+                        <div class="regisbuton"></div>
+                        <button class="ent-but-wal">ENTRAR</button>
                     </form>
                 </div>
             </div>                              
@@ -118,10 +127,10 @@
                     <div class="img-midia-icon">
                     <a class="whats" href="https://www.whatsapp.com/?lang=pt_BR"><img src="/imagens/svg-whats.svg"></a>
                     <a class="insta" href="https://www.instagram.com/"><img src="/imagens/svg-insta.svg"></a>
-                    <a class="insta" href="https://www.instagram.com/"><img src="/imagens/svg-youtube.svg"></a>
+                    <a class="youtube" href="https://www.youtube.com/"><img src="/imagens/svg-youtube.svg"></a>
                     </div>  
                 </span>
-                <span class="title-midia">Formas De Pagamentos
+                <span class="title-midia">Formas De Pagamento
                     <div class="img-midia-1">
                         <img class="imagem-midia" src="/imagens/visa-svg.svg" alt="visa">
                         <img class="imagem-midia" src="/imagens/pix-svg.svg" alt="pix">

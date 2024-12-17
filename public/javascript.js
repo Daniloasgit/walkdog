@@ -1,41 +1,65 @@
 
-    // Selecionar os elementos
+    // constantes para modais
     const menuButton = document.getElementById("menu-button");
     const dropdown = document.getElementById("dropdown");
     const loginButton = document.getElementById("login-button");
-    const registerButton = document.getElementById("register-button");
+    const registerButton = document.getElementById("cliente-button");
+    const registerWalker = document.getElementById("walker-button");
     const loginArea = document.getElementById("login-area");
-    const registerArea = document.getElementById("register-area");
+    const registercliente = document.getElementById("cliente-area");
+    const registerwalker = document.getElementById("walker-area")
     const closeBtnLogin = document.getElementById("close-btn-login");
     const closeBtnRegister = document.getElementById("close-btn-register");
+    const closeBtnWalker = document.getElementById("close-btn-walker");
+
+    function closeOnOpen(){
+      loginArea.style.display = "none";
+      registercliente.style.display = "none";
+      registerwalker.style.display = "none";
+    }
 
     // Abrir modal de Login
     loginButton.addEventListener("click", () => {
+      closeOnOpen();
         loginArea.style.display = "block";
     });
 
-    // Abrir modal de Registro
+    // Registro Clientes
     registerButton.addEventListener("click", () => {
-        registerArea.style.display = "block";
+      closeOnOpen();
+        registercliente.style.display = "block";
     });
+    // Registro DogWalker
+    registerWalker.addEventListener('click', () => {
+      closeOnOpen();
+      registerwalker.style.display = "block";
+    })
 
-    // Fechar a modal de Login
+    // Fechar modal de Login
     closeBtnLogin.addEventListener("click", () => {
         loginArea.style.display = "none";
     });
 
-    // Fechar a modal de Registro
+    // Fechar modal de Registro
     closeBtnRegister.addEventListener("click", () => {
-        registerArea.style.display = "none";
+        registercliente.style.display = "none";
     });
+
+    // Fechar modal de DogWalker
+    closeBtnWalker .addEventListener ('click', () => {
+        registerwalker.style.display = "none";
+    })
 
     // Fechar as modais ao clicar fora delas
     window.addEventListener("click", (event) => {
         if (event.target === loginArea) {
             loginArea.style.display = "none";
         }
-        if (event.target === registerArea) {
-            registerArea.style.display = "none";
+        if (event.target === registercliente) {
+            registercliente.style.display = "none";
+        }
+        if (event.target === registerwalker) {
+            registerwalker.style.display = "none";
         }
     });
     document.getElementById('open-side-menu').addEventListener('click', function() {

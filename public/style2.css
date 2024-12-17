@@ -251,10 +251,6 @@ header {
         margin-left: 100px;
     }
 
-    
-}
-  
-  
 /*Cabeçalho do site*/
 header {
     height: 150px;
@@ -1051,7 +1047,7 @@ color: black;
 
     main {
       position: absolute;
-    
+      
     }
 
     nav.menu-lateral.expandir {
