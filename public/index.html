@@ -50,24 +50,27 @@
                 <div class="modal-content-login">
                     <div id="close-btn-login" class="close-btn">&times;</div>
                     <h2 class="Login"> Login </h2>
-                    <form class="form-login">
+
+                    <form class="form-login" action="" method="POST">
+
                         <br>
-                        <label class="loglab" for="user">Nome ou Usuario</label>
-                        <input class="usu" type="text" name="usuario">
+                        <label class="loglab" for="email">Email</label>
+                        <input class="usu" type="email" id="email" name="email" autocomplete="off">
                         <br>
                         <label class="loglab" for="password">Senha</label>
-                        <input class="sen" type="password" name="senha"><br>
+                        <input class="sen" type="password" id="password" name="password" autocomplete="off"><br>
                         <div class="regisbuton"></div>
                         <a href="#">Esqueci Minha Senha</a>
-                        <button class="ent-login-but">ENTRAR</button>
-                    </form>
+                        <button type="submit" class="ent-login-but">ENTRAR</button>
+                      </form>
+                      
                 </div>
             </div>
-            <div class="modal-cliente" id="cliente-area">
+            <!-- <div class="modal-cliente" id="cliente-area">
                 <div class="modal-content-cliente">
                     <div id="close-btn-register" class="close-btn">&times;</div>
                     <h2 class="Regis">Registrar</h2>
-                    <form class="form-regis">
+                    <form class="form-regis" method="POST">
                         <label class="regislab" for="name">Nome</label>
                         <input class="nome" type="text" name="nome"><br>
                         <label class="regislab" for="user">Usuario</label>
@@ -86,7 +89,7 @@
                 <div class="modal-content-walker">
                     <div id="close-btn-walker" class="close-btn">&times;</div>
                     <h2 class="Regis">Registrar</h2>
-                    <form class="form-walk">
+                    <form class="form-walk" method="POST">
                         <label class="regislab" for="name">Nome</label>
                         <input class="nome" type="text" name="nome"><br>
                         <label class="regislab" for="user">Usuario</label>
@@ -103,7 +106,7 @@
                         <button class="ent-but-wal">ENTRAR</button>
                     </form>
                 </div>
-            </div>                              
+            </div>                               -->
     </header>
     <div class="main-content">
     <main class="corpo">
@@ -123,21 +126,21 @@
     </main>
     <footer class="roda-pe-geral">
         <div class="titulos-midias">
-                <span class="title-midia">REDES SOCIAIS
+                <span class="title-midia1">REDES SOCIAIS
                     <div class="img-midia-icon">
                     <a class="whats" href="https://www.whatsapp.com/?lang=pt_BR"><img src="/imagens/svg-whats.svg"></a>
                     <a class="insta" href="https://www.instagram.com/"><img src="/imagens/svg-insta.svg"></a>
                     <a class="youtube" href="https://www.youtube.com/"><img src="/imagens/svg-youtube.svg"></a>
                     </div>  
                 </span>
-                <span class="title-midia">Formas De Pagamento
+                <span class="title-midia2">Formas De Pagamento
                     <div class="img-midia-1">
                         <img class="imagem-midia" src="/imagens/visa-svg.svg" alt="visa">
                         <img class="imagem-midia" src="/imagens/pix-svg.svg" alt="pix">
                         <img class="imagem-midia" src="/imagens/mastercard-svg.svg" alt="mastercard">
                     </div>
                 </span>
-                <span class="title-midia">Links Utéis
+                <span class="title-midia3">Links Utéis
                     <div class="img-midia">
                         <a class="texto" href="#">INÍCIO</a>
                         <a class="texto" href="#">SOBRE NÓS</a>

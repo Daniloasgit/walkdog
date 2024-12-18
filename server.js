@@ -5,36 +5,21 @@ const dotenv = require('dotenv'); // Importa o pacote dotenv para gerenciar vari
 dotenv.config(); // Carrega as variáveis de ambiente do arquivo.env
 
 const express = require('express');
-const mysql = require('mysql2');
-const bodyParser = require('body-parser');
-const path = require('path'); // Para lidar com caminhos de arquivos estáticos
-const db = require('./config/db'); // Importa a conexão com o banco de dados 
-const cors = require('cors');
-
-//Importar as rotas de clientes e autenticação
-const clientesRouter = require('./rotas/clientes');
-
-
-
 const app = express();
+const clientesRouter = require('./rotas/clientes');
+const cors = require('cors');
+const db = require('./config/db'); // Importa a conexão com o banco de dados 
+const mysql = require('mysql2');
+const path = require('path'); // Para lidar com caminhos de arquivos estáticos
+//Importar as rotas de clientes e autenticação
+
 app.use(cors());
-app.use(bodyParser.json());
-
-const clientesRoutes = require('./rotas/clientes');
-app.use('/api/clientes', clientesRoutes);
-
-const petsRoutes = require('./rotas/pets');
-app.use('/api/pets', petsRoutes);
-
-const dogwalkerRoutes = require('./rotas/dogwalker');
-app.use('/api/dogwalker', dogwalkerRoutes);
-
-const authClientes = require('./rotas/auth');
-
-app.use('/api/auth', authClientes);
+app.use(express.json());
+app.use('/api/clientes', clientesRouter);
+// Servir arquivos estáticos da pasta 'public'
+app.use(express.static('public')); // Configura o middleware 'express.static' para servir arquivos estáticos (como HTML, CSS, JS, imagens) da pasta 'public'.
 
 // Rotas para serviços
-
 app.get('/deletar-registros', async (req, res) => {
   try {
     await deletarRegistros();
@@ -47,11 +32,6 @@ app.get('/deletar-registros', async (req, res) => {
 const servicesRoutes = require('./rotas/servico');
 app.use('/api/service', servicesRoutes);
 
-
-app.get('/', (req, res) => { 
-    res.send('Servidor está rodando'); // Define uma rota inicial para testar o servidor 
-    });
-
 db.connect((err) => {
     if (err) throw err;
     console.log('Conectado ao banco de dados MySQL');
@@ -63,5 +43,7 @@ app.listen(porte, () => {
 });
 
 // FIM DA CONEXÃO COM O SERVIDOR
-
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/public/index.html'); // Servir o arquivo index.html como a página inicial
+});
 
