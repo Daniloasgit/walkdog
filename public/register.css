@@ -69,7 +69,7 @@ header {
 }
 
 /* Estilo para botão principal de "Acessar" */
-.menu-button {
+.menu-button , .logout-btn{
   background-color: var(--Preto); /* Cor de fundo preta */
   color: var(--Branco); /* Texto branco */
   border: none; /* Sem borda */
@@ -176,8 +176,7 @@ header {
 
 .modal-content-login {
   background-color: var(--Branco); /* Fundo branco para o conteúdo da modal */
-  margin: 18% auto; /* Centraliza a modal verticalmente */
-  width: 16%;
+  margin: 170px 0 0 40%; /* Centraliza a modal verticalmente */
   padding: 30px;
   border-radius: 15px; /* Bordas arredondadas */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra ao redor da modal */
@@ -204,8 +203,7 @@ header {
 
 .modal-content-endereco {
   background-color: var(--Branco); /* Fundo branco para o conteúdo da modal */
-margin: 18% auto; /* Centraliza a modal verticalmente */
-width: 16%;
+margin: 170px 0 0 40%; /* Centraliza a modal verticalmente */
 padding: 30px;
 border-radius: 15px; /* Bordas arredondadas */
 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra ao redor da modal */
@@ -298,6 +296,15 @@ width: 300px; /* Define uma largura fixa */
          height: 30px; /* Altura fixa dos botões */
       }
 
+      .ent-encereco-but{
+        color: var(--Branco);
+        background-color: var(--Preto);
+        padding: 3px 20px 3px 20px ; /* Espaçamento interno nos botões */
+        margin-left: 75px; /* Alinha ao centro */
+         border-radius: 10px; /* Bordas arredondadas */
+         height: 30px; /* Altura fixa dos botões */
+      }
+
       .Regis {
         margin-left: 25%; /* Centraliza o botão de registro */
       }
@@ -305,6 +312,9 @@ width: 300px; /* Define uma largura fixa */
         margin-left: 35%; /* Centraliza o botão de login */
       }
 
+      .local{
+        margin-left: 20%; /* Centraliza o botão de local */
+      }
    /* Estilo para campos de entrada de texto */
 input {
   display: block; /* Tornam-se blocos */
@@ -365,7 +375,7 @@ input {
 .close-side-menu { /* Estilo do botão para fechar o menu lateral */
   background: none; /* Nenhum fundo aplicado ao botão */
   border: none; /* Sem borda no botão */
-  font-size: 24px; /* Define o tamanho da fonte como 24px */
+  font-size: 50px; /* Define o tamanho da fonte como 50px */
   color: var(--Branco); /* Define a cor do texto como branco */
   cursor: pointer; /* Define o cursor como "pointer" ao passar o mouse */
   display: block; /* Define o botão como um bloco */
@@ -459,8 +469,7 @@ input {
   margin-bottom: 150px;
   display: flex;
   justify-content: space-around;
-  width: 100vw;
-  gap: 70px;
+  gap: 60px;
 }
 
 .container1 {
@@ -483,6 +492,7 @@ input {
   background-color: var(--Cinza-Escuro);
   background-position: center;
   background-image: url(/imagens/grafico\ de\ ganhos.png);
+  transition: transform 0.2s;
   background-size: cover;
   background-repeat: no-repeat;
   width: 40%;
@@ -493,11 +503,11 @@ input {
 
 
 .container1:hover {
-  transform: scale(0.9);
+  transform: scale(1.2);
 }
 
 .container2:hover {
-  transform: scale(0.9);
+  transform: scale(1.2);
 }
 
 .topico {
@@ -511,7 +521,7 @@ input {
 .quadro-h1 {
   display: grid;
   background-color: gray;
-  padding: 20px 0;
+  padding: 20px 10px;
   text-align: center;
   margin-left: 40vw;
   margin-right: 40vw;
@@ -594,36 +604,22 @@ input {
   border-radius: 25px; /* Adiciona bordas arredondadas */
 }
 
-/* Organização dos títulos de mídias sociais */
 .titulos-midias {
   display: flex; /* Define layout flexível */
+  justify-content: space-around;
 }
 
 /* Estilo do título de cada mídia social */
 .title-midia1 {
     text-align: center; /* Centraliza o texto horizontalmente */
     font-size: 25px; /* Define o tamanho da fonte */
-    padding: 10px; /* Adiciona preenchimento interno */
-    margin-left: 1vw;
-    position: absolute;
 }
 
 .title-midia2 {
     text-align: center; /* Centraliza o texto horizontalmente */
     font-size: 25px; /* Define o tamanho da fonte */
-    padding: 10px; /* Adiciona preenchimento interno */
-    margin-left: 25vw;
-    position: absolute;
   }
-
-.title-midia3 {
-    width: 180px; /* define largura */
-    margin-left: auto; /* alinha à direita */
-    font-size: 25px;
-    padding: 10px;
-       
-       
-}
+  
 
 /* Estilo para textos gerais */
 .texto {
@@ -653,16 +649,14 @@ hr {
 /* Div para a mensagem de marca registrada */
 .marca-registrada {
   display: flex; /* Define layout flexível */
-  justify-content: center;
-  margin-left: 20vw;
-  margin-right: 20vw;
+  justify-content: center; /* Centraliza os itens horizontalmente */
 }
 
 /* Estilo do texto de marca registrada */
 .marca-registrada h4 {
   font-size: 15px; /* Define o tamanho da fonte como 15px */
   box-shadow: 4px 2px 4px 4px var(--Preto, 0.7); /* Adiciona uma sombra ao texto */
-  margin: 20px 0; /* Adiciona uma margem de 20px automática */
+  margin: 20px auto; /* Adiciona uma margem de 20px automática */
   color: var(--Branco); /* Define a cor do texto como branco */
   padding: 5px; /* Adiciona preenchimento interno */
   border-radius: 15px; /* Bordas arredondadas */

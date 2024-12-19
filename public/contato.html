@@ -17,83 +17,108 @@
         <link rel="shortcut icon" href="/imagens/walkedog6.png" type="image/png">
      <link rel="stylesheet" href="/public/style.css">    
 <body>
-<header>
-    <nav class="menu">
-        <a href="/public/index.html"><img class="logo" src="/imagens/walkedog6.png" alt="logo"></a> 
-        <!-- Modal para o botão de registro -->
-        <div class="center">
-            <button id="login-button" class="botao-login">LOGIN</button>                
-                <div id="area" class="popup-login">
-                    <div class="popup">
-                        <div id="close-btn" class="close-btn">&times;</div>
-                        <div class="form">
-                            <h2>Log in</h2>
-                            <div class="form-element">
-                                <label for="email">E-mail</label>
-                                <input type="text" id="email" placeholder="Digite o E-Mail">                   
-                                <div class="form-element">
-                                    <label for="password">Password</label>
-                                    <input type="password" id="password" placeholder="Digite a senha">
-                                </div>
-                                <div class="form-element">
-                                    <input type="checkbox" id="remenber-me">
-                                    <label for="remember-me">Remember me</label>
-                                </div>
-                                <div class="form-element">
-                                    <button>Sign in</button>
-                                </div>
-                                <div class="form-element">
-                                <a href="#">Forgot password?</a>
-                                </div>
-                            </div>
-                        </div>
+    <header>
+        <nav class="menu">
+                <button id="open-side-menu" class="open-side-menu">☰</button>
+            <aside class="side-menu" id="side-menu">
+                <button id="close-side-menu" class="close-side-menu">&times;</button>
+                <ul>
+                    <li class="item-menu"><a href="index.html">Início</a></li>
+                    <li class="item-menu"><a href="#">Sobre</a></li>
+                    <li class="item-menu"><a href="#">Galeria</a></li>
+                    <li class="item-menu"><a href="#">Contato</a></li>
+                    <li class="item-menu"><a href="#">Configurações</a></li>
+                    <li class="item-menu"><a href="#">Agenda</a></li>
+                </ul>
+            </aside>
+        </nav>
+        <nav class="menu">
+            <a href="/public/index.html">
+                <img class="logo-2" src="/imagens/walkedogverdeclaro.png" alt="logo">
+            </a>
+        </nav>
+            <div class="bots">
+                <nav>
+                    <button id="menu-button" class="menu-button">Olá! Faça seu login <br> ou cadastre-se</button>
+                    <div class="dropdown" id="dropdown">
+                        <button id="login-button" class="login-button">Login</button>
+                        <button id="cliente-button" class="cliente-button">Registrar Cliente</button>
+                        <button id="walker-button" class="walker-button">Registrar Dogwalker</button>
                     </div>
-                </div>  
-        </div>
-        <!--<a href="registerdogwalker.html">test2</a>
-        <a href="teste.html">test</a>-->        
-    </nav>    
-</header>
+                </nav>
+            </div>
+            <div class="modal-login" id="login-area">
+                <div class="modal-content-login">
+                    <div id="close-btn-login" class="close-btn">&times;</div>
+                    <h2 class="Login"> Login </h2>
+
+                    <form class="form-login" action="" method="POST">
+
+                        <br>
+                        <label class="loglab" for="email">Email</label>
+                        <input class="usu" type="email" id="email" name="email" autocomplete="off">
+                        <br>
+                        <label class="loglab" for="password">Senha</label>
+                        <input class="sen" type="password" id="password" name="password" autocomplete="off"><br>
+                        <div class="regisbuton"></div>
+                        <a href="#">Esqueci Minha Senha</a>
+                        <button type="submit" class="ent-login-but">ENTRAR</button>
+                      </form>
+                      
+                </div>
+            </div>
+                                      
+    </header>
 <hr class="hr">
 <main>
-        <div class="">
-            <form class="contato-geral" action="sucesso.html" method="post">
-            <fieldset class="corpo-dados">
-                <h1 class="title-contato">Contato</h1>
-                <div>
-                    <label for="nome">Nome</label>
-                    <input type="text" id="nome" name="nome" required> *
-                </div>
-                <div>
-                    Sexo
-                    <input type="radio" name="sexo" id="masculino" value="m" checked>
-                    <label for="masculino">Masculino</label>
-                    <input type="radio" name="sexo" id="feminino" value="f">
-                    <label for="feminino">Feminino</label>
-                </div>
-                <div>
-                    <label for="duvidas">Dúvidas</label>
-                    <select name="duvidas" id="duvidas">
-                        <option value="" selected="">Digite o que deseja..</option>
-                        <option value="ADS">Adquirir Nosso Sistema De Passeios Para Cães.</option>
-                        <option value="LC">Tenho Interesse Em Criar Um Sistema Para O Meu Negócio.</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="email">Email</label>
-                    <input type="text" id="email" name="email">
-                </div>
-                <div>
-                    <label for="titulo">Título</label>
-                    <input type="text" id="titulo" name="titulo">
-                </div>
-                <div>
-                    <label for="mensagem">Mensagem</label>
-                    <textarea id="mensagem" name="mensagem"></textarea>
-                </div>
-            </fieldset>
-            <input type="submit" value="Enviar">
-            </form>
+        <div class="geral-form">
+            <div class="quadro-form">
+                <div class="geral-form1">
+                    <form class="corpo-dados" action="sucesso.html" method="post">
+                    <fieldset class="corpo-dados">
+                        <h1 class="title-contato">Contato</h1>
+                        <div>
+                            <h2 style="margin-left: 7px; margin-top: 15px;"><label for="nome">Nome *</label></h2>
+                            <input type="text" id="nome" name="nome" required placeholder="Digite o seu nome" style="margin-left: auto">
+                        </div>
+                        <div class="sexo-form" style="padding-top: 10px;">
+                            <h2>Sexo</h2>
+                            <input style="width: 50px;" type="radio" name="sexo" id="masculino" value="m" checked>
+                            <label style="margin: 5px 0 0 0;" for="masculino">Masculino</label>
+                            <input style="width: 50px;" type="radio" name="sexo" id="feminino" value="f">
+                            <label style="margin-top: 5px;" for="feminino">Feminino</label>
+                        </div>
+                        <div>
+                            <h2 style="margin-top: 15px;"><label for="duvidas">Dúvidas</label></h2>
+                            <select name="duvidas" id="duvidas">
+                                <option value="" selected="">Digite o que deseja..</option>
+                                <option value="ADS">Adquirir Nosso Sistema De Passeios Para Cães.</option>
+                                <option value="LC">Tenho Interesse Em Criar Um Sistema Para O Meu Negócio.</option>
+                            </select>
+                        </div>
+                        <div>
+                            <h2 style="margin-top: 15px;"><label for="email">Email</label></h2>
+                            <input type="text" id="email" name="email">
+                        </div>
+                    </div>
+                    <div class="geral-form2">
+                        <div>
+                            <label for="assunto">Assunto</label>
+                            <input type="text" id="assunto" name="assunto">
+                        </div>
+                        <div>
+                            <label for="mensagem">Mensagem</label>
+                            <textarea id="mensagem" name="mensagem"></textarea>
+                        </div>
+                    </fieldset>
+                    </div>
+                    <div class="geral-form3">
+                        <div class="campo-input">
+                            <input style="margin-right: 300px; margin-left: 300px;" type="submit" value="Enviar">
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>    
 </main>
 <!--Inicio do rodape-->
@@ -113,13 +138,7 @@
                     <img class="imagem-midia" src="/imagens/mastercard-svg.svg" alt="mastercard">
                 </div>
             </span>
-            <span class="title-midia3">Links Utéis
-                <div class="img-midia">
-                    <a class="texto" href="#">INÍCIO</a>
-                    <a class="texto" href="#">SOBRE NÓS</a>
-                    <a class="texto" href="contato.html">CONTATO</a> 
-                </div>
-            </span>
+            
     </div>
     <hr>
     <div class="marca-registrada">

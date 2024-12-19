@@ -16,8 +16,8 @@ const path = require('path'); // Para lidar com caminhos de arquivos estáticos
 app.use(cors());
 app.use(express.json());
 app.use('/api/clientes', clientesRouter);
-// Servir arquivos estáticos da pasta 'public'
-app.use(express.static('public')); // Configura o middleware 'express.static' para servir arquivos estáticos (como HTML, CSS, JS, imagens) da pasta 'public'.
+// Configurando para servir o conteúdo estático da pasta 'public'
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Rotas para serviços
 app.get('/deletar-registros', async (req, res) => {
@@ -37,7 +37,7 @@ db.connect((err) => {
     console.log('Conectado ao banco de dados MySQL');
 });
 
-const porte = process.env.PORT || 3000; // Define a porta a partir da variável de ambiente ou usa a porta 3000 como padrão
+const porte = process.env.PORT || 5500; // Define a porta a partir da variável de ambiente ou usa a porta 3000 como padrão
 app.listen(porte, () => {
   console.log(`Servidor rodando na porta ${porte}`); // Loga uma mensagem informando que o servidor está rodando
 });

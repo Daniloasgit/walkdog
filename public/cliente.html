@@ -72,7 +72,25 @@
                             <div class="regisbuton"></div>
                             <button class="ent-encereco-but">ENTRAR</button>
                         </form>
-                
+                    </div>
+                </div>
+            </div>
+
+            <div class="top-5"> <br>
+                <h3>Aqui estão os dogwalker mais bem avaliados da semana!</h3> <br>
+                <div class="carclient">
+                    <div class="carousel-track-C">
+                      <div class="carousel-slide-C"><img src="/imagens/DG1.png" alt="Imagem 1"></div>
+                      <div class="carousel-slide-C"><img src="/imagens/DG2.png" alt="Imagem 2"></div>
+                      <div class="carousel-slide-C"><img src="/imagens/DG3.png" alt="Imagem 3"></div>
+                      <div class="carousel-slide-C"><img src="/imagens/DG4.png" alt="Imagem 4"></div>
+                      <div class="carousel-slide-C"><img src="/imagens/DG5.png" alt="Imagem 5"></div>
+                    </div>
+                    <div class="carousel-buttons">
+                      <button class="carousel-button prev">&#8249;</button>
+                      <button class="carousel-button next">&#8250;</button>
+                    </div>
+                  </div>
             </div>
         </nav>
         <br>
@@ -94,13 +112,7 @@
                         <img class="imagem-midia" src="/imagens/mastercard-svg.svg" alt="mastercard">
                     </div>
                 </span>
-                <span class="title-midia3">Links Utéis
-                    <div class="img-midia">
-                        <a class="texto" href="index.html">INÍCIO</a>
-                        <a class="texto" href="#">SOBRE NÓS</a>
-                        <a class="texto" href="contato.html">CONTATO</a> 
-                    </div>
-                </span>
+                
         </div>
         <hr>
         <div class="marca-registrada">
@@ -108,7 +120,41 @@
         </div>
     </footer>
     </div>
+<style>
+    .carousel-track-C {
+  display: flex; /* Organiza os itens em uma linha */
+  transition: transform 0.5s ease-in-out; /* Animação suave ao transformar o elemento */
+}
+    .carclient  {
+  position: relative; /* Posiciona o carrossel em relação ao seu container */
+  width: 542px; /* Define a largura do carrossel */
+  overflow: hidden; /* Esconde elementos que ultrapassam os limites do carrossel */
+  border: var(--Preto) solid 5px; /* Define uma borda preta de 5px */
+  border-radius: 10px; /* Define bordas arredondadas com 10px */
+  margin: 5px; /* Define uma margem de 5px */
+  box-shadow: var(--Preto) 3px 2px 8px; /* Adiciona uma sombra à borda do carrossel */
+  z-index: 0; /* Define a camada do carrossel */
+  margin-top: 155px; /* Define uma margem superior de 155px */
+}
 
+.carousel-slide-C {
+  width: 542px; /* Define a largura de cada slide */
+  min-width: 542px; /* Define a largura mínima do slide */
+  flex-shrink: 0; /* Impede que o slide seja redimensionado */
+}
+/* Imagens dentro de cada slide do carrossel */
+.carousel-slide-C img {
+  width: 100%; /* Faz com que a imagem ocupe 100% da largura do slide */
+  display: block; /* Define a exibição da imagem como bloco */
+}
+.top-5{
+    margin-top: 30px;
+text-align: center;
+background-color: white;
+border: black 4px solid;
+    border-radius: 10px;
+}
+</style>
     <script src="/public/modalClienteEndereco.js"></script>
 </body>
 </html>

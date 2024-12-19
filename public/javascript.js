@@ -128,7 +128,7 @@ async function login(email, password) {
         
         // Envia uma requisição POST à API na rota '/auth/login'.
         // A requisição inclui um cabeçalho para indicar que o conteúdo é JSON e envia o 'email' e 'password' no corpo da requisição.
-        const response = await fetch(`${API_URL}/localhost:5500/`, {
+        const response = await fetch(`${API_URL}/localhost:5500/login`, {
             method: 'POST', // Define o método HTTP como POST.
             headers: {
                 'Content-Type': 'application/json' // Informa que o corpo da requisição está no formato JSON.
@@ -152,3 +152,5 @@ async function login(email, password) {
         return { success: false };
     }
   };
+
+  

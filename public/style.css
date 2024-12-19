@@ -250,7 +250,7 @@ width: 300px; /* Define uma largura fixa */
   background-color: white;
   height: 100px;
   width: 400px;
-
+margin-left: 300px;
 }
 
 .login-button:hover, .cliente-button:hover, .walker-button:hover, .search-button:hover  {
@@ -375,7 +375,7 @@ input {
 .close-side-menu { /* Estilo do botão para fechar o menu lateral */
   background: none; /* Nenhum fundo aplicado ao botão */
   border: none; /* Sem borda no botão */
-  font-size: 24px; /* Define o tamanho da fonte como 24px */
+  font-size: 50px; /* Define o tamanho da fonte como 50px */
   color: var(--Branco); /* Define a cor do texto como branco */
   cursor: pointer; /* Define o cursor como "pointer" ao passar o mouse */
   display: block; /* Define o botão como um bloco */
@@ -529,6 +529,52 @@ input {
   border: solid var(--Verde-Lima) 5px;
 }
 
+.geral-form {
+  display: flex;
+  margin: 250px 100px 100px 100px;
+  background-color: var(--Cinza-Claro);
+}
+
+.quadro-form {
+  display: grid;
+  padding: 20px;
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+}
+
+.geral-form1 {
+  display: flex;
+}
+
+.geral-form2 {
+  display: block;
+}
+
+geral-form3 {
+  width: 100%;
+}
+
+.corpo-dados {
+  padding: 5px 5px 15px 5px;
+  width: 100%;
+}
+
+
+.campo-input {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+#nome {
+  padding-left: 15px;
+}
+
+.sexo-form {
+  display: flex;
+
+}
+
 /* Rodapé geral do site */
 .roda-pe-geral {
   background: linear-gradient(to right, var(--Verde-Menta), var(--Verde-Lima), var(--Verde-Escuro)); /* Fundo em degradê com três tons de verde */
@@ -604,33 +650,23 @@ input {
   border-radius: 25px; /* Adiciona bordas arredondadas */
 }
 
+
 .titulos-midias {
   display: flex; /* Define layout flexível */
+  justify-content: space-around;
 }
 
 /* Estilo do título de cada mídia social */
 .title-midia1 {
     text-align: center; /* Centraliza o texto horizontalmente */
     font-size: 25px; /* Define o tamanho da fonte */
-    padding: 10px; /* Adiciona preenchimento interno */
-    margin-left: 1vw;
 }
 
 .title-midia2 {
     text-align: center; /* Centraliza o texto horizontalmente */
     font-size: 25px; /* Define o tamanho da fonte */
-    padding: 10px; /* Adiciona preenchimento interno */
-    margin-left: 27vw;
   }
-
-.title-midia3 {
-    width: 160px; /* define largura */
-    margin-left: auto; /* alinha à direita */
-    font-size: 25px;
-    padding: 10px;
-       
-       
-}
+  
 /* Estilo para textos gerais */
 .texto {
   color: var(--Preto); /* Define a cor do texto como preto */
