@@ -23,7 +23,7 @@ searchButton.addEventListener("click", () => {
   const slides = Array.from(track.children);
   const nextButton = document.querySelector('.next');
   const prevButton = document.querySelector('.prev');
-  const slideWidth = 542; // Define a largura fixa do slide
+  const slideWidth = 800; // Define a largura fixa do slide
 
   let currentIndex = 0;
 

@@ -250,7 +250,7 @@ width: 300px; /* Define uma largura fixa */
   background-color: white;
   height: 100px;
   width: 400px;
-margin-left: 300px;
+margin-left: 200px;
 }
 
 .login-button:hover, .cliente-button:hover, .walker-button:hover, .search-button:hover  {
@@ -530,43 +530,69 @@ input {
 }
 
 .geral-form {
-  display: flex;
   margin: 250px 100px 100px 100px;
   background-color: var(--Cinza-Claro);
 }
 
+.quadro-form-pai {
+  display: grid
+}
+
 .quadro-form {
   display: grid;
-  padding: 20px;
-  width: 100%;
+  padding: 20px 20px 5px 20px;
+  width: 1720px;
   grid-template-columns: 1fr 1fr;
 }
 
 .geral-form1 {
-  display: flex;
+ display: block;
 }
 
 .geral-form2 {
   display: block;
 }
 
-geral-form3 {
-  width: 100%;
-}
 
 .corpo-dados {
-  padding: 5px 5px 15px 5px;
+  display: flex;
+  padding: 5px;
   width: 100%;
 }
 
+.corpo-dados2 {
+  padding: 5px 5px 5px 5px;
+  width: 700px;
+  height: 385px;
+
+}
 
 .campo-input {
   display: flex;
   justify-content: center;
-  margin-top: 10px;
+  padding-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
 }
 
 #nome {
+  padding-left: 15px;
+}
+
+#masculino {
+  margin: 5px;
+}
+
+#feminino {
+  margin: 5px;
+}
+
+#email {
+  padding-left: 15px;
+}
+
+#assunto {
   padding-left: 15px;
 }
 

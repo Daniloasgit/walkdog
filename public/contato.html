@@ -16,7 +16,7 @@
         <!--Links-->
         <link rel="shortcut icon" href="/imagens/walkedog6.png" type="image/png">
      <link rel="stylesheet" href="/public/style.css">    
-<body>
+<body style="background-image: url(/imagens/fundowalkanddog.png);">
     <header>
         <nav class="menu">
                 <button id="open-side-menu" class="open-side-menu">☰</button>
@@ -69,58 +69,63 @@
             </div>
                                       
     </header>
-<hr class="hr">
-<main>
-        <div class="geral-form">
-            <div class="quadro-form">
-                <div class="geral-form1">
-                    <form class="corpo-dados" action="sucesso.html" method="post">
-                    <fieldset class="corpo-dados">
-                        <h1 class="title-contato">Contato</h1>
-                        <div>
-                            <h2 style="margin-left: 7px; margin-top: 15px;"><label for="nome">Nome *</label></h2>
-                            <input type="text" id="nome" name="nome" required placeholder="Digite o seu nome" style="margin-left: auto">
-                        </div>
-                        <div class="sexo-form" style="padding-top: 10px;">
-                            <h2>Sexo</h2>
-                            <input style="width: 50px;" type="radio" name="sexo" id="masculino" value="m" checked>
-                            <label style="margin: 5px 0 0 0;" for="masculino">Masculino</label>
-                            <input style="width: 50px;" type="radio" name="sexo" id="feminino" value="f">
-                            <label style="margin-top: 5px;" for="feminino">Feminino</label>
-                        </div>
-                        <div>
-                            <h2 style="margin-top: 15px;"><label for="duvidas">Dúvidas</label></h2>
-                            <select name="duvidas" id="duvidas">
-                                <option value="" selected="">Digite o que deseja..</option>
-                                <option value="ADS">Adquirir Nosso Sistema De Passeios Para Cães.</option>
-                                <option value="LC">Tenho Interesse Em Criar Um Sistema Para O Meu Negócio.</option>
-                            </select>
-                        </div>
-                        <div>
-                            <h2 style="margin-top: 15px;"><label for="email">Email</label></h2>
-                            <input type="text" id="email" name="email">
-                        </div>
+<hr>
+    <main>
+            <div class="geral-form">
+                <div class="quadro-form-pai">
+                    <div class="quadro-form">
+                        <div class="geral-form1">
+                            <form class="corpo-dados" action="sucesso.html" method="post">
+                            <fieldset class="corpo-dados">
+                                <h1 class="title-contato">Contato</h1>
+                                <div class="nome">
+                                    <h2 style="margin-left: 7px; margin-top: 15px;"><label for="nome">Nome *</label></h2>
+                                    <input type="text" id="nome" name="nome" required placeholder="Digite o seu nome" style="margin: 0;">
+                                </div>
+                                <div class="sexo-form" style="padding-top: 10px;">
+                                    <h2>Sexo</h2>
+                                    <input style="width: 50px;" type="radio" name="sexo" id="masculino" value="m" checked>
+                                    <label style="margin: 5px 0 0 0;" for="masculino">Masculino</label>
+                                    <input style="width: 50px;" type="radio" name="sexo" id="feminino" value="f">
+                                    <label style="margin-top: 5px;" for="feminino">Feminino</label>
+                                </div>
+                                <div>
+                                    <h2 style="margin-top: 15px;"><label for="duvidas">Dúvidas</label></h2>
+                                    <select name="duvidas" id="duvidas">
+                                        <option value="" selected="">Digite o que deseja..</option>
+                                        <option value="ADS">Adquirir Nosso Sistema De Passeios Para Cães.</option>
+                                        <option value="LC">Tenho Interesse Em Criar Um Sistema Para O Meu Negócio.</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <h2 style="margin-top: 15px;"><label for="email">Email</label></h2>
+                                    <input style="margin: 0;" type="text" id="email" name="email" required placeholder="Digite o seu E-Mail">
+                                </div>
+                           
+                        </fieldset>
+                  
+                      
+                                <fieldset class="corpo-dados2">
+                                <div class="assunto">
+                                    <h2 style="margin-left: 7px;">Assunto</h2>
+                                    <input type="text" id="assunto" name="assunto" required placeholder="Digite o assunto" style="margin: 0;">
+                                </div>
+                                <div style="padding-top: 10px;">
+                                    <h2>Mensagem</h2>
+                                    <textarea style="width: 800px; height: 235px;" id="mensagem" name="mensagem"></textarea>
+                                </div>
+                            </fieldset>
+                           
+                       
+                        </form>
                     </div>
-                    <div class="geral-form2">
-                        <div>
-                            <label for="assunto">Assunto</label>
-                            <input type="text" id="assunto" name="assunto">
-                        </div>
-                        <div>
-                            <label for="mensagem">Mensagem</label>
-                            <textarea id="mensagem" name="mensagem"></textarea>
-                        </div>
-                    </fieldset>
-                    </div>
-                    <div class="geral-form3">
-                        <div class="campo-input">
-                            <input style="margin-right: 300px; margin-left: 300px;" type="submit" value="Enviar">
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>    
-</main>
+                </div>
+                </div> 
+                <div class="campo-input">
+                    <input type="submit" value="Enviar">
+                </div>
+            </div>    
+    </main>
 <!--Inicio do rodape-->
 <footer class="roda-pe-geral">
     <div class="titulos-midias">
