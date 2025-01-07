@@ -1,33 +1,47 @@
-const nodemailer = require('nodemailer'); // Importa o módulo 'nodemailer', que será utilizado para enviar e-mails a partir da aplicação de forma simples e eficiente.
+const nodemailer = require('nodemailer'); // Importa o módulo 'nodemailer' para envio de e-mails
 
-// Configuração do serviço de e-mail
-const transporter = nodemailer.createTransport({
-    service: 'gmail', // Use o serviço de e-mail de sua escolha
-    host: 'smtp.gmail.com', // Use o serviço de e-mail de sua escolha
+// Função para criar o transporter (configuração do serviço de e-mail)
+const createTransporter = () => {
+  // Verificação das variáveis de ambiente
+  const { EMAIL_USER, EMAIL_PASS } = process.env;
+  if (!EMAIL_USER || !EMAIL_PASS) {
+    throw new Error('As variáveis de ambiente EMAIL_USER e EMAIL_PASS não estão definidas!');
+  }
+
+  return nodemailer.createTransport({
+    service: 'gmail', // Serviço de e-mail (pode ser alterado conforme necessidade)
+    host: 'smtp.gmail.com', // Servidor SMTP do Gmail
     port: 465,
-    secure: true, //true se utilizar porta 465, false outras portas		
+    secure: true, // Porta 465 usa TLS/SSL
     auth: {
-        user: process.env.EMAIL_USER, // Seu e-mail definido nas variáveis de ambiente
-        pass: process.env.EMAIL_PASS // Sua senha de e-mail definida nas variáveis de ambiente
+      user: EMAIL_USER, // E-mail de envio
+      pass: EMAIL_PASS, // Senha de e-mail de envio
     }
-});
-
-// Função para enviar e-mail
-const sendEmail = (to, subject, text) => {
-    const mailOptions = {
-        from: process.env.EMAIL_USER,
-        to,
-        subject,
-        text
-    };
-
-    transporter.sendEmail(mailOptions, (error, info) => {
-        if(error) {
-            return console.log('Erro ao enviar e-mail:', error);
-        }
-        console.log('E-mail enviado:', info.response);
-    });
+  });
 };
 
-// Exporta a função 'sendEmail' para que ela possa ser utilizada em outros módulos da aplicação, permitindo o envio de e-mails a partir desses módulos.
+// Função para enviar e-mail
+const sendEmail = async (to, subject, text) => {
+  try {
+    const transporter = createTransporter(); // Cria o transporter com as credenciais
+
+    const mailOptions = {
+      from: process.env.EMAIL_USER, // E-mail de envio
+      to, // Destinatário
+      subject, // Assunto do e-mail
+      text, // Corpo do e-mail
+    };
+
+    // Envia o e-mail
+    const info = await transporter.sendMail(mailOptions);
+
+    console.log('E-mail enviado com sucesso:', info.response); // Confirmação de sucesso
+    return info;
+  } catch (error) {
+    console.error('Erro ao enviar e-mail:', error); // Tratamento de erros
+    throw new Error('Erro ao enviar o e-mail');
+  }
+};
+
+// Exporta a função sendEmail para ser usada em outros módulos
 module.exports = { sendEmail };

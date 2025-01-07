@@ -1,10 +1,10 @@
-// rotas/clientes.js
-import express from 'express';
-import { getUserByEmail } from '../controllers/clientesController.js'; // Importar o controlador
+// rotas/authClientes.js
 
-import authController from '../controllers/authClientes.js'; // Certifique-se de usar a extensão .js se estiver usando módulos ES6
-
+import express from 'express'; 
 const router = express.Router();
+const authController = require('../controllers/authClientes.js'); // Usando require aqui
+
+
 
 // Definir rotas de autenticação
 router.post('/register', authController.registerUser);
