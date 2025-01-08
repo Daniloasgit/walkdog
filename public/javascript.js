@@ -3,13 +3,13 @@
     const menuButton = document.getElementById("menu-button");
     const dropdown = document.getElementById("dropdown");
 
-    // const walkerButton = document.getElementById("walker-button");
-    // const registerwalker = document.getElementById("walker-area");
-    // const closeBtnWalker = document.getElementById("close-btn-walker");
+    const walkerButton = document.getElementById("walker-button");
+    const registerwalker = document.getElementById("walker-area");
+    const closeBtnWalker = document.getElementById("close-btn-walker");
 
-    // const registerButton = document.getElementById("cliente-button");
-    // const registercliente = document.getElementById("cliente-area");
-    // const closeBtnRegister = document.getElementById("close-btn-register");
+    const registerButton = document.getElementById("cliente-button");
+    const registercliente = document.getElementById("cliente-area");
+    const closeBtnRegister = document.getElementById("close-btn-register");
     
 
     const loginButton = document.getElementById("login-button");
@@ -17,8 +17,8 @@
     const closeBtnLogin = document.getElementById("close-btn-login");
     function closeOnOpen(){
       loginArea.style.display = "none";
-      // registercliente.style.display = "none";
-      // registerwalker.style.display = "none";
+      registercliente.style.display = "none";
+      registerwalker.style.display = "none";
     }
 
     // Abrir modal de Login
@@ -28,15 +28,15 @@
     });
 
     // Registro Clientes
-    // registerButton.addEventListener("click", () => {
-    //   closeOnOpen();
-    //     registercliente.style.display = "block";
-    // });
-    // // Registro DogWalker
-    // walkerButton.addEventListener('click', () => {
-    //   closeOnOpen();
-    //   registerwalker.style.display = "block";
-    // });
+    registerButton.addEventListener("click", () => {
+      closeOnOpen();
+        registercliente.style.display = "block";
+    });
+    // Registro DogWalker
+    walkerButton.addEventListener('click', () => {
+      closeOnOpen();
+      registerwalker.style.display = "block";
+    });
 
     // Fechar modal de Login
     closeBtnLogin.addEventListener("click", () => {
@@ -44,27 +44,32 @@
     });
 
     // // Fechar modal de Registro
-    // closeBtnRegister.addEventListener("click", () => {
-    //     registercliente.style.display = "none";
-    // });
+    closeBtnRegister.addEventListener("click", () => {
+        registercliente.style.display = "none";
+    });
 
-    // // Fechar modal de DogWalker
-    // closeBtnWalker .addEventListener ('click', () => {
-    //     registerwalker.style.display = "none";
-    // });
+    // Fechar modal de DogWalker
+    closeBtnWalker .addEventListener ('click', () => {
+        registerwalker.style.display = "none";
+    });
 
     // Fechar as modais ao clicar fora delas
     window.addEventListener("click", (event) => {
         if (event.target === loginArea) {
             loginArea.style.display = "none";
         }
-        // if (event.target === registercliente) {
-        //     registercliente.style.display = "none";
-        // }
-        // if (event.target === registerwalker) {
-        //     registerwalker.style.display = "none";
-        // }
+        if (event.target === registercliente) {
+            registercliente.style.display = "none";
+        }
+        if (event.target === registerwalker) {
+            registerwalker.style.display = "none";
+        }
     });
+
+    //fim dos modais
+
+
+    //menu lateral
     document.getElementById('open-side-menu').addEventListener('click', function() {
         document.getElementById('side-menu').classList.add('open');
     });
@@ -73,6 +78,9 @@
         document.getElementById('side-menu').classList.remove('open');
     });
 
+    //FIM MENU LATERAL
+
+    // Carousel
     const track = document.querySelector('.carousel-track');
   const slides = Array.from(track.children);
   const nextButton = document.querySelector('.next');
@@ -103,7 +111,7 @@
   }, 10000); // Troca de imagem a cada 10 segundos
 
   function redirecionar() {
-    window.location.href = "dogwalkers.html";
+    window.location.href = "dogwalker.html";
   }
 
   document.getElementById('open-side-menu').addEventListener('click', function() {
@@ -117,6 +125,9 @@ document.getElementById('close-side-menu').addEventListener('click', function() 
 });
 
 const API_URL = 'http://localhost:5500/public/index.html';
+
+//FIM CAROUSEL
+
 
 // Função assíncrona para fazer login do usuário.
 

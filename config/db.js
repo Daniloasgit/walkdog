@@ -1,6 +1,9 @@
 // config/db.js
 import mysql from 'mysql2';
+import dotenv from 'dotenv';
 
+// Carregar as variáveis de ambiente
+dotenv.config();
 // Criação da conexão com o banco de dados
 const db = mysql.createConnection({
   host: process.env.DB_HOST,  // Geralmente 'localhost', mas pode ser um IP ou nome de host remoto
@@ -19,3 +22,5 @@ db.connect((err) => {
 });
 
 export default db;  // Exporta a conexão para ser utilizada em outros módulos
+
+
