@@ -15,7 +15,7 @@ import bodyParser from 'body-parser';
 import db from'./config/db.js';
 
 import authRoutes from './rotas/auth.js';
-import routes from './rotas/routes.js';
+// import routes from './rotas/routes.js';
 
 const app = express();
 app.use(cors());
@@ -24,7 +24,7 @@ app.use(bodyParser.json());
 app.use(express.static('public'));
 
 app.use('/api/auth', authRoutes);
-app.use('/api/routes', routes);
+// app.use('/api/routes', routes);
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/index.html');

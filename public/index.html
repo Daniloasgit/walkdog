@@ -52,17 +52,17 @@
                     <div id="close-btn-login" class="close-btn">&times;</div>
                     <h2 class="Login"> Login </h2>
 
-                    <form class="form-login" action="/login" method="POST">
+                    <form class="form-login">
 
                         <br>
-                        <label class="loglab" for="email">Email</label>
-                        <input class="usu" type="email" id="email" name="email" autocomplete="off">
+                        <label class="loglab">Email</label>
+                        <input class="usu" type="email" id="email"  autocomplete="off">
                         <br>
-                        <label class="loglab" for="password">Senha</label>
-                        <input class="sen" type="password" id="password" name="password" autocomplete="off"><br>
+                        <label class="loglab" >Senha</label>
+                        <input class="sen" type="password" id="senC" autocomplete="off"><br>
                         <div class="regisbuton"></div>
                         <a href="#">Esqueci Minha Senha</a>
-                        <button type="submit" class="ent-login-but">ENTRAR</button>
+                        <button type="submit" class="ent-login-but" value="Enter">ENTRAR</button>
                       </form>
                       
                 </div>
@@ -71,17 +71,17 @@
                 <div class="modal-content-cliente">
                     <div id="close-btn-register" class="close-btn">&times;</div>
                     <h2 class="Regis">Registrar</h2>
-                    <form class="form-regis" method="POST">
-                        <label class="regislab" for="name">Nome</label>
-                        <input id="nomeC" type="text" name="nome"><br>
-                        <label class="regislab" for="user">cpf</label>
-                        <input id="cpfC" type="number" name="cpf"><br>
-                        <label class="regislab" for="email">Email</label>
-                        <input id="emailC" type="email"><br>
-                        <label class="regislab" for="password">Senha</label>
-                        <input id="senC" type="password" name="senha"><br>
+                    <form class="form-regis">
+                        <label class="regislab" >Nome</label>
+                        <input id="nomeC" type="text"   required><br>
+                        <label class="regislab" >cpf</label>
+                        <input id="cpfC" type="number"  required><br>
+                        <label class="regislab">Email</label>
+                        <input id="emailC" type="email"  required><br>
+                        <label class="regislab">Senha</label>
+                        <input id="senC" type="password" required><br>
                         <div class="regisbuton"></div>
-                        <button class="ent-but-res">ENTRAR</button>
+                        <button class="ent-but-res" type="submit">ENVIAR</button>
                     </form>
                 </div>
             </div>    
@@ -90,21 +90,21 @@
                 <div class="modal-content-walker">
                     <div id="close-btn-walker" class="close-btn">&times;</div>
                     <h2 class="Regis">Registrar</h2>
-                    <form class="form-walk" method="POST">
-                        <label class="regislab" for="name">Nome</label>
+                    <form class="form-walk">
+                        <label class="regislab">Nome</label>
                         <input class="nome" type="text" name="nome"><br>
-                        <label class="regislab" for="user">Usuario</label>
+                        <label class="regislab">Usuario</label>
                         <input type="text" name="user"><br>
-                        <label class="regislab" for="email">Email</label>
+                        <label class="regislab" >Email</label>
                         <input type="email"><br>
-                        <label class="regislab" for="password">Senha</label>
+                        <label class="regislab" >Senha</label>
                         <input class="sen" type="password" name="password"><br>
-                        <label class="regislab" for="cpf">CPF</label>
+                        <label class="regislab" >CPF</label>
                         <input type="number" name= "cpf"> <br>
-                        <label class="regislab" for="telefone">Telefone</label>
+                        <label class="regislab" >Telefone</label>
                         <input type="tel" name="phone">  <br>
                         <div class="regisbuton"></div>
-                        <button class="ent-but-wal">ENTRAR</button>
+                        <button class="ent-but-wal" type="submit">ENVIAR</button>
                     </form>
                 </div>
             </div>                              
