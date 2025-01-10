@@ -5,10 +5,10 @@ import crypto from 'crypto';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 // import { sendEmail } from '../services/emailService.js'; 
-import { regisCliente } from '../integracao.js';
+
 
 const registrarCliente = async (req, res) => {
-    const { id, nome, email, senha } = req.body; // Desestrutura os dados do corpo da requisição
+    const { nome, cpf, email, senha } = req.body; // Desestrutura os dados do corpo da requisição
 
     // Verificar se o usuário já existe no banco de dados
     try {
@@ -22,8 +22,8 @@ const registrarCliente = async (req, res) => {
 
         // Inserir o novo usuário no banco de dados
         await db.promise().query(
-            'INSERT INTO clientes (id, nome, email, senha) VALUES (?, ?, ?, ?)',
-            [id, nome, email, senha]
+            'INSERT INTO clientes (nome, cpf, email, senha) VALUES (?, ?, ?, ?)',
+            [nome, cpf, email, hashedCPassword]
         );
 
         res.status(201).send('Usuário registrado com sucesso');

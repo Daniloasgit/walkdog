@@ -2,17 +2,17 @@
 const API_URL = 'http://localhost:3000/api';
 
 //Função para registrar um novo usuário (ID é o CPF)
-export async function regisCliente(id, nome, email, senha) {
+export async function regisCliente(nome, cpf, email, senha) {
     try {
         // Exibe no console os dados que estão sendo enviados ao servidor para registro.
-        console.log('Enviando dados para registro:', { id, nome, email, senha });
+        console.log('Enviando dados para registro:', { nome, cpf, email, senha});
         // Envia uma requisição POST para a API no endpoint '/auth/clientes' com os dados do novo usuário.
-        const response = await fetch(`${API_URL}/auth/registrarCliente`, {
+        const response = await fetch(`${API_URL}/auth/registrar`, {
             method: 'POST', // Define o método HTTP como POST para enviar dados.
             headers: {
                 'Content-Type': 'application/json' // Define o cabeçalho, informando que o corpo da requisição será em formato JSON.
             },
-            body: JSON.stringify({ id, nome, email, senha }) // Converte os dados do registro em uma string JSON e os envia no corpo da requisição.
+            body: JSON.stringify({nome, cpf, email, senha }) // Converte os dados do registro em uma string JSON e os envia no corpo da requisição.
         });
         // Verifica se o código de resposta HTTP está fora da faixa de 200-299 (indicando uma falha na requisição).
         if (!response.ok) {
@@ -29,19 +29,19 @@ export async function regisCliente(id, nome, email, senha) {
         // Retorna um objeto indicando que o registro falhou, incluindo a mensagem de erro.
         return { success: false, message: error.message };
     }
-}
+};
 
-export async function registerdogwalker(id, nome, email, senha) {
+export async function regisdogwalker(nome, cpf, email, senha ){
     try {
         // Exibe no console os dados que estão sendo enviados ao servidor para registro.
-        console.log('Enviando dados para registro:', { id, nome, email, senha });
+        console.log('Enviando dados para registro:', {nome, cpf, email, senha });
         // Envia uma requisição POST para a API no endpoint '/auth/dogwalker' com os dados do novo dog walker.
-        const response = await fetch(`${API_URL}/auth/dogwalker`, {
+        const response = await fetch(`${API_URL}/auth/registrardogwalker`, {
             method: 'POST', // Define o método HTTP como POST para enviar dados.
             headers: {
                 'Content-Type': 'application/json' // Define o cabeçalho, informando que o corpo da requisição será em formato JSON.
             },
-            body: JSON.stringify({ id, nome, email, senha }) // Converte os dados do registro em uma string JSON e os envia no corpo da requisição.
+            body: JSON.stringify({ nome, cpf, email, senha }) // Converte os dados do registro em uma string JSON e os envia no corpo da requisição.
         });
         // Verifica se o código de resposta HTTP está fora da faixa de 200-299 (indicando uma falha na requisição).
         if (!response.ok) {
@@ -61,7 +61,7 @@ export async function registerdogwalker(id, nome, email, senha) {
 }
 
 // Função para fazer o login
-export async function loginCliente(email, senha) {
+export async function logCliente(email, senha) {
     try {
         const response = await fetch(`${API_URL}/auth/login`, {
             method: 'POST',
@@ -80,7 +80,29 @@ export async function loginCliente(email, senha) {
         console.error('Erro ao fazer login:', error);
         return { success: false, message: 'Erro ao conectar ao servidor.' };
     }
-}
+};
+
+// Função para fazer o login
+export async function logDogwalker(email, senha) {
+    try {
+        const response = await fetch(`${API_URL}/auth/login`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, senha })
+        });
+        const result = await response.json();
+        console.log('Resposta do servidor:', result);  // Verifique o conteúdo da resposta
+        if (result.token) {
+            return result;
+        } else {
+            alert(result.message || 'Erro ao fazer login.');
+        }
+        
+    } catch (error) {
+        console.error('Erro ao fazer login:', error);
+        return { success: false, message: 'Erro ao conectar ao servidor.' };
+    }
+};
 
 export async function logout() {
     try {
@@ -118,4 +140,4 @@ export async function logout() {
         console.error('Erro ao deslogar:', error);
         alert('Houve um erro ao tentar deslogar. Tente novamente.');
     }
-}
+};

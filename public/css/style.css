@@ -454,7 +454,7 @@ input {
     justify-content: center;  /* Centraliza os itens verticalmente */
     align-items: center; /* Organiza os elementos em uma coluna */
     flex-direction: column; /* Define uma imagem de fundo */
-    background-image: url(/imagens/fundowalkanddog.png);  /* Adiciona uma borda superior preta */
+    background-image: url(/public/imagens/fundowalkanddog.png);  /* Adiciona uma borda superior preta */
     border-top: 5px solid var(--Preto); /* Adiciona uma borda superior preta */
     border-bottom: 5px solid var(--Preto); /* Adiciona uma borda inferior preta */
 }
@@ -476,7 +476,7 @@ input {
   border: 5px solid var(--Verde-Lima);
   background-color: var(--Cinza-Escuro);
   background-position: center;
-  background-image: url(/imagens/historicopasseio.jpg);
+  background-image: url(/public/imagens/historicopasseio.jpg);
   transition: transform 0.2s;
   background-size: cover;
   background-repeat: no-repeat;
@@ -491,7 +491,7 @@ input {
   border: 5px solid var(--Verde-Lima);
   background-color: var(--Cinza-Escuro);
   background-position: center;
-  background-image: url(/imagens/grafico\ de\ ganhos.png);
+  background-image: url(/public/imagens/grafico\ de\ ganhos.png);
   transition: transform 0.2s;
   background-size: cover;
   background-repeat: no-repeat;
@@ -631,7 +631,7 @@ display: block;
   background-repeat: no-repeat; /* Impede que o fundo se repita */
   background-size: 100% 400px; /* Faz o fundo cobrir 100% da largura e define altura de 400px */
   font-family: Atma; /* Define a fonte "Atma" */
-  background-image: url(/imagens/fundowalkanddogfooter.png); /* Adiciona uma imagem de fundo específica */
+  background-image: url(/public/imagens/fundowalkanddogfooter.png); /* Adiciona uma imagem de fundo específica */
 }
 
 

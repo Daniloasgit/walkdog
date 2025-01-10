@@ -1,5 +1,6 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
             <meta charset="UTF-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,8 +12,9 @@
             <meta name="author" content="Lucas Farrapo"> 
             <meta name="author" content="William Araujo"> 
             <title>Walk & Dog</title>
-            <link rel="shortcut icon" href="imagens/walkedog.svg" type="svg">
-            <link rel="stylesheet" href="/public/style.css">
+            <link rel="stylesheet" href="/public/imagens/walkedog.svg">
+            <link rel="stylesheet" href="/css/style.css">
+            <link rel="stylesheet" href="/css/register.css">
             
 </head>
 <body>
@@ -34,7 +36,7 @@
         </nav>
         <nav class="menu">
             <a href="/public/index.html">
-                <img class="logo-2" src="/imagens/walkedogverdeclaro.png" alt="logo">
+                <img class="logo-2" src="/public/imagens/walkedogverdeclaro.png" alt="logo">
             </a>
         </nav>
             <div class="bots">
@@ -52,17 +54,17 @@
                     <div id="close-btn-login" class="close-btn">&times;</div>
                     <h2 class="Login"> Login </h2>
 
-                    <form class="form-login">
+                    <form class="form-login" id="form-login">
 
                         <br>
                         <label class="loglab">Email</label>
                         <input class="usu" type="email" id="email"  autocomplete="off">
                         <br>
                         <label class="loglab" >Senha</label>
-                        <input class="sen" type="password" id="senC" autocomplete="off"><br>
+                        <input class="senLogin" type="password" id="senLogin" autocomplete="off"><br>
                         <div class="regisbuton"></div>
                         <a href="#">Esqueci Minha Senha</a>
-                        <button type="submit" class="ent-login-but" value="Enter">ENTRAR</button>
+                        <button type="submit" class="ent-login-but" value="Enter" >ENTRAR</button>
                       </form>
                       
                 </div>
@@ -71,15 +73,15 @@
                 <div class="modal-content-cliente">
                     <div id="close-btn-register" class="close-btn">&times;</div>
                     <h2 class="Regis">Registrar</h2>
-                    <form class="form-regis">
+                    <form class="form-regis" id="form-regis">
                         <label class="regislab" >Nome</label>
                         <input id="nomeC" type="text"   required><br>
                         <label class="regislab" >cpf</label>
-                        <input id="cpfC" type="number"  required><br>
+                        <input id="cpfC" type="text"  required><br>
                         <label class="regislab">Email</label>
                         <input id="emailC" type="email"  required><br>
                         <label class="regislab">Senha</label>
-                        <input id="senC" type="password" required><br>
+                        <input id="senClient" type="password" required><br>
                         <div class="regisbuton"></div>
                         <button class="ent-but-res" type="submit">ENVIAR</button>
                     </form>
@@ -90,19 +92,19 @@
                 <div class="modal-content-walker">
                     <div id="close-btn-walker" class="close-btn">&times;</div>
                     <h2 class="Regis">Registrar</h2>
-                    <form class="form-walk">
+                    <form class="form-walk" id="form-walk">
                         <label class="regislab">Nome</label>
-                        <input class="nome" type="text" name="nome"><br>
+                        <input class="nome" type="text"><br>
                         <label class="regislab">Usuario</label>
-                        <input type="text" name="user"><br>
+                        <input type="text"><br>
                         <label class="regislab" >Email</label>
                         <input type="email"><br>
                         <label class="regislab" >Senha</label>
-                        <input class="sen" type="password" name="password"><br>
+                        <input class="sen" id="senWalker" type="password" ><br>
                         <label class="regislab" >CPF</label>
-                        <input type="number" name= "cpf"> <br>
+                        <input type="number"> <br>
                         <label class="regislab" >Telefone</label>
-                        <input type="tel" name="phone">  <br>
+                        <input type="tel">  <br>
                         <div class="regisbuton"></div>
                         <button class="ent-but-wal" type="submit">ENVIAR</button>
                     </form>
@@ -113,10 +115,10 @@
     <main class="corpo">
         <div class="carousel">
             <div class="carousel-track">
-              <div class="carousel-slide"><img src="/imagens/Banner de boas vindas 1.png" alt="Imagem 1"></div>
-              <div class="carousel-slide"><img src="/imagens/Banner de boas vindas 2.png" alt="Imagem 2"></div>
-              <div class="carousel-slide"><img src="/imagens/Banner de boas vindas 3.png" alt="Imagem 3"></div>
-              <div class="carousel-slide"><img src="/imagens/Banner de boas vindas 4.png" alt="Imagem 4"></div>
+              <div class="carousel-slide"><img src="/public/imagens/Banner de boas vindas 1.png" alt="Imagem 1"></div>
+              <div class="carousel-slide"><img src="/public/imagens/Banner de boas vindas 2.png" alt="Imagem 2"></div>
+              <div class="carousel-slide"><img src="/public/imagens/Banner de boas vindas 3.png" alt="Imagem 3"></div>
+              <div class="carousel-slide"><img src="/public/imagens/Banner de boas vindas 4.png" alt="Imagem 4"></div>
             </div>
             <div class="carousel-buttons">
               <button class="carousel-button prev">&#8249;</button>
@@ -129,26 +131,33 @@
         <div class="titulos-midias">
                 <span class="title-midia1">REDES SOCIAIS
                     <div class="img-midia-icon">
-                    <a class="whats" href="https://www.whatsapp.com/?lang=pt_BR"><img src="/imagens/svg-whats.svg"></a>
-                    <a class="insta" href="https://www.instagram.com/"><img src="/imagens/svg-insta.svg"></a>
-                    <a class="youtube" href="https://www.youtube.com/"><img src="/imagens/svg-youtube.svg"></a>
+                    <a class="whats" href="https://www.whatsapp.com/?lang=pt_BR"><img src="/public//imagens/svg-whats.svg"></a>
+                    <a class="insta" href="https://www.instagram.com/"><img src="/public/imagens/svg-insta.svg"></a>
+                    <a class="youtube" href="https://www.youtube.com/"><img src="/public/imagens/svg-youtube.svg"></a>
                     </div>  
                 </span>
                 <span class="title-midia2">Formas De Pagamento
                     <div class="img-midia-1">
-                        <img class="imagem-midia" src="/imagens/visa-svg.svg" alt="visa">
-                        <img class="imagem-midia" src="/imagens/pix-svg.svg" alt="pix">
-                        <img class="imagem-midia" src="/imagens/mastercard-svg.svg" alt="mastercard">
+                        <img class="imagem-midia" src="/public/imagens/visa-svg.svg" alt="visa">
+                        <img class="imagem-midia" src="/public/imagens/pix-svg.svg" alt="pix">
+                        <img class="imagem-midia" src="/public/imagens/mastercard-svg.svg" alt="mastercard">
                     </div>
                 </span>
                
         </div>
+
+
+
         <hr>
         <div class="marca-registrada">
             <h4>© 2024 WALK & DOG - Todos os direitos reservados.</h4>
         </div>
     </footer>
     </div>
-    <script src="/public/javascript.js"></script>
+    <script type="module" src="/public/js/javascript.js"></script>
+    <script type="module" src="/public/js/registerlogin.js"></script>
+    <script  type="module"src="/public/apicontroller.js"></script>
+    
+
 </body>
 </html>

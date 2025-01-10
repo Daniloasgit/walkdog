@@ -1,25 +1,25 @@
-import{ regisCliente, login, expiredToken } from '../integracao.js';
+import{ regisCliente} from './apicontroller.js';
 
 const btnLogin = document.querySelector('#ent-login-but');
 const btnRegisClient = document.querySelector('#ent-but-res');
 const btnRegisWalk = document.querySelector('#ent-but-wal');
 
-const dropdown = document.querySelector(".dropdown");
-const URL = 'http://localhost:3000/api'
+const dropdown = document.querySelector("dropdown");
 
-document.querySelector('#form-regis').addEventListener('submit', async (event) => {
+
+document.getElementById('form-regis').addEventListener('submit', async (event) => {
     event.preventDefault();
 
-    const id = document.getElementById('cpfC').value;
     const nome = document.getElementById('nomeC').value;
+    const cpf = document.getElementById('cpfC').value;
     const email = document.getElementById('emailC').value;
-    const senha = document.getElementById('senC').value;
+    const senha = document.getElementById('senClient').value;
 
-    if( !id || !nome|| !email || !senha ) {
+    if( !nome ||!cpf || !email || !senha ) {
         alert('Preencha todos os campos');
         return;
     }
-    const result = await registrarCliente ( id,nome, email, senha);  // Alterado aqui
+    const result = await regisCliente ( nome,cpf, email, senha);  // Alterado aqui
     if(result.success) {
         alert('Usuário registrado com sucesso');
         document.getElementsByClassName('form-regis').reset();
@@ -35,7 +35,7 @@ document.querySelector('#form-login').addEventListener('submit', async (event) =
     event.preventDefault();
     const email = document.getElementById('email').value;
     const senha = document.getElementById('senha').value;
-    const result = await login(email, senha);
+    const result = await loginCliente(email, senha);
 
     if (result.token) {
         console.log('Token recebido do servidor', result.token);
@@ -56,3 +56,4 @@ document.querySelector('#form-login').addEventListener('submit', async (event) =
         alert(result.message || 'Login falhou! Verifique suas credenciais.');
     }
 }});
+
