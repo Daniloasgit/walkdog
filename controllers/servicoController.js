@@ -17,12 +17,12 @@
 // };
 
 // const addService = (req, res) => {
-//     const{idRegistro, dogwalker_id, cliente_id, animal_id, preco_servico, entrega, devolucao} = req.body;
+//     const{idRegistro, dogwalker_cpf, cliente_cpf, animal_id, preco_servico, entrega, devolucao} = req.body;
 
 //     //Verificar duplicidade
 //     db.query(
-//         'SELECT * FROM servico WHERE idRegistro=? AND dogwalker_id=? AND cliente_id=? AND animal_id=? AND preco_servico=? AND entrega=? AND devolucao=?',
-//         [idRegistro, dogwalker_id, cliente_id, animal_id, preco_servico, entrega, devolucao],
+//         'SELECT * FROM servico WHERE idRegistro=? AND dogwalker_cpf=? AND cliente_cpf=? AND animal_id=? AND preco_servico=? AND entrega=? AND devolucao=?',
+//         [idRegistro, dogwalker_cpf, cliente_cpf, animal_id, preco_servico, entrega, devolucao],
 //         (err, results) => {
 //             if(err) {
 //                 console.error('Erro ao verificar serviço', err);
@@ -34,8 +34,8 @@
 //                 return;
 //             }
 
-//     db.query('INSERT INTO servico(idRegistro, dogwalker_id, cliente_id, animal_id, preco_servico, entrega, devolucao) VALUES(?, ?, ?, ?, ?, ?, ?)',
-//         [idRegistro, dogwalker_id, cliente_id, animal_id, preco_servico, entrega, devolucao],
+//     db.query('INSERT INTO servico(idRegistro, dogwalker_cpf, cliente_cpf, animal_id, preco_servico, entrega, devolucao) VALUES(?, ?, ?, ?, ?, ?, ?)',
+//         [idRegistro, dogwalker_cpf, cliente_cpf, animal_id, preco_servico, entrega, devolucao],
 //         (err, results) => {
 //             if(err) {
 //                 console.error('Erro ao adicionar serviço:', err);
@@ -56,7 +56,7 @@
 // async function deletarRegistros() {
 //     const dataLimite = new Date();
 //     dataLimite.setMonth(dataLimite.getMonth() - 6);
-  
+
 //     const query = 'DELETE FROM servico WHERE devolucao < ?';
 //     db.execute(query, [dataLimite], (err, results) => {
 //       if (err) {
@@ -70,9 +70,9 @@
 //   cron.schedule('0 0 1 1-12/6 *', async () => {
 //     await deletarRegistros();
 //   });
-  
 
-  
+
+
 // module.exports = {
 //     getAllServices,
 //     addService,

@@ -1,6 +1,5 @@
 
 import db from'../config/db.js';
-
 import crypto from 'crypto';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
@@ -23,7 +22,7 @@ const registrarCliente = async (req, res) => {
         // Inserir o novo usuário no banco de dados
         await db.promise().query(
             'INSERT INTO clientes (nome, cpf, email, senha) VALUES (?, ?, ?, ?)',
-            [nome, cpf, email, hashedCPassword]
+            [cpf, email, nome, hashedCPassword]
         );
 
         res.status(201).send('Usuário registrado com sucesso');
@@ -51,7 +50,7 @@ const loginCliente = async (req, res) => {
         }
 
         // Gerar um token JWT
-        const token = jwt.sign({ userId: user[0].id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+        const token = jwt.sign({ userCPF: user[0].cpf }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
         res.json({ token });
     } catch (err) {
@@ -61,7 +60,7 @@ const loginCliente = async (req, res) => {
 };
 
 const registerDogwalker = async (req, res) => {
-    const { id, nome, email, senha } = req.body; // Desestrutura os dados do corpo da requisição
+    const { nome, usuario, email, senha, cpf, telefone } = req.body; // Desestrutura os dados do corpo da requisição
 
     // Verificar se o usuário já existe no banco de dados
     try {
@@ -75,8 +74,8 @@ const registerDogwalker = async (req, res) => {
 
         // Inserir o novo usuário no banco de dados
         await db.promise().query(
-            'INSERT INTO dogwalkers (id, nome, email, senha) VALUES (?, ?, ?, ?)',
-            [id, nome, email, senha]
+            'INSERT INTO dogwalkers (nome, usuario, email, senha, cpf, telefone) VALUES (?, ?, ?, ?, ?, ?)',
+            [nome, usuario, email, senha, cpf, telefone]
         );
 
         res.status(201).send('Usuário registrado com sucesso');
@@ -104,7 +103,7 @@ const loginDogwalker = async (req, res) => {
         }
 
         // Gerar um token JWT
-        const token = jwt.sign({ userId: user[0].id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+        const token = jwt.sign({ userCPF: user[0].cpf }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
         res.json({ token });
     } catch (err) {

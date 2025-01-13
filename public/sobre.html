@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <!-- Definição do charset e compatibilidade com navegadores-->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- Configuração para a vizualização de dispositivos móveis -->
+        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0">
+        <!-- Meta tags para SEO (Search Engine Optimization) ou "otimização para motores de buscar", e informações do site -->
+        <meta name="description" content="Programadores Front-End & Back-End, Senai.">
+        <meta name="keywords" content="HTML, CSS, JavaScript, Senai">
+        <meta name="author" content="Danilo Alan, Gabriel Rocha Silva Machado, Lucas Farrapo, William Araujo">
+        <title>Walk & Dog</title>
+        <!-- Ícone da página (favincon) -->
+        <link rel="shortcut icon" href="imagens/walkedog.svg" type="svg">
+        <!-- Link para o arquivo do estilo CSS -->
+        <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <!-- Cabeçalho do site -->
+    <header>
+        <!-- Menu de navegação superior -->
+        <nav class="menu">
+            <!-- Botão de abertura do menu lateral -->
+                <button id="open-side-menu" class="open-side-menu">☰</button>
+            <!-- Menu lateral (side menu) -->
+            <aside class="side-menu" id="side-menu">
+                <!-- Botão para fechamento do menu lateral -->
+                <button id="close-side-menu" class="close-side-menu">&times;</button>
+                <ul>
+                    <!-- Links para navegação -->
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="galeria.html">Galeria</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                    <li><a href="#">Configurações</a></li>
+                    <li><a href="#">Agenda</a></li>
+                </ul>
+            </aside>
+        </nav>
+        <!-- Logo do site -->
+        <nav class="menu">
+            <a href="index.html">
+                <img class="logo-2" src="/imagens/walkedogverdeclaro.png" alt="logo">
+            </a>
+        </nav>
+        <!-- Botões para login e cadastro -->
+        <div class="bots">
+            <nav>
+                <button id="menu-button" class="menu-button">Olá! Faça seu login <br> ou cadastre-se</button>
+                <div class="dropdown" id="dropdown">
+                    <button id="login-button" class="login-button">Login</button>
+                    <button id="cliente-button" class="cliente-button">Registrar Cliente</button>
+                    <button id="walker-button" class="walker-button">Registrar Dogwalker</button>
+                </div>
+            </nav>
+        </div>
+        <div class="modal-login" id="login-area">
+            <div class="modal-content-login">
+                <div id="close-btn-login" class="close-btn">&times;</div>
+                <h2 class="Login"> Login </h2>
+
+                <form class="form-login" id="form-login">
+
+                    <br>
+                    <label class="loglab">Email</label>
+                    <input class="usu" type="email" id="email"  autocomplete="off">
+                    <br>
+                    <label class="loglab" >Senha</label>
+                    <input class="senLogin" type="password" id="senLogin" autocomplete="off"><br>
+                    <div class="regisbuton"></div>
+                    <a href="#">Esqueci Minha Senha</a>
+                    <button type="submit" class="ent-login-but" value="Enter" >ENTRAR</button>
+                </form>
+                
+            </div>
+        </div>
+        <div class="modal-cliente" id="cliente-area">
+            <div class="modal-content-cliente">
+                <div id="close-btn-register" class="close-btn">&times;</div>
+                <h2 class="Regis">Registrar</h2>
+                <form class="form-regis" id="form-regis">
+                    <label class="regislab" >Nome</label>
+                    <input id="nomeC" type="text"   required><br>
+                    <label class="regislab" >cpf</label>
+                    <input id="cpfC" type="text"  required><br>
+                    <label class="regislab">Email</label>
+                    <input id="emailC" type="email"  required><br>
+                    <label class="regislab">Senha</label>
+                    <input id="senClient" type="password" required><br>
+                    <div class="regisbuton"></div>
+                    <button class="ent-but-res" type="submit">ENVIAR</button>
+                </form>
+            </div>
+        </div>    
+        
+        <div class="modal-walker" id="walker-area">
+            <div class="modal-content-walker">
+                <div id="close-btn-walker" class="close-btn">&times;</div>
+                <h2 class="Regis">Registrar</h2>
+                <form class="form-walk" id="form-walk">
+                    <label class="regislab">Nome</label>
+                    <input class="nome" type="text"><br>
+                    <label class="regislab">Usuario</label>
+                    <input type="text"><br>
+                    <label class="regislab" >Email</label>
+                    <input type="email"><br>
+                    <label class="regislab" >Senha</label>
+                    <input class="sen" id="senWalker" type="password" ><br>
+                    <label class="regislab" >CPF</label>
+                    <input type="number"> <br>
+                    <label class="regislab" >Telefone</label>
+                    <input type="tel">  <br>
+                    <div class="regisbuton"></div>
+                    <button class="ent-but-wal" type="submit">ENVIAR</button>
+                </form>
+            </div>
+        </div>  
+    </header>
+    <!-- Corpo do conteúdo -->
+    <div class="main-content">
+    <main class="corpo">
+        <nav class="corpo-conteudo">
+            <div class="informações-walkanddog">
+                <!-- Chamada para a leitura da descrição do sobre a empresa -->
+                <h6 class="titulo-sobre"><b>UM POUCO SOBRE A NOSSA EMPRESA</b></h6>
+                <p class="texto-sobre">
+                    <!-- Descrição da Walk&Dog e seus serviços -->
+                    <br>Aqui na <b>Walk&Dog</b> acreditamos que o seu companheiro de quatro patas merece o melhor cuidado e atenção, mesmo quando você não pode estar presente. Somos uma empresa especializada em serviços de passeio para cães, criada para atender às necessidades dos seus pets com amor, responsabilidade e segurança.
+                    <br>Nosso time é formado por apaixonados por animais, que vão garantir passeios agradáveis, seguros e adaptados ao perfil de cada cachorro. Seja uma caminhada para gastar energia, explorar novos cheiros ou apenas esticar as patas, nós garantimos que seu companheiro estará em boas mãos.
+                    <br>Sabemos que cada cachorro é único, e é por isso que nossos serviços são personalizados. Você pode escolher horários, a frequência dos passeios, sempre com transparência e feedbacks constantes sobre o dia do seu pet.
+                    <br>Na <b>Walk&Dog</b>, sua tranquilidade e a felicidade do seu cão são nossas prioridades. Enquanto você cuida dos seus compromissos, nós cuidamos do seu companheiro de quatro patas.
+                    <br><b>Entre em contato e agende um passeio para o seu amigo de quatro patas hoje mesmo! 🐾</b>
+                    <br><b>Atenciosamente equipe Walk&Dog.</b>
+                </p>
+                <br><img src="imagens/Divulgação1.png" alt="divulgação" class="img-sobre">
+            </div>
+        </nav>
+    </main>
+    <!-- Rodapé do site -->
+    <footer class="roda-pe-geral">
+        <div class="titulos-midias">
+                <span class="title-midia">REDES SOCIAIS
+                    <div class="img-midia-icon">
+                    <a class="whats" href="https://www.whatsapp.com/?lang=pt_BR"><img src="/imagens/svg-whats.svg"></a>
+                    <a class="insta" href="https://www.instagram.com/"><img src="/imagens/svg-insta.svg"></a>
+                    <a class="insta" href="https://www.instagram.com/"><img src="/imagens/svg-youtube.svg"></a>
+                    </div>  
+                </span>
+                <span class="title-midia">Formas De Pagamentos
+                    <div class="img-midia-1">
+                        <img class="imagem-midia" src="/imagens/visa-svg.svg" alt="visa">
+                        <img class="imagem-midia" src="/imagens/pix-svg.svg" alt="pix">
+                        <img class="imagem-midia" src="/imagens/mastercard-svg.svg" alt="mastercard">
+                    </div>
+                </span>
+        </div>
+        <hr>
+        <div class="marca-registrada">
+            <h4>© 2024 WALK & DOG - Todos os direitos reservados.</h4>
+        </div>
+    </footer>
+    </div>
+    <!-- Link para o arquivo JavaScript -->
+    <script type="module" src="/js/latmenu.js"></script>
+    <script type="module" src="/js/botaologin.js"></script>
+    <script type="module" src="/js/registerlogin.js"></script>
+    <script  type="module"src="/js/apicontroller.js"></script>  
+</body>
+</html>

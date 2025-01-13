@@ -12,7 +12,7 @@
             <meta name="author" content="Lucas Farrapo"> 
             <meta name="author" content="William Araujo"> 
             <title>Walk & Dog</title>
-            <link rel="stylesheet" href="/public/imagens/walkedog.svg">
+            <link rel="stylesheet" href="/imagens/walkedog.svg">
             <link rel="stylesheet" href="/css/style.css">
             <link rel="stylesheet" href="/css/register.css">
             
@@ -25,8 +25,8 @@
                 <button id="close-side-menu" class="close-side-menu">&times;</button>
                 <ul>
                     <li class="item-menu"><a href="index.html">Início</a></li>
-                    <li class="item-menu"><a href="#">Sobre</a></li>
-                    <li class="item-menu"><a href="#">Galeria</a></li>
+                    <li class="item-menu"><a href="sobre.html">Sobre</a></li>
+                    <li class="item-menu"><a href="galeria.html">Galeria</a></li>
                     <li class="item-menu"><a href="contato.html">Contato</a></li>
                     <li class="item-menu"><a href="#">Configurações</a></li>
                     <li class="item-menu"><a href="#">Agenda</a></li>
@@ -35,8 +35,8 @@
             </aside>
         </nav>
         <nav class="menu">
-            <a href="/public/index.html">
-                <img class="logo-2" src="/public/imagens/walkedogverdeclaro.png" alt="logo">
+            <a href="/index.html">
+                <img class="logo-2" src="/imagens/walkedogverdeclaro.png" alt="logo">
             </a>
         </nav>
             <div class="bots">
@@ -65,14 +65,15 @@
                         <div class="regisbuton"></div>
                         <a href="#">Esqueci Minha Senha</a>
                         <button type="submit" class="ent-login-but" value="Enter" >ENTRAR</button>
-                      </form>
-                      
+                    </form>
+                    
                 </div>
             </div>
             <div class="modal-cliente" id="cliente-area">
                 <div class="modal-content-cliente">
                     <div id="close-btn-register" class="close-btn">&times;</div>
                     <h2 class="Regis">Registrar</h2>
+                    
                     <form class="form-regis" id="form-regis">
                         <label class="regislab" >Nome</label>
                         <input id="nomeC" type="text"   required><br>
@@ -115,35 +116,34 @@
     <main class="corpo">
         <div class="carousel">
             <div class="carousel-track">
-              <div class="carousel-slide"><img src="/public/imagens/Banner de boas vindas 1.png" alt="Imagem 1"></div>
-              <div class="carousel-slide"><img src="/public/imagens/Banner de boas vindas 2.png" alt="Imagem 2"></div>
-              <div class="carousel-slide"><img src="/public/imagens/Banner de boas vindas 3.png" alt="Imagem 3"></div>
-              <div class="carousel-slide"><img src="/public/imagens/Banner de boas vindas 4.png" alt="Imagem 4"></div>
+            <div class="carousel-slide"><img src="/imagens/Banner de boas vindas 1.png" alt="Imagem 1"></div>
+            <div class="carousel-slide"><img src="/imagens/Banner de boas vindas 2.png" alt="Imagem 2"></div>
+            <div class="carousel-slide"><img src="/imagens/Banner de boas vindas 3.png" alt="Imagem 3"></div>
+            <div class="carousel-slide"><img src="/imagens/Banner de boas vindas 4.png" alt="Imagem 4"></div>
             </div>
             <div class="carousel-buttons">
-              <button class="carousel-button prev">&#8249;</button>
-              <button class="carousel-button next">&#8250;</button>
+            <button class="carousel-button prev">&#8249;</button>
+            <button class="carousel-button next">&#8250;</button>
             </div>
-          </div>
-          <button href="dogwalker.html" id="dogwalker-button" class="dogwalker-button" onclick="redirecionar()">CONHEÇA NOSSOS DOGWALKERS</button>
-    </main>
+        </div>
+        <button id="dogwalker-button" class="dogwalker-button" onclick="redirecionar()">CONHEÇA NOSSOS DOGWALKERS</button>    </main>
     <footer class="roda-pe-geral">
         <div class="titulos-midias">
                 <span class="title-midia1">REDES SOCIAIS
                     <div class="img-midia-icon">
-                    <a class="whats" href="https://www.whatsapp.com/?lang=pt_BR"><img src="/public//imagens/svg-whats.svg"></a>
-                    <a class="insta" href="https://www.instagram.com/"><img src="/public/imagens/svg-insta.svg"></a>
-                    <a class="youtube" href="https://www.youtube.com/"><img src="/public/imagens/svg-youtube.svg"></a>
+                    <a class="whats" href="https://wa.me/558695533463"><img src="/imagens/svg-whats.svg"></a>
+                    <a class="insta" href="https://www.instagram.com/"><img src="/imagens/svg-insta.svg"></a>
+                    <a class="youtube" href="https://www.youtube.com/"><img src="/imagens/svg-youtube.svg"></a>
                     </div>  
                 </span>
                 <span class="title-midia2">Formas De Pagamento
                     <div class="img-midia-1">
-                        <img class="imagem-midia" src="/public/imagens/visa-svg.svg" alt="visa">
-                        <img class="imagem-midia" src="/public/imagens/pix-svg.svg" alt="pix">
-                        <img class="imagem-midia" src="/public/imagens/mastercard-svg.svg" alt="mastercard">
+                        <img class="imagem-midia" src="/imagens/visa-svg.svg" alt="visa">
+                        <img class="imagem-midia" src="/imagens/pix-svg.svg" alt="pix">
+                        <img class="imagem-midia" src="/imagens/mastercard-svg.svg" alt="mastercard">
                     </div>
                 </span>
-               
+            
         </div>
 
 
@@ -154,9 +154,10 @@
         </div>
     </footer>
     </div>
-    <script type="module" src="/public/js/javascript.js"></script>
-    <script type="module" src="/public/js/registerlogin.js"></script>
-    <script  type="module"src="/public/apicontroller.js"></script>
+    <script type="module" src="/js/javascript.js"></script>
+    <script type="module" src="/js/registerlogin.js"></script>
+    <script type="module"src="/js/apicontroller.js"></script>
+    <script type="module" src="/js/botaologin.js"></script>
     
 
 </body>

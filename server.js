@@ -19,6 +19,11 @@ app.use(bodyParser.json());
 // Serve arquivos estáticos da pasta 'public'
 app.use(express.static('public'));
 
+// Exemplo usando Express
+app.post('/api/auth/registrar', (req, res) => {
+  // Lógica para registrar o usuário
+});
+
 // Rotas de autenticação
 app.use('/api/auth', authRoutes);
 // app.use('/api/routes', routes);

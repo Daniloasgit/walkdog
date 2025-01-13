@@ -317,6 +317,8 @@ margin-left: 200px;
       }
    /* Estilo para campos de entrada de texto */
 input {
+  font-size: 18px;
+  padding-left: 10px;
   display: block; /* Tornam-se blocos */
   width: 90%; /* Largura dos campos */
   outline: none; /* Remove o contorno ao focar no campo */
@@ -454,7 +456,7 @@ input {
     justify-content: center;  /* Centraliza os itens verticalmente */
     align-items: center; /* Organiza os elementos em uma coluna */
     flex-direction: column; /* Define uma imagem de fundo */
-    background-image: url(/public/imagens/fundowalkanddog.png);  /* Adiciona uma borda superior preta */
+    background-image: url(/imagens/fundowalkanddog.png);  /* Adiciona uma borda superior preta */
     border-top: 5px solid var(--Preto); /* Adiciona uma borda superior preta */
     border-bottom: 5px solid var(--Preto); /* Adiciona uma borda inferior preta */
 }
@@ -625,13 +627,88 @@ display: block;
 
 }
 
+.informações-walkanddog{
+  background-color: var(--Branco); /* Cria uma caixa branca onde vai ficar as informações do sobre a empresa*/
+  display: flex; /* Define o contêiner como um flex container, permitindo o uso das propriedades de layout flexíveis para organizar os itens dentro dele. */
+  justify-content: center; /* Centraliza os itens horizontalmente no centro do contêiner. */
+  align-items: center; /* Centraliza os itens verticalmente no centro do contêiner. */
+  flex-direction: column; /* Organiza os itens em uma coluna, ou seja, de cima para baixo, em vez de na horizontal (linha). */
+  width: 1200px; /* Define a largura do elemento como 1000 pixels. */
+  padding: 5px; /* Adiciona um espaçamento interno de 5 pixels em todos os lados do conteúdo dentro do elemento. */
+  border: 5px solid var(--Preto); /* Cria uma borda sólida com 5 pixels de espessura, usando a cor definida na variável `--Preto`. */
+  margin-bottom: 10px; /* Adiciona um espaçamento externo de 10 pixels abaixo do elemento. */
+  border-radius: 10px; /* Arredonda os cantos da borda do elemento com um raio de 10 pixels. */
+  box-shadow: 2px 0 5px var(--Preto, 0.1); /* Adiciona uma sombra ao elemento com deslocamento de 2px à direita (horizontal), sem deslocamento vertical (0), com um desfoque de 5px. A cor da sombra é determinada pela variável --Preto com 10% de opacidade. */
+}
+
+.titulo-sobre {
+  font-size: 40px; /* Define o titulo da pagina sobre como 30 pixels*/
+}
+
+.texto-sobre {
+  font-size: 30px; /* Define o tamanho da fonte como 30 pixels. */
+  text-align: justify; /* Faz com que o texto dentro do elemento se alinhe de forma justificada, ou seja, ele será esticado para preencher toda a largura disponível, ajustando o espaçamento entre as palavras. */
+  padding: 10px; /* Adiciona um espaçamento interno de 10 pixels em todos os lados do elemento, criando um "afastamento" entre o conteúdo e a borda do elemento. */
+}
+
+.img-sobre {
+  width: 750px; /* Define a imagem da página sobre como 1160px*/
+  border: 5px solid var(--Preto); /* Cria uma borda sólida com 5 pixels de espessura, usando a cor definida na variável `--Preto`. */
+  border-radius: 10px; /* Arredonda os cantos da borda do elemento com um raio de 10 pixels. */
+}
+
+/*Página da Galeria*/
+.carrossel-galeria {
+  position: relative; /* Define a posição do elemento como relativa, permitindo posicionar os elementos filhos em relação a ele. */
+  width: 1500px; /* Define a largura fixa do carrossel como 1500 pixels. */
+  overflow: hidden; /* Oculta qualquer conteúdo que ultrapasse os limites do carrossel. */
+  border: var(--Preto) solid 5px; /* Adiciona uma borda sólida de 5 pixels de espessura usando a cor definida na variável CSS --Preto. */
+  border-radius: 10px; /* Arredonda os cantos do carrossel com um raio de 10 pixels. */
+  margin: 5px; /* Adiciona uma margem externa de 5 pixels ao redor do carrossel. */
+  margin-bottom: 20px; /* Adiciona uma margem externa de 20 pixels ao final do carrossel */
+  box-shadow: var(--Preto) 3px 2px 8px; /* Aplica uma sombra ao carrossel, usando a cor definida pela variável --Preto com deslocamento de 3px horizontal, 2px vertical e 8px de desfoque. */
+}
+.carrossel-galeria-track {
+  display: flex; /* Organiza os slides em linha horizontal dentro do carrossel. */
+  transition: transform 0.5s ease-in-out; /* Adiciona uma animação suave ao transformar a posição do track, com duração de 0.5 segundos. */
+}
+.carrossel-slide {
+  width: 1500px; /* Define a largura de cada slide como 1500 pixels. */
+  min-width: 1500px; /* Garante que a largura mínima de cada slide seja 1500 pixels. */
+  flex-shrink: 0; /* Impede que os slides encolham, mantendo sempre o tamanho definido. */
+}
+.carrossel-slide img {
+  width: 100%; /* Faz com que a imagem ocupe toda a largura disponível no slide. */
+  display: block; /* Remove o espaçamento inferior que as imagens têm por padrão, garantindo um layout mais ajustado. */
+}
+.carrossel-buttons-galeria {
+  position: absolute; /* Posiciona os botões de navegação de forma absoluta dentro do carrossel. */
+  top: 50%; /* Alinha verticalmente os botões ao centro do carrossel. */
+  width: 100%; /* Define que os botões ocupam 100% da largura do carrossel. */
+  display: flex; /* Organiza os botões em um layout flexível. */
+  justify-content: space-between; /* Posiciona um botão à esquerda e outro à direita do carrossel. */
+  transform: translateY(-50%); /* Ajusta a posição dos botões para que fiquem perfeitamente centralizados verticalmente. */
+}
+.carrossel-button-galeria {
+  background-color: var(--Preto, 0.5); /* Define a cor de fundo do botão com 50% de opacidade, usando a variável --Preto. */
+  border: none; /* Remove quaisquer bordas padrão do botão. */
+  color: var(--Branco); /* Define a cor do texto ou ícone do botão como branco. */
+  padding: 20px; /* Aumentado para botões maiores */
+  font-size: 24px; /* Aumentado o tamanho do ícone */
+  cursor: pointer; /* Muda o cursor para o estilo "mãozinha" quando o botão é passado com o mouse. */
+  border-radius: 10px; /* Arredonda os cantos dos botões com um raio de 10 pixels. */
+}
+.carrossel-button-galeria:hover {
+  background-color: var(--Verde-Lima, 0.7); /* Ao passar o mouse sobre o botão, aumenta a opacidade da cor de fundo para 70%, destacando-o. */
+}
+
 /* Rodapé geral do site */
 .roda-pe-geral {
   background: linear-gradient(to right, var(--Verde-Menta), var(--Verde-Lima), var(--Verde-Escuro)); /* Fundo em degradê com três tons de verde */
   background-repeat: no-repeat; /* Impede que o fundo se repita */
   background-size: 100% 400px; /* Faz o fundo cobrir 100% da largura e define altura de 400px */
   font-family: Atma; /* Define a fonte "Atma" */
-  background-image: url(/public/imagens/fundowalkanddogfooter.png); /* Adiciona uma imagem de fundo específica */
+  background-image: url(/imagens/fundowalkanddogfooter.png); /* Adiciona uma imagem de fundo específica */
 }
 
 
