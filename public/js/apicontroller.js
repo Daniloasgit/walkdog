@@ -1,106 +1,44 @@
 //Define a URL base da API como 'http://localhost:3000/api'
-const API_URL = 'http://localhost:3000/api/';
+const API_URL = 'http://localhost:3000/api';
 
 //Função para registrar um novo usuário (ID é o CPF)
-export async function regisCliente(cpf, email, nome, senha) {
+export async function regisCliente(nome, cpf, email, senha) {
     try {
-        // Exibe no console os dados que estão sendo enviados ao servidor para registro.
-        console.log('Enviando dados para registro:', {cpf, email, nome, senha});
-        // Envia uma requisição POST para a API no endpoint '/auth/clientes' com os dados do novo usuário.
-        const response = await fetch(`${API_URL}/auth/registrar`, {
-            method: 'POST', // Define o método HTTP como POST para enviar dados.
+        console.log('Enviando dados para registro:', {nome, cpf, email, senha});
+        const response = await fetch(`${API_URL}/auth/registrarCliente`, {
+            method: 'POST',
             headers: {
-                'Content-Type': 'application/json' // Define o cabeçalho, informando que o corpo da requisição será em formato JSON.
+                'Content-Type': 'application/json'
             },
-            body: JSON.stringify({cpf, email, nome, senha}) // Converte os dados do registro em uma string JSON e os envia no corpo da requisição.
+            body: JSON.stringify({nome, cpf, email, senha})
         });
-        // Verifica se o código de resposta HTTP está fora da faixa de 200-299 (indicando uma falha na requisição).
         if (!response.ok) {
-            throw new Error('Falha na requisição. Código de status: ' + response.status); // Lança um erro com o código de status da resposta.
+            throw new Error('Falha na requisição. Código de status: ' + response.status);
         }
-        // Recebe a resposta do servidor como JSON.
         const result = await response.json();
-        console.log('Resposta do servidor para registro:', result); // Exibe a resposta do servidor no console.
-        // Retorna um objeto indicando que o registro foi bem-sucedido, juntamente com a resposta do servidor.
-        // return { success: true, message: result };
-        res.status(201).json({ success: true, message: 'Usuário registrado com sucesso' });
-
+        console.log('Resposta do servidor para registro:', result);
+        return result;  // Devolva a resposta ao frontend
     } catch (error) {
-        // Captura qualquer erro ocorrido durante o processo de requisição e exibe no console.
         console.error('Erro ao registrar:', error.message);
-        // Retorna um objeto indicando que o registro falhou, incluindo a mensagem de erro.
         return { success: false, message: error.message };
     }
 };
 
-// api.js
-// apicontroller.js
-// export const registrarCliente = (dados) => {
-//     console.log(dados);
-//     return fetch('http://localhost:3000/auth/registrar', {  // Ajuste a URL, se necessário
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify(dados),
-//     })
-//     .then(response => {
-//       if (!response.ok) {
-//         throw new Error(`Erro HTTP: ${response.status}`); // Verifica se o status da resposta é OK
-//       }
-//       return response.json();
-//     })
-//     .then(data => {
-//       console.log('Registro realizado com sucesso:', data);
-//       return data;  // Retorna os dados, ou trate-os conforme necessário
-//     })
-//     .catch(error => {
-//       console.error('Erro ao registrar cliente:', error);
-//     });
-//   };
-
-
-// export async function regisdogwalker(nome, cpf, email, senha ){
-//     try {
-//         // Exibe no console os dados que estão sendo enviados ao servidor para registro.
-//         console.log('Enviando dados para registro:', {nome, cpf, email, senha });
-//         // Envia uma requisição POST para a API no endpoint '/auth/dogwalker' com os dados do novo dog walker.
-//         const response = await fetch(`${API_URL}/auth/registrardogwalker`, {
-//             method: 'POST', // Define o método HTTP como POST para enviar dados.
-//             headers: {
-//                 'Content-Type': 'application/json' // Define o cabeçalho, informando que o corpo da requisição será em formato JSON.
-//             },
-//             body: JSON.stringify({ nome, cpf, email, senha }) // Converte os dados do registro em uma string JSON e os envia no corpo da requisição.
-//         });
-//         // Verifica se o código de resposta HTTP está fora da faixa de 200-299 (indicando uma falha na requisição).
-//         if (!response.ok) {
-//             throw new Error('Falha na requisição. Código de status: ' + response.status); // Lança um erro com o código de status da resposta.
-//         }
-//         // Recebe a resposta do servidor como JSON.
-//         const result = await response.json();
-//         console.log('Resposta do servidor para registro:', result); // Exibe a resposta do servidor no console.
-//         // Retorna um objeto indicando que o registro foi bem-sucedido, juntamente com a resposta do servidor.
-//         return { success: true, message: result };
-//     } catch (error) {
-//         // Captura qualquer erro ocorrido durante o processo de requisição e exibe no console.
-//         console.error('Erro ao registrar:', error.message);
-//         // Retorna um objeto indicando que o registro falhou, incluindo a mensagem de erro.
-//         return { success: false, message: error.message };
-//     }
-// };
-
 // Função para fazer o login
 export async function logCliente(email, senha) {
     try {
-        const response = await fetch(`${API_URL}/auth/login`, {
+        console.log('Registrando dados para o login:', { email, senha });
+        const response = await fetch(`${API_URL}/auth/loginCliente`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, senha })
         });
         const result = await response.json();
-        console.log('Resposta do servidor:', result);  // Verifique o conteúdo da resposta
+        console.log('Resposta do servidor:', result);
+
+        // Verifica se o token existe na resposta
         if (result.token) {
-            return result;
+            return result;  // Retorna o resultado com o token
         } else {
             alert(result.message || 'Erro ao fazer login.');
         }
@@ -109,12 +47,40 @@ export async function logCliente(email, senha) {
         console.error('Erro ao fazer login:', error);
         return { success: false, message: 'Erro ao conectar ao servidor.' };
     }
-};
+}
+
+
+export async function regisDogwalker(nome, usuario, email, senha, cpf, telefone) {
+    try {
+        console.log('Enviando dados para registro:', { nome, usuario, email, senha, cpf, telefone });
+
+        // Envio da requisição para o backend
+        const response = await fetch(`${API_URL}/auth/registrarWalker`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ nome, usuario, email, senha, cpf, telefone })
+        });
+
+        if (!response.ok) {
+            throw new Error('Falha na requisição. Código de status: ' + response.status);
+        }
+
+        const result = await response.json();
+        console.log('Resposta do servidor para registro:', result);
+        return result;  // Retorna a resposta ao frontend
+    } catch (error) {
+        console.error('Erro ao registrar:', error.message);
+        return { success: false, message: error.message };
+    }
+}
+
 
 // Função para fazer o login
 export async function logDogwalker(email, senha) {
     try {
-        const response = await fetch(`${API_URL}/auth/login`, {
+        const response = await fetch(`${API_URL}/auth/loginWalker`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, senha })

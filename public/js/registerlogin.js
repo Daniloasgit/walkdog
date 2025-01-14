@@ -1,5 +1,5 @@
 // import{ registrarCliente} from '../apicontroller.js';
-import {regisCliente} from './apicontroller.js';
+import {regisCliente,regisDogwalker, logCliente} from './apicontroller.js';
 
 const btnLogin = document.querySelector('#ent-login-but');
 const btnRegisClient = document.querySelector('#ent-but-res');
@@ -10,62 +10,71 @@ const dropdown = document.querySelector("dropdown");
 
 document.getElementById('form-regis').addEventListener('submit', async (event) => {
 
-    const cpf = document.getElementById('cpfC').value;
-    const email = document.getElementById('emailC').value;
-    const nome = document.getElementById('nomeC').value;
-    const senha = document.getElementById('senClient').value;
+    const nomeClient = document.getElementById('nomeC').value;
+    const emailClient = document.getElementById('emailC').value;
+    const cpfClient = document.getElementById('cpfC').value;
+    const senhaClient = document.getElementById('senClient').value;
 
-    if( !cpf ||!email || !nome || !senha ) {
+    if( !nomeClient ||!cpfClient ||!emailClient || !senhaClient ) {
         alert('Preencha todos os campos');
         return;
     }
-    const result = await regisCliente (cpf, email, nome, senha);  // Alterado aqui
+    const result = await regisCliente (nomeClient, cpf, emailClient, senhaClient);  
     if(result.success) {
         alert('Usuário registrado com sucesso');
-        document.getElementsByClassName('form-regis').reset();
-        window.location.href = 'login.html';
+        document.getElementById('form-regis').reset();
+        window.location.href = 'index.html';
     } else {
         alert('Erro ao registrar usuário');
     }
 });
 
-// const dados = {
-//   cpf: "00022255532",
-//   email: "l@gmail.com",
-//   nome: "hhhhh",
-//   senha: "5151515"
-// };
+document.getElementById('form-walk').addEventListener('submit', async (event) => {
+    event.preventDefault();  // Impede o envio padrão do formulário
 
-// registrarCliente(dados)
-//   .then(data => console.log(data))
-//   .catch(error => console.error('Erro no registro:', error));
+    const nome = document.getElementById('nomeDGWK').value;
+    const usuario = document.getElementById('usuarioDGWK').value; 
+    const email = document.getElementById('emailDGWK').value;
+    const senha = document.getElementById('senDGWK').value;
+    const cpf = document.getElementById('cpfDGWK').value;
+    const telefone = document.getElementById('tellDGWK').value;
+
+    if (!nome || !usuario || !email || !senha || !cpf || !telefone) {
+        alert('Preencha todos os campos');
+        return;
+    }
+
+    const result = await regisDogwalker(nome, usuario, email, senha, cpf, telefone); 
+    if (result.success) {
+        alert('Usuário registrado com sucesso');
+        document.getElementById('form-walk').reset();
+        window.location.href = 'dogwalker.html';  // Redireciona após o registro
+    } else {
+        alert('Erro ao registrar usuário: ' + result.message);
+    }
+});
 
 
 
+document.getElementById('form-login').addEventListener('submit', async (event) => {
+    event.preventDefault(); // Evita o envio padrão do formulário
 
-// document.querySelector('#form-login').addEventListener('submit', async (event) => {
-//     event.preventDefault();
-//     const email = document.getElementById('email').value;
-//     const senha = document.getElementById('senha').value;
-//     const result = await loginCliente(email, senha);
+    const email = document.getElementById('email').value;
+    const senha = document.getElementById('senLogin').value;
 
-//     if (result.token) {
-//         console.log('Token recebido do servidor', result.token);
-//         localStorage.setItem('token', result.token);
-//         // Busca usuário
-//         const userResult = await buscaruser(result.token);
-//         if (userResult.user) {
-//             const user = userResult.user;
-//             // Redireciona com base no user
-//             if (user === 'cliente') {
-//                 window.location.href = 'cliente.html';
-//             } else if (user === 'dogwalker') {
-//                 window.location.href = 'dogwalker.html';
-//         } else {
-//             alert(userResult.message || 'Erro ao obter user do usuário.');
-//         }
-//     } else {
-//         alert(result.message || 'Login falhou! Verifique suas credenciais.');
-//     }
-// }});
+    if (!email || !senha) {
+        alert('Preencha todos os campos');
+        return;
+    }
 
+    const result = await logCliente(email, senha); // Chama a função logCliente
+
+    // Verifica se o login foi bem-sucedido
+    if (result.success) {
+        alert('Login realizado com sucesso');
+        localStorage.setItem('token', result.token);  // Armazena o token no localStorage
+        window.location.href = 'index.html'; // Redireciona para a página inicial
+    } else {
+        alert('Erro ao fazer login: ' + (result.message || 'Verifique suas credenciais.'));
+    }
+});

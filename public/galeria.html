@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,16 +9,24 @@
         <meta name="author" content="Danilo Alan, Gabriel Rocha Silva Machado, Lucas Farrapo, William Araujo">
         <title>Walk & Dog</title>
         <link rel="shortcut icon" href="imagens/walkedog.svg" type="svg">
+        <!-- Carregar um arquivo SVG como se fosse CSS. -->
         <link rel="stylesheet" href="/css/style.css">
         <link rel="stylesheet" href="/css/register.css">
+        <!-- Importar os arquivos CSS para a estilização. -->
 </head>
 <body>
+    <!-- Corpo principal do documento HTML. -->
     <header>
+        <!-- Cabeçalho da página. -->
         <nav class="menu">
                 <button id="open-side-menu" class="open-side-menu">☰</button>
+                <!-- Botão de abertura do menu lateral. -->
             <aside class="side-menu" id="side-menu">
+                <!-- Menu lateral. -->
                 <button id="close-side-menu" class="close-side-menu">&times;</button>
+                <!-- Botão de fechamento do menu lateral. -->
                 <ul>
+                    <!-- Lista de links presentes no menu lareal. -->
                     <li><a href="index.html">Início</a></li>
                     <li><a href="sobre.html">Sobre</a></li>
                     <li><a href="galeria.html">Galeria</a></li>
@@ -32,11 +40,15 @@
             <a href="index.html">
                 <img class="logo-2" src="/imagens/walkedogverdeclaro.png" alt="logo">
             </a>
+             <!-- Link que redireciona para a página inicial através do logotipo. -->
         </nav>
         <div class="bots">
+            <!-- Div para os botões de login e registro. -->
             <nav>
                 <button id="menu-button" class="menu-button">Olá! Faça seu login <br> ou cadastre-se</button>
+                <!-- Botão que abri o dropdown dos botões de login e registro. -->
                 <div class="dropdown" id="dropdown">
+                    <!-- Dropdowm com as opções de logn e registro. -->
                     <button id="login-button" class="login-button">Login</button>
                     <button id="cliente-button" class="cliente-button">Registrar Cliente</button>
                     <button id="walker-button" class="walker-button">Registrar Dogwalker</button>
@@ -44,72 +56,94 @@
             </nav>
         </div>
         <div class="modal-login" id="login-area">
+            <!-- Modal para o login. -->
             <div class="modal-content-login">
                 <div id="close-btn-login" class="close-btn">&times;</div>
+                <!-- Botão para fechamento do modal. -->
                 <h2 class="Login"> Login </h2>
-
                 <form class="form-login" id="form-login">
-
+                    <!-- Formulário para login. -->
                     <br>
                     <label class="loglab">Email</label>
                     <input class="usu" type="email" id="email"  autocomplete="off">
+                    <!-- Campo do email. -->
                     <br>
                     <label class="loglab" >Senha</label>
                     <input class="senLogin" type="password" id="senLogin" autocomplete="off"><br>
+                    <!-- Campo para a senha. -->
                     <div class="regisbuton"></div>
                     <a href="#">Esqueci Minha Senha</a>
                     <button type="submit" class="ent-login-but" value="Enter" >ENTRAR</button>
+                    <!-- Botão para submissão do formulário. -->
                 </form>
-                
             </div>
         </div>
         <div class="modal-cliente" id="cliente-area">
+            <!-- Modal para o registro do cliente. -->
             <div class="modal-content-cliente">
                 <div id="close-btn-register" class="close-btn">&times;</div>
+                <!-- Botão de fechamento do modal de resgistro do cliente. -->
                 <h2 class="Regis">Registrar</h2>
                 <form class="form-regis" id="form-regis">
+                    <!-- Formulário de registro de cliente. -->
                     <label class="regislab" >Nome</label>
                     <input id="nomeC" type="text"   required><br>
+                    <!-- Campo do nome. -->
                     <label class="regislab" >cpf</label>
                     <input id="cpfC" type="text"  required><br>
+                    <!-- Campo para o CPF. -->
                     <label class="regislab">Email</label>
                     <input id="emailC" type="email"  required><br>
+                    <!-- Campo para o email. -->
                     <label class="regislab">Senha</label>
                     <input id="senClient" type="password" required><br>
+                    <!-- Campo para a senha. -->
                     <div class="regisbuton"></div>
                     <button class="ent-but-res" type="submit">ENVIAR</button>
+                    <!-- Botão para submeter o formulário-->
                 </form>
             </div>
         </div>    
-        
         <div class="modal-walker" id="walker-area">
+            <!-- Modal para o registro do dogwalker. -->
             <div class="modal-content-walker">
                 <div id="close-btn-walker" class="close-btn">&times;</div>
+                <!--Botão para fechamento do modal de registro do dogwalker. -->
                 <h2 class="Regis">Registrar</h2>
                 <form class="form-walk" id="form-walk">
+                    <!-- Formulário de registro do dogwalker. -->
                     <label class="regislab">Nome</label>
                     <input class="nome" type="text"><br>
+                    <!-- Campo do nome. -->
                     <label class="regislab">Usuario</label>
                     <input type="text"><br>
+                    <!-- Campo do usuario. -->
                     <label class="regislab" >Email</label>
                     <input type="email"><br>
+                    <!-- Campo do email. -->
                     <label class="regislab" >Senha</label>
                     <input class="sen" id="senWalker" type="password" ><br>
+                    <!-- Campo da senha. -->
                     <label class="regislab" >CPF</label>
                     <input type="number"> <br>
+                    <!-- Campo do CPF. -->
                     <label class="regislab" >Telefone</label>
-                    <input type="tel">  <br>
+                    <input type="tel"><br>
+                    <!-- Campo do telefone. -->
                     <div class="regisbuton"></div>
                     <button class="ent-but-wal" type="submit">ENVIAR</button>
+                    <!-- Botão de submissão do formulário. -->
                 </form>
             </div>
         </div> 
-
     </header>
+
     <div class="main-content">
+        <!-- Conteúdo principal da página. -->
     <main class="corpo">
         <nav class="corpo-conteudo">
             <div class="carrossel-galeria">
+                <!-- Carousel de imagens com botões de navegação. -->
                 <div class="carrossel-galeria-track">
                   <div class="carrossel-slide"><img src="/imagens/Galeria1.png" alt="Imagem 1"></div>
                   <div class="carrossel-slide"><img src="/imagens/Galeria2.png" alt="Imagem 2"></div>
@@ -132,8 +166,11 @@
               </div>        
         </nav>
     </main>
+
     <footer class="roda-pe-geral">
+        <!-- Rodapé da página. -->
         <div class="titulos-midias">
+            <!-- Seçaõ das redes sociais e formas de pagamento. -->
                 <span class="title-midia">REDES SOCIAIS
                     <div class="img-midia-icon">
                     <a class="whats" href="https://www.whatsapp.com/?lang=pt_BR"><img src="/imagens/svg-whats.svg"></a>
@@ -152,9 +189,11 @@
         <hr>
         <div class="marca-registrada">
             <h4>© 2024 WALK & DOG - Todos os direitos reservados.</h4>
+            <!-- Texto de copyright. -->
         </div>
     </footer>
     </div>
+    <!-- Importação de arquivos JavaScript para funcionalidades da página. -->
     <script type="module" src="/js/javascriptgaleria.js"></script> 
     <script type="module" src="/js/registerlogin.js"></script>
     <script  type="module"src="/js/apicontroller.js"></script>

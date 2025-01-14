@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
             <meta charset="UTF-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,20 +17,20 @@
 <body>
     <header>
         <nav class="menu">
-                <button id="open-side-menu" class="open-side-menu">☰</button>
-            <aside class="side-menu" id="side-menu">
-                <button id="close-side-menu" class="close-side-menu">&times;</button>
-                <ul>
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="#">Sobre</a></li>
-                    <li><a href="#">Galeria</a></li>
-                    <li><a href="#">Contato</a></li>
-                    <li><a href="#">Configurações</a></li>
-                    <li><a href="#">Agenda</a></li>
-                    <li class="item-menu"><a href="#">Histórico</a></li>
-                </ul>
-            </aside>
-        </nav>
+            <button id="open-side-menu" class="open-side-menu">☰</button>
+        <aside class="side-menu" id="side-menu">
+            <button id="close-side-menu" class="close-side-menu">&times;</button>
+            <ul>
+                <li class="item-menu"><a href="index.html">Início</a></li>
+                <li class="item-menu"><a href="sobre.html">Sobre</a></li>
+                <li class="item-menu"><a href="galeria.html">Galeria</a></li>
+                <li class="item-menu"><a href="contato.html">Contato</a></li>
+                <li class="item-menu"><a href="#">Configurações</a></li>
+                <li class="item-menu"><a href="#">Agenda</a></li>
+                <li class="item-menu"><a href="#">Histórico</a></li>
+            </ul>
+        </aside>
+    </nav>
         <nav class="menu">
             <a href="/index.html">
                 <img class="logo-2" src="/imagens/walkedogverdeclaro.png" alt="logo">
@@ -38,7 +38,7 @@
         </nav>
             <div class="bots">
                 <nav>
-                    <button id="logout-btn" class="logout-btn">Logout</button>
+                    <button onclick="window.location.href='index.html'" id="logout-btn" class="logout-btn">Logout</button>
                 </nav>
             </div>                           
     </header>
@@ -54,7 +54,7 @@
                 <div class="endereco-modal" id="endereco-area">
                     <div class="modal-content-endereco">
                         <div id="close-btn-endereco" class="close-btn">&times;</div>
-                        <h2 class="local"> Localizacao </h2>
+                        <h2 class="local"> Localização </h2>
                         <form class="form-encereco">
                             <br>
                             <label class="loglab" for="user">País</label>
@@ -72,7 +72,7 @@
                             <input class="sen" type="password" name="senha"><br>
                                                         
                             <div class="regisbuton"></div>
-                            <button class="ent-encereco-but">ENTRAR</button>
+                            <button class="ent-encereco-but">BUSCAR</button>
                         </form>
                     </div>
                 </div>
@@ -158,6 +158,7 @@ border: black 4px solid;
     width: 820px;
 }
 </style>
-    <script src="/public/modalClienteEndereco.js"></script>
+    <script type="module" src="/js/modalClienteEndereco.js"></script>
+    <script type="module" src="/js/latmenu.js"></script>
 </body>
 </html>

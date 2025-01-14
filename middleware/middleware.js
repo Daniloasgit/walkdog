@@ -1,20 +1,23 @@
 import jwt from 'jsonwebtoken'; // Importa o módulo 'jsonwebtoken' (JWT)
- 
-const authMiddleware = (req, res, next) => {
-  const token = req.header('Authorization').replace('Bearer ', ''); // Obtém o token do cabeçalho da requisição
-
+import authmiddleware from '../rotas/auth.js'; //
+const autenticarToken = (req, res, next) => {
+  const token = req.headers.authorization?.split(' ')[1];
   if (!token) {
-    return res.status(401).send('Acesso negado. Nenhum token fornecido.');
+      return res.status(401).send('Acesso negado. Token ausente.');
   }
-
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET); // Verifica a validade do token
-    req.user = decoded; // Adiciona as informações do usuário à requisição
-    next(); // Passa o controle para a próxima função middleware
+      const decoded = jwt.verify(token);
+      req.userId = decoded.userId; // Passar o ID do usuário para o próximo middleware
+      req.email = decoded.email;
+      req.nome = decoded.nome;
+      next();
   } catch (err) {
-    res.status(400).send('Token inválido.');
+      console.error('Erro ao verificar token:', err);
+      if (err.name === 'TokenExpiredError') {
+          return res.status(401).send('Token expirado. Faça login novamente.');
+      }
+      res.status(401).send('Token inválido ou expirado.');
   }
 };
 
-// Exporta o 'authMiddleware' para ser utilizado em outros módulos
-export default authMiddleware;
+export default autenticarToken;

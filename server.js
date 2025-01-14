@@ -9,6 +9,7 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 
 import db from './config/db.js';
+
 import authRoutes from './rotas/auth.js';
 // import routes from './rotas/routes.js';
 
@@ -18,11 +19,6 @@ app.use(bodyParser.json());
 
 // Serve arquivos estáticos da pasta 'public'
 app.use(express.static('public'));
-
-// Exemplo usando Express
-app.post('/api/auth/registrar', (req, res) => {
-  // Lógica para registrar o usuário
-});
 
 // Rotas de autenticação
 app.use('/api/auth', authRoutes);
