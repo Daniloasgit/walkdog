@@ -52,9 +52,18 @@ const loginCliente = async (req, res) => {
         }
 
         // Gerar um token JWT
-        const token = jwt.sign({ userCPF: user[0].cpf }, process.env.JWT_SECRET, { expiresIn: '1h' });
+        const token = jwt.sign(
+            { userId: user[0].cpf, email: user[0].email, nome: user[0].nome },  // Aqui podemos passar mais dados, como o ID e nome
+            process.env.JWT_SECRET, // Defina o JWT_SECRET no arquivo .env
+            { expiresIn: '1h' } // Defina o tempo de expiração para o token
+        );
 
-        res.json({ token, user: { nome: user[0].nome, email: user[0].email } });
+        // Enviar o token e as informações do usuário
+        res.json({
+            success: true,
+            token,
+            user: { nome: user[0].nome, email: user[0].email }
+        });
     } catch (err) {
         console.error('Erro ao autenticar usuário:', err);
         res.status(500).send('Erro ao autenticar usuário');
@@ -92,6 +101,7 @@ const registrarDogwalker = async (req, res) => {
         res.status(500).json({ success: false, message: 'Erro ao registrar usuário' });
     }
 };
+
 
 
 // Função para autenticar um usuário

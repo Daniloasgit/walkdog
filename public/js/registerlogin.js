@@ -9,27 +9,28 @@ const dropdown = document.querySelector("dropdown");
 
 
 document.getElementById('form-regis').addEventListener('submit', async (event) => {
-
+    event.preventDefault();
     const nomeClient = document.getElementById('nomeC').value;
     const emailClient = document.getElementById('emailC').value;
     const cpfClient = document.getElementById('cpfC').value;
     const senhaClient = document.getElementById('senClient').value;
-
-    if( !nomeClient ||!cpfClient ||!emailClient || !senhaClient ) {
-        alert('Preencha todos os campos');
-        return;
+  
+    if (!nomeClient || !cpfClient || !emailClient || !senhaClient) {
+      alert('Preencha todos os campos');
+      return;
     }
-    const result = await regisCliente (nomeClient, cpf, emailClient, senhaClient);  
-    if(result.success) {
-        alert('Usuário registrado com sucesso');
-        document.getElementById('form-regis').reset();
-        window.location.href = 'index.html';
+
+    const result = await regisCliente(nomeClient, cpfClient, emailClient, senhaClient);
+    if (result.success) {
+      alert('Usuário registrado com sucesso');
+      document.getElementById('form-regis').reset();
+      window.location.href = 'index.html';
     } else {
-        alert('Erro ao registrar usuário');
+      alert('Erro ao registrar usuário');
     }
-});
+  });
 
-document.getElementById('form-walk').addEventListener('submit', async (event) => {
+  document.getElementById('form-walk').addEventListener('submit', async (event) => {
     event.preventDefault();  // Impede o envio padrão do formulário
 
     const nome = document.getElementById('nomeDGWK').value;
@@ -56,6 +57,7 @@ document.getElementById('form-walk').addEventListener('submit', async (event) =>
 
 
 
+
 document.getElementById('form-login').addEventListener('submit', async (event) => {
     event.preventDefault(); // Evita o envio padrão do formulário
 
@@ -67,14 +69,11 @@ document.getElementById('form-login').addEventListener('submit', async (event) =
         return;
     }
 
-    const result = await logCliente(email, senha); // Chama a função logCliente
+    // Chama a função logCliente para fazer o login
+    const result = await logCliente(email, senha);
 
-    // Verifica se o login foi bem-sucedido
-    if (result.success) {
-        alert('Login realizado com sucesso');
-        localStorage.setItem('token', result.token);  // Armazena o token no localStorage
-        window.location.href = 'index.html'; // Redireciona para a página inicial
-    } else {
-        alert('Erro ao fazer login: ' + (result.message || 'Verifique suas credenciais.'));
-    }
+    // Chama a função armazenarToken para processar o resultado
+    armazenarToken(result);
 });
+
+

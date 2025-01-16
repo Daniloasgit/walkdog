@@ -4,50 +4,50 @@ const API_URL = 'http://localhost:3000/api';
 //Função para registrar um novo usuário (ID é o CPF)
 export async function regisCliente(nome, cpf, email, senha) {
     try {
-        console.log('Enviando dados para registro:', {nome, cpf, email, senha});
-        const response = await fetch(`${API_URL}/auth/registrarCliente`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({nome, cpf, email, senha})
-        });
-        if (!response.ok) {
-            throw new Error('Falha na requisição. Código de status: ' + response.status);
-        }
-        const result = await response.json();
-        console.log('Resposta do servidor para registro:', result);
-        return result;  // Devolva a resposta ao frontend
+      console.log('Enviando dados para registro:', { nome, cpf, email, senha });
+      const response = await fetch(`${API_URL}/auth/registrarCliente`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nome, cpf, email, senha }),
+      });
+  
+      if (!response.ok) {
+        throw new Error('Falha na requisição. Código de status: ' + response.status);
+      }
+  
+      const result = await response.json();
+      console.log('Resposta do servidor para registro:', result);
+      return result;
     } catch (error) {
-        console.error('Erro ao registrar:', error.message);
-        return { success: false, message: error.message };
+      console.error('Erro ao registrar:', error.message);
+      return { success: false, message: error.message };
     }
-};
+  }
 
 // Função para fazer o login
 export async function logCliente(email, senha) {
     try {
-        console.log('Registrando dados para o login:', { email, senha });
-        const response = await fetch(`${API_URL}/auth/loginCliente`, {
+        const response = await fetch('/auth/loginCliente', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, senha })
         });
-        const result = await response.json();
-        console.log('Resposta do servidor:', result);
 
-        // Verifica se o token existe na resposta
-        if (result.token) {
+        const result = await response.json();
+
+        // Verifica se o servidor enviou um token válido
+        if (response.ok && result.token) {
             return result;  // Retorna o resultado com o token
         } else {
             alert(result.message || 'Erro ao fazer login.');
+            return { success: false };
         }
-        
     } catch (error) {
         console.error('Erro ao fazer login:', error);
         return { success: false, message: 'Erro ao conectar ao servidor.' };
     }
 }
+
 
 
 export async function regisDogwalker(nome, usuario, email, senha, cpf, telefone) {
@@ -74,7 +74,7 @@ export async function regisDogwalker(nome, usuario, email, senha, cpf, telefone)
         console.error('Erro ao registrar:', error.message);
         return { success: false, message: error.message };
     }
-}
+};
 
 
 // Função para fazer o login

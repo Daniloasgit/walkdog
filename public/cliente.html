@@ -39,6 +39,32 @@
             <div class="bots">
                 <nav>
                     <button onclick="window.location.href='index.html'" id="logout-btn" class="logout-btn">Logout</button>
+
+                    <button id="clienteButton" class="clienteButton">Perfil</button>
+<button id="DogButton" class="DogButton">Registrar cachorro</button>
+<button id="DogPerfil" class="dogWalkerButton">Registrar DogWalker</button>
+
+<!-- Modal de registro de cliente -->
+<div class="ModalCliente" id="ModalCliente">
+  <div id="closeClienteModal" class="closeClienteModal">&times;</div>
+  <h2 class="Regis">Registrar Cliente</h2>
+  <button class="clienteENV" type="submit">ENVIAR</button>
+</div>
+
+<!-- Modal de registro de cachorro -->
+<div class="registroCachorro" id="closeCachorromodal">
+  <div id="closeCachorroModal" class="closeCachorroModal">&times;</div>
+  <h2 class="Regis">Registrar Cachorro</h2>
+  <button class="DogRegister" type="submit">ENVIAR</button>
+</div>
+
+<!-- Modal de perfil do cachorro -->
+<div class="perfilCachorro" id="perfilCachorro">
+  <div id="closePerfilCachorro" class="closePerfilCachorro">&times;</div>
+  <h2 class="Regis">Perfil do Cachorro</h2>
+  <button class="updateDogperfil" type="submit">ENVIAR</button>
+</div>
+
                 </nav>
             </div>                           
     </header>
@@ -157,8 +183,19 @@ border: black 4px solid;
     border-radius: 10px;
     width: 820px;
 }
+
+.perfilCachorro{
+    display: none;
+}
+
+.registroCachorro{
+    display: none;
+}
+.ModalCliente{
+    display: none;
+}
 </style>
-    <script type="module" src="/js/modalClienteEndereco.js"></script>
+    <script type="module" src="/js/modalCliente.js"></script>
     <script type="module" src="/js/latmenu.js"></script>
 </body>
 </html>

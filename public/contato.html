@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
     <head>
         <!--Dados para Navegador-->
         <meta charset="UTF-8">
@@ -15,15 +14,23 @@
         <title>Walk & Dog</title>
         <!--Links-->
         <link rel="shortcut icon" href="/imagens/walkedog6.png" type="image/png">
+        <!-- Carregar um arquivo SVG como se fosse CSS. -->
         <link rel="stylesheet" href="/css/style.css">
-        <link rel="stylesheet" href="/css/register.css">   
+        <link rel="stylesheet" href="/css/register.css">
+        <!-- Importar os arquivos CSS para a estilização. -->   
 <body style="background-image: url(/imagens/fundowalkanddog.png);">
+    <!-- Corpo principal do documento HTML. -->
     <header>
+        <!-- Cabeçalho da página. -->
         <nav class="menu">
                 <button id="open-side-menu" class="open-side-menu">☰</button>
+                <!-- Botão de abertura do menu lateral. -->
             <aside class="side-menu" id="side-menu">
+                <!-- Menu lateral. -->
                 <button id="close-side-menu" class="close-side-menu">&times;</button>
+                <!-- Botão de fechamento do menu lateral. -->
                 <ul>
+                    <!-- Lista de links presentes no menu lareal. -->
                     <li class="item-menu"><a href="index.html">Início</a></li>
                     <li class="item-menu"><a href="#">Sobre</a></li>
                     <li class="item-menu"><a href="#">Galeria</a></li>
@@ -37,11 +44,15 @@
             <a href="/public/index.html">
                 <img class="logo-2" src="/imagens/walkedogverdeclaro.png" alt="logo">
             </a>
+            <!-- Link que redireciona para a página inicial através do logotipo. -->
         </nav>
         <div class="bots">
+            <!-- Div para os botões de login e registro. -->
             <nav>
                 <button id="menu-button" class="menu-button">Olá! Faça seu login <br> ou cadastre-se</button>
+                <!-- Botão que abri o dropdown dos botões de login e registro. -->
                 <div class="dropdown" id="dropdown">
+                    <!-- Dropdowm com as opções de logn e registro. -->
                     <button id="login-button" class="login-button">Login</button>
                     <button id="cliente-button" class="cliente-button">Registrar Cliente</button>
                     <button id="walker-button" class="walker-button">Registrar Dogwalker</button>
@@ -49,154 +60,192 @@
             </nav>
         </div>
         <div class="modal-login" id="login-area">
+            <!-- Modal para o login. -->
             <div class="modal-content-login">
                 <div id="close-btn-login" class="close-btn">&times;</div>
+                <!-- Botão para fechamento do modal. -->
                 <h2 class="Login"> Login </h2>
-
-                <form class="form-login" id="form-login">
-
-                    <br>
+                <form class="form-login" id="form-login"><br>
+                    <!-- Formulário para login. -->
                     <label class="loglab">Email</label>
-                    <input class="usu" type="email" id="usu"  autocomplete="off">
-                    <br>
+                    <input class="usu" type="email" id="usu"  autocomplete="off"><br>
+                    <!-- Campo do email. -->
                     <label class="loglab" >Senha</label>
                     <input class="senLogin" type="password" id="senLogin" autocomplete="off"><br>
+                    <!-- Campo para a senha. -->
                     <div class="regisbuton"></div>
                     <a href="#">Esqueci Minha Senha</a>
                     <button type="submit" class="ent-login-but" value="Enter" >ENTRAR</button>
-                </form>
-                
+                    <!-- Botão para submissão do formulário. -->
+                </form> 
             </div>
         </div>
         <div class="modal-cliente" id="cliente-area">
+            <!-- Modal para o registro do cliente. -->
             <div class="modal-content-cliente">
                 <div id="close-btn-register" class="close-btn">&times;</div>
+                <!-- Botão de fechamento do modal de resgistro do cliente. -->
                 <h2 class="Regis">Registrar</h2>
                 <form class="form-regis" id="form-regis">
+                    <!-- Formulário de registro de cliente. -->
                     <label class="regislab" >Nome</label>
-                    <input id="nomeC" type="text"   required><br>
+                    <input id="nomeC" type="text" required><br>
+                    <!-- Campo do nome. -->
                     <label class="regislab" >cpf</label>
-                    <input id="cpfC" type="text"  required><br>
+                    <input id="cpfC" type="text" required><br>
+                    <!-- Campo para o CPF. -->
                     <label class="regislab">Email</label>
-                    <input id="emailC" type="email"  required><br>
+                    <input id="emailC" type="email" required><br>
+                    <!-- Campo para o email. -->
                     <label class="regislab">Senha</label>
                     <input id="senClient" type="password" required><br>
+                    <!-- Campo para a senha. -->
                     <div class="regisbuton"></div>
                     <button class="ent-but-res" type="submit">ENVIAR</button>
+                    <!-- Botão para submeter o formulário-->
                 </form>
             </div>
-        </div>    
-        
+        </div>
         <div class="modal-walker" id="walker-area">
+            <!-- Modal para o registro do dogwalker. -->
             <div class="modal-content-walker">
                 <div id="close-btn-walker" class="close-btn">&times;</div>
+                <!--Botão para fechamento do modal de registro do dogwalker. -->
                 <h2 class="Regis">Registrar</h2>
                 <form class="form-walk" id="form-walk">
+                    <!-- Formulário de registro do dogwalker. -->
                     <label class="regislab">Nome</label>
                     <input class="nome" type="text"><br>
+                    <!-- Campo do nome. -->
                     <label class="regislab">Usuario</label>
                     <input type="text"><br>
+                    <!-- Campo do usuario. -->
                     <label class="regislab" >Email</label>
                     <input type="email"><br>
+                    <!-- Campo do email. -->
                     <label class="regislab" >Senha</label>
-                    <input class="sen" id="senWalker" type="password" ><br>
+                    <input class="sen" id="senWalker" type="password"><br>
+                    <!-- Campo da senha. -->
                     <label class="regislab" >CPF</label>
-                    <input type="number"> <br>
+                    <input type="number"><br>
+                    <!-- Campo do CPF. -->
                     <label class="regislab" >Telefone</label>
-                    <input type="tel">  <br>
+                    <input type="tel"> <br>
+                    <!-- Campo do telefone. -->
                     <div class="regisbuton"></div>
                     <button class="ent-but-wal" type="submit">ENVIAR</button>
+                    <!-- Botão de submissão do formulário. -->
                 </form>
             </div>
         </div>  
     </header>
-<hr>
+
 <div class="main-content">
     <main>
-            <div class="geral-form">
-                <div class="quadro-form-pai">
-                    <div class="quadro-form">
-                        <div class="geral-form1">
-                            <form class="corpo-dados" action="sucesso.html" method="post">
-                            <fieldset class="corpo-dados">
-                                <h1 class="title-contato">Contato</h1>
-                                <div class="nome">
-                                    <h2 style="margin-left: 10px; margin-top: 15px;"><label for="nome">Nome *</label></h2>
-                                    <input type="text" id="nome" name="nome" required placeholder="Digite o seu nome" style="margin: 0;">
-                                </div>
-                                <div class="sexo-form" style="margin-top: 10px; margin-left: 20px;">
-                                    <h2>Sexo</h2>
-                                    <input style="width: 50px;" type="radio" name="sexo" id="masculino" value="m" checked>
-                                    <label style="margin: 5px 0 0 0;" for="masculino">Masculino</label>
-                                    <input style="width: 50px;" type="radio" name="sexo" id="feminino" value="f">
-                                    <label style="margin-top: 5px;" for="feminino">Feminino</label>
-                                </div>
-                                <div class="duvidas">
-                                    <h2 style="margin-top: 15px; margin-left: 20px;"><label for="duvidas">Dúvidas</label></h2>
-                                    <select style="margin-left: 20px;" name="duvidas" id="duvidas">
-                                        <option value="" selected="">Digite o que deseja..</option>
+        <!-- Estrutura principal do formulário de contato -->
+        <div class="geral-form">
+            <!-- Contém o formulário principal -->
+            <div class="quadro-form-pai">
+                <div class="quadro-form">
+                    <!-- Primeiro conjunto de campos do formulário -->
+                    <div class="geral-form1">
+                        <form class="corpo-dados" action="sucesso.html" method="post">
+                            <!-- Define os dados que serão enviados e a página de sucesso -->
+                        <fieldset class="corpo-dados">
+                            <!-- Agrupa campos relacionados -->
+                            <h1 class="title-contato">Contato</h1>
+                            <!-- Título principal do formulário -->
+                            <div class="nome">
+                                <!-- Campo para inserir o nome -->
+                                <h2 style="margin-left: 10px; margin-top: 15px;"><label for="nome">Nome *</label></h2>
+                                <!-- Entrada obrigatória para o nome do usuário -->
+                                <input type="text" id="nome" name="nome" required placeholder="Digite o seu nome" style="margin: 0;">
+                            </div>
+                            <div class="sexo-form" style="margin-top: 10px; margin-left: 20px;">
+                                <!-- Campo para selecionar o sexo -->
+                                <h2>Sexo</h2>
+                                <input style="width: 50px;" type="radio" name="sexo" id="masculino" value="m" checked>
+                                <label style="margin: 5px 0 0 0;" for="masculino">Masculino</label>
+                                <!-- Opção para sexo masculino, já marcada por padrão -->
+                                <input style="width: 50px;" type="radio" name="sexo" id="feminino" value="f">
+                                <label style="margin-top: 5px;" for="feminino">Feminino</label>
+                                <!-- Opção para sexo feminino -->
+                            </div>
+                            <div class="duvidas">
+                                <!-- Campo para selecionar um motivo de contato -->
+                                <h2 style="margin-top: 15px; margin-left: 20px;"><label for="duvidas">Dúvidas</label></h2>
+                                <select style="margin-left: 20px;" name="duvidas" id="duvidas">
+                                    <option value="" selected="">Digite o que deseja..</option>
+                                    <!-- Placeholder inicial para o dropdown -->
                                         <option value="ADS">Adquirir Nosso Sistema De Passeios Para Cães.</option>
-                                        <option value="LC">Tenho Interesse Em Criar Um Sistema Para O Meu Negócio.</option>
-                                    </select>
-                                </div>
-                                <div class="email">
-                                    <h2 style="margin-top: 15px; margin-left: 10px;"><label for="email">Email</label></h2>
-                                    <input style="margin: 0;" type="text" id="email" name="email" required placeholder="Digite o seu E-Mail">
-                                </div>
-                        </div>
-                            </fieldset>
-                            </form>
-                
+                                        <!-- Opção de dúvida 1 -->
+                                    <option value="LC">Tenho Interesse Em Criar Um Sistema Para O Meu Negócio.</option>
+                                    <!-- Opção de dúvida 2 -->
+                                </select>
+                            </div>
+                            <div class="email">
+                                <!-- Campo para inserir o email -->
+                                <h2 style="margin-top: 15px; margin-left: 10px;"><label for="email">Email</label></h2>
+                                <input style="margin: 0;" type="text" id="email" name="email" required placeholder="Digite o seu E-Mail">
+                                <!-- Entrada obrigatória para email -->
+                            </div>
+                    </div>
+                    </fieldset>
+                    </form>
                     <div class="geral-form2">
+                        <!-- Segundo conjunto de campos do formulário -->
                         <form class="corpo-dados" action="sucesso.html" method="post">
                                 <fieldset class="corpo-dados2">
+                                    <!-- Agrupa campos relacionados ao assunto e mensagem -->
                                 <div class="assunto">
                                     <h2 style="margin-left: 10px; width: 600px;">Assunto</h2>
+                                      <!-- Campo para inserir o assunto -->
                                     <input type="text" id="assunto" name="assunto" required placeholder="Digite o assunto" style="margin: 0;">
                                 </div>
                                 <div class="mensagem" style="padding-top: 14px; ">
                                     <h2 style="width: 600px; margin-left: 10px;">Mensagem</h2>
+                                    <!-- Campo para inserir a mensagem -->
                                     <textarea style="width: 775px; height: 220px; margin-left: 5px;" id="mensagem" name="mensagem"></textarea>
                                 </div>
                             </fieldset>
-                        
-                    
                         </form>
                     </div>
-                    </div>
-                </div> 
-                <div class="campo-input">
-                    <input type="submit" value="Enviar">
                 </div>
-            </div>    
+            </div> 
+            <div class="campo-input">
+                <input type="submit" value="Enviar">
+                <!-- Botão de envio do formulário -->
+            </div>
+        </div>    
     </main>
 <!--Inicio do rodape-->
-<footer class="roda-pe-geral">
-    <div class="titulos-midias">
-            <span class="title-midia1">REDES SOCIAIS
-                <div class="img-midia-icon">
-                <a class="whats" href="https://www.whatsapp.com/?lang=pt_BR"><img src="/imagens/svg-whats.svg"></a>
-                <a class="insta" href="https://www.instagram.com/"><img src="/imagens/svg-insta.svg"></a>
-                <a class="insta" href="https://www.youtube.com/"><img src="/imagens/svg-youtube.svg"></a>
-                </div>  
-            </span>
-            <span class="title-midia2">Formas De Pagamento
-                <div class="img-midia-1">
-                    <img class="imagem-midia" src="/imagens/visa-svg.svg" alt="visa">
-                    <img class="imagem-midia" src="/imagens/pix-svg.svg" alt="pix">
-                    <img class="imagem-midia" src="/imagens/mastercard-svg.svg" alt="mastercard">
-                </div>
-            </span>
-            
-    </div>
-    <hr>
-    <div class="marca-registrada">
-        <h4>© 2024 WALK & DOG - Todos os direitos reservados.</h4>
-    </div>
-</footer>
+    <footer class="roda-pe-geral">
+        <div class="titulos-midias">
+                <span class="title-midia1">REDES SOCIAIS
+                    <div class="img-midia-icon">
+                    <a class="whats" href="https://www.whatsapp.com/?lang=pt_BR"><img src="/imagens/svg-whats.svg"></a>
+                    <a class="insta" href="https://www.instagram.com/"><img src="/imagens/svg-insta.svg"></a>
+                    <a class="insta" href="https://www.youtube.com/"><img src="/imagens/svg-youtube.svg"></a>
+                    </div>  
+                </span>
+                <span class="title-midia2">Formas De Pagamento
+                    <div class="img-midia-1">
+                        <img class="imagem-midia" src="/imagens/visa-svg.svg" alt="visa">
+                        <img class="imagem-midia" src="/imagens/pix-svg.svg" alt="pix">
+                        <img class="imagem-midia" src="/imagens/mastercard-svg.svg" alt="mastercard">
+                    </div>
+                </span>
+                
+        </div>
+        <div class="marca-registrada">
+            <h4>© 2024 WALK & DOG - Todos os direitos reservados.</h4>
+            <!-- Texto de copyright. -->
+        </div>
+    </footer>
 </div>
+<!-- Importação de arquivos JavaScript para funcionalidades da página. -->
 <script type="module" src="/js/latmenu.js"></script>
-<script type="module" src="/js/botaologin.js"></script>
+<script type="module" src="/js/modais.js"></script>
 
 </body>
 </html>
