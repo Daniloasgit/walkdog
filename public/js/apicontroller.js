@@ -1,11 +1,34 @@
 //Define a URL base da API como 'http://localhost:3000/api'
+
 const API_URL = 'http://localhost:3000/api';
+
+export async function logCliente(email, senha) {
+    try {
+        console.log({ email, senha });
+        const response = await fetch('http://localhost:3000/api/auth/loginCliente', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, senha })
+        });
+
+        const result = await response.json();
+        console.log('Resposta do servidor:',result)
+        if (result.token) {
+            return result;
+        } else {
+            alert(result.message || 'Erro ao fazer login.');
+        }
+    } catch (error) {
+        console.error('Erro ao fazer login:', error);
+        return { success: false, message: 'Erro ao conectar ao servidor.' };
+    }
+};
 
 //Função para registrar um novo usuário (ID é o CPF)
 export async function regisCliente(nome, cpf, email, senha) {
     try {
       console.log('Enviando dados para registro:', { nome, cpf, email, senha });
-      const response = await fetch(`${API_URL}/auth/registrarCliente`, {
+      const response = await fetch(`${API_URL}/apiauth/registrarCliente`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ nome, cpf, email, senha }),
@@ -25,28 +48,33 @@ export async function regisCliente(nome, cpf, email, senha) {
   }
 
 // Função para fazer o login
-export async function logCliente(email, senha) {
-    try {
-        const response = await fetch('/auth/loginCliente', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email, senha })
-        });
+// Função assíncrona para fazer o login
+// apicontroller.js
 
-        const result = await response.json();
+// export async function logCliente(email, senha) {
+//     try {
+//         console.log({ email, senha });
+//         const response = await fetch(`${API_URL}/api/auth/loginCliente`, {
+//             method: 'POST',
+//             headers: { 'Content-Type': 'application/json' },
+//             body: JSON.stringify({ email, senha })
+//         });
 
-        // Verifica se o servidor enviou um token válido
-        if (response.ok && result.token) {
-            return result;  // Retorna o resultado com o token
-        } else {
-            alert(result.message || 'Erro ao fazer login.');
-            return { success: false };
-        }
-    } catch (error) {
-        console.error('Erro ao fazer login:', error);
-        return { success: false, message: 'Erro ao conectar ao servidor.' };
-    }
-}
+//         const result = await response.json();
+//         console.error('Erro ao fazer login:', error);
+//         if (response.ok && result.token) {
+//             return result;
+//         } else {
+//             alert(result.message || 'Erro ao fazer login.');
+//             return { success: false };
+//         }
+//     } catch (error) {
+        
+//         return { success: false, message: 'Erro ao conectar ao servidor.' };
+//     }
+// }
+
+
 
 
 

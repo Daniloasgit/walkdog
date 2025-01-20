@@ -7,6 +7,23 @@ const btnRegisWalk = document.querySelector('#ent-but-wal');
 
 const dropdown = document.querySelector("dropdown");
 
+document.getElementById('form-login').addEventListener('submit', async (event) => {
+  event.preventDefault(); // Evita o envio padrão do formulário
+
+  const email = document.getElementById('email').value;
+  const senha = document.getElementById('senLogin').value;
+  if (!email || !senha) {
+      alert('Preencha todos os campos');
+      return;
+  }
+
+  // Chama a função logCliente para fazer o login
+  const result = await logCliente(email, senha);
+  if (result.token) {
+    console.log('Token recebido do servidor', result.token);
+    localStorage.setItem('token', result.token);
+  }
+});
 
 document.getElementById('form-regis').addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -53,27 +70,6 @@ document.getElementById('form-regis').addEventListener('submit', async (event) =
     } else {
         alert('Erro ao registrar usuário: ' + result.message);
     }
-});
-
-
-
-
-document.getElementById('form-login').addEventListener('submit', async (event) => {
-    event.preventDefault(); // Evita o envio padrão do formulário
-
-    const email = document.getElementById('email').value;
-    const senha = document.getElementById('senLogin').value;
-
-    if (!email || !senha) {
-        alert('Preencha todos os campos');
-        return;
-    }
-
-    // Chama a função logCliente para fazer o login
-    const result = await logCliente(email, senha);
-
-    // Chama a função armazenarToken para processar o resultado
-    armazenarToken(result);
 });
 
 

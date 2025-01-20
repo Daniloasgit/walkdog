@@ -217,6 +217,7 @@ width: 300px; /* Define uma largura fixa */
   font-weight: bold; /* Negrito */
   cursor: pointer; /* Indica que é clicável */
   float: right; /* Coloca o botão no canto superior direito */
+  margin-right: 10px;
 }
 
 /* Estilo para os botões de Login e Registrar */
@@ -834,4 +835,90 @@ hr {
   padding: 5px; /* Adiciona preenchimento interno */
   border-radius: 15px; /* Bordas arredondadas */
   text-shadow: 10px 0px 13px var(--Preto); /* Adiciona sombra ao texto */
+}
+
+ /* html para o conteúdo do cliente */
+.corpo-cliente{
+  width: 100%; /* Define um layout flexível */
+  display: flex; /* Centraliza os itens horizontalmente */
+  justify-content: center;  /* Centraliza os itens verticalmente */
+  align-items: center; /* Organiza os elementos em uma coluna */
+  flex-direction: column; /* Define uma imagem de fundo */
+  background-image: url(/imagens/fundowalkanddog.png);  /* Adiciona uma borda superior preta */
+  border-top: 5px solid var(--Preto); /* Adiciona uma borda superior preta */
+  border-bottom: 5px solid var(--Preto); /* Adiciona uma borda inferior preta */
+}
+.modal-pet{
+  background-color: var(--Cinza-Escuro);
+  border-radius: 10px;
+  display: none;
+}
+.modal-clientehtml {
+  background-color: var(--Cinza-Escuro);
+  border-radius: 10px;
+}
+
+.conteudocliente {
+  z-index: 0;
+  margin-top: 155px;
+  display: flex;
+}
+
+.pet-button, .account-button, .pet-button-data {
+  display: block; /* Tornam-se blocos, ocupando toda a largura disponível */
+  padding: 10px; /* Espaçamento interno */
+  margin-top: 10px; /* Espaço acima dos botões */
+  background-color: var(--Preto); /* Cor de fundo preta */
+  color: var(--Branco); /* Cor do texto branca */
+  border-radius: 10px; /* Bordas arredondadas */
+  cursor: pointer; /* Indica que o botão é clicável */
+  margin-left: 120px;
+}
+.dadoscliente{
+  margin-left: 30%;
+}
+.dadosclientes{
+  margin-left: 8%;
+}
+.petdado{
+  margin-left: 50px;
+}
+.petdados{
+  margin-left: 8px;
+}
+.ent-but-pag-cliente{
+  color: var(--Branco);
+  background-color: var(--Preto);
+  padding: 5px 20px 5px 20px ; /* Espaçamento interno nos botões */
+  margin-left: 110px; /* Alinha ao centro */
+  border-radius: 10px; /* Bordas arredondadas */
+  height: 30px; /* Altura fixa dos botões */
+  margin-bottom: 10px;
+}
+.cliente, .pets{
+width: 300px;
+margin-bottom: 50px;
+}
+.modal-pets {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.modal-pets-content {
+  position: relative;
+}
+#modalRegistrar {
+  left: 35%;
+}
+
+#modalPets {
+  left: 65%;
 }

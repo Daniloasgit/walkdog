@@ -1,134 +1,145 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+            <!--Dados para Navegador-->
             <meta charset="UTF-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0">
             <meta name="description" content="Programadores Front-End & Back-End, Senai.">
             <meta name="keywords" content="HTML, CSS, JavaScript, Senai">
-            <meta name="author" content="William Araujo"> 
             <meta name="author" content="Danilo Alan"> 
             <meta name="author" content="Gabriel Rocha Silva Machado">
+            <meta name="author" content="Lucas Farrapo"> 
+            <meta name="author" content="William Araujo">
+            <!--Titulo do Site--> 
             <title>Walk & Dog</title>
-            <link rel="shortcut icon" href="imagens/walkedog.svg" type="svg">
-            <link rel="stylesheet" href="/css/style.css">
-            <link rel="stylesheet" href="/css/register.css">
+            <link rel="stylesheet" href="/imagens/walkedog.svg">
+            <!-- Carregar um arquivo SVG como se fosse CSS. -->
+            <link rel="stylesheet" href="css/style.css">
+            <link rel="stylesheet" href="css/register.css">
+            <!-- Importar os arquivos CSS para a estilização. -->
+            
 </head>
 <body>
+    <!-- Corpo principal do documento HTML. -->
     <header>
+        <!-- Cabeçalho da página. -->
         <nav class="menu">
-            <button id="open-side-menu" class="open-side-menu">☰</button>
-        <aside class="side-menu" id="side-menu">
-            <button id="close-side-menu" class="close-side-menu">&times;</button>
-            <ul>
-                <li class="item-menu"><a href="index.html">Início</a></li>
-                <li class="item-menu"><a href="sobre.html">Sobre</a></li>
-                <li class="item-menu"><a href="galeria.html">Galeria</a></li>
-                <li class="item-menu"><a href="contato.html">Contato</a></li>
-                <li class="item-menu"><a href="#">Configurações</a></li>
-                <li class="item-menu"><a href="#">Agenda</a></li>
-                <li class="item-menu"><a href="#">Histórico</a></li>
-            </ul>
-        </aside>
-    </nav>
+                <button id="open-side-menu" class="open-side-menu">☰</button>
+                <!-- Botão de abertura do menu lateral. -->
+            <aside class="side-menu" id="side-menu">
+                <!-- Menu lateral. -->
+                <button id="close-side-menu" class="close-side-menu">&times;</button>
+                <!-- Botão de fechamento do menu lateral. -->
+                <ul>
+                    <!-- Lista de links presentes no menu lareal. -->
+                    <li class="item-menu"><a href="index.html">Início</a></li>
+                    <li class="item-menu"><a href="sobre.html">Sobre</a></li>
+                    <li class="item-menu"><a href="galeria.html">Galeria</a></li>
+                    <li class="item-menu"><a href="contato.html">Contato</a></li>
+                    <li class="item-menu"><a href="cliente.html">Sua Conta</a></li>
+                    <li class="item-menu"><a href="#">Agenda</a></li>
+                    <li class="item-menu"><a href="#">Histórico</a></li>
+                </ul>
+            </aside>
+        </nav>
         <nav class="menu">
             <a href="/index.html">
                 <img class="logo-2" src="/imagens/walkedogverdeclaro.png" alt="logo">
             </a>
+            <!-- Link que redireciona para a página inicial através do logotipo. -->
         </nav>
             <div class="bots">
+                <!-- Div para os botões de login e registro. -->
                 <nav>
-                    <button onclick="window.location.href='index.html'" id="logout-btn" class="logout-btn">Logout</button>
-
-                    <button id="clienteButton" class="clienteButton">Perfil</button>
-<button id="DogButton" class="DogButton">Registrar cachorro</button>
-<button id="DogPerfil" class="dogWalkerButton">Registrar DogWalker</button>
-
-<!-- Modal de registro de cliente -->
-<div class="ModalCliente" id="ModalCliente">
-  <div id="closeClienteModal" class="closeClienteModal">&times;</div>
-  <h2 class="Regis">Registrar Cliente</h2>
-  <button class="clienteENV" type="submit">ENVIAR</button>
-</div>
-
-<!-- Modal de registro de cachorro -->
-<div class="registroCachorro" id="closeCachorromodal">
-  <div id="closeCachorroModal" class="closeCachorroModal">&times;</div>
-  <h2 class="Regis">Registrar Cachorro</h2>
-  <button class="DogRegister" type="submit">ENVIAR</button>
-</div>
-
-<!-- Modal de perfil do cachorro -->
-<div class="perfilCachorro" id="perfilCachorro">
-  <div id="closePerfilCachorro" class="closePerfilCachorro">&times;</div>
-  <h2 class="Regis">Perfil do Cachorro</h2>
-  <button class="updateDogperfil" type="submit">ENVIAR</button>
-</div>
-
+                    <button id="menu-button" class="menu-button">Logout</button>
                 </nav>
-            </div>                           
+            </div>     
     </header>
     <div class="main-content">
-    <main class="corpo">
-        <nav class="corpo-conteudo">
-            <div class="search-area">
-            
-               <h3 class="proc">Procure por DogWalkers perto de você</h3>
-                <button class="search-button" id="search-button">
-                <img src="/imagens/search.svg" alt="lupa">Procurar por DogWalker</button>
-
-                <div class="endereco-modal" id="endereco-area">
-                    <div class="modal-content-endereco">
-                        <div id="close-btn-endereco" class="close-btn">&times;</div>
-                        <h2 class="local"> Localização </h2>
-                        <form class="form-encereco">
-                            <br>
-                            <label class="loglab" for="user">País</label>
-                            <input class="usu" type="text" name="usuario">
-                            <br>
-                            <label class="loglab" for="password">Estado</label>
-                            <input class="sen" type="password" name="senha"><br>
-                            <label class="loglab" for="password">Cidade</label>
-                            <input class="sen" type="password" name="senha"><br>
-                            <label class="loglab" for="password">Bairro</label>
-                            <input class="sen" type="password" name="senha"><br>
-                            <label class="loglab" for="password">Rua</label>
-                            <input class="sen" type="password" name="senha"><br>
-                            <label class="loglab" for="password">Numero</label>
-                            <input class="sen" type="password" name="senha"><br>
-                                                        
-                            <div class="regisbuton"></div>
-                            <button class="ent-encereco-but">BUSCAR</button>
-                        </form>
+    <main class="corpo-cliente">
+        <nav class="conteudocliente">
+        <div class="cliente">
+                <button id="cliente-button" class="account-button">Sua Conta</button>
+                    <div class="modal-clientehtml" id="cliente-area">
+                        <!-- Modal para o acesso de dados do cliente. -->
+                        <div class="modal-content-clientehmtl">
+                            <div id="close-cliente-button" class="close-btn">&times;</div>
+                            <!-- Botão de fechamento do modal de acesso de dados do cliente. -->
+                            <h2 class="dadoscliente">Seus Dados</h2>
+                            <form class="form-regis" id="form-regis">
+                                <!-- Formulário de dados do cliente. -->
+                                <label class="dadosclientes" >Nome</label>
+                                <input id="nomeC" type="text"   required><br>
+                                <!-- Campo do nome. -->
+                                <label class="dadosclientes" >CPF</label>
+                                <input id="cpfC" type="text"  required><br>
+                                <!-- Campo para o CPF. -->
+                                <label class="dadosclientes">Email</label>
+                                <input id="emailC" type="email"  required><br>
+                                <!-- Campo para o email. -->
+                                <label class="dadosclientes">Senha</label>
+                                <input id="senClient" type="password" required><br>
+                                <!-- Campo para a senha. -->
+                                 <label class="dadosclientes">Endereço</label>
+                                <input id="locClient" type="location" required><br>
+                                <!-- Campo do endereço -->
+                                <div class="regisbuton"></div>
+                                <button class="ent-but-pag-cliente" type="submit">ENVIAR</button>
+                                <!-- Botão de submissão do formulário. -->
+                            </form>
+                        </div>
+                    </div>
+            </div>
+            <div class="pets">
+                <button id="pet-button" class="pet-button">Cadastre Seus Pets</button>
+            <div class="modal-pet" id="pet-area">
+                <!-- Modal para o registro do dogwalker. -->
+                <div class="modal-content-pet">
+                    <div id="close-btn-pet" class="close-btn">&times;</div>
+                    <!--Botão para fechamento do modal de registro do dogwalker. -->
+                    <h2 class="petdado">Registrar seu pet</h2>
+                    <form class="form-pet" id="form-pet">
+                        <!-- Formulário de registro do dogwalker. -->
+                        <label class="petdados">Nome</label>
+                        <input id="nomePet" type="text"><br>
+                        <!-- Campo do nome pet. -->
+                        <label class="petdados">Raça</label>
+                        <input id="raçaPET" type="text"><br>
+                        <!-- Campo da raça dp pet. -->
+                        <label class="petdados">Peso</label>
+                        <input class="peso" id="pesopet" type="text" ><br>
+                        <!-- Campo da peso do pet. -->
+                        <label class="petdados">Idade</label>
+                        <input id="idadePET" type="text"> <br>
+                        <!-- Campo da idade do pet. -->
+                        <div class="regisbuton"></div>
+                        <button class="ent-but-pag-cliente" type="submit">ENVIAR</button>
+                        <!-- Botão de submissão do formulário. -->
+                    </form>
+                </div>
+            </div>  
+            </div>
+            <div class="pets-cadastrados">
+                <button id="pet-button-data" class="pet-button-data">Seus Pets</button>
+                <div id="modalpets" class="modal-pets">
+                    <div class="modal-pets-content">
+                        <div id="close-btn-pets" class="close-btn">&times;</div>
+                        <ul id="listaPets">
+                            <!-- Os pets cadastrados aparecerão aqui -->
+                        </ul>
                     </div>
                 </div>
-            </div>
-
-            <div class="top-5"> <br>
-                <h3>Aqui estão os dogwalker mais bem avaliados da semana!</h3> <br>
-                <div class="carclient">
-                    <div class="carousel-track-C">
-                      <div class="carousel-slide-C"><img src="/imagens/DG1.png" alt="Imagem 1"></div>
-                      <div class="carousel-slide-C"><img src="/imagens/DG2.png" alt="Imagem 2"></div>
-                      <div class="carousel-slide-C"><img src="/imagens/DG3.png" alt="Imagem 3"></div>
-                      <div class="carousel-slide-C"><img src="/imagens/DG4.png" alt="Imagem 4"></div>
-                      <div class="carousel-slide-C"><img src="/imagens/DG5.png" alt="Imagem 5"></div>
-                    </div>
-                    <div class="carousel-buttons">
-                      <button class="carousel-button prev">&#8249;</button>
-                      <button class="carousel-button next">&#8250;</button>
-                    </div>
-                  </div>
-            </div>
-        </nav>
-        <br>
+            </div>                       
+            </nav>
     </main>
-
     <footer class="roda-pe-geral">
+        <!-- Rodapé da página. -->
         <div class="titulos-midias">
+            <!-- Seçaõ das redes sociais e formas de pagamento. -->
                 <span class="title-midia1">REDES SOCIAIS
                     <div class="img-midia-icon">
-                    <a class="whats" href="https://www.whatsapp.com/?lang=pt_BR"><img src="/imagens/svg-whats.svg"></a>
+                    <a class="whats" href="https://wa.me/558695533463"><img src="/imagens/svg-whats.svg"></a>
                     <a class="insta" href="https://www.instagram.com/"><img src="/imagens/svg-insta.svg"></a>
                     <a class="youtube" href="https://www.youtube.com/"><img src="/imagens/svg-youtube.svg"></a>
                     </div>  
@@ -140,61 +151,17 @@
                         <img class="imagem-midia" src="/imagens/mastercard-svg.svg" alt="mastercard">
                     </div>
                 </span>
-                
         </div>
         <hr>
         <div class="marca-registrada">
             <h4>© 2024 WALK & DOG - Todos os direitos reservados.</h4>
+            <!-- Texto de copyright. -->
         </div>
     </footer>
     </div>
-<style>
-    .carousel-track-C {
-  display: flex; /* Organiza os itens em uma linha */
-  transition: transform 0.5s ease-in-out; /* Animação suave ao transformar o elemento */
-}
-    .carclient  {
-  position: relative; /* Posiciona o carrossel em relação ao seu container */
-  width: 800px; /* Define a largura do carrossel */
-  overflow: hidden; /* Esconde elementos que ultrapassam os limites do carrossel */
-  border: var(--Preto) solid 5px; /* Define uma borda preta de 5px */
-  border-radius: 10px; /* Define bordas arredondadas com 10px */
-  margin: 5px; /* Define uma margem de 5px */
-  box-shadow: var(--Preto) 3px 2px 8px; /* Adiciona uma sombra à borda do carrossel */
-  z-index: 0; /* Define a camada do carrossel */
-  margin-top: 155px; /* Define uma margem superior de 155px */
-}
-
-.carousel-slide-C {
-  width: 800px; /* Define a largura de cada slide */
-  min-width: 800px; /* Define a largura mínima do slide */
-  flex-shrink: 0; /* Impede que o slide seja redimensionado */
-}
-/* Imagens dentro de cada slide do carrossel */
-.carousel-slide-C img {
-  width: 99%; /* Faz com que a imagem ocupe 100% da largura do slide */
-  display: block; /* Define a exibição da imagem como bloco */
-}
-.top-5{
-    margin-top: 30px;
-text-align: center;
-background-color: white;
-border: black 4px solid;
-    border-radius: 10px;
-    width: 820px;
-}
-
-.perfilCachorro{
-    display: none;
-}
-
-.registroCachorro{
-    display: none;
-}
-.ModalCliente{
-    display: none;
-}
-</style>
+    
+<!-- Importação de arquivos JavaScript para funcionalidades da página. -->
+    <script type="module"src="/js/apicontroller.js"></script>
     <script type="module" src="/js/modalCliente.js"></script>
     <script type="module" src="/js/latmenu.js"></script>
 </body>
