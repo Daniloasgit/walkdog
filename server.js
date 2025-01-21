@@ -17,17 +17,6 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-
-// const secret = process.env.SESSION_SECRET;
-// app.use(
-//   session({
-//     secret: `${secret}`,
-//     resave: false,
-//     saveUninitialized: true,
-//   })
-// );
-
-
 // Serve arquivos estáticos da pasta 'public'
 app.use(express.static('public'));
 

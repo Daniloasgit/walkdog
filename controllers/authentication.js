@@ -1,4 +1,3 @@
-
 import db from'../config/db.js';
 import crypto from 'crypto';
 import jwt from 'jsonwebtoken';
@@ -8,88 +7,52 @@ import path from 'path';
 
 
 const registrarCliente = async (req, res) => {
-    const { nome, cpf, email, senha } = req.body; // Desestrutura os dados do corpo da requisição
+    const { nome, cpf, email, senha } = req.body;
 
-    // Verificar se o usuário já existe no banco de dados
+    if (!nome || !cpf || !email || !senha) {
+        return res.status(400).json({ message: 'Todos os campos são obrigatórios.' });
+    }
+
     try {
+        // Verificar se o usuário já existe
         const [existingUser] = await db.promise().query('SELECT * FROM clientes WHERE email = ?', [email]);
         if (existingUser.length > 0) {
-            return res.status(400).json({ message: 'Usuário já cadastrado.'});
+            return res.status(400).json({ message: 'Usuário já cadastrado.' });
         }
 
-        // Criptografar a senha usando bcrypt
-        const hashedCSenha = await bcrypt.hash(senha, 10);
+        // Criptografar a senha
+        const hashedSenha = await bcrypt.hash(senha, 10);
 
-        // Inserir o novo usuário no banco de dados
-        await db.promise().query(
-            'INSERT INTO clientes (nome, cpf, email, senha) VALUES (?, ?, ?, ?)',[nome, cpf, email, hashedCSenha]
-        );
-        // Após salvar os dados no banco
-        res.status(201).json({ message: 'Usuário cadastrado com sucesso.' });
+        // Inserir o novo cliente no banco de dados
+        await db.promise().query('INSERT INTO clientes (nome, cpf, email, senha) VALUES (?, ?, ?, ?)', [nome, cpf, email, hashedSenha]);
+
+        res.status(201).json({ message: 'Usuário registrado com sucesso.' });
     } catch (err) {
-        console.error('Erro ao cadastrar usuário:', err);
-        res.status(500).send('Erro ao cadastrar usuário.');
+        console.error('Erro ao cadastrar cliente:', err);
+        res.status(500).json({ message: 'Erro ao cadastrar usuário.' });
     }
-  };
+};
 
-// Função para autenticar um usuário
-// const loginCliente = async (req, res) => {
-//     const { email, senha } = req.body; // Desestrutura os dados do corpo da requisição
 
-//     // Verificar se o usuário existe no banco de dados
-//     try {
-//         let [user] = await db.query('SELECT * FROM clientes WHERE email = ?', [email]);
-      
-//         if (user.length === 0) {
-//           return res.status(400).json({ message: 'Credenciais inválidas (email)' });
-//         }
-//         // Comparar a senha fornecida com a senha criptografada no banco de dados
-//         const isMatch = await bcrypt.compare(senha, user[0].senha);
-//         if (!isMatch) {
-//             return res.status(400).send('Credenciais inválidas');
-//         }
-
-//         // Gerar um token JWT
-//         const token = jwt.sign(
-//             { userId: user[0].cpf, email: user[0].email, nome: user[0].nome },  // Aqui podemos passar mais dados, como o ID e nome
-//             process.env.JWT_SECRET, // Defina o JWT_SECRET no arquivo .env
-//             { expiresIn: '1h' } // Defina o tempo de expiração para o token
-//         );
-
-//         // Enviar o token e as informações do usuário
-//         res.json({
-//             token,
-//             user: { nome: user[0].nome, email: user[0].email }
-//         });
-//     } catch (err) {
-//         console.error('Erro ao autenticar usuário:', err);
-//         res.status(500).send('Erro ao autenticar usuário');
-//     }
-// };
 const loginCliente = async (req, res) => {
     const { email, senha } = req.body;
 
     if (!email || !senha) {
-        return res.status(400).json({ message: 'Email e senha são obrigatórios' });
+        return res.status(400).json({ message: 'Email e senha são obrigatórios.' });
     }
 
     try {
-        console.log('Buscando usuário no banco de dados...');
-        let [user] = await db.query('SELECT * FROM clientes WHERE email = ?', [email]);
+        let [user] = await db.promise().query('SELECT * FROM clientes WHERE email = ?', [email]);
 
         if (user.length === 0) {
-            console.log('Usuário não encontrado');
             return res.status(400).json({ message: 'Credenciais inválidas' });
         }
 
-        console.log('Verificando a senha...');
         const isMatch = await bcrypt.compare(senha, user[0].senha);
         if (!isMatch) {
-            console.log('Senha incorreta');
             return res.status(400).json({ message: 'Credenciais inválidas' });
         }
 
-        console.log('Gerando token...');
         const token = jwt.sign(
             { userId: user[0].cpf, email: user[0].email, nome: user[0].nome },
             process.env.JWT_SECRET,
@@ -106,13 +69,11 @@ const loginCliente = async (req, res) => {
     }
 };
 
-
-
 const registrarDogwalker = async (req, res) => {
-    const { nome, usuario, email, senha, cpf, telefone } = req.body;
+    const { nome, email, senha, cpf } = req.body;
 
     // Verificar se todos os campos necessários estão preenchidos
-    if (!nome || !usuario || !email || !senha || !cpf || !telefone) {
+    if (!nome || !email || !senha || !cpf) {
         return res.status(400).json({ success: false, message: 'Todos os campos são obrigatórios.' });
     }
 
@@ -128,8 +89,8 @@ const registrarDogwalker = async (req, res) => {
 
         // Inserir no banco de dados
         await db.promise().query(
-            'INSERT INTO dogwalker (nome, usuario, email, senha, cpf, telefone) VALUES (?, ?, ?, ?, ?, ?)',
-            [nome, usuario, email, hashedDPassword, cpf, telefone]
+            'INSERT INTO dogwalker (nome, email, senha, cpf) VALUES (?, ?, ?, ?)', // Corrigido o erro no SQL (remover vírgula extra)
+            [nome, email, hashedDPassword, cpf]
         );
 
         res.status(201).json({ success: true, message: 'Usuário cadastrado com sucesso.' });
@@ -138,8 +99,6 @@ const registrarDogwalker = async (req, res) => {
         res.status(500).json({ success: false, message: 'Erro ao registrar usuário' });
     }
 };
-
-
 
 // Função para autenticar um usuário
 const loginDogwalker = async (req, res) => {
@@ -168,4 +127,28 @@ const loginDogwalker = async (req, res) => {
     }
 };
 
-export { registrarCliente, loginCliente, registrarDogwalker, loginDogwalker }; // Exportando as funções para uso em outros arquivos
+
+const logout = async (req, res) => {
+    try {
+      // Verifica se a sessão está ativa (ou se o usuário está autenticado)
+      if (!req.session.usuario) {
+        return res.status(401).json({ message: 'Usuário não autenticado' });
+      }
+      // 1. Destroi a sessão do usuário
+      req.session.destroy((err) => {
+        if (err) {
+          // Se ocorrer erro ao destruir a sessão, retorna um erro
+          return res.status(500).json({ message: 'Erro ao tentar destruir a sessão' });
+        }
+        // 2. Limpa o cookie da sessão
+        res.clearCookie('connect.sid');
+        // 3. Responde ao cliente confirmando o logout
+        return res.status(200).json({ message: 'Logout bem-sucedido' });
+      });
+    } catch (err) {
+      console.error('Erro ao tentar fazer logout:', err);
+      return res.status(500).json({ message: 'Erro no servidor ao tentar fazer logout' });
+    }
+};
+
+export { registrarCliente, loginCliente, registrarDogwalker, loginDogwalker, logout }; // Exportando as funções para uso em outros arquivos

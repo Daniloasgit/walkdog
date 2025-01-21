@@ -34,7 +34,6 @@
   function redirecionar() {
     window.location.href = "dogwalker.html";
 }
-  document.getElementById('dogwalker-button').addEventListener('click', redirecionar)
   document.getElementById('open-side-menu').addEventListener('click', function() {
     document.getElementById('side-menu').classList.add('open');
     document.querySelector('.main-content').classList.add('shifted'); // Adiciona o deslocamento

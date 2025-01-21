@@ -325,6 +325,7 @@ input {
   height: 30px; /* Altura fixa */
   border-radius: 15px; /* Bordas arredondadas */
   margin-top: 3px; /* Espaço superior */
+  text-align: center;
 }
        .regislab {
         margin-left: 80px; /* Espaço à esquerda do rótulo */
