@@ -1,5 +1,6 @@
 // import{ registrarCliente} from '../apicontroller.js';
-import {regisCliente,regisDogwalker, logCliente, logDogwalker, logoutUser} from './apicontroller.js';
+import {regisCliente,regisDogwalker, logCliente, logDogwalker,monitorarTokenExpiracao} from './apicontroller.js';
+
 
 const btnLogin = document.querySelector('#ent-login-but');
 const btnRegisClient = document.querySelector('#ent-but-res');
@@ -36,49 +37,6 @@ const dropdown = document.querySelector("dropdown");
     }
   });
   
-  // // Função para login de cliente
-  // async function logCliente(email, senha) {
-  //   try {
-  //     const response = await fetch('/api/auth/loginCliente', {
-  //       method: 'POST',
-  //       headers: { 'Content-Type': 'application/json' },
-  //       body: JSON.stringify({ email, senha })
-  //     });
-  
-  //     const result = await response.json();
-  //     if (result.token) {
-  //       return result; // Retorna o token se sucesso
-  //     } else {
-  //       return { token: null }; // Retorna null se erro
-  //     }
-  //   } catch (error) {
-  //     console.error('Erro ao fazer login do cliente:', error);
-  //     return { token: null }; // Retorna null em caso de erro
-  //   }
-  // };
-  
-// NOSSO CODIGO WILL GAY
-document.getElementById('form-login').addEventListener('submit', async (event) => {
-  event.preventDefault(); // Evita o envio padrão do formulário
-
-  const email = document.getElementById('email').value;
-  const senha = document.getElementById('senLogin').value;
-  if (!email || !senha) {
-      alert('Preencha todos os campos');
-      return;
-  }
-
-  // Chama a função logCliente para fazer o login
-  const result = await logCliente(email, senha);
-  if (result.token) {
-    console.log('Token recebido do servidor', result.token);
-    localStorage.setItem('token', result.token);
-  }
-});
-
-
-
-
 document.getElementById('form-regis').addEventListener('submit', async (event) => {
     event.preventDefault();
     const nomeClient = document.getElementById('nomeC').value;

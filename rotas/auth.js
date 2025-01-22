@@ -1,22 +1,23 @@
 import express from 'express';
+import * as authentication from '../controllers/authentication.js'; // Importa as funções de autenticação
+import autenticarToken from '../middleware/authorization.js'; // Middleware de autenticação
 
-import * as authentication from '../controllers/authentication.js'; // Importa todas as funções exportadas no arquivo
-import * as tokenmiddleware from '../middleware/authorization.js';
-// import * as authentication from '../controllers/authentication.js'; // Importa todas as funções exportadas no arquivo
 const router = express.Router();
 
-//Rotas definidas
+// Rota para login e registro (não precisa de autenticação)
+router.post('/registrarcliente', authentication.registrarCliente);
+router.post('/loginCliente', authentication.loginCliente);
+router.post('/registrarWalker', authentication.registrarDogwalker);
+router.post('/loginWalker', authentication.loginDogwalker);
+router.post('/logout', autenticarToken,authentication.logout); // logout
 
-router.post('/registrarcliente', authentication.registrarCliente); // registro
-
-router.post('/loginCliente',  authentication.loginCliente); // login
-
-router.post('/registrarWalker',authentication.registrarDogwalker); // registro
-
-router.post('/loginWalker', authentication.loginDogwalker); // login
-
-router.post('/logout', authentication.logout); // logout route
-
-
+// Rota de perfil
+// router.get('/perfil', autenticarToken, (req, res) => {
+//     res.json({
+//         userId: req.userId,
+//         email: req.email,
+//         nome: req.nome
+//     });
+// });
 
 export default router;

@@ -3,7 +3,7 @@ import crypto from 'crypto';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import path from 'path';
-// import { sendEmail } from '../services/emailService.js'; 
+
 
 
 const registrarCliente = async (req, res) => {
@@ -130,6 +130,7 @@ const loginDogwalker = async (req, res) => {
 
 const logout = async (req, res) => {
     try {
+      console.log('Sessão do usuário:', req.session); // Verifique se a sessão contém os dados do usuário
       // Verifica se a sessão está ativa (ou se o usuário está autenticado)
       if (!req.session.usuario) {
         return res.status(401).json({ message: 'Usuário não autenticado' });
@@ -138,6 +139,7 @@ const logout = async (req, res) => {
       req.session.destroy((err) => {
         if (err) {
           // Se ocorrer erro ao destruir a sessão, retorna um erro
+          console.error('Erro ao destruir sessão:', err);  // Adicionando log para ver o erro específico
           return res.status(500).json({ message: 'Erro ao tentar destruir a sessão' });
         }
         // 2. Limpa o cookie da sessão
@@ -150,5 +152,6 @@ const logout = async (req, res) => {
       return res.status(500).json({ message: 'Erro no servidor ao tentar fazer logout' });
     }
 };
+
 
 export { registrarCliente, loginCliente, registrarDogwalker, loginDogwalker, logout }; // Exportando as funções para uso em outros arquivos

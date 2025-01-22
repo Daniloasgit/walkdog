@@ -2,71 +2,27 @@
 
 const API_URL = 'http://localhost:3000/api';
 
-// export async function logCliente(email, senha) {
-//     try {
-//         console.log({ email, senha });
-//         const response = await fetch('/api/auth/loginCliente', {
-//             method: 'POST',
-//             headers: { 'Content-Type': 'application/json' },
-//             body: JSON.stringify({ email, senha })
-//         });
 
-//         const result = await response.json();
-//         console.log('Resposta do servidor:',result)
-//         if (result.token) {
-//             return result;
-//         } else {
-//             alert(result.message || 'Erro ao fazer login.');
-//         }
-//     } catch (error) {
-//         console.error('Erro ao fazer login:', error);
-//         return { success: false, message: 'Erro ao conectar ao servidor.' };
-//     }
-// };
+export async function logCliente(email, senha) {
+  try {
+    const response = await fetch('/api/auth/loginCliente', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, senha })
+    });
 
-// // Função para fazer o login
-// export async function logDogwalker(email, senha) {
-//     try {
-//         console.log({ email, senha });
-//         const response = await fetch('/api/auth/loginWalker', {
-//             method: 'POST',
-//             headers: { 'Content-Type': 'application/json' },
-//             body: JSON.stringify({ email, senha })
-//         });
-
-//         const result = await response.json();
-//         console.log('Resposta do servidor:',result)
-//         if (result.token) {
-//             return result;
-//         } else {
-//             alert(result.message || 'Erro ao fazer login.');
-//         }
-//     } catch (error) {
-//         console.error('Erro ao fazer login:', error);
-//         return { success: false, message: 'Erro ao conectar ao servidor.' };
-//     }
-// };
-
-
-  export async function logCliente(email, senha) {
-    try {
-      const response = await fetch('/api/auth/loginCliente', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, senha })
-      });
-  
-      const result = await response.json();
-      if (result.token) {
-        return result; // Retorna o token se sucesso
-      } else {
-        return { token: null }; // Retorna null se erro
-      }
-    } catch (error) {
-      console.error('Erro ao fazer login do cliente:', error);
-      return { token: null }; // Retorna null em caso de erro
+    const result = await response.json();
+    if (result.token) {
+      localStorage.setItem('token', result.token); // Armazenar o token no localStorage
+      return result; // Retorna o token se sucesso
+    } else {
+      return { token: null }; // Retorna null se erro
     }
+  } catch (error) {
+    console.error('Erro ao fazer login do cliente:', error);
+    return { token: null }; // Retorna null em caso de erro
   }
+}
   
   // Função para login de dogwalker
   export async function logDogwalker(email, senha) {
@@ -79,6 +35,7 @@ const API_URL = 'http://localhost:3000/api';
   
       const result = await response.json();
       if (result.token) {
+        localStorage.setItem('token', result.token); // Armazenar o token no localStorage
         return result; // Retorna o token se sucesso
       } else {
         return { token: null }; // Retorna null se erro
@@ -88,6 +45,7 @@ const API_URL = 'http://localhost:3000/api';
       return { token: null }; // Retorna null em caso de erro
     }
   }
+
 
 //Função para registrar um novo usuário (ID é o CPF)
 export async function regisCliente(nome, cpf, email, senha) {
@@ -137,43 +95,6 @@ export async function regisCliente(nome, cpf, email, senha) {
     }
 };
 
-// export async function logout() {
-//     try {
-//         // Obtém o token de autenticação do localStorage
-//         const token = localStorage.getItem('token');
-//         // Se o token existir, envie a requisição de logout
-//         if (token) {
-//             const response = await fetch(`${API_URL}/auth/logout`, {
-//                 method: 'POST',
-//                 headers: {
-//                     'Authorization': `Bearer ${token}`, // Envia o token para o servidor
-//                     'Content-Type': 'application/json',
-//                 },
-//                 credentials: 'same-origin', // Mantém a sessão entre o frontend e o backend
-//             });
-//             // Verifica se a resposta é válida
-//             if (!response.ok) {
-//                 throw new Error(`Falha no logout: ${response.statusText}`);
-//             }
-//             const data = await response.json();
-//             // Verifica se o logout foi bem-sucedido
-//             if (data.message === 'Logout bem-sucedido') {
-//                 // Remove o token do localStorage
-//                 localStorage.removeItem('token');
-//                 console.log('Usuário deslogado.');
-//                 window.location.href = 'index.html'; // Redireciona para a página de login após logout
-//             } else {
-//                 throw new Error('Falha no logout');
-//             }
-//         } else {
-//             console.error('Token não encontrado');
-//             alert('Token não encontrado. Tente novamente.');
-//         }
-//     } catch (error) {
-//         console.error('Erro ao deslogar:', error);
-//         alert('Houve um erro ao tentar deslogar. Tente novamente.');
-//     }
-// };
 export function monitorarTokenExpiracao() {
     const token = localStorage.getItem('token');
     try {
@@ -218,62 +139,49 @@ export function monitorarTokenExpiracao() {
         // Agendar a próxima verificação após 1 minuto
         setTimeout(monitorarTokenExpiracao, 2 * 60 * 1000);
     }
-}
-// Função para fazer o login
-export async function login(email, senha) {
-    try {
-        const response = await fetch(`${API_URL}/authen/login`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email, senha })
-        });
-        const result = await response.json();
-        console.log('Resposta do servidor:', result);  // Verifique o conteúdo da resposta
-        if (result.token) {
-            return result;
-        } else {
-            alert(result.message || 'Erro ao fazer login.');
-        }
-    } catch (error) {
-        console.error('Erro ao fazer login:', error);
-        return { success: false, message: 'Erro ao conectar ao servidor.' };
-    }
-}
-// Função para deslogar o usuário
+  }
+
+// Função de logout
 export async function logoutUser() {
-    try {
-        // Obtém o token de autenticação do localStorage
-        const token = localStorage.getItem('token');
-        // Se o token existir, envie a requisição de logout
-        if (token) {
-            const response = await fetch(`/api/auth/logout`, {
-                method: 'POST',
-                headers: {
-                    'Authorization': `Bearer ${token}`, // Envia o token para o servidor
-                    'Content-Type': 'application/json',
-                },
-                credentials: 'same-origin', // Mantém a sessão entre o frontend e o backend
-            });
-            // Verifica se a resposta é válida
-            if (!response.ok) {
-                throw new Error(`Falha no logout: ${response.statusText}`);
-            }
-            const data = await response.json();
-            // Verifica se o logout foi bem-sucedido
-            if (data.message === 'Logout bem-sucedido') {
-                // Remove o token do localStorage
-                localStorage.removeItem('token');
-                console.log('Usuário deslogado.');
-                window.location.href = 'index.html'; // Redireciona para a página de login após logout
-            } else {
-                throw new Error('Falha no logout');
-            }
-        } else {
-            console.error('Token não encontrado');
-            alert('Token não encontrado. Tente novamente.');
-        }
-    } catch (error) {
-        console.error('Erro ao deslogar:', error);
-        alert('Houve um erro ao tentar deslogar. Tente novamente.');
-    }
+  try {
+      // Obtém o token de autenticação do localStorage
+      const token = localStorage.getItem('token');
+
+      // Se o token existir, envia a requisição de logout
+      if (token) {
+          const response = await fetch('/api/auth/logout', {
+              method: 'POST',
+              headers: {
+                  'Authorization': `Bearer ${token}`, // Envia o token para o servidor
+                  'Content-Type': 'application/json',
+              },
+              credentials: 'same-origin', // Mantém a sessão entre o frontend e o backend
+          });
+
+          // Verifica se a resposta é válida
+          if (!response.ok) {
+              throw new Error(`Falha no logout: ${response.statusText}`);
+          }
+
+          const data = await response.json();
+
+          // Verifica se o logout foi bem-sucedido
+          if (data.message === 'Logout bem-sucedido') {
+              // Remove o token do localStorage
+              localStorage.removeItem('token');
+              console.log('Usuário deslogado.');
+
+              // Redireciona para a página de login após logout
+              window.location.href = 'index.html';
+          } else {
+              throw new Error('Falha no logout');
+          }
+      } else {
+          console.error('Token não encontrado');
+          alert('Token não encontrado. Tente novamente.');
+      }
+  } catch (error) {
+      console.error('Erro ao deslogar:', error);
+      alert('Houve um erro ao tentar deslogar. Tente novamente.');
+  }
 }

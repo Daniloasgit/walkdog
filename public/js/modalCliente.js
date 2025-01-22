@@ -4,20 +4,20 @@ const searchButton = document.getElementById('search-button');
 
 // Obtendo os botões e modais
 const clienteButton = document.getElementById("cliente-button");
-const clientehtmlmodal = document.getElementById("modal-cliente");
-const closeClientehmtlmodal = document.getElementById("close-cliente-button");
+const clientemodal = document.getElementById("cliente-area");
+const closeClientehmtlmodal = document.getElementById("close-btn-cliente");
 
 const registerDogButton = document.getElementById("pet-button");
-const modalDog  = document.getElementById("modal-pet");
+const modalDog  = document.getElementById("pet-area");
 const closeDogmodal = document.getElementById("close-btn-pet");
 
-const perfilDogButton = document.getElementById("DogPerfil");
-const perfilDogmodal = document.getElementById("perfilCachorro");
-const closeDogPerfilmodal = document.getElementById("closePerfilCachorro");
+const perfilDogButton = document.getElementById("pet-button-data");
+const perfilDogmodal = document.getElementById("modalpets");
+const closeDogPerfilmodal = document.getElementById("close-btn-pets");
 
 // Função para fechar qualquer modal aberto
 function closeAllModals() {
-    clientehtmlmodal.style.display = "none";
+    clientemodal.style.display = "none";
      modalDog.style.display = "none";
      //perfilDogmodal.style.display = "none";
 }
@@ -25,11 +25,11 @@ function closeAllModals() {
 // Modal para registro de cliente
 clienteButton.addEventListener("click", () => {
     closeAllModals(); // Fecha os outros modais
-    clientehtmlmodal.style.display = "block"; // Abre o modal de cliente
+    clientemodal.style.display = "block"; // Abre o modal de cliente
 });
 
 closeClientehmtlmodal.addEventListener("click", () => {
-    clientehtmlmodal.style.display = "none"; // Fecha o modal de cliente
+    clientemodal.style.display = "none"; // Fecha o modal de cliente
 });
 
 // Modal para registro de cachorro
@@ -43,12 +43,12 @@ closeDogmodal.addEventListener("click", () => {
 });
 
 // Modal para o perfil do cachorro
-// perfilDogButton.addEventListener("click", () => {
-//     closeAllModals(); // Fecha os outros modais
-//     perfilDogmodal.style.display = "block"; // Abre o modal de perfil do cachorro
-// });
+perfilDogButton.addEventListener("click", () => {
+    closeAllModals(); // Fecha os outros modais
+    perfilDogmodal.style.display = "block"; // Abre o modal de perfil do cachorro
+});
 
-// closeDogPerfilmodal.addEventListener("click", () => {
-//     perfilDogmodal.style.display = "none"; // Fecha o modal de perfil do cachorro
-// });
+closeDogPerfilmodal.addEventListener("click", () => {
+    perfilDogmodal.style.display = "none"; // Fecha o modal de perfil do cachorro
+});
 
