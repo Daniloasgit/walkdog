@@ -5,6 +5,22 @@ import bcrypt from 'bcrypt';
 import path from 'path';
 
 
+//função para buscar clientes 
+
+const getAllClientes = async (req, res) => {
+    const query = 'SELECT * from clientes ';
+
+    try {
+        const [results] = await db.promise().query(query); 
+        if (results.length === 0) {
+            return res.status(404).json({ message: 'Nenhum cliente encontrado.' });
+        }
+        return res.status(200).json(results);
+    } catch (err) {
+        console.error('Erro ao encontrar clientes:', err);
+        return res.status(500).json({ message: 'Erro ao encontrar clientes', error: err.message });
+    }
+};
 
 const registrarCliente = async (req, res) => {
     const { nome, cpf, email, senha } = req.body;
@@ -127,31 +143,45 @@ const loginDogwalker = async (req, res) => {
     }
 };
 
+// função para deletar clientes 
 
-const logout = async (req, res) => {
+const deletarCliente = async (req, res) => {
+    const { id } = req.params;
+
     try {
-      console.log('Sessão do usuário:', req.session); // Verifique se a sessão contém os dados do usuário
-      // Verifica se a sessão está ativa (ou se o usuário está autenticado)
-      if (!req.session.usuario) {
-        return res.status(401).json({ message: 'Usuário não autenticado' });
-      }
-      // 1. Destroi a sessão do usuário
-      req.session.destroy((err) => {
-        if (err) {
-          // Se ocorrer erro ao destruir a sessão, retorna um erro
-          console.error('Erro ao destruir sessão:', err);  // Adicionando log para ver o erro específico
-          return res.status(500).json({ message: 'Erro ao tentar destruir a sessão' });
-        }
-        // 2. Limpa o cookie da sessão
-        res.clearCookie('connect.sid');
-        // 3. Responde ao cliente confirmando o logout
-        return res.status(200).json({ message: 'Logout bem-sucedido' });
-      });
+        await db.promise().query('DELETE FROM clientes WHERE id =?', [id]);
+        res.status(200).json({ message: 'Cliente deletado com sucesso.' });
     } catch (err) {
-      console.error('Erro ao tentar fazer logout:', err);
-      return res.status(500).json({ message: 'Erro no servidor ao tentar fazer logout' });
+        console.error('Erro ao deletar cliente:', err);
+        res.status(500).json({ message: 'Erro ao deletar cliente.' });
     }
 };
 
 
-export { registrarCliente, loginCliente, registrarDogwalker, loginDogwalker, logout }; // Exportando as funções para uso em outros arquivos
+// const logout = async (req, res) => {
+//     try {
+//       console.log('Sessão do usuário:', req.session); // Verifique se a sessão contém os dados do usuário
+//       // Verifica se a sessão está ativa (ou se o usuário está autenticado)
+//       if (!req.session.usuario) {
+//         return res.status(401).json({ message: 'Usuário não autenticado' });
+//       }
+//       // 1. Destroi a sessão do usuário
+//       req.session.destroy((err) => {
+//         if (err) {
+//           // Se ocorrer erro ao destruir a sessão, retorna um erro
+//           console.error('Erro ao destruir sessão:', err);  // Adicionando log para ver o erro específico
+//           return res.status(500).json({ message: 'Erro ao tentar destruir a sessão' });
+//         }
+//         // 2. Limpa o cookie da sessão
+//         res.clearCookie('connect.sid');
+//         // 3. Responde ao cliente confirmando o logout
+//         return res.status(200).json({ message: 'Logout bem-sucedido' });
+//       });
+//     } catch (err) {
+//       console.error('Erro ao tentar fazer logout:', err);
+//       return res.status(500).json({ message: 'Erro no servidor ao tentar fazer logout' });
+//     }
+// };
+
+
+export {getAllClientes, registrarCliente, loginCliente, registrarDogwalker, loginDogwalker , deletarCliente}; // Exportando as funções para uso em outros arquivos

@@ -95,93 +95,88 @@ export async function regisCliente(nome, cpf, email, senha) {
     }
 };
 
-export function monitorarTokenExpiracao() {
-    const token = localStorage.getItem('token');
-    try {
-        // Decodifica o token JWT sem verificá-lo (somente client-side decoding)
-        const base64Url = token.split('.')[1];
-        const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-        const payload = JSON.parse(atob(base64));
-        // Verifica se o token possui uma propriedade de expiração
-        if (!payload.exp) {
-            console.error('Token inválido: não contém a data de expiração.');
-            alert('Sua sessão expirou. Por favor, faça login novamente.');
-            logoutUser();
-            return;
-        }
-        // Verifica a expiração do token
-        const expirationTime = payload.exp * 1000; // Converter para milissegundos
-        const currentTime = Date.now();
-        const timeUntilExpiration = expirationTime - currentTime;
-        const timeBeforeExpiration = timeUntilExpiration - 60000; // 1 minuto antes da expiração
-        if (timeUntilExpiration > 0) {
-            console.log('Token válido. Tempo restante:', timeUntilExpiration / 1000, 'segundos');
-            if (timeBeforeExpiration > 0) {
-                // Chama a função 1 minuto antes da expiração
-                setTimeout(() => {
-                    console.log('Token expirando em breve. Por favor, faça login novamente.');
-                    alert('Sua sessão está prestes a expirar. Por favor, faça login novamente.');
-                    logoutUser();
-                }, timeBeforeExpiration);
-            }
-        } else {
-            console.error('Token expirado.');
-            alert('Sua sessão expirou. Por favor, faça login novamente.');
-            logoutUser();
-            return;
-        }
-    } catch (error) {
-        console.error('Erro ao decodificar o token:', error);
-        alert('Erro ao verificar a sessão. Faça login novamente.');
-        logoutUser();
-        return;
-    } finally {
-        // Agendar a próxima verificação após 1 minuto
-        setTimeout(monitorarTokenExpiracao, 2 * 60 * 1000);
-    }
-  }
+// export function monitorarTokenExpiracao() {
+//     const token = localStorage.getItem('token');
+//     try {
+//         // Decodifica o token JWT sem verificá-lo (somente client-side decoding)
+//         const base64Url = token.split('.')[1];
+//         const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+//         const payload = JSON.parse(atob(base64));
+//         // Verifica se o token possui uma propriedade de expiração
+//         if (!payload.exp) {
+//             console.error('Token inválido: não contém a data de expiração.');
+//             alert('Sua sessão expirou. Por favor, faça login novamente.');
+//             logoutUser();
+//             return;
+//         }
+//         // Verifica a expiração do token
+//         const expirationTime = payload.exp * 1000; // Converter para milissegundos
+//         const currentTime = Date.now();
+//         const timeUntilExpiration = expirationTime - currentTime;
+//         const timeBeforeExpiration = timeUntilExpiration - 60000; // 1 minuto antes da expiração
+//         if (timeUntilExpiration > 0) {
+//             console.log('Token válido. Tempo restante:', timeUntilExpiration / 1000, 'segundos');
+//             if (timeBeforeExpiration > 0) {
+//                 // Chama a função 1 minuto antes da expiração
+//                 setTimeout(() => {
+//                     console.log('Token expirando em breve. Por favor, faça login novamente.');
+//                     alert('Sua sessão está prestes a expirar. Por favor, faça login novamente.');
+//                     logoutUser();
+//                 }, timeBeforeExpiration);
+//             }
+//         } else {
+//             console.error('Token expirado.');
+//             alert('Sua sessão expirou. Por favor, faça login novamente.');
+//             logoutUser();
+//             return;
+//         }
+//     } catch (error) {
+//         console.error('Erro ao decodificar o token:', error);
+//         alert('Erro ao verificar a sessão. Faça login novamente.');
+//         logoutUser();
+//         return;
+//     } finally {
+//         // Agendar a próxima verificação após 1 minuto
+//         setTimeout(monitorarTokenExpiracao, 2 * 60 * 1000);
+//     }
+//   }
 
 // Função de logout
-export async function logoutUser() {
-  try {
-      // Obtém o token de autenticação do localStorage
-      const token = localStorage.getItem('token');
+// export async function logoutUser() {
+//   try {
+//       // Obtém o token de autenticação do localStorage
+//       const token = localStorage.getItem('token');
+//       // Se o token existir, envie a requisição de logout
+//       if (token) {
+//           const response = await fetch(`/api/auth/logout`, {
+//               method: 'POST',
+//               headers: {
+//                   'Authorization': `Bearer ${token}`, // Envia o token para o servidor
+//                   'Content-Type': 'application/json',
+//               },
+//               credentials: 'same-origin', // Mantém a sessão entre o frontend e o backend
+//           });
+//           // Verifica se a resposta é válida
+//           if (!response.ok) {
+//               throw new Error(`Falha no logout: ${response.statusText}`);
+//           }
+//           const data = await response.json();
+//           // Verifica se o logout foi bem-sucedido
+//           if (data.message === 'Logout bem-sucedido') {
+//               // Remove o token do localStorage
+//               localStorage.removeItem('token');
+//               console.log('Usuário deslogado.');
+//               window.location.href = 'index.html'; // Redireciona para a página de login após logout
+//           } else {
+//               throw new Error('Falha no logout');
+//           }
+//       } else {
+//           console.error('Token não encontrado');
+//           alert('Token não encontrado. Tente novamente.');
+//       }
+//   } catch (error) {
+//       console.error('Erro ao deslogar:', error);
+//       alert('Houve um erro ao tentar deslogar. Tente novamente.');
+//   }
+// };
 
-      // Se o token existir, envia a requisição de logout
-      if (token) {
-          const response = await fetch('/api/auth/logout', {
-              method: 'POST',
-              headers: {
-                  'Authorization': `Bearer ${token}`, // Envia o token para o servidor
-                  'Content-Type': 'application/json',
-              },
-              credentials: 'same-origin', // Mantém a sessão entre o frontend e o backend
-          });
-
-          // Verifica se a resposta é válida
-          if (!response.ok) {
-              throw new Error(`Falha no logout: ${response.statusText}`);
-          }
-
-          const data = await response.json();
-
-          // Verifica se o logout foi bem-sucedido
-          if (data.message === 'Logout bem-sucedido') {
-              // Remove o token do localStorage
-              localStorage.removeItem('token');
-              console.log('Usuário deslogado.');
-
-              // Redireciona para a página de login após logout
-              window.location.href = 'index.html';
-          } else {
-              throw new Error('Falha no logout');
-          }
-      } else {
-          console.error('Token não encontrado');
-          alert('Token não encontrado. Tente novamente.');
-      }
-  } catch (error) {
-      console.error('Erro ao deslogar:', error);
-      alert('Houve um erro ao tentar deslogar. Tente novamente.');
-  }
-}

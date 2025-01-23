@@ -39,7 +39,7 @@ const SECRET_KEY = process.env.JWT_SECRET;
 //     const token = localStorage.getItem('token');
 //     if (!token) {
 //       alert('Você precisa estar logado para acessar o perfil.');
-//       return;
+//       return; 
 //     }
   
 //     try {

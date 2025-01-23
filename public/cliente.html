@@ -53,7 +53,7 @@
                 <!-- Div para os botões de login e registro. -->
                 <div class="logout">
                 <nav>
-                    <button type="submit" id="btnLogout"class="menu-button">Logout</button>
+                    <button id="logout-btn"  onclick="logoutUser()">Sair</button>
                 </nav>
             </div>   
             </div> 
@@ -115,6 +115,9 @@
                         <label class="petdados">Idade</label>
                         <input id="idadePET" type="text"> <br>
                         <!-- Campo da idade do pet. -->
+                         <label class="petdados">cpf do dono</label>
+                         <input id="cpfDono" type="text"><br>
+                         <!-- Campo do cpf do dono do pet. -->
                         <div class="regisbuton"></div>
                         <button class="ent-but-pag-cliente" type="submit">ENVIAR</button>
                         <!-- Botão de submissão do formulário. -->
@@ -163,9 +166,14 @@
     </div>
     
 <!-- Importação de arquivos JavaScript para funcionalidades da página. -->
- <script type="module" src="/js/cliente.js"></script>
     <script type="module"src="/js/apicontroller.js"></script>
     <script type="module" src="/js/modalCliente.js"></script>
-    <script type="module" src="/js/latmenu.js"></script>
+    <script src="/js/logout.js"></script>
+    <script> 
+        document.getElementById('logout-btn').addEventListener('click', (event) => {
+    logoutUser(); // Chama a função de logout
+    alert('Logout feito com sucesso!');
+});
+    </script>
 </body>
 </html>

@@ -11,6 +11,7 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import db from './config/db.js';
 import authRoutes from './rotas/auth.js';
+import petsRoutes from './rotas/pets.js';
 // import routes from './rotas/routes.js';
 
 const app = express();
@@ -22,6 +23,9 @@ app.use(express.static('public'));
 
 // Rotas de autenticação
 app.use('/api/auth', authRoutes);
+app.use('/api/pets', petsRoutes);
+
+
 // app.use('/api/routes', routes);
 
 app.get('/', (req, res) => {

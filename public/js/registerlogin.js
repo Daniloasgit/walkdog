@@ -1,5 +1,5 @@
 // import{ registrarCliente} from '../apicontroller.js';
-import {regisCliente,regisDogwalker, logCliente, logDogwalker,monitorarTokenExpiracao} from './apicontroller.js';
+import {regisCliente,regisDogwalker, logCliente, logDogwalker } from './apicontroller.js';
 
 
 const btnLogin = document.querySelector('#ent-login-but');
