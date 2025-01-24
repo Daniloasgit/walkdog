@@ -5,7 +5,7 @@
 // const router = express.Router();  // Cria um novo roteador
 
 // // Definindo uma rota para obter todas as transações
-// router.get('/', authMiddleware, transactionsController.getAllTransactions);
+// router.get('/', autenticarToken, clientesController.getAllClientes);
 
 // // Definindo uma rota para adicionar uma nova transação
 // router.post('/', authMiddleware, transactionsController.addTransaction);

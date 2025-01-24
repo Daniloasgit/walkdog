@@ -4,50 +4,37 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import path from 'path';
 
-
-//função para buscar clientes 
-
-const getAllClientes = async (req, res) => {
-    const query = 'SELECT * from clientes ';
-
-    try {
-        const [results] = await db.promise().query(query); 
-        if (results.length === 0) {
-            return res.status(404).json({ message: 'Nenhum cliente encontrado.' });
-        }
-        return res.status(200).json(results);
-    } catch (err) {
-        console.error('Erro ao encontrar clientes:', err);
-        return res.status(500).json({ message: 'Erro ao encontrar clientes', error: err.message });
-    }
-};
-
 const registrarCliente = async (req, res) => {
     const { nome, cpf, email, senha } = req.body;
 
-    if (!nome || !cpf || !email || !senha) {
-        return res.status(400).json({ message: 'Todos os campos são obrigatórios.' });
+    // Verificar se todos os campos necessários estão preenchidos
+    if (!nome || !cpf || !email || !senha ) {
+        return res.status(400).json({ success: false, message: 'Todos os campos são obrigatórios.' });
     }
 
     try {
         // Verificar se o usuário já existe
         const [existingUser] = await db.promise().query('SELECT * FROM clientes WHERE email = ?', [email]);
         if (existingUser.length > 0) {
-            return res.status(400).json({ message: 'Usuário já cadastrado.' });
+            return res.status(400).json({ success: false, message: 'Usuário já cadastrado com esse e-mail.' });
         }
 
-        // Criptografar a senha
-        const hashedSenha = await bcrypt.hash(senha, 10);
+        // Criptografar a senha usando bcrypt
+        const hashedDPassword = await bcrypt.hash(senha, 10);
 
-        // Inserir o novo cliente no banco de dados
-        await db.promise().query('INSERT INTO clientes (nome, cpf, email, senha) VALUES (?, ?, ?, ?)', [nome, cpf, email, hashedSenha]);
+        // Inserir no banco de dados
+        await db.promise().query(
+            'INSERT INTO clientes (nome, cpf, email, senha) VALUES (?, ?, ?, ?)', // Corrigido o erro no SQL (remover vírgula extra)
+            [nome, cpf, email, hashedDPassword]
+        );
 
-        res.status(201).json({ message: 'Usuário registrado com sucesso.' });
+        res.status(201).json({ success: true, message: 'Usuário cadastrado com sucesso.' });
     } catch (err) {
-        console.error('Erro ao cadastrar cliente:', err);
-        res.status(500).json({ message: 'Erro ao cadastrar usuário.' });
+        console.error('Erro ao registrar usuário:', err);
+        res.status(500).json({ success: false, message: 'Erro ao registrar usuário' });
     }
 };
+
 
 
 const loginCliente = async (req, res) => {
@@ -89,7 +76,7 @@ const registrarDogwalker = async (req, res) => {
     const { nome, email, senha, cpf } = req.body;
 
     // Verificar se todos os campos necessários estão preenchidos
-    if (!nome || !email || !senha || !cpf) {
+    if (!nome || !cpf || !email || !senha ) {
         return res.status(400).json({ success: false, message: 'Todos os campos são obrigatórios.' });
     }
 
@@ -97,7 +84,7 @@ const registrarDogwalker = async (req, res) => {
         // Verificar se o usuário já existe
         const [existingUser] = await db.promise().query('SELECT * FROM dogwalker WHERE email = ?', [email]);
         if (existingUser.length > 0) {
-            return res.status(400).json({ success: false, message: 'Usuário já registrado' });
+            return res.status(400).json({ success: false, message: 'Usuário já cadastrado com esse e-mail.' });
         }
 
         // Criptografar a senha usando bcrypt
@@ -105,8 +92,8 @@ const registrarDogwalker = async (req, res) => {
 
         // Inserir no banco de dados
         await db.promise().query(
-            'INSERT INTO dogwalker (nome, email, senha, cpf) VALUES (?, ?, ?, ?)', // Corrigido o erro no SQL (remover vírgula extra)
-            [nome, email, hashedDPassword, cpf]
+            'INSERT INTO dogwalker (nome, cpf, email, senha) VALUES (?, ?, ?, ?)', // Corrigido o erro no SQL (remover vírgula extra)
+            [nome, cpf, email, hashedDPassword]
         );
 
         res.status(201).json({ success: true, message: 'Usuário cadastrado com sucesso.' });
@@ -134,28 +121,17 @@ const loginDogwalker = async (req, res) => {
         }
 
         // Gerar um token JWT
-        const token = jwt.sign({ userCPF: user[0].cpf }, process.env.JWT_SECRET, { expiresIn: '1h' });
+        const token = jwt.sign({ userCPF: user[0].cpf }, process.env.JWT_SECRET );
 
         res.json({ token });
     } catch (err) {
-        console.error('Erro ao autenticar usuário:', err);
-        res.status(500).send('Erro ao autenticar usuário');
+        console.error('Erro ao autenticar Dogwalker:', err);
+
+        res.status(500).send('Erro ao autenticar Dogwalker');
     }
 };
 
-// função para deletar clientes 
 
-const deletarCliente = async (req, res) => {
-    const { id } = req.params;
-
-    try {
-        await db.promise().query('DELETE FROM clientes WHERE id =?', [id]);
-        res.status(200).json({ message: 'Cliente deletado com sucesso.' });
-    } catch (err) {
-        console.error('Erro ao deletar cliente:', err);
-        res.status(500).json({ message: 'Erro ao deletar cliente.' });
-    }
-};
 
 
 // const logout = async (req, res) => {
@@ -184,4 +160,4 @@ const deletarCliente = async (req, res) => {
 // };
 
 
-export {getAllClientes, registrarCliente, loginCliente, registrarDogwalker, loginDogwalker , deletarCliente}; // Exportando as funções para uso em outros arquivos
+export { registrarCliente, loginCliente, registrarDogwalker, loginDogwalker}; // Exportando as funções para uso em outros arquivos

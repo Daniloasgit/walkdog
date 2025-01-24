@@ -11,18 +11,28 @@ export async function logCliente(email, senha) {
       body: JSON.stringify({ email, senha })
     });
 
+    // Verificar se a resposta foi bem-sucedida
+    // if (!response.ok) {
+    //   // Se a resposta não for ok, lançar erro
+    //   const errorData = await response.json();
+    //   throw new Error(errorData.message || 'Erro desconhecido ao autenticar cliente');
+    // }
+
     const result = await response.json();
+    
+    // Se houver um token, retorna o resultado, senão, retorna token null
     if (result.token) {
       localStorage.setItem('token', result.token); // Armazenar o token no localStorage
       return result; // Retorna o token se sucesso
     } else {
-      return { token: null }; // Retorna null se erro
+      return { token: null }; // Retorna null se não houver token
     }
   } catch (error) {
-    console.error('Erro ao fazer login do cliente:', error);
-    return { token: null }; // Retorna null em caso de erro
+    console.error('Erro ao fazer login do cliente:',error);
+    return { token: null }; // Retorna erro se houver
   }
-}
+};
+
   
   // Função para login de dogwalker
   export async function logDogwalker(email, senha) {
@@ -44,56 +54,65 @@ export async function logCliente(email, senha) {
       console.error('Erro ao fazer login do dogwalker:', error);
       return { token: null }; // Retorna null em caso de erro
     }
-  }
+  };
 
 
 //Função para registrar um novo usuário (ID é o CPF)
 export async function regisCliente(nome, cpf, email, senha) {
-    try {
+  try {
       console.log('Enviando dados para registro:', { nome, cpf, email, senha });
+
       const response = await fetch('/api/auth/registrarcliente', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ nome, cpf, email, senha }),
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ nome, cpf, email, senha })
       });
-  
+
+      // Verificar se a resposta é um erro
       if (!response.ok) {
-        throw new Error('Falha na requisição. Código de status: ' + response.status);
+          const errorData = await response.json();
+          throw new Error(errorData.message || `Falha na requisição. Código de status: ${response.status}`);
       }
-  
+
       const result = await response.json();
       console.log('Resposta do servidor para registro:', result);
-      return result;
-    } catch (error) {
+      return result;  // Retorna a resposta ao frontend
+  } catch (error) {
       console.error('Erro ao registrar:', error.message);
       return { success: false, message: error.message };
-    }
   }
+};
+
 
   export async function regisDogwalker(nome, email, senha, cpf) {
     try {
-        console.log('Enviando dados para registro:', { nome, email, senha, cpf });
+      console.log('Enviando dados para registro:', { nome, email, senha, cpf });
 
-        const response = await fetch('/api/auth/registrarWalker', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ nome, email, senha, cpf })
-        });
+      const response = await fetch('/api/auth/registrarWalker', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ nome, email, senha, cpf })
+      });
 
-        if (!response.ok) {
-            throw new Error('Falha na requisição. Código de status: ' + response.status);
-        }
+      // Verificar se a resposta é um erro
+      if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.message || `Falha na requisição. Código de status: ${response.status}`);
+      }
 
-        const result = await response.json();
-        console.log('Resposta do servidor para registro:', result);
-        return result;  // Retorna a resposta ao frontend
-    } catch (error) {
-        console.error('Erro ao registrar:', error.message);
-        return { success: false, message: error.message };
-    }
+      const result = await response.json();
+      console.log('Resposta do servidor para registro:', result);
+      return result;  // Retorna a resposta ao frontend
+  } catch (error) {
+      console.error('Erro ao registrar:', error.message);
+      return { success: false, message: error.message };
+  }
 };
+
 
 // export function monitorarTokenExpiracao() {
 //     const token = localStorage.getItem('token');
