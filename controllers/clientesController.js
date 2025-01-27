@@ -34,6 +34,5 @@ import path from 'path';
 
 
 
-//função para buscar clientes 
 
 

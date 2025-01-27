@@ -53,7 +53,7 @@
                 <!-- Div para os botões de login e registro. -->
                 <div class="logout">
                 <nav>
-                    <button id="logout-btn"  onclick="logoutUser()">Sair</button>
+                    <button id="logout-btn" class="logout-btn" onclick="logoutUser()">Sair</button>
                 </nav>
             </div>   
             </div> 
@@ -96,26 +96,26 @@
             <div class="pets">
                 <button id="pet-button" class="pet-button">Cadastre Seus Pets</button>
             <div class="modal-pet" id="pet-area">
-                <!-- Modal para o registro do dogwalker. -->
+                <!-- Modal para o registro do animal. -->
                 <div class="modal-content-pet">
                     <div id="close-btn-pet" class="close-btn">&times;</div>
-                    <!--Botão para fechamento do modal de registro do dogwalker. -->
+                    <!--Botão para fechamento do modal de registro do animal. -->
                     <h2 class="petdado">Registrar seu pet</h2>
                     <form class="form-pet" id="form-pet">
-                        <!-- Formulário de registro do dogwalker. -->
+                        <!-- Formulário de registro do animal. -->
                         <label class="petdados">Nome</label>
                         <input id="nomePet" type="text"><br>
                         <!-- Campo do nome pet. -->
                         <label class="petdados">Raça</label>
-                        <input id="raçaPET" type="text"><br>
+                        <input id="raçaPet" type="text"><br>
                         <!-- Campo da raça dp pet. -->
                         <label class="petdados">Peso</label>
-                        <input class="peso" id="pesopet" type="text" ><br>
+                        <input class="peso" id="pesoPet" type="text" ><br>
                         <!-- Campo da peso do pet. -->
                         <label class="petdados">Idade</label>
-                        <input id="idadePET" type="text"> <br>
+                        <input id="idadePet" type="text"> <br>
                         <!-- Campo da idade do pet. -->
-                         <label class="petdados">cpf do dono</label>
+                         <label class="petdados">CPF do Dono</label>
                          <input id="cpfDono" type="text"><br>
                          <!-- Campo do cpf do dono do pet. -->
                         <div class="regisbuton"></div>
@@ -125,17 +125,27 @@
                 </div>
             </div>  
             </div>
-            <div class="pets-cadastrados">
-                <button id="pet-button-data" class="pet-button-data">Seus Pets</button>
-                <div id="modalpets" class="modal-pets">
-                    <div class="modal-pets-content">
-                        <div id="close-btn-pets" class="close-btn">&times;</div>
-                        <ul id="listaPets">
-                            <!-- Os pets cadastrados aparecerão aqui -->
-                        </ul>
-                    </div>
+            <div class="content">
+                <h2>Seus Pets</h2>
+                <table  class="custos">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Raça</th>
+                            <th>Peso</th>
+                            <th>Idade</th>
+                            <th>CPF do Dono</th>
+                        </tr>
+                    </thead>
+                    <tbody id="transacoesTableBody">
+                        <!-- Dados via JavaScript -->
+                    </tbody>
+                </table>
+                <div>
+                    <button class="btn" id="editarBtn">Editar</button>
+                    <button class="btn" id="removerBtn">Remover</button>
                 </div>
-            </div>                       
+            </div>                     
             </nav>
     </main>
     <footer class="roda-pe-geral">
@@ -169,6 +179,8 @@
     <script type="module"src="/js/apicontroller.js"></script>
     <script type="module" src="/js/modalCliente.js"></script>
     <script src="/js/logout.js"></script>
+    <script src="/js/latmenu.js"></script>
+    <script type="module" src="/js/petRegister.js"></script>
     <script> 
         document.getElementById('logout-btn').addEventListener('click', (event) => {
     logoutUser(); // Chama a função de logout

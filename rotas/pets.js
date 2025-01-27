@@ -1,21 +1,15 @@
 import express from 'express';
-import * as PetsFunctions from '../controllers/petscontroller.js'; // Importa as funções de fetch
 
+import * as petController from '../controllers/petscontroller.js'; // Importa as funções de autenticação
 
-const router = express.Router(); 
+const router = express.Router();
 
-//rotas para as funções envolvendo pets
+router.get ('/buscarPets', petController.getAllPets);
 
-// rota para buscar por pets ja registrados
-    router.get('/buscarPets', PetsFunctions.getAllPets);
+router.post('/registrarPets', petController.addPet);
 
-    //rota para registrar um novo pet
-    router.post('/registrarPets', PetsFunctions.AddPet);
+router.patch('/atualizarPets/:id', petController.updatePet);
 
-    // //rota para atualizar um pet ja registrado
-    router.patch('/atualizarPets/:id', PetsFunctions.updatePet);
+router.delete('/deletarPet/:id', petController.deletePet);
 
-    // //rota para deletar um pet ja registrado
-    router.delete('/deletarPets/:id', PetsFunctions.deletePet);
-    
 export default router;

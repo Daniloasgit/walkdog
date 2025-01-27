@@ -1,7 +1,7 @@
 import db from '../config/db.js';
 import path from 'path';
 
-const getAllPets = async (req, res) => {
+ export const getAllPets = async (req, res) => {
     const query = 'SELECT * FROM animais';
 
     try {
@@ -17,20 +17,21 @@ const getAllPets = async (req, res) => {
 };
 
 
-const AddPet = async (req, res) => {
-    const { nome, raca, peso, idade, clienteCpf } = req.body;
+export const addPet = async (req, res) => {
+    const { nome, raca, peso, idade, cliente_cpf } = req.body;
 
-    if (nome, raca, peso, idade, clienteCpf) {
+    // Verificando se algum campo está faltando
+    if (!nome || !raca || !peso || !idade || !cliente_cpf) {
         return res.status(400).json({ message: 'Todos os campos são obrigatórios.' });
     }
 
     try {
-        const [existingUser] = await db.promise().query('SELECT * FROM animais WHERE nome = ? AND cliente_cpf = ?', [nome, clienteCpf]);
+        const [existingUser] = await db.promise().query('SELECT * FROM animais WHERE nome = ? AND cliente_cpf = ?', [nome, cliente_cpf]);
         if (existingUser.length > 0) {
             return res.status(400).json({ message: 'Pet já cadastrado.' });
         }
 
-        await db.promise().query('INSERT INTO animais (nome, raca, peso, idade, cliente_cpf) VALUES (?, ?, ?, ?, ?)', [nome, raca, peso, idade, clienteCpf]);
+        await db.promise().query('INSERT INTO animais (nome, raca, peso, idade, cliente_cpf) VALUES (?, ?, ?, ?, ?)', [nome, raca, peso, idade, cliente_cpf]);
 
         return res.status(201).json({ message: 'Pet registrado com sucesso.' });
     } catch (err) {
@@ -39,8 +40,7 @@ const AddPet = async (req, res) => {
     }
 };
 
-
-const updatePet = async (req, res) => {
+ export const updatePet = async (req, res) => {
     const { id } = req.params;
     const { nome, raca, peso, idade } = req.body;
 
@@ -58,7 +58,7 @@ const updatePet = async (req, res) => {
 };
 
 
-const deletePet = async (req, res) => {
+ export const deletePet = async (req, res) => {
     const { id } = req.params;
 
     try {
@@ -74,5 +74,3 @@ const deletePet = async (req, res) => {
     }
 };
 
-
-export { getAllPets, AddPet, updatePet, deletePet };

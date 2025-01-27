@@ -10,7 +10,6 @@ const registerButton = document.getElementById("cliente-button");
 const registercliente = document.getElementById("cliente-area");
 const closeBtnRegister = document.getElementById("close-btn-register");
 
-
 const loginButton = document.getElementById("login-button");
 const loginArea = document.getElementById("login-area");
 const closeBtnLogin = document.getElementById("close-btn-login");

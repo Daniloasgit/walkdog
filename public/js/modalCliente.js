@@ -51,4 +51,3 @@ perfilDogButton.addEventListener("click", () => {
 closeDogPerfilmodal.addEventListener("click", () => {
     perfilDogmodal.style.display = "none"; // Fecha o modal de perfil do cachorro
 });
-

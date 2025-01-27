@@ -1,12 +1,6 @@
 // import{ registrarCliente} from '../apicontroller.js';
 import {regisCliente,regisDogwalker, logCliente, logDogwalker } from './apicontroller.js';
 
-
-const btnLogin = document.querySelector('#ent-login-but');
-const btnRegisClient = document.querySelector('#ent-but-res');
-const btnRegisWalk = document.querySelector('#ent-but-wal');
-const dropdown = document.querySelector("dropdown");
-
 document.getElementById('form-login').addEventListener('submit', async (event) => {
   event.preventDefault();
 
@@ -39,7 +33,7 @@ document.getElementById('form-login').addEventListener('submit', async (event) =
       console.error('Erro no login do dogwalker:', dogwalkerResult.error);
       alert(`Erro ao tentar login como dogwalker: ${dogwalkerResult.error}`);
   } else {
-      alert('Credenciais inválidas para cliente ou dogwalker.');
+      alert('Credenciais inválidas para dogwalker.');
   }
 });
 
@@ -97,4 +91,3 @@ document.getElementById('form-walk').addEventListener('submit', async (event) =>
     alert(result.message || 'Erro ao registrar usuário');  // Exibe mensagem do erro
 }
 });
-

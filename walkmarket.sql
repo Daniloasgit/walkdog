@@ -2,24 +2,6 @@ create database Walkmarket;
 
 use Walkmarket;
 
-CREATE TABLE clientes (
-id int auto_increment primary key,
-  cpf CHAR(14),
-  img VARCHAR(255),
-  nome VARCHAR(255),
-  usuario VARCHAR(255),
-  email VARCHAR(255),
-  senha VARCHAR(255),
-  telefone CHAR(11),
-  endereco VARCHAR(255),
-  token varchar (255),
-  reset_password_token VARCHAR(255),
-  reset_password_expires DATETIME
-);
-
-CREATE UNIQUE INDEX idx_cpf ON clientes(cpf);
-
-
 create table dogwalker (
 id int auto_increment PRIMARY KEY ,
 cpf char(14) ,
@@ -37,63 +19,65 @@ reset_password_expires datetime);
 CREATE UNIQUE INDEX idx_dgw ON dogwalker(cpf);
  
 insert into dogwalker(cpf,nome,usuario,email,senha,telefone,endereco) values
-(19876543211,'Eva Gina','Juliana','ana.costa.estudante@email.com','senha123',11223344556,'PIAUI'),
-(98765432198,'Cuca Beludo','João Caetano','joao.silva.profissional@email.com','meuemail2024',99887766554,'SAO PAULO'),
-(54321098765,'Óscar Alho','Carlinhos Maia','carlos.almeida.loja@email.com','abc123!',45678901234,'CARNO'),
-(65432109876,'H. Romeu Bahgos','Marquin do Grau','marcos.suporte@email.com','olamundo!1',32165498701,'GAYBRIL'),
-(32109876543,'Cuca Gado','Stivi Istringi','bea.souza123@email.com','minhasenha001',77788899900,'JÂO23');
+('123.456.789-00', 'João Silva', 'joao.silva', 'joao@example.com', 'senha123', '11987654321', 'Rua das Flores, 123'),
+('987.654.321-00', 'Maria Oliveira', 'maria.oliveira', 'maria@example.com', 'senha456', '11912345678', 'Avenida Brasil, 456'),
+('111.222.333-44', 'Carlos Souza', 'carlos.souza', 'carlos@example.com', 'senha789', '11922334455', 'Rua São Paulo, 789'),
+('555.666.777-88', 'Ana Costa', 'ana.costa', 'ana@example.com', 'senha321', '11933445566', 'Rua Rio de Janeiro, 321'),
+('444.555.666-77', 'Pedro Almeida', 'pedro.almeida', 'pedro@example.com', 'senha654', '11944556677', 'Praça Central, 654');
 
+
+
+
+
+-- Criação da tabela clientes
+CREATE TABLE clientes (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  cpf CHAR(14),
+  img VARCHAR(255),
+  nome VARCHAR(255),
+  usuario VARCHAR(255),
+  email VARCHAR(255),
+  senha VARCHAR(255),
+  telefone CHAR(11),
+  endereco VARCHAR(255),
+  token VARCHAR(255),
+  reset_password_token VARCHAR(255),
+  reset_password_expires DATETIME
+);
+
+-- Criação do índice único para CPF
+CREATE UNIQUE INDEX idx_cpf ON clientes(cpf);
+
+-- Inserção de dados na tabela clientes
+INSERT INTO clientes(cpf, nome, usuario, email, senha, telefone, endereco) VALUES 
+('222.333.444-55', 'Ricardo Pereira', 'ricardo.pereira', 'ricardo@example.com', 'senha987', '11955667788', 'Rua do Sol, 234'),
+('333.444.555-66', 'Juliana Mendes', 'juliana.mendes', 'juliana@example.com', 'senha654', '11966778899', 'Avenida Paulista, 987'),
+('666.777.888-99', 'Felipe Costa', 'felipe.costa', 'felipe@example.com', 'senha321', '11977889900', 'Rua das Palmeiras, 543'),
+('777.888.999-00', 'Larissa Rocha', 'larissa.rocha', 'larissa@example.com', 'senha654', '11988990011', 'Rua das Acácias, 678'),
+('888.999.000-11', 'Marcelo Lima', 'marcelo.lima', 'marcelo@example.com', 'senha123', '11999001122', 'Rua 7 de Setembro, 321');
+
+-- Criação da tabela animais
 CREATE TABLE animais (
   id INT AUTO_INCREMENT PRIMARY KEY,
   nome VARCHAR(255),
   raca VARCHAR(255),
-  peso decimal (3,2),
-  idade int,
+  img VARCHAR(255),
+  peso DECIMAL(4,2),
+  idade INT,
   cliente_cpf CHAR(14),
   FOREIGN KEY (cliente_cpf) REFERENCES clientes(cpf) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+-- Inserção de dados na tabela animais com CPFs válidos da tabela clientes
+INSERT INTO animais (nome, raca, img, peso, idade, cliente_cpf) VALUES 
+('Rex', 'Labrador', 'rex.jpg', 30.50, 5, '222.333.444-55'),
+('Mel', 'Poodle', 'mel.jpg', 8.20, 3, '333.444.555-66'),
+('Thor', 'Pastor Alemão', 'thor.jpg', 35.00, 4, '666.777.888-99'),
+('Bella', 'Bulldog', 'bella.jpg', 12.30, 2, '777.888.999-00'),
+('Luna', 'Beagle', 'luna.jpg', 10.80, 1, '888.999.000-11');
 
 
 
 
-insert into clientes(cpf,nome,usuario,email,senha,telefone,endereco) values 
-(87654321098,'jacinto pinto','Tonhão','titorano23@gmail.com','123456789',27583614902,'Rua das Acácias, 245'),
-(43210987654,'Paula tejando','Junin','limhabei69@gmail.com','abcdef123',90367148527,'Avenida dos Lírios, 1320'),
-(10987654321,'Paul herguido','Robso','shaolinmatadordeporco22@gmail.com',56108974321,56240813967,'Rua das Orquídeas, 458'),
-(76543210987,'Elma maria','Wesley','botelhopinto13@gmail.com','password1',78159436280,'Avenida das Margaridas, 801'),
-(93876543210,'Aquino Rego','Tiringa','regosujo96@gmail.com','hello1234',19482750361,'Rua das Violetas, 623');
-
-insert into animais (raca) values 
-('Labrador Retriever'),
-('Bulldog Francês'),
-('Pastor Alemão'),
-('Poodle'),
-('Beagle')
-;
-
-CREATE TABLE servico (
-  idRegistro INT AUTO_INCREMENT PRIMARY KEY,
-  dog_img VARCHAR(255),
-  dogwalker_cpf char (11),
-  cliente_cpf char (11),
-  animal_id INT,
-  preco_servico DECIMAL(5,2),
-  entrega DATETIME,
-  devolucao DATETIME,
-  
-  CONSTRAINT fk_dogwalker_cpf FOREIGN KEY (dogwalker_cpf) REFERENCES dogwalker(cpf),
-  CONSTRAINT fk_cliente_cpf FOREIGN KEY (cliente_cpf) REFERENCES clientes(cpf),
-  CONSTRAINT fk_animal_id FOREIGN KEY (animal_id) REFERENCES animais(id)
-);
 
 
-insert into servico (dogwalker_cpf,cliente_cpf,animal_id,preco_servico,entrega,devolucao) values
-('19876543211','87654321098','2','78.11','2024-02-12 10:00:00','2024-02-12 11:00:00'),
-('98765432198','43210987654','4','55.43','2024-02-13 14:30:00','2024-02-13 15:30:00'),
-('54321098765','10987654321','1','18.55','2024-02-14 08:45:00','2024-02-14 09:45:00'),
-('65432109876','76543210987','3','93.77','2024-02-15 12:15:00','2024-02-15 13:15:00'),
-('32109876543','93876543210','5','36.87','2024-02-16 16:00:00','2024-02-16 17:00:00');
-
-insert into servico (dogwalker_id,cliente_id,animal_id,preco_servico,entrega,devolucao) values
-('1','5','2','78.11','2024-12-06 08:26:00','2024-12-06 08:27:00');
