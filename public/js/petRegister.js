@@ -54,3 +54,26 @@ document.getElementById('form-pet').addEventListener('submit', async (event) => 
         alert('Erro ao tentar cadastrar o pet. Tente novamente.');
     }
 });
+
+
+// Supondo que você tenha um formulário com um ID 'form-pet' e os inputs correspondentes:
+const form = document.getElementById('form-pet');
+form.addEventListener('submit', function(event) {
+
+    // Coleta os dados do formulário
+    const nomePet = document.getElementById('nomePet').value;
+    const raçaPet = document.getElementById('raçaPet').value;
+    const pesoPet = document.getElementById('pesoPet').value;
+    const idadePet = document.getElementById('idadePet').value;
+    const cpfDono = document.getElementById('cpfDono').value;
+
+    // Armazenar os dados no localStorage
+    localStorage.setItem("nomePet", nomePet);
+    localStorage.setItem("raçaPet", raçaPet);
+    localStorage.setItem("pesoPet", pesoPet);
+    localStorage.setItem("idadePet", idadePet);
+    localStorage.setItem("cpfDono", cpfDono);
+    
+    // Preencher o modal com os dados atualizados
+    preencherDadosDoModal();
+});

@@ -15,11 +15,28 @@ const perfilDogButton = document.getElementById("pet-button-data");
 const perfilDogmodal = document.getElementById("modalpets");
 const closeDogPerfilmodal = document.getElementById("close-btn-pets");
 
+/*MODAL DOS PERFIL DO PET */
+
+perfilDogButton.addEventListener("click", () => {
+    closeAllModals(); // Fecha os outros modais
+    perfilDogmodal.style.display = "block"; // Abre o modal de perfil do cachorro
+});
+
+closeDogPerfilmodal.addEventListener("click", () => {
+    perfilDogmodal.style.display = "none"; // Fecha o modal de perfil do cachorro
+});
+
+
+// Função para fechar o modal
+closeDogPerfilmodal.addEventListener("click", () => {
+    perfilDogmodal.style.display = "none";
+});
+
 // Função para fechar qualquer modal aberto
 function closeAllModals() {
     clientemodal.style.display = "none";
-     modalDog.style.display = "none";
-     //perfilDogmodal.style.display = "none";
+    modalDog.style.display = "none";
+     perfilDogmodal.style.display = "none";
 }
 
 // Modal para registro de cliente
@@ -43,11 +60,5 @@ closeDogmodal.addEventListener("click", () => {
 });
 
 // Modal para o perfil do cachorro
-perfilDogButton.addEventListener("click", () => {
-    closeAllModals(); // Fecha os outros modais
-    perfilDogmodal.style.display = "block"; // Abre o modal de perfil do cachorro
-});
 
-closeDogPerfilmodal.addEventListener("click", () => {
-    perfilDogmodal.style.display = "none"; // Fecha o modal de perfil do cachorro
-});
+

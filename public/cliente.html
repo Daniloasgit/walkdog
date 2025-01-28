@@ -83,7 +83,7 @@
                                 <label class="dadosclientes">Senha</label>
                                 <input id="senClient" type="password" required><br>
                                 <!-- Campo para a senha. -->
-                                 <label class="dadosclientes">Endereço</label>
+                                <label class="dadosclientes">Endereço</label>
                                 <input id="locClient" type="location" required><br>
                                 <!-- Campo do endereço -->
                                 <div class="regisbuton"></div>
@@ -115,37 +115,40 @@
                         <label class="petdados">Idade</label>
                         <input id="idadePet" type="text"> <br>
                         <!-- Campo da idade do pet. -->
-                         <label class="petdados">CPF do Dono</label>
-                         <input id="cpfDono" type="text"><br>
-                         <!-- Campo do cpf do dono do pet. -->
+                        <label class="petdados">CPF do Dono</label>
+                        <input id="cpfDono" type="text"><br>
+                        <!-- Campo do cpf do dono do pet. -->
                         <div class="regisbuton"></div>
                         <button class="ent-but-pag-cliente" type="submit">ENVIAR</button>
                         <!-- Botão de submissão do formulário. -->
                     </form>
                 </div>
-            </div>  
             </div>
-            <div class="content">
-                <h2>Seus Pets</h2>
-                <table  class="custos">
-                    <thead>
-                        <tr>
-                            <th>Nome</th>
-                            <th>Raça</th>
-                            <th>Peso</th>
-                            <th>Idade</th>
-                            <th>CPF do Dono</th>
-                        </tr>
-                    </thead>
-                    <tbody id="transacoesTableBody">
-                        <!-- Dados via JavaScript -->
-                    </tbody>
-                </table>
-                <div>
-                    <button class="btn" id="editarBtn">Editar</button>
-                    <button class="btn" id="removerBtn">Remover</button>
-                </div>
-            </div>                     
+            
+            </div>
+            <!-- Modal de Login -->
+            <div class="petPerfil">
+                <button class="pet-button-data" id="pet-button-data">Perfil Cachorro</button>
+                <div class="modal" id="modalpets">
+                    <div class="modal-content login-modal">
+                        <span class="close" id="close-btn-pets">&times;</span>
+            
+                        <h2>Perfil do Pet</h2>
+                        <p><strong>Nome:</strong> <span id="pet-nome"></span></p>
+                        <p><strong>Raça:</strong> <span id="pet-raca"></span></p>
+                        <p><strong>Peso:</strong> <span id="pet-peso"></span></p>
+                        <p><strong>Idade:</strong> <span id="pet-idade"></span></p>
+                        <p><strong>CPF do Dono:</strong> <span id="cpfDono"></span></p>
+            
+                        <div class="login-botoes">
+                            <button id="login-submit">Alterar</button>
+                            <!-- <button id="remover-dados">Remover Dados</button> -->
+
+                        </div>
+                    </div>
+                </div>       
+            </div>
+            
             </nav>
     </main>
     <footer class="roda-pe-geral">
@@ -155,7 +158,7 @@
                 <span class="title-midia1">REDES SOCIAIS
                     <div class="img-midia-icon">
                     <a class="whats" href="https://wa.me/558695533463"><img src="/imagens/svg-whats.svg"></a>
-                    <a class="insta" href="https://www.instagram.com/"><img src="/imagens/svg-insta.svg"></a>
+                    <a class="insta" href="https://www.instagram.com/gabr.ielmachadoooooo?igsh=dzhlcHMzdG1qa2I5"><img src="/imagens/svg-insta.svg"></a>
                     <a class="youtube" href="https://www.youtube.com/"><img src="/imagens/svg-youtube.svg"></a>
                     </div>  
                 </span>
@@ -174,15 +177,79 @@
         </div>
     </footer>
     </div>
+
+    
     
 <!-- Importação de arquivos JavaScript para funcionalidades da página. -->
+<script> 
+
+const perfilDogButton = document.getElementById("pet-button-data");
+const perfilDogmodal = document.getElementById("modalpets");
+const closeDogPerfilmodal = document.getElementById("close-btn-pets");
+
+// Função para preencher os dados do modal
+function preencherDadosDoModal() {
+    // Verificar se os dados do pet estão no localStorage
+    const nomePet = localStorage.getItem("nomePet");
+    const raçaPet = localStorage.getItem("raçaPet");
+    const pesoPet = localStorage.getItem("pesoPet");
+    const idadePet = localStorage.getItem("idadePet");
+    const cpfDono = localStorage.getItem("cpfDono");
+
+    // Preencher os dados no modal se estiverem disponíveis
+    if (nomePet && raçaPet && pesoPet && idadePet && cpfDono) {
+        document.getElementById("pet-nome").textContent = nomePet;
+        document.getElementById("pet-raca").textContent = raçaPet;
+        document.getElementById("pet-peso").textContent = pesoPet;
+        document.getElementById("pet-idade").textContent = idadePet;
+        document.getElementById("cpfDono").textContent = cpfDono;
+    } else {
+        // Caso não existam dados no localStorage, exibe uma mensagem
+        document.getElementById("pet-nome").textContent = "Nenhum dado encontrado.";
+        document.getElementById("pet-raca").textContent = "Nenhum dado encontrado.";
+        document.getElementById("pet-peso").textContent = "Nenhum dado encontrado.";
+        document.getElementById("pet-idade").textContent = "Nenhum dado encontrado.";
+        document.getElementById("cpfDono").textContent = "Nenhum dado encontrado.";
+    }
+}
+
+// Ao clicar no botão de "Perfil Cachorro", abre o modal e preenche com os dados
+perfilDogButton.addEventListener("click", () => {
+    preencherDadosDoModal(); // Preenche os dados no modal
+    perfilDogmodal.style.display = "block"; // Exibe o modal
+});
+
+// Fechar o modal ao clicar no botão de fechar
+closeDogPerfilmodal.addEventListener("click", () => {
+    perfilDogmodal.style.display = "none"; // Fecha o modal
+});
+
+// Ao clicar no botão de "Perfil Cachorro", abre o modal e preenche com os dados
+perfilDogButton.addEventListener("click", () => {
+    preencherDadosDoModal(); // Preenche os dados no modal
+    perfilDogmodal.style.display = "block"; // Exibe o modal
+});
+
+// Fechar o modal ao clicar no botão de fechar
+closeDogPerfilmodal.addEventListener("click", () => {
+    perfilDogmodal.style.display = "none"; // Fecha o modal
+});
+
+// Caso o modal precise ser fechado automaticamente ao carregar a página ou se existirem outros modais, você pode usar algo como:
+function closeAllModals() {
+    const allModals = document.querySelectorAll('.modal');
+    allModals.forEach(modal => modal.style.display = 'none');
+}
+
+
+</script>
     <script type="module"src="/js/apicontroller.js"></script>
     <script type="module" src="/js/modalCliente.js"></script>
     <script src="/js/logout.js"></script>
     <script src="/js/latmenu.js"></script>
     <script type="module" src="/js/petRegister.js"></script>
     <script> 
-        document.getElementById('logout-btn').addEventListener('click', (event) => {
+    document.getElementById('logout-btn').addEventListener('click', (event) => {
     logoutUser(); // Chama a função de logout
     alert('Logout feito com sucesso!');
 });

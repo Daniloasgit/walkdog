@@ -136,6 +136,98 @@ header {
   overflow: auto; /* Adiciona barras de rolagem se o conteúdo ultrapassar */
   background-color: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente preto */
 }
+/*MODAL DO PET*/
+
+/* Modal Login*/
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  margin: 15% auto;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+}
+
+/* Estilos para o conteúdo do modal de login */
+.login-modal {
+  max-width: 500px;           /* Limite de largura */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidade */
+}
+
+.login-campos {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.login-campos input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  font-size: 1em;
+  box-sizing: border-box;
+}
+
+/* Botão de login */
+.login-botoes button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: white;
+  background-color: #007BFF;
+  font-size: 1em;
+}
+
+.login-botoes button:hover {
+  background-color: #0056b3;
+}
+
+
+/* Botão de fechar o modal */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Conteúdo das modais */
 

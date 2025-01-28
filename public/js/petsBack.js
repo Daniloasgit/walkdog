@@ -1,7 +1,7 @@
 import db from'../config/db.js';
 import path from 'path';
 
- export const registrarPets = async (req, res) => {
+export const registrarPets = async (req, res) => {
     const { nome,raca,peso,idade,cliente_cpf } = req.body;
 
     // Verificar se todos os campos necessários estão preenchidos

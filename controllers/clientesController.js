@@ -2,7 +2,7 @@ import db from '../config/db.js';
 import path from 'path';
 
 
- export const getAllClientes = async (req, res) => {
+export const getAllClientes = async (req, res) => {
     const query = 'SELECT * from clientes ';
 
     try {
@@ -20,7 +20,7 @@ import path from 'path';
 
 
 // função deletar cliente
- export const deletarCliente = async (req, res) => {
+export const deletarCliente = async (req, res) => {
     const { id } = req.params;
 
     try {
