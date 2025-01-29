@@ -150,8 +150,8 @@ header {
 }
 
 .modal-content {
-  background-color: #fff;
-  padding: 20px;
+  background-color: var(--Branco);
+  padding: 30px;
   margin: 15% auto;
   border-radius: 5px;
   width: 30%;
@@ -160,6 +160,7 @@ header {
 
 /* Estilos para o conteúdo do modal de login */
 .login-modal {
+  text-align: center;
   max-width: 500px;           /* Limite de largura */
   padding: 20px;
   border-radius: 8px;
@@ -170,6 +171,10 @@ header {
   display: flex;
   gap: 10px;
   margin-bottom: 15px;
+}
+
+.dogperfildesc{
+  padding: 10px;
 }
 
 .login-campos input {
@@ -189,12 +194,12 @@ header {
   border-radius: 4px;
   cursor: pointer;
   color: white;
-  background-color: #007BFF;
+  background-color: var(--Preto);
   font-size: 1em;
 }
 
 .login-botoes button:hover {
-  background-color: #0056b3;
+  background-color: var(--Branco);
 }
 
 
@@ -957,6 +962,7 @@ hr {
 }
 
 .pet-button, .account-button, .pet-button-data {
+  margin-bottom: 15px;
   display: block; /* Tornam-se blocos, ocupando toda a largura disponível */
   padding: 10px; /* Espaçamento interno */
   margin-top: 10px; /* Espaço acima dos botões */
@@ -965,18 +971,21 @@ hr {
   border-radius: 10px; /* Bordas arredondadas */
   cursor: pointer; /* Indica que o botão é clicável */
   margin-left: 120px;
+  font-size: 20px;
 }
 .dadoscliente{
   margin-left: 30%;
 }
 .dadosclientes{
   margin-left: 8%;
+  font-size: 25px;
 }
 .petdado{
   margin-left: 50px;
 }
 .petdados{
   margin-left: 8px;
+  font-size: 25px;
 }
 .ent-but-pag-cliente{
   color: var(--Branco);
@@ -1014,3 +1023,4 @@ margin-bottom: 50px;
 #modalPets {
   left: 65%;
 }
+
